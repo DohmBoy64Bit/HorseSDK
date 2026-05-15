@@ -1,0 +1,341 @@
+{
+  "hypothesis": "0xBF2xx builds paths to .crf/.fnt; 0x6F3C0 serializes buffer (also save%d.dat)",
+  "file_append_6F3C0_callers": [
+    "0x6db95",
+    "0x6e2ef",
+    "0xbf2c6",
+    "0xbf56e",
+    "0xbf903"
+  ],
+  "regions": [
+    {
+      "label": "FontPath_Cluster_A",
+      "rva": "0xbf200",
+      "insn_count": 203,
+      "calls": [
+        {
+          "at": "0xbf210",
+          "target": "0x82500"
+        },
+        {
+          "at": "0xbf24b",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbf287",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbf2c6",
+          "target": "FileWrite_6F3C0"
+        },
+        {
+          "at": "0xbf2e0",
+          "target": "0x27830"
+        },
+        {
+          "at": "0xbf30a",
+          "target": "0xc0900"
+        },
+        {
+          "at": "0xbf345",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbf381",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbf3cd",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbf3e6",
+          "target": "0x225894"
+        },
+        {
+          "at": "0xbf3f6",
+          "target": "0x27920"
+        },
+        {
+          "at": "0xbf40a",
+          "target": "0x226280"
+        },
+        {
+          "at": "0xbf412",
+          "target": "0x226948"
+        },
+        {
+          "at": "0xbf422",
+          "target": "0x226280"
+        },
+        {
+          "at": "0xbf42a",
+          "target": "0x21ec20"
+        },
+        {
+          "at": "0xbf445",
+          "target": "0x225e9c"
+        },
+        {
+          "at": "0xbf456",
+          "target": "0x225a24"
+        },
+        {
+          "at": "0xbf45f",
+          "target": "0x27920"
+        },
+        {
+          "at": "0xbf492",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbf4a7",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbf4bc",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbf4d1",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbf4e6",
+          "target": "0x224844"
+        }
+      ],
+      "callers": []
+    },
+    {
+      "label": "FontPath_Cluster_B",
+      "rva": "0xbf500",
+      "insn_count": 165,
+      "calls": [
+        {
+          "at": "0xbf56e",
+          "target": "FileWrite_6F3C0"
+        },
+        {
+          "at": "0xbf588",
+          "target": "0x27830"
+        },
+        {
+          "at": "0xbf5b5",
+          "target": "0xc0900"
+        },
+        {
+          "at": "0xbf5f2",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbf633",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbf686",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbf69f",
+          "target": "0x225894"
+        },
+        {
+          "at": "0xbf6af",
+          "target": "0x27920"
+        },
+        {
+          "at": "0xbf6c3",
+          "target": "0x226280"
+        },
+        {
+          "at": "0xbf6cb",
+          "target": "0x226948"
+        },
+        {
+          "at": "0xbf6db",
+          "target": "0x226280"
+        },
+        {
+          "at": "0xbf6e3",
+          "target": "0x21ec20"
+        },
+        {
+          "at": "0xbf6fe",
+          "target": "0x225e9c"
+        },
+        {
+          "at": "0xbf70e",
+          "target": "0x225a24"
+        },
+        {
+          "at": "0xbf717",
+          "target": "0x27920"
+        },
+        {
+          "at": "0xbf745",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbf75a",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbf76f",
+          "target": "0x224844"
+        }
+      ],
+      "callers": [
+        "0x9e018"
+      ]
+    },
+    {
+      "label": "FontPath_Cluster_C",
+      "rva": "0xbf8c0",
+      "insn_count": 176,
+      "calls": [
+        {
+          "at": "0xbf903",
+          "target": "FileWrite_6F3C0"
+        },
+        {
+          "at": "0xbf91d",
+          "target": "0x27830"
+        },
+        {
+          "at": "0xbf947",
+          "target": "0xc0900"
+        },
+        {
+          "at": "0xbf982",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbf9be",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbfa0a",
+          "target": "0x21e450"
+        },
+        {
+          "at": "0xbfa3f",
+          "target": "qword ptr [rip + 0x19a74b]"
+        },
+        {
+          "at": "0xbfa53",
+          "target": "qword ptr [rip + 0x19a72f]"
+        },
+        {
+          "at": "0xbfa5e",
+          "target": "0x225420"
+        },
+        {
+          "at": "0xbfa6e",
+          "target": "qword ptr [rip + 0x19a704]"
+        },
+        {
+          "at": "0xbfa78",
+          "target": "0x27920"
+        },
+        {
+          "at": "0xbfaa6",
+          "target": "qword ptr [rip + 0x19a6d4]"
+        },
+        {
+          "at": "0xbfab3",
+          "target": "qword ptr [rip + 0x19a6bf]"
+        },
+        {
+          "at": "0xbfabc",
+          "target": "0x225410"
+        },
+        {
+          "at": "0xbfac3",
+          "target": "qword ptr [rip + 0x19a6af]"
+        },
+        {
+          "at": "0xbfad7",
+          "target": "0x27920"
+        },
+        {
+          "at": "0xbfaf0",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbfb05",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbfb1a",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbfb2f",
+          "target": "0x224844"
+        },
+        {
+          "at": "0xbfb44",
+          "target": "0x224844"
+        }
+      ],
+      "callers": []
+    },
+    {
+      "label": "FileWrite_6F3C0",
+      "rva": "0x6f3c0",
+      "insn_count": 91,
+      "calls": [
+        {
+          "at": "0x6f453",
+          "target": "0x2511b0"
+        },
+        {
+          "at": "0x6f461",
+          "target": "0x2511b0"
+        },
+        {
+          "at": "0x6f477",
+          "target": "0x2511b0"
+        },
+        {
+          "at": "0x6f49e",
+          "target": "0x6f4f0"
+        }
+      ],
+      "callers": [
+        "0x6db95",
+        "0x6e2ef",
+        "0xbf2c6",
+        "0xbf56e",
+        "0xbf903"
+      ]
+    },
+    {
+      "label": "StreamOpen_6FD40",
+      "rva": "0x6fd40",
+      "insn_count": 102,
+      "calls": [
+        {
+          "at": "0x6fd63",
+          "target": "0x710b0"
+        },
+        {
+          "at": "0x6fda7",
+          "target": "0x225894"
+        },
+        {
+          "at": "0x6fdd1",
+          "target": "0x229340"
+        }
+      ],
+      "callers": [
+        "0x6dcb1",
+        "0x80681",
+        "0x9e273"
+      ]
+    }
+  ],
+  "opcode_semantics": "RE_Tools/docs/CrfOpcodeSemantics.md"
+}

@@ -22,9 +22,12 @@ static int count_nonzero(const uint8_t *t, size_t n) {
 int main(int argc, char **argv) {
     const char *path = "RE_Tools/analysis/save_buffer_dump.bin";
     int roundtrip = 0;
+    int structured_rt = 0;
     for (int i = 1; i < argc; ++i) {
         if (strcmp(argv[i], "--roundtrip") == 0 || strcmp(argv[i], "-r") == 0) {
             roundtrip = 1;
+        } else if (strcmp(argv[i], "--structured-roundtrip") == 0) {
+            structured_rt = 1;
         } else {
             path = argv[i];
         }
@@ -106,6 +109,22 @@ int main(int argc, char **argv) {
                s0->ptr_item_count,
                count_nonzero(s0->genes.track_a, HORSE_SAVE_GENE_COUNT),
                count_nonzero(s0->genes.track_b, HORSE_SAVE_GENE_COUNT));
+    }
+
+    if (structured_rt) {
+        uint8_t *buf = NULL;
+        size_t len = 0;
+        HorseSaveStatus wst = horse_save_write_structured(&sf, &buf, &len);
+        if (wst != HORSE_SAVE_OK) {
+            fprintf(stderr, "structured write failed: %s\n", horse_save_status_string(wst));
+            horse_save_file_free(&sf);
+            return 1;
+        }
+        int ok = (len == sf.size && memcmp(buf, sf.data, len) == 0);
+        printf("structured_roundtrip match=%s (%zu bytes)\n", ok ? "yes" : "no", len);
+        free(buf);
+        horse_save_file_free(&sf);
+        return ok ? 0 : 1;
     }
 
     if (roundtrip) {

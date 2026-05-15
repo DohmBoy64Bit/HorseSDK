@@ -76,4 +76,4 @@ Keyboard tables @ `0x312830` family are cleared indirectly via `0x312CB4` (see [
 
 - [x] Capstone **`0x97110`** — [GameState_InitMain.md](GameState_InitMain.md)
 - [x] Capstone **`0x3EE50`** — [Game_LoadAssets.md](Game_LoadAssets.md)
-- [ ] Xref **`g_game_state@0x313720`** — who reads it in `Game_UpdateWorld` / loop
+- [x] Xref **`g_game_state@0x313720`** — Capstone: 18 loads, 1 store @ `0x874F1` — [g_game_state.md](g_game_state.md)

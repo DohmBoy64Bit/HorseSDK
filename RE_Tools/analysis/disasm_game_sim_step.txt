@@ -1,0 +1,160 @@
+# Game_SimStep @ 0xC12D0
+
+0x000C12D0: cmp      ecx, edx
+0x000C12D2: jge      0x1400c12d7
+0x000C12D4: mov      eax, edx
+0x000C12D6: ret      
+0x000C12D7: cmp      ecx, r8d
+0x000C12DA: cmovg    ecx, r8d
+0x000C12DE: mov      eax, ecx
+0x000C12E0: ret      
+0x000C12E1: int3     
+0x000C12E2: int3     
+0x000C12E3: int3     
+0x000C12E4: int3     
+0x000C12E5: int3     
+0x000C12E6: int3     
+0x000C12E7: int3     
+0x000C12E8: int3     
+0x000C12E9: int3     
+0x000C12EA: int3     
+0x000C12EB: int3     
+0x000C12EC: int3     
+0x000C12ED: int3     
+0x000C12EE: int3     
+0x000C12EF: int3     
+0x000C12F0: comiss   xmm1, xmm0
+0x000C12F3: jbe      0x1400c12f9
+0x000C12F5: movaps   xmm0, xmm1
+0x000C12F8: ret      
+0x000C12F9: minss    xmm2, xmm0
+0x000C12FD: movaps   xmm0, xmm2
+0x000C1300: ret      
+0x000C1301: int3     
+0x000C1302: int3     
+0x000C1303: int3     
+0x000C1304: int3     
+0x000C1305: int3     
+0x000C1306: int3     
+0x000C1307: int3     
+0x000C1308: int3     
+0x000C1309: int3     
+0x000C130A: int3     
+0x000C130B: int3     
+0x000C130C: int3     
+0x000C130D: int3     
+0x000C130E: int3     
+0x000C130F: int3     
+0x000C1310: addss    xmm0, xmm1
+0x000C1314: movaps   xmm4, xmm3
+0x000C1317: subss    xmm4, xmm2
+0x000C131B: comiss   xmm0, xmm3
+0x000C131E: jb       0x1400c1324
+0x000C1320: subss    xmm0, xmm4
+0x000C1324: comiss   xmm2, xmm0
+0x000C1327: jbe      0x1400c132d
+0x000C1329: addss    xmm0, xmm4
+0x000C132D: ret      
+0x000C132E: int3     
+0x000C132F: int3     
+0x000C1330: int3     
+0x000C1331: int3     
+0x000C1332: int3     
+0x000C1333: int3     
+0x000C1334: int3     
+0x000C1335: int3     
+0x000C1336: int3     
+0x000C1337: int3     
+0x000C1338: int3     
+0x000C1339: int3     
+0x000C133A: int3     
+0x000C133B: int3     
+0x000C133C: int3     
+0x000C133D: int3     
+0x000C133E: int3     
+0x000C133F: int3     
+0x000C1340: movss    xmm2, dword ptr [rip + 0x1fe80c]
+0x000C1348: addss    xmm0, xmm1
+0x000C134C: comiss   xmm0, xmm2
+0x000C134F: jb       0x1400c1359
+0x000C1351: addss    xmm0, dword ptr [rip + 0x1fe837]
+0x000C1359: xorps    xmm1, xmm1
+0x000C135C: comiss   xmm1, xmm0
+0x000C135F: jbe      0x1400c1365
+0x000C1361: addss    xmm0, xmm2
+0x000C1365: ret      
+0x000C1366: int3     
+0x000C1367: int3     
+0x000C1368: int3     
+0x000C1369: int3     
+0x000C136A: int3     
+0x000C136B: int3     
+0x000C136C: int3     
+0x000C136D: int3     
+0x000C136E: int3     
+0x000C136F: int3     
+0x000C1370: movss    xmm3, dword ptr [rip + 0x1fe7cc]
+0x000C1378: subss    xmm2, xmm1
+0x000C137C: comiss   xmm3, xmm0
+0x000C137F: movaps   xmm4, xmm0
+0x000C1382: addss    xmm4, xmm0
+0x000C1386: jbe      0x1400c1394
+0x000C1388: mulss    xmm4, xmm2
+0x000C138C: addss    xmm4, xmm1
+0x000C1390: movaps   xmm0, xmm4
+0x000C1393: ret      
+0x000C1394: movss    xmm0, dword ptr [rip + 0x19a370]
+0x000C139C: subss    xmm0, xmm4
+0x000C13A0: mulss    xmm0, xmm2
+0x000C13A4: addss    xmm0, xmm1
+0x000C13A8: ret      
+0x000C13A9: int3     
+0x000C13AA: int3     
+0x000C13AB: int3     
+0x000C13AC: int3     
+0x000C13AD: int3     
+0x000C13AE: int3     
+0x000C13AF: int3     
+0x000C13B0: subss    xmm2, xmm1
+0x000C13B4: mulss    xmm2, xmm0
+0x000C13B8: addss    xmm2, xmm1
+0x000C13BC: movaps   xmm0, xmm2
+0x000C13BF: ret      
+0x000C13C0: int3     
+0x000C13C1: int3     
+0x000C13C2: int3     
+0x000C13C3: int3     
+0x000C13C4: int3     
+0x000C13C5: int3     
+0x000C13C6: int3     
+0x000C13C7: int3     
+0x000C13C8: int3     
+0x000C13C9: int3     
+0x000C13CA: int3     
+0x000C13CB: int3     
+0x000C13CC: int3     
+0x000C13CD: int3     
+0x000C13CE: int3     
+0x000C13CF: int3     
+0x000C13D0: sub      rsp, 0x48
+0x000C13D4: movaps   xmmword ptr [rsp + 0x30], xmm6
+0x000C13D9: addss    xmm0, xmm0
+0x000C13DD: movaps   xmmword ptr [rsp + 0x20], xmm7
+0x000C13E2: movaps   xmm6, xmm2
+0x000C13E5: movaps   xmm7, xmm1
+0x000C13E8: mulss    xmm0, dword ptr [rip + 0x1fe770]
+0x000C13F0: call     0x140225020  ; -> 0x225020
+0x000C13F5: addss    xmm0, dword ptr [rip + 0x1fe757]
+0x000C13FD: subss    xmm6, xmm7
+0x000C1401: mulss    xmm0, dword ptr [rip + 0x1fe73b]
+0x000C1409: mulss    xmm0, xmm6
+0x000C140D: movaps   xmm6, xmmword ptr [rsp + 0x30]
+0x000C1412: addss    xmm0, xmm7
+0x000C1416: movaps   xmm7, xmmword ptr [rsp + 0x20]
+0x000C141B: add      rsp, 0x48
+0x000C141F: ret      
+0x000C1420: int3     
+0x000C1421: int3     
+0x000C1422: int3     
+0x000C1423: int3     
+0x000C1424: int3     

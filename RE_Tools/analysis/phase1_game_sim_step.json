@@ -1,0 +1,46 @@
+{
+  "function": "Game_SimStep",
+  "rva": "0xc12d0",
+  "end_rva": "0xc1424",
+  "size": 340,
+  "callers_e8_count": 24,
+  "callers_frame_loop": [
+    "0xbec53",
+    "0xbec79"
+  ],
+  "callers_all_sample": [
+    "0x35d59",
+    "0x35fca",
+    "0x35fe4",
+    "0x714a3",
+    "0x714d2",
+    "0x86913",
+    "0x8a603",
+    "0x8c60a",
+    "0x8cb30",
+    "0x8cb5b",
+    "0xa6875",
+    "0xbcbe1",
+    "0xbe607",
+    "0xbe620",
+    "0xbe69c",
+    "0xbe6b9",
+    "0xbec53",
+    "0xbec79",
+    "0xe2c35",
+    "0x104cbe",
+    "0x104d43",
+    "0x106d27",
+    "0x106d40",
+    "0x112e25"
+  ],
+  "callees": [
+    {
+      "at": "0xc13f0",
+      "target": "0x225020"
+    }
+  ],
+  "callee_counts": {
+    "0x225020": 1
+  }
+}

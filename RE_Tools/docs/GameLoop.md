@@ -30,7 +30,7 @@ CRT @ 0x21EE80
         [flags / pause gates]
         Game_UpdateWorld          @ 0xBEAD4 -> 0x87510
         if !quit: SDL_GL_SwapWindow @ 0xBEAF0 -> 0x1238D0
-        [post-swap SDL + sim/render cluster 0xBEB00..0xBECC4]
+        [post-swap cluster 0xBEB00..0xBECC4 — `Game_SimStep` @ `0xC12D0` @ `0xBE607`/`0xBE620`/`0xBEC53`]
         frame tick                @ 0xBECE7 -> 0x124330 (SDL_GetTicks)
       quit: Save_Write            @ 0xBED11 -> 0x6DAB0
 ```
@@ -77,6 +77,8 @@ Apply at **`Image base + RVA`**:
 | `0xBEDB4` | `Loop_CallHelper` | `call 0xBEEA0` |
 | `0xC0430` | `Game_DispatchSdlEvent` | `rcx` = ctx, `rdx` = `SDL_Event*` |
 | `0x87510` | `Game_UpdateWorld` | when not paused — [Game_UpdateWorld.md](Game_UpdateWorld.md) |
+| `0xC12D0` | `Game_SimStep` | UI/event sim — [Game_SimStep.md](Game_SimStep.md) |
+| `0x313720` | `g_game_state` | set @ `0x874F1` — [g_game_state.md](g_game_state.md) |
 | `0x6DAB0` | `Save_Write` | see [Phase1_Exe_Notes.md](Phase1_Exe_Notes.md) |
 
 ---

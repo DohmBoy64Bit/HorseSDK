@@ -160,6 +160,12 @@ HorseSaveStatus horse_save_write_buffer(
 
 HorseSaveStatus horse_save_write_path(const HorseSaveFile *sf, const char *path);
 
+/** Section-ordered emit (format v12 milestones); must match `sf->size` for unchanged dumps. */
+HorseSaveStatus horse_save_write_structured(
+    const HorseSaveFile *sf,
+    uint8_t **out_data,
+    size_t *out_len);
+
 /** Pointer to slot genes after horse_save_load_path (NULL if out of range). */
 const HorseSaveInventorySlot *horse_save_get_inventory_slot(
     const HorseSaveFile *sf,

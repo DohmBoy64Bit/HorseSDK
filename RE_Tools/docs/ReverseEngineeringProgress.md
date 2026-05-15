@@ -54,6 +54,8 @@ See `steam_bypass/README.md`. Summary:
 | Main game init | `0xBE0F0` | **Confirmed:** caller `0x21EE0D`; Steam @ `0xBE106` |
 | Settings loader | `0x711B0` | **Confirmed:** caller `0xBE562` (inside main init) |
 | Save writer | `0x6DAB0` | **Confirmed:** callers `0x9828C`, `0x10A2C2`, `0x10A822` |
+| `Game_SimStep` | `0xC12D0` | **Capstone:** 24 E8 callers; frame `0xBE607`/`0xBE620`; Frida: burst @ init, ~0/frame idle — [Game_SimStep.md](Game_SimStep.md) |
+| `g_game_state` | `0x313720` | **Capstone:** 1 store @ `0x874F1`, 18 loads — [g_game_state.md](g_game_state.md) |
 | ~~RenderFrame~~ `0x11E0F0` | **Debunked (Frida):** tail thunk (`call` + `jmp [rip+disp]`), **0 hits** in live loop |
 | Per-frame loop (swap) | `0xBEAF0` / `0xBEAF5` | **Frida:** `SDL_GL_SwapWindow` returns to `0xBEAF5` every frame |
 | Main game (init + loop) | `0xBE0F0` | Contains frame loop; called from `0x21EE0D`; stack return `0x21EE12` |
@@ -117,8 +119,21 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - [x] Bootstrap tail Capstone — [GameState_InitMain.md](GameState_InitMain.md), [Game_LoadAssets.md](Game_LoadAssets.md)
 - [x] Shutdown `jmp Save_Write` @ `0x9869A` — [Shutdown_Save_Callchain.md](Shutdown_Save_Callchain.md)
 - [x] `horse_save` write API — `horse_save_write.c`, CLI round-trip
+- [x] **`Game_SimStep` @ `0xC12D0`** — `disasm_game_sim_step.py`, `frida_game_sim_step.py`
+- [x] **`g_game_state` @ `0x313720`** — `map_g_game_state_xrefs.py`
+- [x] **Structured C save write** — `horse_save_write_structured()` + `--structured-roundtrip` (byte match on dump)
+- [x] **CRF loader cluster** — `disasm_crf_vm.py`, `frida_font_trace.py` → [CrfLoaderVm.md](CrfLoaderVm.md)
+- [x] **Phase 1 CI** — `phase1_ci.py` (PE verify + codec + horse_save + static scripts)
 
 ---
+
+## [KNOWLEDGE UPDATE] 2026-05-15 (Phase 1 close — items 1–5)
+
+- **`Game_SimStep` @ `0xC12D0`:** ~`0x154` B, 24 E8 callers; frame loop `0xBEC53`/`0xBEC79`; Frida init burst 388 hits then ~0/frame idle — [Game_SimStep.md](Game_SimStep.md).
+- **`g_game_state` @ `0x313720`:** single store `0x874F1`, 18 RIP loads (save/update/UI) — [g_game_state.md](g_game_state.md).
+- **`horse_save_write_structured`:** section-slice reassembly; `--structured-roundtrip` **match=yes** on `save_buffer_dump.bin` (204386 B).
+- **CRF VM cluster:** `0xBF200` → `FileWrite_6F3C0` @ `0xBF2C6`; also save path `0x6DB95` — [CrfLoaderVm.md](CrfLoaderVm.md).
+- **CI:** `python RE_Tools/tools/scripts/phase1_ci.py` (add `--skip-frida` for local quick runs).
 
 ## [KNOWLEDGE UPDATE] 2026-05-15 (game loop + SDL dispatch)
 

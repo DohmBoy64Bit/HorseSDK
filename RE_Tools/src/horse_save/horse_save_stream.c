@@ -1,5 +1,6 @@
 #include "horse_save_stream.h"
 
+#include <stdlib.h>
 #include <string.h>
 
 void horse_save_stream_init(HorseSaveStream *s, const uint8_t *data, size_t len) {
@@ -144,4 +145,71 @@ HorseSaveStatus horse_save_skip_grid(HorseSaveStream *s, uint32_t width, uint32_
         cells += 1;
     }
     return HORSE_SAVE_OK;
+}
+
+void horse_save_out_init(HorseSaveOut *o) {
+    if (o) {
+        o->data = NULL;
+        o->size = 0;
+        o->cap = 0;
+    }
+}
+
+void horse_save_out_free(HorseSaveOut *o) {
+    if (o) {
+        free(o->data);
+        o->data = NULL;
+        o->size = 0;
+        o->cap = 0;
+    }
+}
+
+HorseSaveStatus horse_save_out_reserve(HorseSaveOut *o, size_t extra) {
+    if (!o) {
+        return HORSE_SAVE_ERR_PARSE;
+    }
+    size_t need = o->size + extra;
+    if (need <= o->cap) {
+        return HORSE_SAVE_OK;
+    }
+    size_t cap = o->cap ? o->cap : 4096;
+    while (cap < need) {
+        cap *= 2;
+    }
+    uint8_t *p = (uint8_t *)realloc(o->data, cap);
+    if (!p) {
+        return HORSE_SAVE_ERR_IO;
+    }
+    o->data = p;
+    o->cap = cap;
+    return HORSE_SAVE_OK;
+}
+
+HorseSaveStatus horse_save_out_write(HorseSaveOut *o, const void *src, size_t n) {
+    if (!o || (n > 0 && !src)) {
+        return HORSE_SAVE_ERR_PARSE;
+    }
+    if (n == 0) {
+        return HORSE_SAVE_OK;
+    }
+    HorseSaveStatus st = horse_save_out_reserve(o, n);
+    if (st != HORSE_SAVE_OK) {
+        return st;
+    }
+    memcpy(o->data + o->size, src, n);
+    o->size += n;
+    return HORSE_SAVE_OK;
+}
+
+HorseSaveStatus horse_save_out_write_u32(HorseSaveOut *o, uint32_t v) {
+    uint8_t b[4];
+    b[0] = (uint8_t)(v);
+    b[1] = (uint8_t)(v >> 8);
+    b[2] = (uint8_t)(v >> 16);
+    b[3] = (uint8_t)(v >> 24);
+    return horse_save_out_write(o, b, 4);
+}
+
+HorseSaveStatus horse_save_out_write_u8(HorseSaveOut *o, uint8_t v) {
+    return horse_save_out_write(o, &v, 1);
 }

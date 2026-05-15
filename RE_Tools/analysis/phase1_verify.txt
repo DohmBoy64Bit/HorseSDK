@@ -1,4 +1,4 @@
-Phase 1 verification — 2026-05-15T10:42:50.004370+00:00
+Phase 1 verification — 2026-05-15T18:36:02.298535+00:00
 Game dir: E:\games\HorseSDK\Game
 Data dir: E:\games\HorseSDK\Game\data
 Save dir: E:\games\HorseSDK\Game\save

@@ -42,6 +42,8 @@ cd E:\games\HorseSDK
 
 REM Verify paths and baseline checks
 python RE_Tools\tools\scripts\phase1_verify.py
+python RE_Tools\tools\scripts\phase1_ci.py          # full gate: PE + save codec + horse_save + static RE
+python RE_Tools\tools\scripts\phase1_ci.py --skip-frida   # faster (no spawn hooks)
 python RE_Tools\tools\scripts\inventory_data.py
 
 REM Save format: round-trip check on the checked-in dump
@@ -100,7 +102,7 @@ High-level plan from [`SystemPrompt.md`](SystemPrompt.md). Near-term items track
 - [x] **Settings persist:** [Settings_Save.md](RE_Tools/docs/Settings_Save.md) — Capstone `0x71F60` XML keys
 - [x] **`.crf` font:** [CrfOpcodeSemantics.md](RE_Tools/docs/CrfOpcodeSemantics.md) — extended `crf_opcode_trace.py`
 - [x] **horse_save:** C write API `horse_save_write_path` + `--roundtrip` / `HORSE_SAVE_ROUNDTRIP=1`
-- [ ] **Docs/JSON:** `phase1_verify.py` + scripts refresh `analysis/*.json` on each confirmed RVA
+- [x] **Phase 1 CI:** `phase1_ci.py` — PE verify, `save_write_codec.py`, `horse_save` round-trip + structured write
 
 ### Phase 1 — save RE (deferred, not blocking loaders)
 

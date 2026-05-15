@@ -1,0 +1,264 @@
+{
+  "global": "g_game_state",
+  "rva": "0x313720",
+  "va": "0x140313720",
+  "set_by": "Game_BootstrapWorld @ 0x874F1 mov [rip+0x28C228], rbx",
+  "stores": [
+    {
+      "at": "0x874f1",
+      "pattern": "mov [rip], reg",
+      "opcode": "48891d28c22800"
+    }
+  ],
+  "loads": [
+    {
+      "at": "0x6611f",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0dfad52a00"
+    },
+    {
+      "at": "0x663b0",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d69d32a00"
+    },
+    {
+      "at": "0x6657a",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d9fd12a00"
+    },
+    {
+      "at": "0x666af",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d6ad02a00"
+    },
+    {
+      "at": "0x6eabc",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d5d4c2a00"
+    },
+    {
+      "at": "0x876e9",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d30c02800"
+    },
+    {
+      "at": "0x87806",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b1d13bf2800"
+    },
+    {
+      "at": "0x8f89e",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d7b3e2800"
+    },
+    {
+      "at": "0xd0aaa",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d6f2c2400"
+    },
+    {
+      "at": "0x103dfa",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d1ff92000"
+    },
+    {
+      "at": "0x10a2d8",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0541942000"
+    },
+    {
+      "at": "0x10a827",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0df28e2000"
+    },
+    {
+      "at": "0x10aaa1",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d788c2000"
+    },
+    {
+      "at": "0x10ab40",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0dd98b2000"
+    },
+    {
+      "at": "0x10ab58",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0dc18b2000"
+    },
+    {
+      "at": "0x10e218",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d01552000"
+    },
+    {
+      "at": "0x1107b1",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0d682f2000"
+    },
+    {
+      "at": "0x111939",
+      "pattern": "mov/lea reg, [rip]",
+      "opcode": "488b0de01d2000"
+    }
+  ],
+  "rip_refs_near": [
+    {
+      "at": "0x43a6",
+      "insn": "mov dword ptr [rip + 0x30f37c], eax",
+      "target": "0x313728"
+    },
+    {
+      "at": "0x6611f",
+      "insn": "mov rcx, qword ptr [rip + 0x2ad5fa]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x663b0",
+      "insn": "mov rcx, qword ptr [rip + 0x2ad369]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x6657a",
+      "insn": "mov rcx, qword ptr [rip + 0x2ad19f]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x666af",
+      "insn": "mov rcx, qword ptr [rip + 0x2ad06a]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x6eabc",
+      "insn": "mov rcx, qword ptr [rip + 0x2a4c5d]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x874f1",
+      "insn": "mov qword ptr [rip + 0x28c228], rbx",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x876e9",
+      "insn": "mov rcx, qword ptr [rip + 0x28c030]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x87806",
+      "insn": "mov rbx, qword ptr [rip + 0x28bf13]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x87827",
+      "insn": "mov qword ptr [rip + 0x28beee], 0",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x8f89e",
+      "insn": "mov rcx, qword ptr [rip + 0x283e7b]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0xd0aaa",
+      "insn": "mov rcx, qword ptr [rip + 0x242c6f]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x103dfa",
+      "insn": "mov rcx, qword ptr [rip + 0x20f91f]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x10a2d8",
+      "insn": "mov rax, qword ptr [rip + 0x209441]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x10a827",
+      "insn": "mov rcx, qword ptr [rip + 0x208ef2]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x10aaa1",
+      "insn": "mov rcx, qword ptr [rip + 0x208c78]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x10ab40",
+      "insn": "mov rcx, qword ptr [rip + 0x208bd9]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x10ab58",
+      "insn": "mov rcx, qword ptr [rip + 0x208bc1]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x10e218",
+      "insn": "mov rcx, qword ptr [rip + 0x205501]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x1107b1",
+      "insn": "mov rcx, qword ptr [rip + 0x202f68]",
+      "target": "0x313720"
+    },
+    {
+      "at": "0x111939",
+      "insn": "mov rcx, qword ptr [rip + 0x201de0]",
+      "target": "0x313720"
+    }
+  ],
+  "sites_unique": [
+    "0x43a6",
+    "0x6611f",
+    "0x663b0",
+    "0x6657a",
+    "0x666af",
+    "0x6eabc",
+    "0x874f1",
+    "0x876e9",
+    "0x87806",
+    "0x87827",
+    "0x8f89e",
+    "0xd0aaa",
+    "0x103dfa",
+    "0x10a2d8",
+    "0x10a827",
+    "0x10aaa1",
+    "0x10ab40",
+    "0x10ab58",
+    "0x10e218",
+    "0x1107b1",
+    "0x111939"
+  ],
+  "by_region": {
+    "other": [
+      "0x43a6",
+      "0x6611f",
+      "0x663b0",
+      "0x6657a",
+      "0x666af",
+      "0x8f89e",
+      "0xd0aaa",
+      "0x103dfa",
+      "0x10a2d8",
+      "0x10a827",
+      "0x10aaa1",
+      "0x10ab40",
+      "0x10ab58",
+      "0x10e218",
+      "0x1107b1",
+      "0x111939"
+    ],
+    "Save_IO": [
+      "0x6eabc"
+    ],
+    "Game_Update": [
+      "0x874f1",
+      "0x876e9",
+      "0x87806",
+      "0x87827"
+    ]
+  }
+}
