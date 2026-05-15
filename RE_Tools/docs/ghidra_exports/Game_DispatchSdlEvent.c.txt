@@ -1,0 +1,274 @@
+# Function: Game_DispatchSdlEvent (Ghidra FUN_1400c0430)
+# RVA: 0xC0430
+# VA: 0x1400C0430
+# Date: 2026-05-15 (user paste from Ghidra)
+# Caller: GameMain_InitAndLoop @ 0xBEA9B
+# Convention: RCX = game context, RDX = SDL_Event* (RBX saved copy in body)
+
+# Notes:
+# - ev->type = dword [RDX+0]
+# - SDL_TEXTINPUT text @ [RDX+0xC]
+# - Keyboard: keysym/scancode in [RBX+0x10], [RBX+0x14], mods [RBX+0x18]
+# - Window sub-events use byte [RBX+0x10] for SDL_WINDOWEVENT/*
+
+**************************************************************
+                             *                          FUNCTION                          *
+                             **************************************************************
+                             undefined FUN_1400c0430()
+                               assume GS_OFFSET = 0xff00000000
+             undefined         AL:1           <RETURN>
+                             FUN_1400c0430                                   XREF[2]:     FUN_1400be0f0:1400bea9b(c), 
+                                                                                          14032a640(*)  
+       1400c0430 40 53           PUSH       RBX
+       1400c0436 8b 02           MOV        EAX,dword ptr [RDX]
+       1400c043b 3d 00 01        CMP        EAX,0x100
+                 00 00
+       1400c0440 75 0d           JNZ        LAB_1400c044f
+       1400c0442 c6 05 07        MOV        byte ptr [DAT_140318a50],0x1
+                 86 25 00 01
+       1400c044e c3              RET
+                             LAB_1400c044f                                   XREF[1]:     1400c0440(j)  
+       1400c044f 3d 03 03        CMP        EAX,0x303
+                 00 00
+       1400c0454 75 21           JNZ        LAB_1400c0477
+       1400c0456 48 8d 4a 0c     LEA        RCX,[RDX + 0xc]
+       1400c045a e8 81 18        CALL       strlen                                           size_t strlen(char * _Str)
+                 19 00
+       1400c0462 48 8d 53 0c     LEA        RDX,[RBX + 0xc]
+       1400c0472 e9 f9 7a        JMP        FUN_140027f70                                    undefined FUN_140027f70()
+                 f6 ff
+                             -- Flow Override: CALL_RETURN (CALL_TERMINATOR)
+       1400c047c 3b c2           CMP        EAX,EDX
+       1400c047e 0f 85 a8        JNZ        LAB_1400c052c
+                 00 00 00
+       1400c0484 80 7b 0d 00     CMP        byte ptr [RBX + 0xd],0x0
+       1400c0488 0f 85 dc        JNZ        LAB_1400c076a
+                 02 00 00
+       1400c048e 48 63 43 14     MOVSXD     RAX,dword ptr [RBX + 0x14]
+       1400c0492 48 63 4b 10     MOVSXD     RCX,dword ptr [RBX + 0x10]
+       1400c0496 3d 3d 00        CMP        EAX,0x4000003d
+                 00 40
+       1400c049b 75 0f           JNZ        LAB_1400c04ac
+       1400c049d 66 85 53 18     TEST       word ptr [RBX + 0x18],DX
+       1400c04a1 74 1b           JZ         LAB_1400c04be
+       1400c04a3 c6 05 a6        MOV        byte ptr [DAT_140318a50],0x1
+                 85 25 00 01
+                             LAB_1400c04ac                                   XREF[1]:     1400c049b(j)  
+       1400c04ac 83 f8 0d        CMP        EAX,0xd
+       1400c04b1 66 85 53 18     TEST       word ptr [RBX + 0x18],DX
+       1400c04b5 74 07           JZ         LAB_1400c04be
+       1400c04b7 c6 05 94        MOV        byte ptr [DAT_140318a52],0x1
+                 85 25 00 01
+                             LAB_1400c04be                                   XREF[4]:     1400c04a1(j), 1400c04aa(j), 
+                                                                                          1400c04af(j), 1400c04b5(j)  
+       1400c04be f6 43 18 c0     TEST       byte ptr [RBX + 0x18],0xc0
+       1400c04c2 74 07           JZ         LAB_1400c04cb
+       1400c04c4 c6 05 e5        MOV        byte ptr [DAT_140312cb0],0x1
+                 27 25 00 01
+                             LAB_1400c04cb                                   XREF[1]:     1400c04c2(j)  
+       1400c04cb f6 43 18 03     TEST       byte ptr [RBX + 0x18],0x3
+       1400c04cf 74 07           JZ         LAB_1400c04d8
+       1400c04d1 c6 05 d9        MOV        byte ptr [DAT_140312cb1],0x1
+                 27 25 00 01
+       1400c04e2 77 18           JA         LAB_1400c04fc
+       1400c04e4 c6 84 10        MOV        byte ptr [RAX + RDX*0x1 + 0x312830]=>DAT_14031
+                 30 28 31 
+                 00 01
+       1400c04ec c6 84 10        MOV        byte ptr [RAX + RDX*0x1 + 0x312930]=>DAT_14031
+                 30 29 31 
+                 00 01
+       1400c04f4 c6 84 10        MOV        byte ptr [RAX + RDX*0x1 + 0x3128b0]=>DAT_14031
+                 b0 28 31 
+                 00 00
+       1400c0502 0f 87 62        JA         LAB_1400c076a
+                 02 00 00
+       1400c0508 88 0d a4        MOV        byte ptr [DAT_140312cb2],CL
+                 27 25 00
+       1400c050e c6 84 11        MOV        byte ptr [RCX + RDX*0x1 + 0x3129b0]=>DAT_14031
+                 b0 29 31 
+                 00 01
+       1400c0516 c6 84 11        MOV        byte ptr [RCX + RDX*0x1 + 0x312bb0]=>DAT_14031
+                 b0 2b 31 
+                 00 01
+       1400c051e c6 84 11        MOV        byte ptr [RCX + RDX*0x1 + 0x312ab0]=>DAT_14031
+                 b0 2a 31 
+                 00 00
+       1400c052b c3              RET
+                             LAB_1400c052c                                   XREF[1]:     1400c047e(j)  
+       1400c052c 3d 01 03        CMP        EAX,0x301
+                 00 00
+       1400c0531 75 73           JNZ        LAB_1400c05a6
+       1400c0533 80 7b 0d 00     CMP        byte ptr [RBX + 0xd],0x0
+       1400c0537 0f 85 2d        JNZ        LAB_1400c076a
+                 02 00 00
+       1400c053d 48 63 43 14     MOVSXD     RAX,dword ptr [RBX + 0x14]
+       1400c054b 77 22           JA         LAB_1400c056f
+       1400c0550 0f b6 84        MOVZX      EAX,byte ptr [RAX + RDX*0x1 + 0x312830]=>DAT_1
+                 10 30 28 
+                 31 00
+       1400c0558 88 84 11        MOV        byte ptr [RCX + RDX*0x1 + 0x3128b0]=>DAT_14031
+                 b0 28 31 00
+       1400c055f c6 84 11        MOV        byte ptr [RCX + RDX*0x1 + 0x312830]=>DAT_14031
+                 30 28 31 
+                 00 00
+       1400c0567 c6 84 11        MOV        byte ptr [RCX + RDX*0x1 + 0x312930]=>DAT_14031
+                 30 29 31 
+                 00 00
+                             LAB_1400c056f                                   XREF[1]:     1400c054b(j)  
+       1400c056f 48 63 43 10     MOVSXD     RAX,dword ptr [RBX + 0x10]
+       1400c0578 0f 87 ec        JA         LAB_1400c076a
+                 01 00 00
+       1400c0581 0f b6 84        MOVZX      EAX,byte ptr [RAX + RDX*0x1 + 0x3129b0]=>DAT_1
+                 10 b0 29 
+                 31 00
+       1400c0589 88 84 11        MOV        byte ptr [RCX + RDX*0x1 + 0x312ab0]=>DAT_14031
+                 b0 2a 31 00
+       1400c0590 c6 84 11        MOV        byte ptr [RCX + RDX*0x1 + 0x3129b0]=>DAT_14031
+                 b0 29 31 
+                 00 00
+       1400c0598 c6 84 11        MOV        byte ptr [RCX + RDX*0x1 + 0x312bb0]=>DAT_14031
+                 b0 2b 31 
+                 00 00
+       1400c05a5 c3              RET
+                             LAB_1400c05a6                                   XREF[1]:     1400c0531(j)  
+       1400c05a6 3d 00 04        CMP        EAX,0x400
+                 00 00
+       1400c05ab 75 31           JNZ        LAB_1400c05de
+       1400c05ad 83 3d 04        CMP        dword ptr [DAT_1402f25b8],-0x1                   = FFFFFFFFh
+                 20 23 00 ff
+       1400c05b4 0f 85 b0        JNZ        LAB_1400c076a
+                 01 00 00
+       1400c05ba 8b 4b 14        MOV        ECX,dword ptr [RBX + 0x14]
+       1400c05bd 89 0d 1d        MOV        dword ptr [DAT_140312ce0],ECX
+                 27 25 00
+       1400c05c3 8b 43 18        MOV        EAX,dword ptr [RBX + 0x18]
+       1400c05c6 89 05 1c        MOV        dword ptr [DAT_140312ce8],EAX
+                 27 25 00
+       1400c05cc 89 0d 12        MOV        dword ptr [DAT_140312ce4],ECX
+                 27 25 00
+       1400c05d2 89 05 14        MOV        dword ptr [DAT_140312cec],EAX
+                 27 25 00
+       1400c05dd c3              RET
+                             LAB_1400c05de                                   XREF[1]:     1400c05ab(j)  
+       1400c05de 3d 01 04        CMP        EAX,0x401
+                 00 00
+       1400c05e3 75 63           JNZ        LAB_1400c0648
+       1400c05e5 83 3d cc        CMP        dword ptr [DAT_1402f25b8],-0x1                   = FFFFFFFFh
+                 1f 23 00 ff
+       1400c05ec 0f 85 78        JNZ        LAB_1400c076a
+                 01 00 00
+       1400c05f2 8b 43 14        MOV        EAX,dword ptr [RBX + 0x14]
+       1400c05fb 8b 43 18        MOV        EAX,dword ptr [RBX + 0x18]
+       1400c0604 0f b6 43 10     MOVZX      EAX,byte ptr [RBX + 0x10]
+       1400c0608 3c 01           CMP        AL,0x1
+       1400c060a 75 1a           JNZ        LAB_1400c0626
+       1400c060c c7 05 a2        MOV        dword ptr [DAT_140312cb8],0x1
+                 26 25 00 
+                 01 00 00 00
+       1400c0616 c7 05 a0        MOV        dword ptr [DAT_140312cc0],0x1
+                 26 25 00 
+                 01 00 00 00
+       1400c0625 c3              RET
+                             LAB_1400c0626                                   XREF[1]:     1400c060a(j)  
+       1400c0626 3c 03           CMP        AL,0x3
+       1400c0628 0f 85 3c        JNZ        LAB_1400c076a
+                 01 00 00
+       1400c062e c7 05 84        MOV        dword ptr [DAT_140312cbc],0x1
+                 26 25 00 
+                 01 00 00 00
+       1400c0638 c7 05 82        MOV        dword ptr [DAT_140312cc4],0x1
+                 26 25 00 
+                 01 00 00 00
+       1400c0647 c3              RET
+                             LAB_1400c0648                                   XREF[1]:     1400c05e3(j)  
+       1400c0648 3d 02 04        CMP        EAX,0x402
+                 00 00
+       1400c064d 75 44           JNZ        LAB_1400c0693
+       1400c064f 0f b6 43 10     MOVZX      EAX,byte ptr [RBX + 0x10]
+       1400c0653 3c 01           CMP        AL,0x1
+       1400c0655 75 1a           JNZ        LAB_1400c0671
+       1400c0657 c7 05 57        MOV        dword ptr [DAT_140312cb8],0x0
+                 26 25 00 
+                 00 00 00 00
+       1400c0661 c7 05 5d        MOV        dword ptr [DAT_140312cc8],0x1
+                 26 25 00 
+                 01 00 00 00
+       1400c0670 c3              RET
+                             LAB_1400c0671                                   XREF[1]:     1400c0655(j)  
+       1400c0671 3c 03           CMP        AL,0x3
+       1400c0673 0f 85 f1        JNZ        LAB_1400c076a
+                 00 00 00
+       1400c0679 c7 05 39        MOV        dword ptr [DAT_140312cbc],0x0
+                 26 25 00 
+                 00 00 00 00
+       1400c0683 c7 05 3f        MOV        dword ptr [DAT_140312ccc],0x1
+                 26 25 00 
+                 01 00 00 00
+       1400c0692 c3              RET
+                             LAB_1400c0693                                   XREF[1]:     1400c064d(j)  
+       1400c0693 3d 03 04        CMP        EAX,0x403
+                 00 00
+       1400c0698 75 27           JNZ        LAB_1400c06c1
+       1400c069a 8b 43 14        MOV        EAX,dword ptr [RBX + 0x14]
+       1400c069d 85 c0           TEST       EAX,EAX
+       1400c069f 7e 0d           JLE        LAB_1400c06ae
+       1400c06a1 c6 05 53        MOV        byte ptr [DAT_140312bfb],0x1
+                 25 25 00 01
+       1400c06ad c3              RET
+                             LAB_1400c06ae                                   XREF[1]:     1400c069f(j)  
+       1400c06ae 0f 89 b6        JNS        LAB_1400c076a
+                 00 00 00
+       1400c06b4 c6 05 43        MOV        byte ptr [DAT_140312bfe],0x1
+                 25 25 00 01
+       1400c06c0 c3              RET
+                             LAB_1400c06c1                                   XREF[1]:     1400c0698(j)  
+       1400c06c1 3d 00 02        CMP        EAX,0x200
+                 00 00
+       1400c06c6 0f 85 88        JNZ        LAB_1400c0754
+                 00 00 00
+       1400c06cc 0f b6 43 0c     MOVZX      EAX,byte ptr [RBX + 0xc]
+       1400c06d0 3c 0c           CMP        AL,0xc
+       1400c06d2 75 0d           JNZ        LAB_1400c06e1
+       1400c06d4 c6 05 76        MOV        byte ptr [DAT_140318a51],0x1
+                 83 25 00 01
+       1400c06e0 c3              RET
+                             LAB_1400c06e1                                   XREF[1]:     1400c06d2(j)  
+       1400c06e1 3c 0d           CMP        AL,0xd
+       1400c06e3 75 0d           JNZ        LAB_1400c06f2
+       1400c06e5 c6 05 65        MOV        byte ptr [DAT_140318a51],0x0
+                 83 25 00 00
+       1400c06f1 c3              RET
+                             LAB_1400c06f2                                   XREF[1]:     1400c06e3(j)  
+       1400c06f2 3c 05           CMP        AL,0x5
+       1400c06f4 75 39           JNZ        LAB_1400c072f
+       1400c0704 e8 47 31        CALL       SDL_GL_GetDrawableSize                           undefined SDL_GL_GetDrawableSize()
+                 06 00
+       1400c0709 e8 62 33        CALL       FUN_1400c3a70                                    undefined FUN_1400c3a70()
+                 00 00
+       1400c070e 80 3d b7        CMP        byte ptr [DAT_1402f14cc],0x0
+                 0d 23 00 00
+       1400c0715 75 53           JNZ        LAB_1400c076a
+       1400c0717 8b 43 10        MOV        EAX,dword ptr [RBX + 0x10]
+       1400c071a 89 05 b8        MOV        dword ptr [DAT_1402f14d8],EAX
+                 0d 23 00
+       1400c0720 8b 43 14        MOV        EAX,dword ptr [RBX + 0x14]
+       1400c0723 89 05 b3        MOV        dword ptr [DAT_1402f14dc],EAX
+                 0d 23 00
+       1400c072e c3              RET
+                             LAB_1400c072f                                   XREF[1]:     1400c06f4(j)  
+       1400c072f 3c 04           CMP        AL,0x4
+       1400c0733 80 3d 92        CMP        byte ptr [DAT_1402f14cc],0x0
+                 0d 23 00 00
+       1400c073a 75 2e           JNZ        LAB_1400c076a
+       1400c074f e9 7c 3d        JMP        SDL_GetWindowPosition                            undefined SDL_GetWindowPosition()
+                 06 00
+                             -- Flow Override: CALL_RETURN (CALL_TERMINATOR)
+                             LAB_1400c0754                                   XREF[1]:     1400c06c6(j)  
+       1400c0754 3d 51 06        CMP        EAX,0x651
+                 00 00
+       1400c075b 0f b6 43 0c     MOVZX      EAX,byte ptr [RBX + 0xc]
+       1400c075f 83 f8 10        CMP        EAX,0x10
+       1400c0762 73 06           JNC        LAB_1400c076a
+       1400c0764 89 05 4a        MOV        dword ptr [DAT_140318ab4],EAX
+                 83 25 00
+       1400c076f c3              RET

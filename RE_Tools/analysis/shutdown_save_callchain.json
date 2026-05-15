@@ -1,0 +1,31 @@
+{
+  "start": "Shutdown_Prep",
+  "goal_save_write": "Save_Write",
+  "direct_callees_98680": [
+    "0x27e50",
+    "Save_Write",
+    "0x98be0",
+    "Shutdown_Helper_994A0",
+    "Shutdown_Helper_99BC0",
+    "Shutdown_Helper_99D70",
+    "0xbf140",
+    "0xbfb50",
+    "0xca730",
+    "0xca750"
+  ],
+  "paths_to_save_write": [
+    [
+      "0x9869a",
+      "Save_Write"
+    ]
+  ],
+  "paths_to_settings_save": [],
+  "save_write_call_sites_in_prep_region": [
+    "0x9869a"
+  ],
+  "verified_jmp": {
+    "at": "0x9869A",
+    "target": "Save_Write @ 0x6DAB0",
+    "note": "tail jmp \u2014 not E8; BFS must include jmp edges"
+  }
+}

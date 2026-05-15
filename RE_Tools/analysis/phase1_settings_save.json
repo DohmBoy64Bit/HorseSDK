@@ -1,0 +1,251 @@
+{
+  "function": "Settings_Save",
+  "rva": "0x71f60",
+  "span": [
+    "0x71f60",
+    "0x72276"
+  ],
+  "caller_quit": "0xBED11",
+  "call_count": 25,
+  "calls_unique": {
+    "Xml_SetAttribute": 11,
+    "Xml_DocLoad": 1,
+    "Xml_FindRoot": 1,
+    "0x27920": 1,
+    "Xml_CreateDoc": 1,
+    "File_OpenRead": 1,
+    "0x21e414": 1,
+    "Settings_GetGlobalPtr": 1,
+    "0x25140": 1,
+    "File_ReadToBuffer": 1,
+    "operator_new": 1,
+    "memcpy": 1,
+    "0x262e0": 1,
+    "0x21e450": 1,
+    "0x224844": 1
+  },
+  "calls_ordered": [
+    {
+      "at": "0x71f90",
+      "target": "Xml_DocLoad"
+    },
+    {
+      "at": "0x71fa0",
+      "target": "Xml_FindRoot"
+    },
+    {
+      "at": "0x71fba",
+      "target": "0x27920"
+    },
+    {
+      "at": "0x71fc4",
+      "target": "Xml_CreateDoc"
+    },
+    {
+      "at": "0x71fd0",
+      "target": "File_OpenRead"
+    },
+    {
+      "at": "0x71fe5",
+      "target": "0x21e414"
+    },
+    {
+      "at": "0x72001",
+      "target": "Settings_GetGlobalPtr"
+    },
+    {
+      "at": "0x72028",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x7203e",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x72054",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x72071",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x72087",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x7209d",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x720b3",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x720c9",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x720e6",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x72103",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x72120",
+      "target": "Xml_SetAttribute"
+    },
+    {
+      "at": "0x72134",
+      "target": "0x25140"
+    },
+    {
+      "at": "0x72139",
+      "target": "File_ReadToBuffer"
+    },
+    {
+      "at": "0x721ae",
+      "target": "operator_new"
+    },
+    {
+      "at": "0x721ce",
+      "target": "memcpy"
+    },
+    {
+      "at": "0x72207",
+      "target": "0x262e0"
+    },
+    {
+      "at": "0x72241",
+      "target": "0x21e450"
+    },
+    {
+      "at": "0x72271",
+      "target": "0x224844"
+    }
+  ],
+  "string_refs": [
+    {
+      "at": "0x71ff7",
+      "string_rva": "0x2625b8",
+      "text": "settings"
+    },
+    {
+      "at": "0x7201e",
+      "string_rva": "0x262480",
+      "text": "sound"
+    },
+    {
+      "at": "0x72034",
+      "string_rva": "0x262478",
+      "text": "volume"
+    },
+    {
+      "at": "0x72067",
+      "string_rva": "0x262488",
+      "text": "fullscreen"
+    },
+    {
+      "at": "0x7207d",
+      "string_rva": "0x262494",
+      "text": "winx"
+    },
+    {
+      "at": "0x72093",
+      "string_rva": "0x26249c",
+      "text": "winy"
+    },
+    {
+      "at": "0x720a9",
+      "string_rva": "0x2624a4",
+      "text": "winw"
+    },
+    {
+      "at": "0x720bf",
+      "string_rva": "0x2624ac",
+      "text": "winh"
+    },
+    {
+      "at": "0x720dc",
+      "string_rva": "0x2624bc",
+      "text": "vsync"
+    },
+    {
+      "at": "0x720f9",
+      "string_rva": "0x262588",
+      "text": "background_draw"
+    },
+    {
+      "at": "0x72116",
+      "string_rva": "0x262598",
+      "text": "background_sim"
+    },
+    {
+      "at": "0x721d3",
+      "string_rva": "0x262460",
+      "text": "settings.xml"
+    },
+    {
+      "at": "0x721e0",
+      "string_rva": "0x262468",
+      "text": ".xml"
+    },
+    {
+      "at": "0x723d8",
+      "string_rva": "0x26244c",
+      "text": "wb"
+    },
+    {
+      "at": "0x72459",
+      "string_rva": "0x26244c",
+      "text": "wb"
+    },
+    {
+      "at": "0x724e9",
+      "string_rva": "0x26244c",
+      "text": "wb"
+    },
+    {
+      "at": "0x72579",
+      "string_rva": "0x26244c",
+      "text": "wb"
+    },
+    {
+      "at": "0x72777",
+      "string_rva": "0x26268c",
+      "text": "\u001f\ufffdO\n"
+    },
+    {
+      "at": "0x7294b",
+      "string_rva": "0x26268c",
+      "text": "\u001f\ufffdO\n"
+    },
+    {
+      "at": "0x72bf0",
+      "string_rva": "0x26268c",
+      "text": "\u001f\ufffdO\n"
+    }
+  ],
+  "xml_keys_in_function": [
+    "background_draw",
+    "background_sim",
+    "fullscreen",
+    "settings",
+    "sound",
+    "volume",
+    "vsync",
+    "wb",
+    "winh",
+    "winw",
+    "winx",
+    "winy"
+  ],
+  "path_strings": [
+    ".xml",
+    "settings.xml"
+  ],
+  "global_rip_refs": [],
+  "note": "Does not call Save_Write @ 0x6DAB0 (verified by call list)."
+}

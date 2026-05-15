@@ -12,7 +12,7 @@
 
 See [SaveGhidraCrossref.md](SaveGhidraCrossref.md) for full write/read order and `ctx` offsets.
 
-Startup may call **`Save_Write` @ `0x9828C`** with `edx=1` in some paths; normal load uses **`0x6E2B0`** @ `0x103B7F`.
+Startup may call **`Save_Write` @ `0x9828C`** with `edx=1` in some paths; normal load uses **`0x6E2B0`** @ `0x103B7F`. Quit path **`0xBED11`** calls **`0x71F60`** (settings XML), not `0x6DAB0` — see [Save_Write.md](Save_Write.md).
 
 ## Load flow (`0x6E2B0` file path)
 

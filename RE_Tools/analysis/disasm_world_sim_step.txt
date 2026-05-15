@@ -1,0 +1,35 @@
+# Game_WorldSimStep @ 0x88510
+
+0x00088510: sub      rsp, 0x28
+0x00088514: cmp      byte ptr [rip + 0x29053a], 0
+0x0008851B: jne      0x14008855e
+0x0008851D: cmp      byte ptr [rip + 0x28a419], 0
+0x00088524: jne      0x14008855e
+0x00088526: cmp      byte ptr [rip + 0x28a41e], 0
+0x0008852D: je       0x14008856a
+0x0008852F: lea      rcx, [rip + 0x269922]
+0x00088536: lea      rdx, [rip + 0x26993b]
+0x0008853D: cmp      rcx, rdx
+0x00088540: je       0x14008855e
+0x00088542: cmp      qword ptr [rip + 0x269946], 0xf
+0x0008854A: mov      r8, qword ptr [rip + 0x269937]
+0x00088551: cmova    rdx, qword ptr [rip + 0x26991f]
+0x00088559: call     0x140027f70  ; -> 0x27f70
+0x0008855E: mov      byte ptr [rip + 0x28a790], 0
+0x00088565: add      rsp, 0x28
+0x00088569: ret      
+0x0008856A: cmp      byte ptr [rip + 0x28a3c7], 0
+0x00088571: je       0x14008858d
+0x00088573: cmp      qword ptr [rip + 0x2698ed], 0
+0x0008857B: jbe      0x14008858d
+0x0008857D: lea      rcx, [rip + 0x2698d4]
+0x00088584: add      rsp, 0x28
+0x00088588: jmp      0x140080b00
+0x0008858D: cmp      qword ptr [rip + 0x2698bb], 0xf
+0x00088595: lea      rdx, [rip + 0x26989c]
+0x0008859C: mov      r8, qword ptr [rip + 0x2698a5]
+0x000885A3: lea      rcx, [rip + 0x2698ae]
+0x000885AA: cmova    rdx, qword ptr [rip + 0x269886]
+0x000885B2: add      rsp, 0x28
+0x000885B6: jmp      0x140027830
+0x000885BB: int3     

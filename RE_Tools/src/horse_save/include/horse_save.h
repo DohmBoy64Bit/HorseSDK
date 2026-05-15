@@ -149,6 +149,17 @@ HorseSaveStatus horse_save_gene_unpack(
 /** Load path + inventory genes in one call. */
 HorseSaveStatus horse_save_load_path(HorseSaveFile *sf, const char *path);
 
+/**
+ * Write save bytes (preserves on-disk layout from load).
+ * Mirrors Python save_file_codec.write_save_bytes @ Save_Write 0x6DAB0.
+ */
+HorseSaveStatus horse_save_write_buffer(
+    const HorseSaveFile *sf,
+    uint8_t **out_data,
+    size_t *out_len);
+
+HorseSaveStatus horse_save_write_path(const HorseSaveFile *sf, const char *path);
+
 /** Pointer to slot genes after horse_save_load_path (NULL if out of range). */
 const HorseSaveInventorySlot *horse_save_get_inventory_slot(
     const HorseSaveFile *sf,

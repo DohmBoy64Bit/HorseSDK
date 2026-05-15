@@ -19,6 +19,8 @@
 
 ## 1. `GameMain_InitAndLoop` @ `0xBE0F0`
 
+**Full doc:** [GameLoop.md](GameLoop.md) · **Map JSON:** `analysis/phase1_gamemain_loop_map.json` (`map_gamemain_loop.py`)
+
 **Capstone** (`phase1_capstone_analyze.py` → `analysis/phase1_gamemain_loop.json`):
 
 | Item | RVA | Notes |

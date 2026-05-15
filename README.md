@@ -30,7 +30,8 @@ You must own the game to use these tools meaningfully.
 - **Windows x64** (target platform)
 - **Python 3.10+** for RE scripts (`RE_Tools/tools/scripts/`, `RE_Tools/tools/parsers/`)
 - **CMake + MSVC** (or compatible toolchain) to build `horse_save`
-- **Frida / Ghidra / x64dbg** as needed for dynamic and static analysis (optional per task)
+- **Python + pefile + Capstone + Frida** for static/dynamic RE (primary)
+- **Ghidra / x64dbg** only when automation stalls (large switches, failed decompile, live register proof)
 
 ## Quick start
 
@@ -59,6 +60,8 @@ Offline play without Steam: see [`steam_bypass/README.md`](steam_bypass/README.m
 Start here:
 
 - [`RE_Tools/README.md`](RE_Tools/README.md) — layout and common commands
+- [`RE_Tools/docs/GameLoop.md`](RE_Tools/docs/GameLoop.md) — main loop @ `0xBE0F0` (Ghidra labels, hooks)
+- [`RE_Tools/docs/Ghidra_User_Tasks.md`](RE_Tools/docs/Ghidra_User_Tasks.md) — optional manual RE (automation-first; paste only if stuck)
 - [`RE_Tools/docs/ReverseEngineeringProgress.md`](RE_Tools/docs/ReverseEngineeringProgress.md) — living RE log (RVAs, checklist)
 - [`RE_Tools/docs/SaveSemanticsCoverage.md`](RE_Tools/docs/SaveSemanticsCoverage.md) — save v12 section status (9/9 on-disk sections mapped)
 - [`RE_Tools/docs/SOURCES.md`](RE_Tools/docs/SOURCES.md) — verification policy (exe + dump over repomix)
@@ -88,13 +91,16 @@ High-level plan from [`SystemPrompt.md`](SystemPrompt.md). Near-term items track
 - [x] **C loader `horse_save`:** read path + CLI on `save_buffer_dump.bin`
 - [x] Grid 400×225 (90k cells), inventory 410 blocks, footer gene packs (`0xF0`), nested b8 wire (sampled)
 
-### Phase 1 — next (RE & tooling)
+### Phase 1 — next (automation-first)
 
-- [ ] **Ghidra:** decompile main init `0xBE0F0` and save writer `0x6DAB0`; label loop from [`Frida_GameLoop.md`](RE_Tools/docs/Frida_GameLoop.md)
-- [ ] **`.crf` font:** opcode VM semantics (section-1 interpreter) — container layout done, glyphs open
-- [ ] **Data loaders in exe:** Ghidra paths for CRF builder cluster (`0xBF2xx` → `0x6F3C0`)
-- [ ] **horse_save:** parity with Python for footer/grid/inventory; optional **write** API after round-trip spec is frozen in C
-- [ ] **Docs:** keep `ReverseEngineeringProgress.md` + analysis JSON in sync with each confirmed RVA
+- [x] **Game loop + save writer:** Capstone/Frida + archived Ghidra where helpful — see `GameLoop.md`, `Save_Write.md`
+- [x] **World sim:** [Game_WorldSimStep.md](RE_Tools/docs/Game_WorldSimStep.md) — resize-gated; Frida 0 hits with stable window
+- [x] **Bootstrap tail:** [GameState_InitMain.md](RE_Tools/docs/GameState_InitMain.md), [Game_LoadAssets.md](RE_Tools/docs/Game_LoadAssets.md)
+- [x] **Quit vs save:** [QuitSaveTrace.md](RE_Tools/docs/QuitSaveTrace.md) — `0x98680` + `Save_Write`, then `0x71F60` settings
+- [x] **Settings persist:** [Settings_Save.md](RE_Tools/docs/Settings_Save.md) — Capstone `0x71F60` XML keys
+- [x] **`.crf` font:** [CrfOpcodeSemantics.md](RE_Tools/docs/CrfOpcodeSemantics.md) — extended `crf_opcode_trace.py`
+- [x] **horse_save:** C write API `horse_save_write_path` + `--roundtrip` / `HORSE_SAVE_ROUNDTRIP=1`
+- [ ] **Docs/JSON:** `phase1_verify.py` + scripts refresh `analysis/*.json` on each confirmed RVA
 
 ### Phase 1 — save RE (deferred, not blocking loaders)
 

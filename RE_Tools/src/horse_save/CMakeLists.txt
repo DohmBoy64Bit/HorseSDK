@@ -8,6 +8,7 @@ add_library(horse_save STATIC
     horse_save_parse.c
     horse_save_b8.c
     horse_save_api.c
+    horse_save_write.c
 )
 
 target_include_directories(horse_save PUBLIC include)

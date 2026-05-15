@@ -1,7 +1,10 @@
 # Frida: main game loop map (`0xBE0F0`)
 
+**Full map (static + labels):** [GameLoop.md](GameLoop.md)
+
 Script: `RE_Tools/tools/scripts/frida_gameloop.py`  
-Output: `RE_Tools/analysis/frida_gameloop.json`
+Output: `RE_Tools/analysis/frida_gameloop.json`  
+Static map: `map_gamemain_loop.py` → `analysis/phase1_gamemain_loop_map.json`
 
 ## How to run
 
@@ -35,6 +38,8 @@ CRT entry 0x21EE80
 | `sdl_poll_call_b` | `0xBEAA5` | Inner event-drain loop (many hits/frame) |
 | `sdl_swap_call` | `0xBEAF0` | `E8` → `SDL_GL_SwapWindow` |
 | `loop_internal_call` | `0xBEDB4` | Calls helper @ `0xBEEA0` |
+| `loop_event_dispatch` | `0xBEA9B` | `call 0xC0430` — see GameLoop.md |
+| `loop_quit_save` | `0xBED11` | `call Save_Write` on quit |
 | `sdl_swap_alt` | `0xC019E` | Second swap call site (other code path) |
 | `SDL_PollEvent` | `0x1253B0` | Export |
 | `SDL_GL_SwapWindow` | `0x1238D0` | Export |

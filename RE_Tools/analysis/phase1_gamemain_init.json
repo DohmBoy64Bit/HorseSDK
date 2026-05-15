@@ -1,0 +1,297 @@
+{
+  "region": "GameMain_init_body",
+  "rva_range": [
+    "0xbe149",
+    "0xbea7e"
+  ],
+  "call_count": 50,
+  "calls_ordered": [
+    {
+      "at": "0xbe171",
+      "target": "indirect/import",
+      "raw": "qword ptr [rip + 0x19bff9]"
+    },
+    {
+      "at": "0xbe186",
+      "target": "0x1196bc",
+      "raw": "0x1401196bc"
+    },
+    {
+      "at": "0xbe18f",
+      "target": "StdString_Assign",
+      "raw": "0x140251ce0"
+    },
+    {
+      "at": "0xbe1a5",
+      "target": "PathJoin_027F70",
+      "raw": "0x140027f70"
+    },
+    {
+      "at": "0xbe1fd",
+      "target": "0x21ddc0",
+      "raw": "0x14021ddc0"
+    },
+    {
+      "at": "0xbe283",
+      "target": "0x2511b0",
+      "raw": "0x1402511b0"
+    },
+    {
+      "at": "0xbe2ab",
+      "target": "0x28600",
+      "raw": "0x140028600"
+    },
+    {
+      "at": "0xbe2cb",
+      "target": "0x2511b0",
+      "raw": "0x1402511b0"
+    },
+    {
+      "at": "0xbe2dc",
+      "target": "Game_InitSubsystem_C0900",
+      "raw": "0x1400c0900"
+    },
+    {
+      "at": "0xbe319",
+      "target": "0x21e450",
+      "raw": "0x14021e450"
+    },
+    {
+      "at": "0xbe342",
+      "target": "PathJoin_027F70",
+      "raw": "0x140027f70"
+    },
+    {
+      "at": "0xbe357",
+      "target": "0x27830",
+      "raw": "0x140027830"
+    },
+    {
+      "at": "0xbe3c3",
+      "target": "0x28600",
+      "raw": "0x140028600"
+    },
+    {
+      "at": "0xbe3e3",
+      "target": "0x2511b0",
+      "raw": "0x1402511b0"
+    },
+    {
+      "at": "0xbe40f",
+      "target": "Game_InitSubsystem_C0900",
+      "raw": "0x1400c0900"
+    },
+    {
+      "at": "0xbe44c",
+      "target": "0x21e450",
+      "raw": "0x14021e450"
+    },
+    {
+      "at": "0xbe4b8",
+      "target": "0x28600",
+      "raw": "0x140028600"
+    },
+    {
+      "at": "0xbe4d8",
+      "target": "0x2511b0",
+      "raw": "0x1402511b0"
+    },
+    {
+      "at": "0xbe505",
+      "target": "Game_InitSubsystem_C0900",
+      "raw": "0x1400c0900"
+    },
+    {
+      "at": "0xbe542",
+      "target": "0x21e450",
+      "raw": "0x14021e450"
+    },
+    {
+      "at": "0xbe55c",
+      "target": "indirect/import",
+      "raw": "qword ptr [rip + 0x19bc36]"
+    },
+    {
+      "at": "0xbe562",
+      "target": "SettingsLoader",
+      "raw": "0x1400711b0"
+    },
+    {
+      "at": "0xbe56d",
+      "target": "SDL_GetDesktopDisplayMode",
+      "raw": "0x140123e80"
+    },
+    {
+      "at": "0xbe607",
+      "target": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "at": "0xbe620",
+      "target": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "at": "0xbe69c",
+      "target": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "at": "0xbe6b9",
+      "target": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "at": "0xbe712",
+      "target": "SDL_CreateWindow",
+      "raw": "0x140123580"
+    },
+    {
+      "at": "0xbe726",
+      "target": "SDL_GL_CreateContext",
+      "raw": "0x1401237f0"
+    },
+    {
+      "at": "0xbe735",
+      "target": "SDL_ShowCursor",
+      "raw": "0x140125eb0"
+    },
+    {
+      "at": "0xbe74a",
+      "target": "indirect/import",
+      "raw": "qword ptr [rip + 0x19c490]"
+    },
+    {
+      "at": "0xbe762",
+      "target": "indirect/import",
+      "raw": "qword ptr [rip + 0x19c480]"
+    },
+    {
+      "at": "0xbe773",
+      "target": "qword ptr [rax + 0x50]",
+      "raw": "qword ptr [rax + 0x50]"
+    },
+    {
+      "at": "0xbe77d",
+      "target": "indirect/import",
+      "raw": "qword ptr [rip + 0x19c465]"
+    },
+    {
+      "at": "0xbe789",
+      "target": "qword ptr [rax + 0x110]",
+      "raw": "qword ptr [rax + 0x110]"
+    },
+    {
+      "at": "0xbe79f",
+      "target": "indirect/import",
+      "raw": "qword ptr [rip + 0x19c443]"
+    },
+    {
+      "at": "0xbe7b8",
+      "target": "qword ptr [rax + 0x78]",
+      "raw": "qword ptr [rax + 0x78]"
+    },
+    {
+      "at": "0xbe7c1",
+      "target": "0x874b0",
+      "raw": "0x1400874b0"
+    },
+    {
+      "at": "0xbe847",
+      "target": "0x28600",
+      "raw": "0x140028600"
+    },
+    {
+      "at": "0xbe868",
+      "target": "0x2511b0",
+      "raw": "0x1402511b0"
+    },
+    {
+      "at": "0xbe8a2",
+      "target": "0x225894",
+      "raw": "0x140225894"
+    },
+    {
+      "at": "0xbe8e7",
+      "target": "0x21e450",
+      "raw": "0x14021e450"
+    },
+    {
+      "at": "0xbe99a",
+      "target": "0x28600",
+      "raw": "0x140028600"
+    },
+    {
+      "at": "0xbe9b8",
+      "target": "0x2511b0",
+      "raw": "0x1402511b0"
+    },
+    {
+      "at": "0xbe9d8",
+      "target": "0x231e14",
+      "raw": "0x140231e14"
+    },
+    {
+      "at": "0xbe9e7",
+      "target": "0x231e14",
+      "raw": "0x140231e14"
+    },
+    {
+      "at": "0xbea24",
+      "target": "0x21e450",
+      "raw": "0x14021e450"
+    },
+    {
+      "at": "0xbea3b",
+      "target": "0x225a24",
+      "raw": "0x140225a24"
+    },
+    {
+      "at": "0xbea53",
+      "target": "SDL_GL_SetSwapInterval",
+      "raw": "0x1401238c0"
+    },
+    {
+      "at": "0xbea70",
+      "target": "SDL_GetTicks",
+      "raw": "0x140124330"
+    }
+  ],
+  "pseudocode_static": [
+    "void GameMain_InitBody(void) {  // RVA 0xBE149 .. before frame loop @ 0xBEA7F",
+    "  // Steam init, SDL_Init(0x4020), video GL attributes",
+    "  // std::string path setup -> SettingsLoader @ 0x711B0 (0xBE562)",
+    "  indirect/import();  // call @ 0xbe171",
+    "  call 0x1196bc;  // @ 0xbe186",
+    "  StdString_Assign();  // call @ 0xbe18f",
+    "  PathJoin_027F70();  // call @ 0xbe1a5",
+    "  call 0x21ddc0;  // @ 0xbe1fd",
+    "  call 0x2511b0;  // @ 0xbe283",
+    "  call 0x28600;  // @ 0xbe2ab",
+    "  Game_InitSubsystem_C0900();  // call @ 0xbe2dc",
+    "  call 0x21e450;  // @ 0xbe319",
+    "  call 0x27830;  // @ 0xbe357",
+    "  SettingsLoader();  // call @ 0xbe562",
+    "  SDL_GetDesktopDisplayMode();  // call @ 0xbe56d",
+    "  Game_SimStep();  // call @ 0xbe607",
+    "  SDL_CreateWindow();  // call @ 0xbe712",
+    "  SDL_GL_CreateContext();  // call @ 0xbe726",
+    "  SDL_ShowCursor();  // call @ 0xbe735",
+    "  qword ptr [rax + 0x50]();  // call @ 0xbe773",
+    "  qword ptr [rax + 0x110]();  // call @ 0xbe789",
+    "  qword ptr [rax + 0x78]();  // call @ 0xbe7b8",
+    "  call 0x874b0;  // @ 0xbe7c1",
+    "  call 0x225894;  // @ 0xbe8a2",
+    "  call 0x231e14;  // @ 0xbe9d8",
+    "  call 0x225a24;  // @ 0xbea3b",
+    "  SDL_GL_SetSwapInterval();  // call @ 0xbea53",
+    "  SDL_GetTicks();  // call @ 0xbea70",
+    "  // fall through to frame_loop @ 0xBEA7F",
+    "}"
+  ],
+  "key_sites": {
+    "SettingsLoader": "0xBE562 -> SettingsLoader @ 0x711B0",
+    "horsey_tmx_string": "0x263850",
+    "settings_xml_string": "0x263860"
+  }
+}

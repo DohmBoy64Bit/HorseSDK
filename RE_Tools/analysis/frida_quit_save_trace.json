@@ -1,0 +1,622 @@
+{
+  "pid": 26376,
+  "load_wait_s": 18.0,
+  "quit_wait_s": 15.0,
+  "conclusion": {
+    "save_write_on_quit": true,
+    "settings_save_on_quit": true,
+    "shutdown_prep": true,
+    "shutdown_entry": true,
+    "file_write_save_path": true,
+    "file_write_settings": false
+  },
+  "tag_counts": {
+    "FileWrite_path": 7,
+    "Save_Write": 6,
+    "Settings_Save": 1,
+    "Settings_Save_CallSite_BED11": 1,
+    "Shutdown_Entry_BED0C": 1,
+    "Shutdown_Prep_98680": 1,
+    "forced_g_sdl_quit": 1,
+    "info": 1
+  },
+  "events": [
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868533902,
+        "tag": "info",
+        "base": "0x7ff74db40000"
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868534426,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6E2F4",
+          "Horsey.exe+103B84",
+          "Horsey.exe+96F59",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868534434,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+6EAB9",
+          "Horsey.exe+103B84",
+          "Horsey.exe+96F59",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868534434,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+6EAB9",
+          "Horsey.exe+103B84",
+          "Horsey.exe+96F59",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868538600,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A827",
+          "Horsey.exe+110B36",
+          "Horsey.exe+CFB34",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868538600,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A827",
+          "Horsey.exe+110B36",
+          "Horsey.exe+CFB34",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868542891,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868542891,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868546435,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A827",
+          "Horsey.exe+110B36",
+          "Horsey.exe+CFB34",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868546435,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A827",
+          "Horsey.exe+110B36",
+          "Horsey.exe+CFB34",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868549097,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868549097,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551904,
+        "tag": "forced_g_sdl_quit",
+        "addr": "0x7ff74de58a50"
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551906,
+        "tag": "Shutdown_Entry_BED0C",
+        "backtrace": []
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551906,
+        "tag": "Shutdown_Prep_98680",
+        "backtrace": [
+          "0x7ff74db3034a",
+          "0x0",
+          "0xd700000000",
+          "0xfffffffffffdb610",
+          "0x263c82e1540",
+          "0x2d0",
+          "0x7ff900002022",
+          "0x464200007f00"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551906,
+        "tag": "Save_Write",
+        "backtrace": [
+          "0x7ff74db3034a",
+          "0x0",
+          "0xd700000000",
+          "0xfffffffffffdb610",
+          "0x263c82e1540",
+          "0x2d0",
+          "0x7ff900002022",
+          "0x464200007f00"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551906,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "0x7ff74db3022f",
+          "0x0"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551907,
+        "tag": "Settings_Save_CallSite_BED11",
+        "backtrace": [
+          "0x263db55bb38"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551907,
+        "tag": "Settings_Save",
+        "backtrace": [
+          "0x7ff74db3044a",
+          "0x263db55bb38"
+        ],
+        "rcx": "0x263d820c6e0"
+      }
+    }
+  ],
+  "summary_log": [
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868533902,
+        "tag": "info",
+        "base": "0x7ff74db40000"
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868534426,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6E2F4",
+          "Horsey.exe+103B84",
+          "Horsey.exe+96F59",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868534434,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+6EAB9",
+          "Horsey.exe+103B84",
+          "Horsey.exe+96F59",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868534434,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+6EAB9",
+          "Horsey.exe+103B84",
+          "Horsey.exe+96F59",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868538600,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A827",
+          "Horsey.exe+110B36",
+          "Horsey.exe+CFB34",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868538600,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A827",
+          "Horsey.exe+110B36",
+          "Horsey.exe+CFB34",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868542891,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868542891,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868546435,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A827",
+          "Horsey.exe+110B36",
+          "Horsey.exe+CFB34",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868546435,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A827",
+          "Horsey.exe+110B36",
+          "Horsey.exe+CFB34",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868549097,
+        "tag": "Save_Write",
+        "backtrace": [
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868549097,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+10A2C7",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551904,
+        "tag": "forced_g_sdl_quit",
+        "addr": "0x7ff74de58a50"
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551906,
+        "tag": "Shutdown_Entry_BED0C",
+        "backtrace": []
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551906,
+        "tag": "Shutdown_Prep_98680",
+        "backtrace": [
+          "0x7ff74db3034a",
+          "0x0",
+          "0xd700000000",
+          "0xfffffffffffdb610",
+          "0x263c82e1540",
+          "0x2d0",
+          "0x7ff900002022",
+          "0x464200007f00"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551906,
+        "tag": "Save_Write",
+        "backtrace": [
+          "0x7ff74db3034a",
+          "0x0",
+          "0xd700000000",
+          "0xfffffffffffdb610",
+          "0x263c82e1540",
+          "0x2d0",
+          "0x7ff900002022",
+          "0x464200007f00"
+        ],
+        "ctx": "0x263db55b8c0",
+        "edx": 1
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551906,
+        "tag": "FileWrite_path",
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "0x7ff74db3022f",
+          "0x0"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551907,
+        "tag": "Settings_Save_CallSite_BED11",
+        "backtrace": [
+          "0x263db55bb38"
+        ]
+      }
+    },
+    {
+      "type": "event",
+      "row": {
+        "t": 1778868551907,
+        "tag": "Settings_Save",
+        "backtrace": [
+          "0x7ff74db3044a",
+          "0x263db55bb38"
+        ],
+        "rcx": "0x263d820c6e0"
+      }
+    }
+  ],
+  "ok": true
+}

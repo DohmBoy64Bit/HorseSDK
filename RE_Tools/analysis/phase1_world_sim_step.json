@@ -1,0 +1,74 @@
+{
+  "function": "Game_WorldSimStep",
+  "rva": "0x88510",
+  "end_rva": "0x885bb",
+  "size_bytes": 171,
+  "callers_e8": [
+    {
+      "call_site_rva": "0x875fa",
+      "va": "0x1400875fa"
+    }
+  ],
+  "callees": [
+    {
+      "at": "0x88559",
+      "target": "0x27f70",
+      "raw": "0x140027f70"
+    }
+  ],
+  "callee_counts": {
+    "0x27f70": 1
+  },
+  "Game_UpdateWorld_calls": [
+    {
+      "at": "0x87520",
+      "target": "Game_UpdatePrologue"
+    },
+    {
+      "at": "0x875fa",
+      "target": "Game_WorldSimStep"
+    },
+    {
+      "at": "0x876bc",
+      "target": "LogHelper_251850"
+    },
+    {
+      "at": "0x876d0",
+      "target": "LogHelper_251850"
+    },
+    {
+      "at": "0x876e4",
+      "target": "LogHelper_251850"
+    },
+    {
+      "at": "0x876f5",
+      "target": "Game_AuxUpdate_98040"
+    },
+    {
+      "at": "0x8778f",
+      "target": "LogHelper_251850"
+    },
+    {
+      "at": "0x877a3",
+      "target": "LogHelper_251850"
+    },
+    {
+      "at": "0x87815",
+      "target": "0x96d40"
+    },
+    {
+      "at": "0x87822",
+      "target": "0x21e450"
+    },
+    {
+      "at": "0x87832",
+      "target": "0xc4380"
+    }
+  ],
+  "Game_UpdateWorld_calls_sim": [
+    {
+      "at": "0x875fa",
+      "target": "Game_WorldSimStep"
+    }
+  ]
+}

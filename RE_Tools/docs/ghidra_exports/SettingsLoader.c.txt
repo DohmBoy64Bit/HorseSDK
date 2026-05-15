@@ -1,0 +1,24 @@
+# Function: SettingsLoader (Ghidra FUN_1400711b0)
+# RVA: 0x711B0 - 0x71F22 (RET @ 0x71F22)
+# Caller: GameMain @ 0xBE562
+# Note: Full user Ghidra listing — merge doc: ../SettingsLoader.md
+# If this file is truncated, re-export from Ghidra Listing view.
+
+# --- excerpt: init defaults + PathJoin + XML open ---
+# 1400711d2  MOV byte [DAT_1402f14cc], R12B
+# 1400711e0  MOV dword [DAT_1402f14c4], 0x64
+# 14007122b  CALL PathJoin @ 0x027F70
+# 14007128d  CALL FUN_1400bfb60
+# 140071357  CALL FUN_140025f20
+# 1400713da  CALL FUN_1400256f0
+
+# --- excerpt: XML bool '1' (0x31) ---
+# 140071446  CMP byte [RAX], 0x31
+# 140071490  CALL FUN_140025750
+# 140071782  CALL Settings_ParseXmlKey @ 0x072280  (x15 in full fn)
+
+# --- excerpt: clears g_loop_quit after parse ---
+# 140071df6  MOV byte ptr [DAT_1402f14eb], 0
+
+# 140071f22  RET
+# Save_Write is adjacent FUN_140071f60 @ 0x71F60 (not part of SettingsLoader)

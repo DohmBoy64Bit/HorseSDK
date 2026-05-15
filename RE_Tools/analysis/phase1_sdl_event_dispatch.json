@@ -1,0 +1,240 @@
+{
+  "function": "Game_DispatchSdlEvent",
+  "function_rva": "0xC0430",
+  "span_estimate": [
+    "0xc0430",
+    "0xc0771"
+  ],
+  "sdl_type_matches": [
+    {
+      "rva": "0xc043b",
+      "insn": "cmp eax, 0x100",
+      "imm": "0x100",
+      "sdl_event": "SDL_QUIT"
+    },
+    {
+      "rva": "0xc044f",
+      "insn": "cmp eax, 0x303",
+      "imm": "0x303",
+      "sdl_event": "SDL_TEXTINPUT"
+    },
+    {
+      "rva": "0xc0477",
+      "insn": "mov edx, 0x300",
+      "imm": "0x300",
+      "sdl_event": "SDL_KEYDOWN"
+    },
+    {
+      "rva": "0xc052c",
+      "insn": "cmp eax, 0x301",
+      "imm": "0x301",
+      "sdl_event": "SDL_KEYUP"
+    },
+    {
+      "rva": "0xc05a6",
+      "insn": "cmp eax, 0x400",
+      "imm": "0x400",
+      "sdl_event": "SDL_WINDOWEVENT"
+    },
+    {
+      "rva": "0xc05de",
+      "insn": "cmp eax, 0x401",
+      "imm": "0x401",
+      "sdl_event": "SDL_SYSWMEVENT"
+    },
+    {
+      "rva": "0xc06c1",
+      "insn": "cmp eax, 0x200",
+      "imm": "0x200",
+      "sdl_event": "SDL_APP_TERMINATING"
+    }
+  ],
+  "cmp_on_event_ptr": [],
+  "all_switch_hints": [
+    {
+      "rva": "0xc043b",
+      "insn": "cmp eax, 0x100",
+      "imm": "0x100",
+      "sdl_event": "SDL_QUIT"
+    },
+    {
+      "rva": "0xc044f",
+      "insn": "cmp eax, 0x303",
+      "imm": "0x303",
+      "sdl_event": "SDL_TEXTINPUT"
+    },
+    {
+      "rva": "0xc0477",
+      "insn": "mov edx, 0x300",
+      "imm": "0x300",
+      "sdl_event": "SDL_KEYDOWN"
+    },
+    {
+      "rva": "0xc052c",
+      "insn": "cmp eax, 0x301",
+      "imm": "0x301",
+      "sdl_event": "SDL_KEYUP"
+    },
+    {
+      "rva": "0xc05a6",
+      "insn": "cmp eax, 0x400",
+      "imm": "0x400",
+      "sdl_event": "SDL_WINDOWEVENT"
+    },
+    {
+      "rva": "0xc05de",
+      "insn": "cmp eax, 0x401",
+      "imm": "0x401",
+      "sdl_event": "SDL_SYSWMEVENT"
+    },
+    {
+      "rva": "0xc0648",
+      "insn": "cmp eax, 0x402",
+      "imm": "0x402",
+      "sdl_event": null
+    },
+    {
+      "rva": "0xc0693",
+      "insn": "cmp eax, 0x403",
+      "imm": "0x403",
+      "sdl_event": null
+    },
+    {
+      "rva": "0xc06c1",
+      "insn": "cmp eax, 0x200",
+      "imm": "0x200",
+      "sdl_event": "SDL_APP_TERMINATING"
+    },
+    {
+      "rva": "0xc0754",
+      "insn": "cmp eax, 0x651",
+      "imm": "0x651",
+      "sdl_event": null
+    }
+  ],
+  "calls": [
+    {
+      "at": "0xc045a",
+      "target": "StdString_Assign",
+      "raw": "0x140251ce0"
+    },
+    {
+      "at": "0xc0704",
+      "target": "SDL_GL_GetDrawableSize",
+      "raw": "0x140123850"
+    },
+    {
+      "at": "0xc0709",
+      "target": "Game_FrameFinalize",
+      "raw": "0x1400c3a70"
+    }
+  ],
+  "pseudocode_static": [
+    "void Game_DispatchSdlEvent(GameContext* ctx, SDL_Event* ev) {  // 0xC0430",
+    "  // rcx=ctx, rdx=ev \u2014 event.type @ [rdx+0]",
+    "  switch (ev->type) {",
+    "    case 0x100:  // SDL_QUIT \u2014 cmp @ 0xc043b",
+    "    case 0x303:  // SDL_TEXTINPUT \u2014 cmp @ 0xc044f",
+    "    case 0x300:  // SDL_KEYDOWN \u2014 cmp @ 0xc0477",
+    "    case 0x301:  // SDL_KEYUP \u2014 cmp @ 0xc052c",
+    "    case 0x400:  // SDL_WINDOWEVENT \u2014 cmp @ 0xc05a6",
+    "    case 0x401:  // SDL_SYSWMEVENT \u2014 cmp @ 0xc05de",
+    "    case 0x200:  // SDL_APP_TERMINATING \u2014 cmp @ 0xc06c1",
+    "    default: break;",
+    "  }",
+    "  // call StdString_Assign @ 0xc045a",
+    "  // call SDL_GL_GetDrawableSize @ 0xc0704",
+    "  // call Game_FrameFinalize @ 0xc0709",
+    "}"
+  ],
+  "jump_targets": {
+    "0xc044f": [
+      "0xc0440:jne"
+    ],
+    "0xc0477": [
+      "0xc0454:jne"
+    ],
+    "0x27f70": [
+      "0xc0472:jmp"
+    ],
+    "0xc052c": [
+      "0xc047e:jne"
+    ],
+    "0xc076a": [
+      "0xc0488:jne",
+      "0xc0502:ja",
+      "0xc0537:jne",
+      "0xc0578:ja",
+      "0xc05b4:jne",
+      "0xc05ec:jne",
+      "0xc0628:jne",
+      "0xc0673:jne",
+      "0xc06ae:jns",
+      "0xc0715:jne",
+      "0xc0731:jne",
+      "0xc073a:jne",
+      "0xc0759:jne",
+      "0xc0762:jae"
+    ],
+    "0xc04ac": [
+      "0xc049b:jne"
+    ],
+    "0xc04be": [
+      "0xc04a1:je",
+      "0xc04aa:jmp",
+      "0xc04af:jne",
+      "0xc04b5:je"
+    ],
+    "0xc04cb": [
+      "0xc04c2:je"
+    ],
+    "0xc04d8": [
+      "0xc04cf:je"
+    ],
+    "0xc04fc": [
+      "0xc04e2:ja"
+    ],
+    "0xc05a6": [
+      "0xc0531:jne"
+    ],
+    "0xc056f": [
+      "0xc054b:ja"
+    ],
+    "0xc05de": [
+      "0xc05ab:jne"
+    ],
+    "0xc0648": [
+      "0xc05e3:jne"
+    ],
+    "0xc0626": [
+      "0xc060a:jne"
+    ],
+    "0xc0693": [
+      "0xc064d:jne"
+    ],
+    "0xc0671": [
+      "0xc0655:jne"
+    ],
+    "0xc06c1": [
+      "0xc0698:jne"
+    ],
+    "0xc06ae": [
+      "0xc069f:jle"
+    ],
+    "0xc0754": [
+      "0xc06c6:jne"
+    ],
+    "0xc06e1": [
+      "0xc06d2:jne"
+    ],
+    "0xc06f2": [
+      "0xc06e3:jne"
+    ],
+    "0xc072f": [
+      "0xc06f4:jne"
+    ],
+    "0x1244d0": [
+      "0xc074f:jmp"
+    ]
+  }
+}

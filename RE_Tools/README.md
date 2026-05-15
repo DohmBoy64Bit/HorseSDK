@@ -12,6 +12,8 @@ python RE_Tools\tools\scripts\phase1_verify.py
 python RE_Tools\tools\scripts\pe_recon.py Game\Horsey.exe
 python RE_Tools\tools\scripts\frida_renderframe.py
 python RE_Tools\tools\scripts\frida_gameloop.py --frames 4
+python RE_Tools\tools\scripts\analyze_gamemain_functions.py
+python RE_Tools\tools\scripts\frida_trace_sdl_events.py --seconds 15
 python RE_Tools\tools\parsers\genes.py
 ```
 
@@ -25,6 +27,7 @@ Outputs: `RE_Tools/analysis/phase1_verify.txt`
 | `docs/DataFileFormats.md` | **All `Game/data/` files (verified counts)** |
 | `docs/Data/README.md` | Data docs index |
 | `docs/ReverseEngineeringProgress.md` | Living RE log + checklist |
+| `docs/GameLoop.md` | Main loop @ `0xBE0F0` — labels, hooks, pseudocode |
 | `docs/Ghidra_Phase1.md` | Ghidra/x64dbg tasks with RVAs |
 | `../steam_bypass/README.md` | Offline Steam stub |
 

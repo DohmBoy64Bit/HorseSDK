@@ -1,0 +1,618 @@
+{
+  "function": "GameMain_InitAndLoop",
+  "function_rva": "0xBE0F0",
+  "span_rva": [
+    "0xBE0F0",
+    "0xBED82"
+  ],
+  "caller": {
+    "rva": "0x21EE0D",
+    "name": "CRT_main_trampoline"
+  },
+  "regions": [
+    {
+      "name": "init_prologue",
+      "start": "0xBE0F0",
+      "end": "0xBE149",
+      "role": "Steam restart + SDL_Init early exits"
+    },
+    {
+      "name": "init_body",
+      "start": "0xBE149",
+      "end": "0xBEA7F",
+      "role": "Steam/SDL setup, settings @ 0xBE562, world bootstrap"
+    },
+    {
+      "name": "frame_loop",
+      "start": "0xBEA7F",
+      "end": "0xBED82",
+      "role": "Blocking per-frame loop until quit (body from 0xBEA85)"
+    }
+  ],
+  "hook_sites": {
+    "GameMain_InitAndLoop": "0xbe0f0",
+    "Loop_SteamRunCallbacks": "0xbea7f",
+    "Loop_PollEvent_First": "0xbea8a",
+    "Loop_PollEvent_Drain": "0xbeaa5",
+    "Loop_EventDispatch": "0xbea9b",
+    "Loop_GL_SwapWindow": "0xbeaf0",
+    "Loop_FrameTick": "0xbece7",
+    "Loop_QuitCheck": "0xbeae7",
+    "Loop_AutoSaveGate": "0xbead9",
+    "Loop_QuitSave": "0xbed11",
+    "Loop_HelperCall": "0xbedb4",
+    "SettingsLoader_Call": "0xbe562"
+  },
+  "frame_loop_pseudocode": [
+    "while (!g_quit_requested) {",
+    "  SteamAPI_RunCallbacks();          // 0xBEA7F",
+    "  if (SDL_PollEvent(&ev)) {          // 0xBEA8A",
+    "    do { Game_DispatchSdlEvent();   // 0xBEA9B -> 0xC0430",
+    "    } while (SDL_PollEvent(&ev));   // 0xBEAA5 drain",
+    "  }",
+    "  // flag gates @ 0xBEAAE-0xBEADF",
+    "  if (!paused) Game_UpdateWorld();  // 0xBEAD4 -> 0x87510",
+    "  if (g_quit_requested) break;      // 0xBEAE7 -> 0xBECE7",
+    "  SDL_GL_SwapWindow(window);        // 0xBEAF0",
+    "  Game_PostSwapHook();              // 0xBEB00 -> 0xBFFA0",
+    "  // input / resize / SDL state @ 0xBEB05-0xBEB9E",
+    "  // sim + render helpers 0xBEBEE-0xBECC4",
+    "  Loop_FrameTick();                 // 0xBECE7 -> SDL_GetTicks delta, maybe SDL_Delay",
+    "}",
+    "Save_Write(ctx, mode);              // 0xBED11 on quit path"
+  ],
+  "frame_calls_resolved": [
+    {
+      "from": "0xbea8a",
+      "rva": "0x1253b0",
+      "name": "SDL_PollEvent",
+      "raw": "0x1401253b0"
+    },
+    {
+      "from": "0xbea9b",
+      "rva": "0xc0430",
+      "name": "Game_DispatchSdlEvent",
+      "raw": "0x1400c0430"
+    },
+    {
+      "from": "0xbeaa5",
+      "rva": "0x1253b0",
+      "name": "SDL_PollEvent",
+      "raw": "0x1401253b0"
+    },
+    {
+      "from": "0xbead4",
+      "rva": "0x87510",
+      "name": "Game_UpdateWorld",
+      "raw": "0x140087510"
+    },
+    {
+      "from": "0xbeaf0",
+      "rva": "0x1238d0",
+      "name": "SDL_GL_SwapWindow",
+      "raw": "0x1401238d0"
+    },
+    {
+      "from": "0xbeb00",
+      "rva": "0xbffa0",
+      "name": "Game_PostSwapHook",
+      "raw": "0x1400bffa0"
+    },
+    {
+      "from": "0xbeb24",
+      "rva": "0x125d70",
+      "name": "SDL_SetWindowFullscreen",
+      "raw": "0x140125d70"
+    },
+    {
+      "from": "0xbeb59",
+      "rva": "0x125e70",
+      "name": "SDL_SetWindowSize",
+      "raw": "0x140125e70"
+    },
+    {
+      "from": "0xbeb7c",
+      "rva": "0x125d70",
+      "name": "SDL_SetWindowFullscreen",
+      "raw": "0x140125d70"
+    },
+    {
+      "from": "0xbeb8d",
+      "rva": "0x123e80",
+      "name": "SDL_GetDesktopDisplayMode",
+      "raw": "0x140123e80"
+    },
+    {
+      "from": "0xbebee",
+      "rva": "0x1243b0",
+      "name": "SDL_GetWindowBordersSize",
+      "raw": "0x1401243b0"
+    },
+    {
+      "from": "0xbec53",
+      "rva": "0xc12d0",
+      "name": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "from": "0xbec79",
+      "rva": "0xc12d0",
+      "name": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "from": "0xbec94",
+      "rva": "0x125e70",
+      "name": "SDL_SetWindowSize",
+      "raw": "0x140125e70"
+    },
+    {
+      "from": "0xbeca9",
+      "rva": "0x125e40",
+      "name": "SDL_SetWindowPosition",
+      "raw": "0x140125e40"
+    },
+    {
+      "from": "0xbecbf",
+      "rva": "0x123850",
+      "name": "SDL_GL_GetDrawableSize",
+      "raw": "0x140123850"
+    },
+    {
+      "from": "0xbecc4",
+      "rva": "0xc3a70",
+      "name": "Game_FrameFinalize",
+      "raw": "0x1400c3a70"
+    },
+    {
+      "from": "0xbece7",
+      "rva": "0x124330",
+      "name": "SDL_GetTicks",
+      "raw": "0x140124330"
+    },
+    {
+      "from": "0xbecfb",
+      "rva": "0x1235f0",
+      "name": "SDL_Delay",
+      "raw": "0x1401235f0"
+    },
+    {
+      "from": "0xbed0c",
+      "rva": "0x98680",
+      "name": null,
+      "raw": "0x140098680"
+    },
+    {
+      "from": "0xbed11",
+      "rva": "0x71f60",
+      "name": "Save_Write",
+      "raw": "0x140071f60"
+    },
+    {
+      "from": "0xbed1f",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rip + 0x19bea3]"
+    },
+    {
+      "from": "0xbed25",
+      "rva": "0x87800",
+      "name": null,
+      "raw": "0x140087800"
+    },
+    {
+      "from": "0xbed2d",
+      "rva": "0x123800",
+      "name": "SDL_GL_DeleteContext",
+      "raw": "0x140123800"
+    },
+    {
+      "from": "0xbed35",
+      "rva": "0x123660",
+      "name": "SDL_DestroyWindow",
+      "raw": "0x140123660"
+    },
+    {
+      "from": "0xbed3a",
+      "rva": "0x125410",
+      "name": "SDL_Quit",
+      "raw": "0x140125410"
+    },
+    {
+      "from": "0xbed82",
+      "rva": "0x24150",
+      "name": null,
+      "raw": "0x140024150"
+    }
+  ],
+  "init_calls_sample": [
+    {
+      "from": "0xbe106",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rip + 0x19cb04]"
+    },
+    {
+      "from": "0xbe128",
+      "rva": "0x1248b0",
+      "name": "SDL_Init",
+      "raw": "0x1401248b0"
+    },
+    {
+      "from": "0xbe171",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rip + 0x19bff9]"
+    },
+    {
+      "from": "0xbe186",
+      "rva": "0x1196bc",
+      "name": null,
+      "raw": "0x1401196bc"
+    },
+    {
+      "from": "0xbe18f",
+      "rva": "0x251ce0",
+      "name": null,
+      "raw": "0x140251ce0"
+    },
+    {
+      "from": "0xbe1a5",
+      "rva": "0x27f70",
+      "name": null,
+      "raw": "0x140027f70"
+    },
+    {
+      "from": "0xbe1fd",
+      "rva": "0x21ddc0",
+      "name": null,
+      "raw": "0x14021ddc0"
+    },
+    {
+      "from": "0xbe283",
+      "rva": "0x2511b0",
+      "name": null,
+      "raw": "0x1402511b0"
+    },
+    {
+      "from": "0xbe2ab",
+      "rva": "0x28600",
+      "name": null,
+      "raw": "0x140028600"
+    },
+    {
+      "from": "0xbe2cb",
+      "rva": "0x2511b0",
+      "name": null,
+      "raw": "0x1402511b0"
+    },
+    {
+      "from": "0xbe2dc",
+      "rva": "0xc0900",
+      "name": null,
+      "raw": "0x1400c0900"
+    },
+    {
+      "from": "0xbe319",
+      "rva": "0x21e450",
+      "name": null,
+      "raw": "0x14021e450"
+    },
+    {
+      "from": "0xbe342",
+      "rva": "0x27f70",
+      "name": null,
+      "raw": "0x140027f70"
+    },
+    {
+      "from": "0xbe357",
+      "rva": "0x27830",
+      "name": null,
+      "raw": "0x140027830"
+    },
+    {
+      "from": "0xbe3c3",
+      "rva": "0x28600",
+      "name": null,
+      "raw": "0x140028600"
+    },
+    {
+      "from": "0xbe3e3",
+      "rva": "0x2511b0",
+      "name": null,
+      "raw": "0x1402511b0"
+    },
+    {
+      "from": "0xbe40f",
+      "rva": "0xc0900",
+      "name": null,
+      "raw": "0x1400c0900"
+    },
+    {
+      "from": "0xbe44c",
+      "rva": "0x21e450",
+      "name": null,
+      "raw": "0x14021e450"
+    },
+    {
+      "from": "0xbe4b8",
+      "rva": "0x28600",
+      "name": null,
+      "raw": "0x140028600"
+    },
+    {
+      "from": "0xbe4d8",
+      "rva": "0x2511b0",
+      "name": null,
+      "raw": "0x1402511b0"
+    },
+    {
+      "from": "0xbe505",
+      "rva": "0xc0900",
+      "name": null,
+      "raw": "0x1400c0900"
+    },
+    {
+      "from": "0xbe542",
+      "rva": "0x21e450",
+      "name": null,
+      "raw": "0x14021e450"
+    },
+    {
+      "from": "0xbe55c",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rip + 0x19bc36]"
+    },
+    {
+      "from": "0xbe562",
+      "rva": "0x711b0",
+      "name": "SettingsLoader",
+      "raw": "0x1400711b0"
+    },
+    {
+      "from": "0xbe56d",
+      "rva": "0x123e80",
+      "name": "SDL_GetDesktopDisplayMode",
+      "raw": "0x140123e80"
+    },
+    {
+      "from": "0xbe607",
+      "rva": "0xc12d0",
+      "name": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "from": "0xbe620",
+      "rva": "0xc12d0",
+      "name": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "from": "0xbe69c",
+      "rva": "0xc12d0",
+      "name": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "from": "0xbe6b9",
+      "rva": "0xc12d0",
+      "name": "Game_SimStep",
+      "raw": "0x1400c12d0"
+    },
+    {
+      "from": "0xbe712",
+      "rva": "0x123580",
+      "name": "SDL_CreateWindow",
+      "raw": "0x140123580"
+    },
+    {
+      "from": "0xbe726",
+      "rva": "0x1237f0",
+      "name": "SDL_GL_CreateContext",
+      "raw": "0x1401237f0"
+    },
+    {
+      "from": "0xbe735",
+      "rva": "0x125eb0",
+      "name": "SDL_ShowCursor",
+      "raw": "0x140125eb0"
+    },
+    {
+      "from": "0xbe74a",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rip + 0x19c490]"
+    },
+    {
+      "from": "0xbe762",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rip + 0x19c480]"
+    },
+    {
+      "from": "0xbe773",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rax + 0x50]"
+    },
+    {
+      "from": "0xbe77d",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rip + 0x19c465]"
+    },
+    {
+      "from": "0xbe789",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rax + 0x110]"
+    },
+    {
+      "from": "0xbe79f",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rip + 0x19c443]"
+    },
+    {
+      "from": "0xbe7b8",
+      "rva": null,
+      "name": null,
+      "raw": "qword ptr [rax + 0x78]"
+    },
+    {
+      "from": "0xbe7c1",
+      "rva": "0x874b0",
+      "name": null,
+      "raw": "0x1400874b0"
+    }
+  ],
+  "frame_globals": [
+    {
+      "global_rva": "0x2f14eb",
+      "first_use": "0xBEAE1",
+      "insn": "cmp byte ptr [rip + 0x232a03], bl",
+      "role": "g_quit_requested: je @ 0xBEAE7 -> 0xBECE7 skips SDL_GL_SwapWindow path",
+      "near_string": null
+    },
+    {
+      "global_rva": "0x318a54",
+      "first_use": "0xbeaae",
+      "insn": "cmp byte ptr [rip + 0x259fa0], bl",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x318a53",
+      "first_use": "0xbeab4",
+      "insn": "mov byte ptr [rip + 0x259f99], bl",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x2f2658",
+      "first_use": "0xbeabc",
+      "insn": "cmp byte ptr [rip + 0x233b96], bl",
+      "role": "frame flags (pause / mode)",
+      "near_string": null
+    },
+    {
+      "global_rva": "0x318a51",
+      "first_use": "0xbeac4",
+      "insn": "cmp byte ptr [rip + 0x259f87], bl",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x2f14ea",
+      "first_use": "0xbeae1",
+      "insn": "cmp byte ptr [rip + 0x232a03], bl",
+      "role": "quit_requested (je -> frame tick skips swap path)",
+      "near_string": null
+    },
+    {
+      "global_rva": "0x318a52",
+      "first_use": "0xbeb05",
+      "insn": "cmp byte ptr [rip + 0x259f47], bl",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x2f14cc",
+      "first_use": "0xbeb0d",
+      "insn": "cmp byte ptr [rip + 0x2329b9], bl",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x2f14dc",
+      "first_use": "0xbeb49",
+      "insn": "mov r8d, dword ptr [rip + 0x23298c]",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x2f14d8",
+      "first_use": "0xbeb53",
+      "insn": "mov edx, dword ptr [rip + 0x23297f]",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x318a58",
+      "first_use": "0xbeb63",
+      "insn": "cmp dword ptr [rip + 0x259eef], ebx",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x318a5c",
+      "first_use": "0xbeba4",
+      "insn": "mov eax, dword ptr [rip + 0x259eb2]",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x2f14d0",
+      "first_use": "0xbec0d",
+      "insn": "mov ecx, dword ptr [rip + 0x2328bd]",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x2f14d4",
+      "first_use": "0xbec3e",
+      "insn": "add dword ptr [rip + 0x232890], eax",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x2f1e24",
+      "first_use": "0xbecae",
+      "insn": "lea r8, [rip + 0x23316f]",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x2f1e20",
+      "first_use": "0xbecb8",
+      "insn": "lea rdx, [rip + 0x233161]",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x318a50",
+      "first_use": "0xbed00",
+      "insn": "cmp byte ptr [rip + 0x259d4a], bl",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x25abc8",
+      "first_use": "0xbed1f",
+      "insn": "call qword ptr [rip + 0x19bea3]",
+      "role": null,
+      "near_string": null
+    },
+    {
+      "global_rva": "0x266060",
+      "first_use": "0xbedad",
+      "insn": "lea rcx, [rip + 0x1a72ac]",
+      "role": null,
+      "near_string": "Could not create window: %s\n"
+    }
+  ],
+  "quit_path": {
+    "flag_cmp": "0xBEAE1",
+    "skip_render_je": "0xBEAE7 -> 0xBECE7",
+    "save_on_quit": "0xBED11 -> Save_Write @ 0x6DAB0",
+    "autosave_in_loop": "0xBEAD9 (backtrace from Frida auto-save)"
+  },
+  "debunked": {
+    "RenderFrame_11E0F0": "0 Frida hits; tail thunk only \u2014 do not hook"
+  },
+  "artifacts": {
+    "frida": "RE_Tools/analysis/frida_gameloop.json",
+    "capstone_summary": "RE_Tools/analysis/phase1_gamemain_loop.json"
+  }
+}

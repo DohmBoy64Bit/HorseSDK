@@ -1,0 +1,789 @@
+# Function: GameMain_InitAndLoop (Ghidra FUN_1400be0f0)
+# RVA: 0xBE0F0 — full function (init + frame loop + shutdown)
+# VA: 0x1400BE0F0
+# Date: 2026-05-15 (user paste from Ghidra)
+# Caller: CRT @ 0x21EE0D (FUN_14021ed0c)
+# Callee: Game_DispatchSdlEvent @ 0xBEA9B -> 0xC0430
+
+# Key globals (Ghidra DAT -> RVA):
+#   DAT_140318a50 @ 0x318A50  g_sdl_quit  (SDL_QUIT -> jmp shutdown @ 0xBEA66)
+#   DAT_1402f14eb @ 0x2F14EB    g_loop_quit (skip UpdateWorld path)
+#   DAT_1402f14ea @ 0x2F14EA    g_render_ok (0 -> skip swap @ 0xBEAE7)
+#   DAT_140318a54 @ 0x318A54    g_steam_callbacks_enabled
+#   DAT_1400874b0 @ 0x874B0     Game_BootstrapWorld (call @ 0xBE7C1)
+
+# --- Ghidra listing below ---
+
+**************************************************************
+                             *                          FUNCTION                          *
+                             **************************************************************
+                             undefined FUN_1400be0f0()
+                               assume GS_OFFSET = 0xff00000000
+             undefined         AL:1           <RETURN>
+             undefined8        Stack[0x18]:8  local_res18                             XREF[3]:     1400be120(W), 
+                                                                                                   1400be131(R), 
+                                                                                                   1400bed71(R)  
+             undefined8        Stack[0x10]:8  local_res10                             XREF[2]:     1400be151(W), 
+                                                                                                   1400bed61(R)  
+             undefined8        Stack[0x8]:8   local_res8                              XREF[2]:     1400be149(W), 
+                                                                                                   1400bed59(R)  
+             undefined8        Stack[-0x10]:8 local_10                                XREF[2]:     1400be159(W), 
+                                                                                                   1400bed51(R)  
+             undefined8        Stack[-0x18]:8 local_18                                XREF[2]:     1400be22d(W), 
+                                                                                                   1400bed3f(R)  
+             undefined8        Stack[-0x20]:8 local_20                                XREF[2]:     1400be161(W), 
+                                                                                                   1400bed49(R)  
+             undefined8        Stack[-0x28]:8 local_28                                XREF[2]:     1400be169(W), 
+                                                                                                   1400bed69(R)  
+             undefined1        Stack[-0x128   local_128                               XREF[1]:     1400be7ab(*)  
+             undefined1        Stack[-0x1f8   local_1f8                               XREF[1]:     1400be0f2(*)  
+             undefined1        Stack[-0x238   local_238                               XREF[3]:     1400be17d(*), 
+                                                                                                   1400be18b(*), 
+                                                                                                   1400be1a1(*)  
+             undefined4        Stack[-0x248   local_248                               XREF[1]:     1400be57d(R)  
+             undefined4        Stack[-0x24c   local_24c                               XREF[1]:     1400be579(R)  
+             undefined1        Stack[-0x250   local_250                               XREF[1]:     1400be567(*)  
+             undefined1[16]    Stack[-0x260   local_260                               XREF[3,3]:   1400be81b(W), 
+                                                                                                   1400be85a(W), 
+                                                                                                   1400be8f8(W), 
+                                                                                                   1400be861(W), 
+                                                                                                   1400be898(R), 
+                                                                                                   1400be8a7(R)  
+             undefined1[16]    Stack[-0x270   local_270                               XREF[8,2]:   1400be805(*), 
+                                                                                                   1400be817(W), 
+                                                                                                   1400be84f(W), 
+                                                                                                   1400be875(*), 
+                                                                                                   1400be89d(*), 
+                                                                                                   1400be8b8(R), 
+                                                                                                   1400be8f4(W), 
+                                                                                                   1400beb87(*), 
+                                                                                                   1400beb96(R), 
+                                                                                                   1400beb9a(R)  
+             undefined8        Stack[-0x278   local_278                               XREF[4]:     1400be8ae(W), 
+                                                                                                   1400be9c2(R), 
+                                                                                                   1400bebcd(*), 
+                                                                                                   1400bec6f(R)  
+             undefined8        Stack[-0x280   local_280                               XREF[4]:     1400be914(W), 
+                                                                                                   1400bea2d(R), 
+                                                                                                   1400bebe6(*), 
+                                                                                                   1400bec58(R)  
+             undefined8        Stack[-0x288   local_288                               XREF[4]:     1400be72d(W), 
+                                                                                                   1400bea40(R), 
+                                                                                                   1400bebd1(*), 
+                                                                                                   1400bec4e(R)  
+             undefined4        Stack[-0x290   local_290                               XREF[2]:     1400bebdc(*), 
+                                                                                                   1400bec32(R)  
+             undefined1[16]    Stack[-0x2b8   local_2b8                               XREF[7,11]:  1400be26d(W), 
+                                                                                                   1400be2bb(W), 
+                                                                                                   1400be3d3(W), 
+                                                                                                   1400be4c8(W), 
+                                                                                                   1400be935(W), 
+                                                                                                   1400be962(W), 
+                                                                                                   1400be9ab(W), 
+                                                                                                   1400be275(W), 
+                                                                                                   1400be2c3(W), 
+                                                                                                   1400be2e1(R), 
+                                                                                                   1400be3db(W), 
+                                                                                                   1400be414(R), 
+                                                                                                   1400be4d0(W), 
+                                                                                                   1400be50a(R), 
+                                                                                                   1400be967(W), 
+                                                                                                   1400be9b3(W), 
+                                                                                                   1400be9bd(R), 
+                                                                                                   1400be9ec(R)  
+             undefined1[16]    Stack[-0x2c8   local_2c8                               XREF[24]:    1400be24d(W), 
+                                                                                                   1400be27e(*), 
+                                                                                                   1400be2b3(W), 
+                                                                                                   1400be2d4(*), 
+                                                                                                   1400be2ec(R), 
+                                                                                                   1400be382(*), 
+                                                                                                   1400be397(W), 
+                                                                                                   1400be3cb(W), 
+                                                                                                   1400be3ee(*), 
+                                                                                                   1400be41f(R), 
+                                                                                                   1400be477(*), 
+                                                                                                   1400be48c(W), 
+                                                                                                   1400be4c0(W), 
+                                                                                                   1400be4ed(*), 
+                                                                                                   1400be515(R), 
+                                                                                                   1400be930(W), 
+                                                                                                   1400be971(W), 
+                                                                                                   1400be9a3(W), 
+                                                                                                   1400be9ca(*), 
+                                                                                                   1400be9d2(*)  
+             undefined4        Stack[-0x2d0   local_2d0                               XREF[1]:     1400be6fd(W)  
+             undefined8        Stack[-0x2d8   local_2d8                               XREF[5]:     1400be707(W), 
+                                                                                                   1400bebe1(W), 
+                                                                                                   1400bed96(W), 
+                                                                                                   1400bedc8(W), 
+                                                                                                   1400beddf(W)  
+                             FUN_1400be0f0                                   XREF[5]:     FUN_14021ed0c:14021ee0d(c), 
+                                                                                          1402cde2c(*), 1402cde58(*), 
+                                                                                          1402cde84(*), 14032a580(*)  
+       1400be0f0 40 55           PUSH       RBP
+       1400be106 ff 15 04        CALL       qword ptr [->STEAM_API64.DLL::SteamAPI_Restart   = 002e9d74
+                 cb 19 00
+       1400be10c 84 c0           TEST       AL,AL
+       1400be10e 74 0b           JZ         LAB_1400be11b
+       1400be110 33 c0           XOR        EAX,EAX
+       1400be11a c3              RET
+       1400be128 e8 83 67        CALL       SDL_Init                                         undefined SDL_Init()
+                 06 00
+       1400be12d 85 c0           TEST       EAX,EAX
+       1400be12f 74 18           JZ         LAB_1400be149
+       1400be139 48 c7 c0        MOV        RAX,-0x1
+                 ff ff ff ff
+       1400be148 c3              RET
+       1400be171 ff 15 f9        CALL       qword ptr [->KERNEL32.DLL::GetCurrentProcess]    = 002e9b9e
+                 bf 19 00
+       1400be17d 4c 8d 45 c0     LEA        R8=>local_238,[RBP + -0x40]
+       1400be186 e8 31 b5        CALL       KERNEL32.DLL::K32GetModuleFileNameExA            undefined K32GetModuleFileNameEx
+                 05 00
+       1400be18b 48 8d 4d c0     LEA        RCX=>local_238,[RBP + -0x40]
+       1400be18f e8 4c 3b        CALL       strlen                                           size_t strlen(char * _Str)
+                 19 00
+       1400be1a1 48 8d 55 c0     LEA        RDX=>local_238,[RBP + -0x40]
+       1400be1a5 e8 c6 9d        CALL       FUN_140027f70                                    undefined FUN_140027f70()
+                 f6 ff
+       1400be1b1 49 8b f7        MOV        RSI,R15
+       1400be1c6 48 c7 c7        MOV        RDI,-0x1
+                 ff ff ff ff
+       1400be1cd 48 0f 47 f2     CMOVA      RSI,RDX
+       1400be1d1 48 83 f9 01     CMP        RCX,0x1
+       1400be1d5 72 4d           JC         LAB_1400be224
+       1400be1d7 48 ff c9        DEC        RCX
+       1400be1e1 48 8b df        MOV        RBX,RDI
+       1400be1ea 48 3b cb        CMP        RCX,RBX
+       1400be1ed 48 0f 42 d9     CMOVC      RBX,RCX
+       1400be1f4 48 ff c3        INC        RBX
+       1400be1f7 48 03 de        ADD        RBX,RSI
+       1400be1fd e8 be fb        CALL       thunk_FUN_14021d070                              undefined thunk_FUN_14021d070(un
+                 15 00
+       1400be213 48 2b ce        SUB        RCX,RSI
+       1400be216 48 3b c3        CMP        RAX,RBX
+       1400be219 48 0f 45 f9     CMOVNZ     RDI,RCX
+                             LAB_1400be224                                   XREF[1]:     1400be1d5(j)  
+       1400be224 48 63 ff        MOVSXD     RDI,EDI
+       1400be227 4d 8b f7        MOV        R14,R15
+       1400be22a 48 ff c7        INC        RDI
+       1400be235 48 3b cf        CMP        RCX,RDI
+       1400be245 48 0f 42 f9     CMOVC      RDI,RCX
+       1400be24d 0f 11 44        MOVUPS     xmmword ptr [RSP + local_2c8[0]],XMM0
+                 24 30
+       1400be252 4c 0f 47 f2     CMOVA      R14,RDX
+       1400be259 0f 87 29        JA         LAB_1400bed88
+                 0b 00 00
+       1400be268 77 25           JA         LAB_1400be28f
+       1400be275 48 c7 44        MOV        qword ptr [RSP + local_2b8[8]],0xf
+                 24 48 0f 
+                 00 00 00
+       1400be27e 48 8d 4c        LEA        RCX=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400be283 e8 28 2f        CALL       FUN_1402511b0                                    undefined FUN_1402511b0()
+                 19 00
+       1400be288 c6 44 3c        MOV        byte ptr [RSP + RDI*0x1 + 0x30],0x0
+                 30 00
+       1400be292 48 83 ce 0f     OR         RSI,0xf
+       1400be299 76 05           JBE        LAB_1400be2a0
+       1400be29b 49 8b f4        MOV        RSI,R12
+                             LAB_1400be2a0                                   XREF[1]:     1400be299(j)  
+       1400be2a0 48 3b f0        CMP        RSI,RAX
+       1400be2a3 48 0f 42 f0     CMOVC      RSI,RAX
+                             LAB_1400be2a7                                   XREF[1]:     1400be29e(j)  
+       1400be2a7 48 8d 4e 01     LEA        RCX,[RSI + 0x1]
+       1400be2ab e8 50 a3        CALL       FUN_140028600                                    undefined FUN_140028600()
+                 f6 ff
+       1400be2cb e8 e0 2e        CALL       FUN_1402511b0                                    undefined FUN_1402511b0()
+                 19 00
+       1400be2d0 c6 04 3b 00     MOV        byte ptr [RBX + RDI*0x1],0x0
+                             LAB_1400be2d4                                   XREF[1]:     1400be28d(j)  
+       1400be2d4 48 8d 54        LEA        RDX=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400be2dc e8 1f 26        CALL       FUN_1400c0900                                    undefined FUN_1400c0900()
+                 00 00
+       1400be2ea 76 32           JBE        LAB_1400be31e
+       1400be2f1 48 ff c2        INC        RDX
+       1400be2f7 48 81 fa        CMP        RDX,0x1000
+                 00 10 00 00
+       1400be300 48 8b 49 f8     MOV        RCX,qword ptr [RCX + -0x8]
+       1400be30b 48 83 e8 08     SUB        RAX,0x8
+       1400be313 0f 87 75        JA         LAB_1400bed8e
+                 0a 00 00
+                             LAB_1400be319                                   XREF[1]:     1400be2fe(j)  
+       1400be319 e8 32 01        CALL       thunk_FUN_140241610                              undefined thunk_FUN_140241610()
+                 16 00
+       1400be326 4c 8d 2d        LEA        R13,[DAT_1402f2618]
+                 eb 42 23 00
+       1400be334 49 8b d7        MOV        RDX,R15
+       1400be337 48 0f 47        CMOVA      RDX,qword ptr [DAT_1402f25d8]
+                 15 99 42 
+                 23 00
+       1400be342 e8 29 9c        CALL       FUN_140027f70                                    undefined FUN_140027f70()
+                 f6 ff
+       1400be357 e8 d4 94        CALL       FUN_140027830                                    undefined FUN_140027830()
+                 f6 ff
+       1400be366 49 2b c6        SUB        RAX,R14
+       1400be369 48 83 f8 06     CMP        RAX,0x6
+       1400be36d 0f 82 15        JC         LAB_1400bed88
+                 0a 00 00
+       1400be37b 49 8d 76 06     LEA        RSI,[R14 + 0x6]
+       1400be37f 4d 8b fd        MOV        R15,R13
+       1400be382 48 8d 7c        LEA        RDI=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400be387 4c 0f 47        CMOVA      R15,qword ptr [DAT_1402f2618]
+                 3d 89 42 
+                 23 00
+       1400be38f bb 0f 00        MOV        EBX,0xf
+                 00 00
+       1400be397 0f 11 44        MOVUPS     xmmword ptr [RSP + local_2c8[0]],XMM0
+                 24 30
+       1400be39f 76 2f           JBE        LAB_1400be3d0
+       1400be3a4 48 83 cb 0f     OR         RBX,0xf
+       1400be3ab 76 05           JBE        LAB_1400be3b2
+       1400be3ad 49 8b dc        MOV        RBX,R12
+                             LAB_1400be3b2                                   XREF[1]:     1400be3ab(j)  
+       1400be3b2 48 83 fb 16     CMP        RBX,0x16
+       1400be3bb 48 0f 42 d8     CMOVC      RBX,RAX
+                             LAB_1400be3bf                                   XREF[1]:     1400be3b0(j)  
+       1400be3bf 48 8d 4b 01     LEA        RCX,[RBX + 0x1]
+       1400be3c3 e8 38 a2        CALL       FUN_140028600                                    undefined FUN_140028600()
+                 f6 ff
+       1400be3cb 48 89 44        MOV        qword ptr [RSP + local_2c8[0]],RAX
+                 24 30
+       1400be3e3 e8 c8 2d        CALL       FUN_1402511b0                                    undefined FUN_1402511b0()
+                 19 00
+       1400be3ee 48 8d 54        LEA        RDX=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400be3f3 42 89 0c 37     MOV        dword ptr [RDI + R14*0x1],ECX
+       1400be405 66 42 89        MOV        word ptr [RDI + R14*0x1 + 0x4],AX
+                 44 37 04
+       1400be40b c6 04 37 00     MOV        byte ptr [RDI + RSI*0x1],0x0
+       1400be40f e8 ec 24        CALL       FUN_1400c0900                                    undefined FUN_1400c0900()
+                 00 00
+       1400be41d 76 32           JBE        LAB_1400be451
+       1400be424 48 ff c2        INC        RDX
+       1400be42a 48 81 fa        CMP        RDX,0x1000
+                 00 10 00 00
+       1400be433 48 8b 49 f8     MOV        RCX,qword ptr [RCX + -0x8]
+       1400be43e 48 83 e8 08     SUB        RAX,0x8
+       1400be446 0f 87 42        JA         LAB_1400bed8e
+                 09 00 00
+                             LAB_1400be44c                                   XREF[1]:     1400be431(j)  
+       1400be44c e8 ff ff        CALL       thunk_FUN_140241610                              undefined thunk_FUN_140241610()
+                 15 00
+                             LAB_1400be451                                   XREF[1]:     1400be41d(j)  
+       1400be451 48 8b 35        MOV        RSI,qword ptr [DAT_1402f2628]
+                 d0 41 23 00
+       1400be45b 48 2b c6        SUB        RAX,RSI
+       1400be45e 48 83 f8 05     CMP        RAX,0x5
+       1400be462 0f 82 20        JC         LAB_1400bed88
+                 09 00 00
+       1400be470 4c 8d 76 05     LEA        R14,[RSI + 0x5]
+       1400be474 4d 8b fd        MOV        R15,R13
+       1400be477 48 8d 7c        LEA        RDI=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400be47c 4c 0f 47        CMOVA      R15,qword ptr [DAT_1402f2618]
+                 3d 94 41 
+                 23 00
+       1400be484 bb 0f 00        MOV        EBX,0xf
+                 00 00
+       1400be48c 0f 11 44        MOVUPS     xmmword ptr [RSP + local_2c8[0]],XMM0
+                 24 30
+       1400be494 76 2f           JBE        LAB_1400be4c5
+       1400be499 48 83 cb 0f     OR         RBX,0xf
+       1400be4a0 76 05           JBE        LAB_1400be4a7
+       1400be4a2 49 8b dc        MOV        RBX,R12
+                             LAB_1400be4a7                                   XREF[1]:     1400be4a0(j)  
+       1400be4a7 48 83 fb 16     CMP        RBX,0x16
+       1400be4b0 48 0f 42 d8     CMOVC      RBX,RAX
+                             LAB_1400be4b4                                   XREF[1]:     1400be4a5(j)  
+       1400be4b4 48 8d 4b 01     LEA        RCX,[RBX + 0x1]
+       1400be4b8 e8 43 a1        CALL       FUN_140028600                                    undefined FUN_140028600()
+                 f6 ff
+       1400be4c0 48 89 44        MOV        qword ptr [RSP + local_2c8[0]],RAX
+                 24 30
+       1400be4d8 e8 d3 2c        CALL       FUN_1402511b0                                    undefined FUN_1402511b0()
+                 19 00
+       1400be4e3 48 8d 1d        LEA        RBX,[DAT_1402f25f8]
+                 0e 41 23 00
+       1400be4ea 89 0c 37        MOV        dword ptr [RDI + RSI*0x1],ECX
+       1400be4ed 48 8d 54        LEA        RDX=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400be4fc 88 44 37 04     MOV        byte ptr [RDI + RSI*0x1 + 0x4],AL
+       1400be500 42 c6 04        MOV        byte ptr [RDI + R14*0x1],0x0
+                 37 00
+       1400be505 e8 f6 23        CALL       FUN_1400c0900                                    undefined FUN_1400c0900()
+                 00 00
+       1400be513 76 32           JBE        LAB_1400be547
+       1400be51a 48 ff c2        INC        RDX
+       1400be520 48 81 fa        CMP        RDX,0x1000
+                 00 10 00 00
+       1400be529 48 8b 49 f8     MOV        RCX,qword ptr [RCX + -0x8]
+       1400be534 48 83 e8 08     SUB        RAX,0x8
+       1400be53c 0f 87 4c        JA         LAB_1400bed8e
+                 08 00 00
+                             LAB_1400be542                                   XREF[1]:     1400be527(j)  
+       1400be542 e8 09 ff        CALL       thunk_FUN_140241610                              undefined thunk_FUN_140241610()
+                 15 00
+       1400be54f 48 0f 47        CMOVA      RBX,qword ptr [DAT_1402f25f8]
+                 1d a1 40 
+                 23 00
+       1400be55c ff 15 36        CALL       qword ptr [->KERNEL32.DLL::CreateDirectoryA]     = 002e9b54
+                 bc 19 00
+       1400be562 e8 49 2c        CALL       FUN_1400711b0                                    undefined FUN_1400711b0()
+                 fb ff
+       1400be567 48 8d 55 a8     LEA        RDX=>local_250,[RBP + -0x58]
+       1400be56d e8 0e 59        CALL       SDL_GetDesktopDisplayMode                        undefined SDL_GetDesktopDisplayM
+                 06 00
+       1400be581 45 85 d2        TEST       R10D,R10D
+       1400be584 75 76           JNZ        LAB_1400be5fc
+       1400be586 42 8d 0c        LEA        ECX,[R12*0x8]
+                 e5 00 00 
+                 00 00
+       1400be595 41 b9 80        MOV        R9D,0xc80
+                 0c 00 00
+       1400be59b 41 b8 08        MOV        R8D,0x708
+                 07 00 00
+       1400be5a4 41 c1 fb 02     SAR        R11D,0x2
+       1400be5ae 44 03 d8        ADD        R11D,EAX
+                             LAB_1400be5b1                                   XREF[1]:     1400be5fa(j)  
+       1400be5b1 44 89 0d        MOV        dword ptr [DAT_1402f14d8],R9D
+                 20 2f 23 00
+       1400be5c5 7f 1e           JG         LAB_1400be5e5
+       1400be5c7 42 8d 0c        LEA        ECX,[R15*0x8]
+                 fd 00 00 
+                 00 00
+       1400be5d6 c1 fa 02        SAR        EDX,0x2
+       1400be5e3 7e 17           JLE        LAB_1400be5fc
+                             LAB_1400be5e5                                   XREF[1]:     1400be5c5(j)  
+       1400be5e5 41 81 e8        SUB        R8D,0xb4
+                 b4 00 00 00
+       1400be5ec 41 81 e9        SUB        R9D,0x140
+                 40 01 00 00
+       1400be5fa 7d b5           JGE        LAB_1400be5b1
+       1400be607 e8 c4 2c        CALL       FUN_1400c12d0                                    undefined FUN_1400c12d0()
+                 00 00
+       1400be620 e8 ab 2c        CALL       FUN_1400c12d0                                    undefined FUN_1400c12d0()
+                 00 00
+       1400be63c 44 89 15        MOV        dword ptr [DAT_1402f1e20],R10D                   = 000003C0h
+                 dd 37 23 00
+       1400be649 41 83 f9 ff     CMP        R9D,-0x1
+       1400be64d 75 1f           JNZ        LAB_1400be66e
+       1400be655 d1 f8           SAR        EAX,0x1
+       1400be65f d1 f8           SAR        EAX,0x1
+       1400be664 44 2b c9        SUB        R9D,ECX
+                             LAB_1400be66e                                   XREF[1]:     1400be64d(j)  
+       1400be66e 83 3d 5f        CMP        dword ptr [DAT_1402f14d4],-0x1
+                 2e 23 00 ff
+       1400be675 75 1a           JNZ        LAB_1400be691
+       1400be67d d1 f8           SAR        EAX,0x1
+       1400be687 d1 f8           SAR        EAX,0x1
+       1400be689 2b c1           SUB        EAX,ECX
+       1400be696 45 2b c2        SUB        R8D,R10D
+       1400be69c e8 2f 2c        CALL       FUN_1400c12d0                                    undefined FUN_1400c12d0()
+                 00 00
+       1400be6aa 44 2b 05        SUB        R8D,dword ptr [DAT_1402f14dc]
+                 2b 2e 23 00
+       1400be6b9 e8 12 2c        CALL       FUN_1400c12d0                                    undefined FUN_1400c12d0()
+                 00 00
+       1400be6d2 f6 d9           NEG        CL
+       1400be6df 1b d2           SBB        EDX,EDX
+       1400be6e1 81 e2 00        AND        EDX,0x2000
+                 20 00 00
+       1400be6e7 80 3d de        CMP        byte ptr [DAT_1402f14cc],0x0
+                 2d 23 00 00
+       1400be6ee 41 0f 45 c8     CMOVNZ     ECX,R8D
+       1400be6f5 0b d1           OR         EDX,ECX
+       1400be707 89 4c 24 20     MOV        dword ptr [RSP + local_2d8],ECX
+       1400be712 e8 69 4e        CALL       SDL_CreateWindow                                 undefined SDL_CreateWindow()
+                 06 00
+       1400be71a 48 85 c0        TEST       RAX,RAX
+       1400be71d 0f 84 82        JZ         LAB_1400beda5
+                 06 00 00
+       1400be726 e8 c5 50        CALL       SDL_GL_CreateContext                             undefined SDL_GL_CreateContext()
+                 06 00
+       1400be735 e8 76 77        CALL       SDL_ShowCursor                                   undefined SDL_ShowCursor()
+                 06 00
+       1400be73c c6 05 11        MOV        byte ptr [DAT_140318a54],0x0
+                 a3 25 00 00
+       1400be74a ff 15 90        CALL       qword ptr [->STEAM_API64.DLL::SteamInternal_St   = 002e9db6
+                 c4 19 00
+       1400be750 85 c0           TEST       EAX,EAX
+       1400be752 75 6d           JNZ        LAB_1400be7c1
+       1400be75b c6 05 f2        MOV        byte ptr [DAT_140318a54],0x1
+                 a2 25 00 01
+       1400be762 ff 15 80        CALL       qword ptr [->STEAM_API64.DLL::SteamInternal_Co   = 002e9cc8
+                 c4 19 00
+       1400be76d 48 8b 08        MOV        RCX,qword ptr [RAX]
+       1400be770 48 8b 01        MOV        RAX,qword ptr [RCX]
+       1400be773 ff 50 50        CALL       qword ptr [RAX + 0x50]
+       1400be77d ff 15 65        CALL       qword ptr [->STEAM_API64.DLL::SteamInternal_Co   = 002e9cc8
+                 c4 19 00
+       1400be783 48 8b 08        MOV        RCX,qword ptr [RAX]
+       1400be786 48 8b 01        MOV        RAX,qword ptr [RCX]
+       1400be789 ff 90 10        CALL       qword ptr [RAX + 0x110]
+                 01 00 00
+       1400be78f 84 c0           TEST       AL,AL
+       1400be79f ff 15 43        CALL       qword ptr [->STEAM_API64.DLL::SteamInternal_Co   = 002e9cc8
+                 c4 19 00
+       1400be7ab 48 8d 95        LEA        RDX=>local_128,[RBP + 0xd0]
+                 d0 00 00 00
+       1400be7b2 48 8b 08        MOV        RCX,qword ptr [RAX]
+       1400be7b5 48 8b 01        MOV        RAX,qword ptr [RCX]
+       1400be7b8 ff 50 78        CALL       qword ptr [RAX + 0x78]
+                             LAB_1400be7c1                                   XREF[1]:     1400be752(j)  
+       1400be7c1 e8 ea 8c        CALL       FUN_1400874b0                                    undefined FUN_1400874b0()
+                 fc ff
+       1400be7c6 80 3d 8a        CMP        byte ptr [DAT_140318a57],0x0
+                 a2 25 00 00
+       1400be7cd 0f 84 72        JZ         LAB_1400bea45
+                 02 00 00
+       1400be7e7 49 2b c6        SUB        RAX,R14
+       1400be7ea 48 83 f8 09     CMP        RAX,0x9
+       1400be7ee 0f 82 c6        JC         LAB_1400bedba
+                 05 00 00
+       1400be7fc 49 8d 46 09     LEA        RAX,[R14 + 0x9]
+       1400be800 bb 0f 00        MOV        EBX,0xf
+                 00 00
+       1400be805 48 8d 75 88     LEA        RSI=>local_270,[RBP + -0x78]
+       1400be809 4c 0f 47        CMOVA      R13,qword ptr [DAT_1402f2618]
+                 2d 07 3e 
+                 23 00
+       1400be817 0f 11 45 88     MOVUPS     xmmword ptr [RBP + local_270[0]],XMM0
+       1400be81b f3 0f 7f        MOVDQU     xmmword ptr [RBP + local_260[0]],XMM1
+                 4d 98
+       1400be823 76 32           JBE        LAB_1400be857
+       1400be828 48 83 cb 0f     OR         RBX,0xf
+       1400be82f 76 05           JBE        LAB_1400be836
+       1400be831 48 8b d9        MOV        RBX,RCX
+                             LAB_1400be836                                   XREF[1]:     1400be82f(j)  
+       1400be836 48 83 fb 16     CMP        RBX,0x16
+       1400be83f 48 0f 42 d8     CMOVC      RBX,RAX
+                             LAB_1400be843                                   XREF[1]:     1400be834(j)  
+       1400be843 48 8d 4b 01     LEA        RCX,[RBX + 0x1]
+       1400be847 e8 b4 9d        CALL       FUN_140028600                                    undefined FUN_140028600()
+                 f6 ff
+       1400be853 49 8d 46 09     LEA        RAX,[R14 + 0x9]
+                             LAB_1400be857                                   XREF[1]:     1400be823(j)  
+       1400be857 4d 8b c6        MOV        R8,R14
+       1400be868 e8 43 29        CALL       FUN_1402511b0                                    undefined FUN_1402511b0()
+                 19 00
+       1400be875 48 8d 4d 88     LEA        RCX=>local_270,[RBP + -0x78]
+       1400be879 f2 42 0f        MOVSD      qword ptr [RSI + R14*0x1],XMM0
+                 11 04 36
+       1400be88d 42 88 44        MOV        byte ptr [RSI + R14*0x1 + 0x8],AL
+                 36 08
+       1400be892 42 c6 44        MOV        byte ptr [RSI + R14*0x1 + 0x9],0x0
+                 36 09 00
+       1400be89d 48 0f 47        CMOVA      RCX=>local_270,qword ptr [RBP + -0x78]
+                 4d 88
+       1400be8a2 e8 ed 6f        CALL       FUN_140225894                                    undefined FUN_140225894()
+                 16 00
+       1400be8b6 76 34           JBE        LAB_1400be8ec
+       1400be8bc 48 ff c2        INC        RDX
+       1400be8c2 48 81 fa        CMP        RDX,0x1000
+                 00 10 00 00
+       1400be8c9 72 19           JC         LAB_1400be8e4
+       1400be8cb 48 8b 40 f8     MOV        RAX,qword ptr [RAX + -0x8]
+       1400be8d6 48 83 e9 08     SUB        RCX,0x8
+       1400be8de 0f 87 dc        JA         LAB_1400bedc0
+                 04 00 00
+       1400be8e7 e8 64 fb        CALL       thunk_FUN_140241610                              undefined thunk_FUN_140241610()
+                 15 00
+       1400be8f4 c6 45 88 00     MOV        byte ptr [RBP + local_270[0]],0x0
+       1400be8f8 f3 0f 7f        MOVDQU     xmmword ptr [RBP + local_260[0]],XMM0
+                 45 98
+       1400be8fd 48 85 db        TEST       RBX,RBX
+       1400be914 48 89 44        MOV        qword ptr [RSP + local_280],RAX
+                 24 78
+       1400be919 48 3b f0        CMP        RSI,RAX
+       1400be91c 0f 84 16        JZ         LAB_1400bea38
+                 01 00 00
+                             LAB_1400be922                                   XREF[1]:     1400bea32(j)  
+       1400be922 48 83 7e        CMP        qword ptr [RSI + 0x18],0xf
+                 18 0f
+       1400be930 0f 11 44        MOVUPS     xmmword ptr [RSP + local_2c8[0]],XMM0
+                 24 30
+       1400be935 f3 0f 7f        MOVDQU     xmmword ptr [RSP + local_2b8[0]],XMM1
+                 4c 24 40
+       1400be93b 76 03           JBE        LAB_1400be940
+       1400be93d 4c 8b 2e        MOV        R13,qword ptr [RSI]
+                             LAB_1400be940                                   XREF[1]:     1400be93b(j)  
+       1400be940 4c 8b 76 10     MOV        R14,qword ptr [RSI + 0x10]
+       1400be951 0f 87 2b        JA         LAB_1400bed82
+                 04 00 00
+       1400be95b 77 1b           JA         LAB_1400be978
+       1400be967 48 89 44        MOV        qword ptr [RSP + local_2b8[8]],RAX
+                 24 48
+       1400be96c 41 0f 10        MOVUPS     XMM0,xmmword ptr [R13]
+                 45 00
+       1400be976 eb 4e           JMP        LAB_1400be9c6
+       1400be97b 48 83 cb 0f     OR         RBX,0xf
+       1400be982 76 05           JBE        LAB_1400be989
+       1400be984 48 8b d8        MOV        RBX,RAX
+                             LAB_1400be989                                   XREF[1]:     1400be982(j)  
+       1400be989 48 83 fb 16     CMP        RBX,0x16
+       1400be992 48 0f 42 d8     CMOVC      RBX,RAX
+                             LAB_1400be996                                   XREF[1]:     1400be987(j)  
+       1400be996 48 8d 4b 01     LEA        RCX,[RBX + 0x1]
+       1400be99a e8 61 9c        CALL       FUN_140028600                                    undefined FUN_140028600()
+                 f6 ff
+       1400be9b8 e8 f3 27        CALL       FUN_1402511b0                                    undefined FUN_1402511b0()
+                 19 00
+       1400be9c2 48 8b 5d 80     MOV        RBX,qword ptr [RBP + local_278]
+       1400be9ca 48 8d 4c        LEA        RCX=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400be9d2 48 0f 47        CMOVA      RCX=>local_2c8,qword ptr [RSP + 0x30]
+                 4c 24 30
+       1400be9d8 e8 37 34        CALL       FUN_140231e14                                    undefined FUN_140231e14()
+                 17 00
+       1400be9e7 e8 28 34        CALL       FUN_140231e14                                    undefined FUN_140231e14()
+                 17 00
+       1400be9f5 76 32           JBE        LAB_1400bea29
+       1400be9fc 48 ff c2        INC        RDX
+       1400bea02 48 81 fa        CMP        RDX,0x1000
+                 00 10 00 00
+       1400bea0b 48 8b 49 f8     MOV        RCX,qword ptr [RCX + -0x8]
+       1400bea16 48 83 e8 08     SUB        RAX,0x8
+       1400bea1e 0f 87 b3        JA         LAB_1400bedd7
+                 03 00 00
+                             LAB_1400bea24                                   XREF[1]:     1400bea09(j)  
+       1400bea24 e8 27 fa        CALL       thunk_FUN_140241610                              undefined thunk_FUN_140241610()
+                 15 00
+                             LAB_1400bea29                                   XREF[1]:     1400be9f5(j)  
+       1400bea29 48 83 c6 20     ADD        RSI,0x20
+       1400bea2d 48 3b 74        CMP        RSI,qword ptr [RSP + local_280]
+                 24 78
+       1400bea32 0f 85 ea        JNZ        LAB_1400be922
+                 fe ff ff
+       1400bea3b e8 e4 6f        CALL       FUN_140225a24                                    undefined FUN_140225a24()
+                 16 00
+       1400bea40 4c 8b 74        MOV        R14,qword ptr [RSP + local_288]
+                 24 70
+                             LAB_1400bea45                                   XREF[1]:     1400be7cd(j)  
+       1400bea45 80 3d 95        CMP        byte ptr [DAT_1402f14e1],0x0
+                 2a 23 00 00
+       1400bea4c 74 0a           JZ         LAB_1400bea58
+       1400bea53 e8 68 4e        CALL       SDL_GL_SetSwapInterval                           undefined SDL_GL_SetSwapInterval()
+                 06 00
+                             LAB_1400bea58                                   XREF[1]:     1400bea4c(j)  
+       1400bea58 80 3d f1        CMP        byte ptr [DAT_140318a50],0x0
+                 9f 25 00 00
+       1400bea5f c6 05 5a        MOV        byte ptr [DAT_1402f25c0],0x0                     = 01h
+                 3b 23 00 00
+       1400bea66 0f 85 a0        JNZ        LAB_1400bed0c
+                 02 00 00
+                             LAB_1400bea70                                   XREF[1]:     1400bed06(j)  
+       1400bea70 e8 bb 58        CALL       SDL_GetTicks                                     undefined SDL_GetTicks()
+                 06 00
+       1400bea75 38 1d d9        CMP        byte ptr [DAT_140318a54],BL
+                 9f 25 00
+       1400bea7d 74 06           JZ         LAB_1400bea85
+       1400bea7f ff 15 6b        CALL       qword ptr [->STEAM_API64.DLL::SteamAPI_RunCall   = 002e9d0e
+                 c1 19 00
+                             LAB_1400bea85                                   XREF[1]:     1400bea7d(j)  
+       1400bea85 48 8d 4c        LEA        RCX=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400bea8a e8 21 69        CALL       SDL_PollEvent                                    undefined SDL_PollEvent()
+                 06 00
+       1400bea8f 85 c0           TEST       EAX,EAX
+       1400bea91 74 1b           JZ         LAB_1400beaae
+                             LAB_1400bea93                                   XREF[1]:     1400beaac(j)  
+       1400bea93 48 8d 54        LEA        RDX=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400bea9b e8 90 19        CALL       FUN_1400c0430                                    undefined FUN_1400c0430()
+                 00 00
+       1400beaa0 48 8d 4c        LEA        RCX=>local_2c8,[RSP + 0x30]
+                 24 30
+       1400beaa5 e8 06 69        CALL       SDL_PollEvent                                    undefined SDL_PollEvent()
+                 06 00
+                             LAB_1400beaae                                   XREF[1]:     1400bea91(j)  
+       1400beaae 38 1d a0        CMP        byte ptr [DAT_140318a54],BL
+                 9f 25 00
+       1400beab4 88 1d 99        MOV        byte ptr [DAT_140318a53],BL
+                 9f 25 00
+       1400beabc 38 1d 96        CMP        byte ptr [DAT_1402f2658],BL
+                 3b 23 00
+       1400beac2 75 15           JNZ        LAB_1400bead9
+                             LAB_1400beac4                                   XREF[1]:     1400beaba(j)  
+       1400beac4 38 1d 87        CMP        byte ptr [DAT_140318a51],BL
+                 9f 25 00
+       1400beacc 38 1d 19        CMP        byte ptr [DAT_1402f14eb],BL
+                 2a 23 00
+       1400bead2 74 0d           JZ         LAB_1400beae1
+                             LAB_1400bead4                                   XREF[1]:     1400beaca(j)  
+       1400bead4 e8 37 8a        CALL       FUN_140087510                                    undefined FUN_140087510()
+                 fc ff
+                             LAB_1400bead9                                   XREF[1]:     1400beac2(j)  
+       1400bead9 38 1d 72        CMP        byte ptr [DAT_140318a51],BL
+                 9f 25 00
+       1400beadf 75 0c           JNZ        LAB_1400beaed
+                             LAB_1400beae1                                   XREF[1]:     1400bead2(j)  
+       1400beae1 38 1d 03        CMP        byte ptr [DAT_1402f14ea],BL
+                 2a 23 00
+       1400beae7 0f 84 fa        JZ         LAB_1400bece7
+                 01 00 00
+                             LAB_1400beaed                                   XREF[1]:     1400beadf(j)  
+       1400beaed 48 8b cf        MOV        RCX,RDI
+       1400beaf0 e8 db 4d        CALL       SDL_GL_SwapWindow                                undefined SDL_GL_SwapWindow()
+                 06 00
+       1400beaf5 38 1d 58        CMP        byte ptr [DAT_140318a53],BL
+                 9f 25 00
+       1400beafb 74 08           JZ         LAB_1400beb05
+       1400beb00 e8 9b 14        CALL       FUN_1400bffa0                                    undefined FUN_1400bffa0()
+                 00 00
+                             LAB_1400beb05                                   XREF[1]:     1400beafb(j)  
+       1400beb05 38 1d 47        CMP        byte ptr [DAT_140318a52],BL
+                 9f 25 00
+       1400beb0b 74 56           JZ         LAB_1400beb63
+       1400beb0d 38 1d b9        CMP        byte ptr [DAT_1402f14cc],BL
+                 29 23 00
+       1400beb1b 88 1d 31        MOV        byte ptr [DAT_140318a52],BL
+                 9f 25 00
+       1400beb21 0f 45 d3        CMOVNZ     EDX,EBX
+       1400beb24 e8 47 72        CALL       SDL_SetWindowFullscreen                          undefined SDL_SetWindowFullscree
+                 06 00
+       1400beb29 85 c0           TEST       EAX,EAX
+       1400beb38 85 c0           TEST       EAX,EAX
+       1400beb41 85 c0           TEST       EAX,EAX
+       1400beb43 0f 84 9e        JZ         LAB_1400bece7
+                 01 00 00
+       1400beb59 e8 12 73        CALL       SDL_SetWindowSize                                undefined SDL_SetWindowSize()
+                 06 00
+                             LAB_1400beb63                                   XREF[1]:     1400beb0b(j)  
+       1400beb63 39 1d ef        CMP        dword ptr [DAT_140318a58],EBX
+                 9e 25 00
+       1400beb69 0f 84 78        JZ         LAB_1400bece7
+                 01 00 00
+       1400beb6f 38 1d 57        CMP        byte ptr [DAT_1402f14cc],BL
+                 29 23 00
+       1400beb75 74 10           JZ         LAB_1400beb87
+       1400beb7c e8 ef 71        CALL       SDL_SetWindowFullscreen                          undefined SDL_SetWindowFullscree
+                 06 00
+       1400beb81 88 1d 45        MOV        byte ptr [DAT_1402f14cc],BL
+                 29 23 00
+                             LAB_1400beb87                                   XREF[1]:     1400beb75(j)  
+       1400beb87 48 8d 55 88     LEA        RDX=>local_270,[RBP + -0x78]
+       1400beb8d e8 ee 52        CALL       SDL_GetDesktopDisplayMode                        undefined SDL_GetDesktopDisplayM
+                 06 00
+       1400beb92 85 c0           TEST       EAX,EAX
+       1400beb94 75 08           JNZ        LAB_1400beb9e
+       1400beb9a 44 8b 7d 90     MOV        R15D,dword ptr [RBP + local_270[8]]
+       1400bebb3 7d 05           JGE        LAB_1400bebba
+       1400bebb8 7c 0d           JL         LAB_1400bebc7
+                             LAB_1400bebba                                   XREF[1]:     1400bebb3(j)  
+       1400bebba 81 e9 40        SUB        ECX,0x140
+                 01 00 00
+       1400bebc0 2d b4 00        SUB        EAX,0xb4
+                 00 00
+       1400bebcd 4c 8d 4d 80     LEA        R9=>local_278,[RBP + -0x80]
+       1400bebd1 48 8d 44        LEA        RAX=>local_288,[RSP + 0x70]
+                 24 70
+       1400bebdc 4c 8d 44        LEA        R8=>local_290,[RSP + 0x68]
+                 24 68
+       1400bebe6 48 8d 54        LEA        RDX=>local_280,[RSP + 0x78]
+                 24 78
+       1400bebee e8 bd 57        CALL       SDL_GetWindowBordersSize                         undefined SDL_GetWindowBordersSi
+                 06 00
+       1400bebfc d1 f8           SAR        EAX,0x1
+       1400bec09 d1 f8           SAR        EAX,0x1
+       1400bec0b 2b c1           SUB        EAX,ECX
+       1400bec13 03 c8           ADD        ECX,EAX
+       1400bec24 d1 f8           SAR        EAX,0x1
+       1400bec36 d1 f8           SAR        EAX,0x1
+       1400bec38 41 2b c0        SUB        EAX,R8D
+       1400bec3e 01 05 90        ADD        dword ptr [DAT_1402f14d4],EAX
+                 28 23 00
+       1400bec44 44 2b c2        SUB        R8D,EDX
+       1400bec47 44 2b 05        SUB        R8D,dword ptr [DAT_140318a58]
+                 0a 9e 25 00
+       1400bec4e 44 2b 44        SUB        R8D,dword ptr [RSP + local_288]
+                 24 70
+       1400bec53 e8 78 26        CALL       FUN_1400c12d0                                    undefined FUN_1400c12d0()
+                 00 00
+       1400bec58 8b 54 24 78     MOV        EDX,dword ptr [RSP + local_280]
+       1400bec65 44 2b c2        SUB        R8D,EDX
+       1400bec68 44 2b 05        SUB        R8D,dword ptr [DAT_140318a5c]
+                 ed 9d 25 00
+       1400bec6f 44 2b 45 80     SUB        R8D,dword ptr [RBP + local_278]
+       1400bec79 e8 52 26        CALL       FUN_1400c12d0                                    undefined FUN_1400c12d0()
+                 00 00
+       1400bec94 e8 d7 71        CALL       SDL_SetWindowSize                                undefined SDL_SetWindowSize()
+                 06 00
+       1400beca9 e8 92 71        CALL       SDL_SetWindowPosition                            undefined SDL_SetWindowPosition()
+                 06 00
+       1400becbf e8 8c 4b        CALL       SDL_GL_GetDrawableSize                           undefined SDL_GL_GetDrawableSize()
+                 06 00
+       1400becc4 e8 a7 4d        CALL       FUN_1400c3a70                                    undefined FUN_1400c3a70()
+                 00 00
+       1400beccf 89 05 03        MOV        dword ptr [DAT_1402f14d8],EAX
+                 28 23 00
+       1400becdb 89 05 fb        MOV        dword ptr [DAT_1402f14dc],EAX
+                 27 23 00
+       1400bece1 89 1d 71        MOV        dword ptr [DAT_140318a58],EBX
+                 9d 25 00
+                             LAB_1400bece7                                   XREF[5]:     1400beae7(j), 1400beb2b(j), 
+                                                                                          1400beb43(j), 1400beb5e(j), 
+                                                                                          1400beb69(j)  
+       1400bece7 e8 44 56        CALL       SDL_GetTicks                                     undefined SDL_GetTicks()
+                 06 00
+       1400becec 2b c6           SUB        EAX,ESI
+       1400becf5 2b c8           SUB        ECX,EAX
+       1400becf9 7e 05           JLE        LAB_1400bed00
+       1400becfb e8 f0 48        CALL       SDL_Delay                                        undefined SDL_Delay()
+                 06 00
+                             LAB_1400bed0c                                   XREF[1]:     1400bea66(j)  
+       1400bed0c e8 6f 99        CALL       FUN_140098680                                    undefined FUN_140098680()
+                 fd ff
+       1400bed11 e8 4a 32        CALL       FUN_140071f60                                    undefined FUN_140071f60()
+                 fb ff
+       1400bed16 80 3d 37        CMP        byte ptr [DAT_140318a54],0x0
+                 9d 25 00 00
+       1400bed1d 74 06           JZ         LAB_1400bed25
+       1400bed1f ff 15 a3        CALL       qword ptr [->STEAM_API64.DLL::SteamAPI_Shutdown] = 002e9d60
+                 be 19 00
+                             LAB_1400bed25                                   XREF[1]:     1400bed1d(j)  
+       1400bed25 e8 d6 8a        CALL       FUN_140087800                                    undefined FUN_140087800()
+                 fc ff
+       1400bed2d e8 ce 4a        CALL       SDL_GL_DeleteContext                             undefined SDL_GL_DeleteContext()
+                 06 00
+       1400bed35 e8 26 49        CALL       SDL_DestroyWindow                                undefined SDL_DestroyWindow()
+                 06 00
+       1400bed3a e8 d1 66        CALL       SDL_Quit                                         undefined SDL_Quit()
+                 06 00
+       1400bed47 33 c0           XOR        EAX,EAX
+       1400bed81 c3              RET
+                             LAB_1400bed82                                   XREF[3]:     1400be951(j), 14032a59c(*), 
+                                                                                          14032a5a4(*)  
+       1400bed82 e8 c9 53        CALL       FUN_140024150                                    undefined FUN_140024150()
+                 f6 ff
+       1400bed87 cc              INT3
+                             LAB_1400bed88                                   XREF[3]:     1400be259(j), 1400be36d(j), 
+                                                                                          1400be462(j)  
+       1400bed88 e8 c3 53        CALL       FUN_140024150                                    undefined FUN_140024150()
+                 f6 ff
+       1400bed8d cc              INT3
+                             LAB_1400bed8e                                   XREF[3]:     1400be313(j), 1400be446(j), 
+                                                                                          1400be53c(j)  
+       1400bed8e 33 db           XOR        EBX,EBX
+       1400bed9f e8 a0 5a        CALL       _invoke_watson                                   void _invoke_watson(wchar_t * pa
+                 16 00
+                             -- Flow Override: CALL_RETURN (CALL_TERMINATOR)
+             assume GS_OFFSET = 0xff00000000
+                             LAB_1400beda5                                   XREF[1]:     1400be71d(j)  
+       1400beda5 e8 46 51        CALL       SDL_GetError                                     undefined SDL_GetError()
+                 06 00
+       1400bedb4 e8 e7 00        CALL       FUN_1400beea0                                    undefined FUN_1400beea0()
+                 00 00
+       1400bedb9 cc              INT3
+                             LAB_1400bedba                                   XREF[1]:     1400be7ee(j)  
+       1400bedba e8 91 53        CALL       FUN_140024150                                    undefined FUN_140024150()
+                 f6 ff
+       1400bedbf cc              INT3
+       1400bedd1 e8 6e 5a        CALL       _invoke_watson                                   void _invoke_watson(wchar_t * pa
+                 16 00
+                             -- Flow Override: CALL_RETURN (CALL_TERMINATOR)
+       1400bede8 e8 57 5a        CALL       _invoke_watson                                   void _invoke_watson(wchar_t * pa
+                 16 00
+                             -- Flow Override: CALL_RETURN (CALL_TERMINATOR)
+</user_query>

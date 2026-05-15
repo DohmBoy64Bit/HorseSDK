@@ -88,11 +88,16 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - [x] Game/data/save paths confirmed
 - [x] Call graph edges: entry→init, init→settings, save callers (`phase1_verify.py`)
 - [x] `genes.xml` / `pop.xml` parser smoke test (`tools/parsers/genes.py`)
-- [ ] **Ghidra:** decompile `0xBE0F0` (main init) — see `docs/Ghidra_Phase1.md`
+- [x] **Game loop map:** `map_gamemain_loop.py` → `docs/GameLoop.md` + `phase1_gamemain_loop_map.json` (Frida + Capstone)
+- [x] **SDL dispatch static:** `0xC0430` switch — `analyze_gamemain_functions.py` → `phase1_sdl_event_dispatch.json` (SDL_QUIT sets `0x318A50`)
+- [x] **Init body static:** `0xBE149`–`0xBEA7E` call list → `phase1_gamemain_init.json`
+- [x] **Ghidra (user):** Task B `0xC0430` → `ghidra_exports/Game_DispatchSdlEvent.c.txt`, `docs/Game_DispatchSdlEvent.md`
+- [x] **Ghidra (user):** Task C `GameMain@0xBE0F0` → `GameMain_InitAndLoop.md`, `ghidra_exports/GameMain_InitAndLoop.c.txt`
 - [x] **Frida:** per-frame path = `SDL_GL_SwapWindow` ← `0xBEAF0`, not `0x11E0F0` (`frida_renderframe.py`)
 - [x] **Frida:** frame timeline — Poll @ `0xBEA8A`/`0xBEAA5` then swap @ `0xBEAF0` (`frida_gameloop.py`, see `docs/Frida_GameLoop.md`)
-- [ ] **Ghidra:** apply labels from `Frida_GameLoop.md` and decompile `0xBE0F0` subregions
-- [ ] **Ghidra:** decompile `0x6DAB0` (save), confirm write order vs repomix §A.5
+- [ ] **Ghidra:** apply labels from `GameLoop.md` / `Frida_GameLoop.md`
+- [x] **Ghidra:** `SettingsLoader@0x711B0` — `SettingsLoader.md` (settings.xml keys, `g_loop_quit` cleared @ `0x71DF6`)
+- [x] **Ghidra:** `Save_Write` @ `0x6DAB0` — [Save_Write.md](Save_Write.md) + [`ghidra_exports/Save_Write_decompiled.c.txt`](ghidra_exports/Save_Write_decompiled.c.txt)
 - [ ] **x64dbg:** break `Horsey.exe+11E0F0`, capture call stack
 - [x] Data inventory + parsers on all `Game/data/` files (`inventory_data.py`)
 - [x] GID → `terrain.xml` / `locs.xml` sprite name map (`map_tile_gids.py`)
@@ -108,7 +113,24 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - [x] Frida save/load/auto-save (`frida_phase1.py` — `edx=1`, callers `10A2C2`/`10A822`, path `Game\save\`)
 - [x] Save heap buffer dump @ `Save_Write` leave (`frida_dump_save_buffer.py` — matches `save1.dat` byte-for-byte)
 - [x] Font path builder cluster `0xBF2xx` → `0x6F3C0` (`phase1_crf_loader.json`)
-- [ ] `.crf` opcode VM semantics (section1 interpreter)
+- [x] `.crf` opcode markers + tag stats — [CrfOpcodeSemantics.md](CrfOpcodeSemantics.md)
+- [x] Bootstrap tail Capstone — [GameState_InitMain.md](GameState_InitMain.md), [Game_LoadAssets.md](Game_LoadAssets.md)
+- [x] Shutdown `jmp Save_Write` @ `0x9869A` — [Shutdown_Save_Callchain.md](Shutdown_Save_Callchain.md)
+- [x] `horse_save` write API — `horse_save_write.c`, CLI round-trip
+
+---
+
+## [KNOWLEDGE UPDATE] 2026-05-15 (game loop + SDL dispatch)
+
+- **`Game_DispatchSdlEvent` @ `0xC0430` (Ghidra):** `ghidra_exports/Game_DispatchSdlEvent.c.txt`, `docs/Game_DispatchSdlEvent.md`.
+- **`GameMain` @ `0xBE0F0`:** Quit: **`g_sdl_quit`** → **`0xBED0C`** → **`0x98680`** (prep, **includes `Save_Write`**) → **`0x71F60`** settings @ **`0xBED11`**. Frida: [QuitSaveTrace.md](QuitSaveTrace.md). Autosave: **`0x10A2C2`** / **`0x10A822`**.
+- **`Settings_Save@0x71F60`:** [Settings_Save.md](Settings_Save.md) — Capstone XML keys written on quit.
+- **`Game_WorldSimStep@0x88510`:** [Game_WorldSimStep.md](Game_WorldSimStep.md) — only when window delta ≠ 0; 0 Frida hits with stable window.
+- **`Game_BootstrapWorld@0x874B0`:** `Game_BootstrapWorld.md` — chain `InitCore`→`InitRender`→`FrameFinalize`→`LoadAssets`→`GameState_Ctor(0x30)`→**`jmp 0x97110`**; **`g_game_state@0x313720`**.
+- **`SettingsLoader@0x711B0`:** `SettingsLoader.md` — parses `settings.xml` keys (`fullscreen`, `winw`, `vsync`, `autosave`, …); **`g_loop_quit@0x2F14EB=0`** @ `0x71DF6`; parser **`0x72280`**.
+- **`Game_UpdateWorld@0x87510`:** `Game_UpdateWorld.md` — window rect → normalized coords; ref **960×540**; tables `0x312830`; **`Game_WorldSimStep@0x88510`**.
+- **Init body `0xBE149`–`0xBEA7E`:** `SettingsLoader` @ `0xBE562`, `SDL_CreateWindow` @ `0xBE712`, `SDL_GL_CreateContext` @ `0xBE726`, bootstrap **`0x874B0`** @ `0xBE7C1` — `phase1_gamemain_init.json`.
+- **User Ghidra/x64dbg:** task list in `docs/Ghidra_User_Tasks.md`; paste decompiles to `docs/ghidra_exports/*.c.txt`.
 
 ---
 

@@ -1,0 +1,41 @@
+# Function: Game_BootstrapWorld (Ghidra FUN_1400874b0)
+# RVA: 0x874B0
+# VA: 0x1400874B0
+# Date: 2026-05-15 (user paste + Capstone verify on Game/Horsey.exe)
+# Caller: GameMain_InitAndLoop @ 0xBE7C1
+
+# Span: 0x874B0 - 0x87500 (tail-call jmp, no ret)
+
+       1400874b0 40 53           PUSH       RBX
+       1400874b2 48 83 ec 20     SUB        RSP,0x20
+       1400874b6 e8 95 a3        CALL       FUN_1400c1850                                    Game_InitCore @ 0xC1850
+                 03 00
+       1400874bb 33 db           XOR        EBX,EBX
+       1400874bd 89 1d f1        MOV        dword ptr [DAT_140312cb4],EBX                    g_key_state_reset @ 0x312CB4
+                 b7 28 00
+       1400874c3 e8 48 c7        CALL       FUN_1400c3c10                                    Game_InitRender @ 0xC3C10
+                 03 00
+       1400874c8 e8 a3 c5        CALL       FUN_1400c3a70                                    Game_FrameFinalize @ 0xC3A70
+                 03 00
+       1400874cd e8 7e 79        CALL       FUN_14003ee50                                    Game_LoadAssets @ 0x3EE50
+                 fb ff
+       1400874d2 b9 30 00        MOV        ECX,0x30                                         sizeof = 48
+                 00 00
+       1400874d7 e8 38 6f        CALL       operator_new                                     @ 0x21E414
+                 19 00
+       1400874dc 48 89 44        MOV        qword ptr [RSP + 0x30],RAX
+                 24 30
+       1400874e1 48 85 c0        TEST       RAX,RAX
+       1400874e4 74 0b           JZ         LAB_1400874f1
+       1400874e6 48 8b c8        MOV        RCX,RAX
+       1400874e9 e8 32 f8        CALL       FUN_140096d20                                    GameState_Ctor @ 0x96D20
+                 00 00
+       1400874ee 48 8b d8        MOV        RBX,RAX
+                             LAB_1400874f1
+       1400874f1 48 89 1d        MOV        qword ptr [DAT_140313720],RBX                    g_game_state @ 0x313720
+                 28 c2 28 00
+       1400874f8 48 8b cb        MOV        RCX,RBX
+       1400874fb 48 83 c4 20     ADD        RSP,0x20
+       1400874ff 5b              POP        RBX
+       140087500 e9 0b fc        JMP        FUN_140097110                                    GameState_InitMain @ 0x97110
+                 00 00

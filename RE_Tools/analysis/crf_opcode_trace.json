@@ -1,8 +1,15 @@
 {
-  "verification": "Marker scan on section1 only; not executed by game",
+  "verification": "Marker scan + record split on all Game/data/*.crf",
   "fonts": [
     {
       "file": "capy_bold.crf",
+      "header": {
+        "byte0": 1,
+        "line_height_guess": 13,
+        "field_a": 185,
+        "section1_bytes": 2432,
+        "field_c": 125178111
+      },
       "section1_len": 2432,
       "section2_len": 6340,
       "marker_count": 34,
@@ -20,198 +27,336 @@
           2
         ]
       ],
+      "tag_stats": {
+        "0xf9": {
+          "name": "glyph_run_f9",
+          "count": 19,
+          "len_min": 7,
+          "len_max": 976,
+          "len_avg": 98.73684210526316,
+          "prefix_u16": [
+            [
+              7,
+              19
+            ]
+          ]
+        },
+        "0xf8": {
+          "name": "glyph_run_f8",
+          "count": 2,
+          "len_min": 8,
+          "len_max": 215,
+          "len_avg": 111.5,
+          "prefix_u16": [
+            [
+              9,
+              2
+            ]
+          ]
+        },
+        "0x0": {
+          "name": "unknown",
+          "count": 1,
+          "len_min": 289,
+          "len_max": 289,
+          "len_avg": 289.0,
+          "prefix_u16": [
+            [
+              1798,
+              1
+            ]
+          ]
+        }
+      },
+      "opcode_scan": {
+        "unique_bytes": 219,
+        "top_bytes": [
+          [
+            "0xff",
+            319
+          ],
+          [
+            "0x0",
+            208
+          ],
+          [
+            "0x7",
+            150
+          ],
+          [
+            "0x8",
+            126
+          ],
+          [
+            "0x6",
+            114
+          ],
+          [
+            "0x2f",
+            60
+          ],
+          [
+            "0x27",
+            59
+          ],
+          [
+            "0x26",
+            55
+          ],
+          [
+            "0xf8",
+            53
+          ],
+          [
+            "0x2d",
+            47
+          ],
+          [
+            "0x24",
+            46
+          ],
+          [
+            "0x9",
+            42
+          ],
+          [
+            "0x2b",
+            40
+          ],
+          [
+            "0x31",
+            39
+          ],
+          [
+            "0xfa",
+            38
+          ],
+          [
+            "0x5",
+            31
+          ]
+        ],
+        "top_leaders_u16": [
+          [
+            "00f8",
+            53
+          ],
+          [
+            "ff27",
+            52
+          ],
+          [
+            "ff2f",
+            52
+          ],
+          [
+            "ff26",
+            46
+          ],
+          [
+            "0800",
+            43
+          ],
+          [
+            "00fa",
+            38
+          ],
+          [
+            "ff24",
+            35
+          ],
+          [
+            "ff2b",
+            35
+          ],
+          [
+            "ff2d",
+            35
+          ],
+          [
+            "0600",
+            31
+          ],
+          [
+            "ff31",
+            29
+          ],
+          [
+            "f808",
+            25
+          ]
+        ]
+      },
       "records_sample": [
         {
           "offset": 32,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f908254725"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f908254725",
+          "tail_hex": "0700f908254725"
         },
         {
           "offset": 39,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 40,
           "length": 87,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f907261818080800f80927416202"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f907261818080800f809274162020300f80328461a04",
+          "tail_hex": "050800f806304b1a"
         },
         {
           "offset": 127,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 128,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f907314d11"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f907314d11",
+          "tail_hex": "0700f907314d11"
         },
         {
           "offset": 135,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 136,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f907324e08"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f907324e08",
+          "tail_hex": "0700f907324e08"
         },
         {
           "offset": 143,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 144,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f907334f00"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f907334f00",
+          "tail_hex": "0700f907334f00"
         },
         {
           "offset": 151,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 152,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90734356a"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90734356a",
+          "tail_hex": "0700f90734356a"
         },
         {
           "offset": 159,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 160,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f907353a5f"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f907353a5f",
+          "tail_hex": "0700f907353a5f"
         },
         {
           "offset": 167,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 168,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f907363c53"
-        },
-        {
-          "offset": 175,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "06"
-        },
-        {
-          "offset": 176,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f907373f4a"
-        },
-        {
-          "offset": 183,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "06"
-        },
-        {
-          "offset": 184,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f907384540"
-        },
-        {
-          "offset": 191,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "06"
-        },
-        {
-          "offset": 192,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f90739492d"
-        },
-        {
-          "offset": 199,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "06"
-        },
-        {
-          "offset": 200,
-          "length": 568,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f9073a6522020600fa033b2a1d03"
-        },
-        {
-          "offset": 768,
-          "length": 8,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f90882470007"
-        },
-        {
-          "offset": 776,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f908835508"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f907363c53",
+          "tail_hex": "0700f907363c53"
         }
       ],
-      "records_total": 34,
-      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+      "records_total": 34
     },
     {
       "file": "habit_mono.crf",
+      "header": {
+        "byte0": 1,
+        "line_height_guess": 11,
+        "field_a": 177,
+        "section1_bytes": 0,
+        "field_c": 86774527
+      },
       "section1_len": 0,
       "section2_len": 1412,
       "marker_count": 0,
       "top_prefixes": [],
+      "tag_stats": {},
+      "opcode_scan": {
+        "unique_bytes": 0,
+        "top_bytes": [],
+        "top_leaders_u16": []
+      },
       "records_sample": [],
-      "records_total": 0,
-      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+      "records_total": 0
     },
     {
       "file": "habit_narrow_bold.crf",
+      "header": {
+        "byte0": 1,
+        "line_height_guess": 11,
+        "field_a": 185,
+        "section1_bytes": 2225,
+        "field_c": 117440767
+      },
       "section1_len": 2225,
       "section2_len": 5926,
       "marker_count": 121,
@@ -233,188 +378,314 @@
           9
         ]
       ],
+      "tag_stats": {
+        "0xf8": {
+          "name": "glyph_run_f8",
+          "count": 9,
+          "len_min": 8,
+          "len_max": 55,
+          "len_avg": 20.11111111111111,
+          "prefix_u16": [
+            [
+              9,
+              9
+            ]
+          ]
+        },
+        "0xf9": {
+          "name": "glyph_run_f9",
+          "count": 64,
+          "len_min": 7,
+          "len_max": 769,
+          "len_avg": 30.3125,
+          "prefix_u16": [
+            [
+              7,
+              64
+            ]
+          ]
+        },
+        "0x0": {
+          "name": "unknown",
+          "count": 1,
+          "len_min": 57,
+          "len_max": 57,
+          "len_avg": 57.0,
+          "prefix_u16": [
+            [
+              1797,
+              1
+            ]
+          ]
+        }
+      },
+      "opcode_scan": {
+        "unique_bytes": 218,
+        "top_bytes": [
+          [
+            "0xff",
+            250
+          ],
+          [
+            "0x0",
+            209
+          ],
+          [
+            "0x7",
+            145
+          ],
+          [
+            "0x6",
+            129
+          ],
+          [
+            "0x5",
+            118
+          ],
+          [
+            "0xf9",
+            84
+          ],
+          [
+            "0x28",
+            80
+          ],
+          [
+            "0x8",
+            60
+          ],
+          [
+            "0x27",
+            50
+          ],
+          [
+            "0x4",
+            38
+          ],
+          [
+            "0x2d",
+            37
+          ],
+          [
+            "0x24",
+            36
+          ],
+          [
+            "0x2b",
+            34
+          ],
+          [
+            "0xf8",
+            30
+          ],
+          [
+            "0x23",
+            30
+          ],
+          [
+            "0x3",
+            28
+          ]
+        ],
+        "top_leaders_u16": [
+          [
+            "00f9",
+            84
+          ],
+          [
+            "ff28",
+            74
+          ],
+          [
+            "0700",
+            66
+          ],
+          [
+            "ff27",
+            46
+          ],
+          [
+            "f906",
+            31
+          ],
+          [
+            "00f8",
+            30
+          ],
+          [
+            "ff24",
+            30
+          ],
+          [
+            "ff2b",
+            29
+          ],
+          [
+            "ff2d",
+            29
+          ],
+          [
+            "0800",
+            28
+          ],
+          [
+            "0500",
+            26
+          ],
+          [
+            "f907",
+            26
+          ]
+        ]
+      },
       "records_sample": [
         {
           "offset": 0,
           "length": 8,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f808213b3a02"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f808213b3a02",
+          "tail_hex": "0900f808213b3a02"
         },
         {
           "offset": 8,
           "length": 24,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f903221735050300f90623087a07"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f903221735050300f90623087a070500fa0824120a07",
+          "tail_hex": "0500fa0824120a07"
         },
         {
           "offset": 32,
           "length": 16,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f908253669060500fb0726170007"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f908253669060500fb0726170007",
+          "tail_hex": "0500fb0726170007"
         },
         {
           "offset": 48,
           "length": 16,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90827470c020300f90328284f04"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90827470c020300f90328284f04",
+          "tail_hex": "0300f90328284f04"
         },
         {
           "offset": 64,
           "length": 8,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f80529292304"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f80529292304",
+          "tail_hex": "0900f80529292304"
         },
         {
           "offset": 72,
           "length": 55,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f8052a446b050500f9062b457105"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f8052a446b050500f9062b4571050500fa062c215903",
+          "tail_hex": "050800f906302c59"
         },
         {
           "offset": 127,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 128,
           "length": 8,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90631280904"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90631280904",
+          "tail_hex": "0700f90631280904"
         },
         {
           "offset": 136,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f905322e00"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f905322e00",
+          "tail_hex": "0700f905322e00"
         },
         {
           "offset": 143,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 144,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f906332937"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f906332937",
+          "tail_hex": "0700f906332937"
         },
         {
           "offset": 151,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 152,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90634293f"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90634293f",
+          "tail_hex": "0700f90634293f"
         },
         {
           "offset": 159,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 160,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f906352947"
-        },
-        {
-          "offset": 167,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 168,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906362d4f"
-        },
-        {
-          "offset": 175,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 176,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906372e1d"
-        },
-        {
-          "offset": 183,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 184,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906382e25"
-        },
-        {
-          "offset": 191,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 192,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906392e2d"
-        },
-        {
-          "offset": 199,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 200,
-          "length": 47,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f9063a4d00020500fb033b4a0c03"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f906352947",
+          "tail_hex": "0700f906352947"
         }
       ],
-      "records_total": 121,
-      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+      "records_total": 121
     },
     {
       "file": "quip.crf",
+      "header": {
+        "byte0": 1,
+        "line_height_guess": 14,
+        "field_a": 177,
+        "section1_bytes": 5840,
+        "field_c": 117443071
+      },
       "section1_len": 5840,
       "section2_len": 13092,
       "marker_count": 109,
@@ -440,188 +711,322 @@
           3
         ]
       ],
+      "tag_stats": {
+        "0xf8": {
+          "name": "glyph_run_f8",
+          "count": 8,
+          "len_min": 8,
+          "len_max": 55,
+          "len_avg": 21.75,
+          "prefix_u16": [
+            [
+              9,
+              8
+            ]
+          ]
+        },
+        "0xf9": {
+          "name": "glyph_run_f9",
+          "count": 64,
+          "len_min": 7,
+          "len_max": 4440,
+          "len_avg": 86.609375,
+          "prefix_u16": [
+            [
+              7,
+              61
+            ],
+            [
+              9,
+              3
+            ]
+          ]
+        },
+        "0x0": {
+          "name": "unknown",
+          "count": 3,
+          "len_min": 8,
+          "len_max": 57,
+          "len_avg": 29.666666666666668,
+          "prefix_u16": [
+            [
+              1798,
+              2
+            ],
+            [
+              1797,
+              1
+            ]
+          ]
+        }
+      },
+      "opcode_scan": {
+        "unique_bytes": 217,
+        "top_bytes": [
+          [
+            "0xff",
+            898
+          ],
+          [
+            "0x0",
+            201
+          ],
+          [
+            "0x7",
+            152
+          ],
+          [
+            "0x24",
+            100
+          ],
+          [
+            "0x6",
+            94
+          ],
+          [
+            "0x2b",
+            91
+          ],
+          [
+            "0x3e",
+            87
+          ],
+          [
+            "0x2d",
+            87
+          ],
+          [
+            "0x8",
+            82
+          ],
+          [
+            "0x28",
+            78
+          ],
+          [
+            "0x37",
+            78
+          ],
+          [
+            "0xf9",
+            77
+          ],
+          [
+            "0x5",
+            77
+          ],
+          [
+            "0x2f",
+            71
+          ],
+          [
+            "0x3d",
+            65
+          ],
+          [
+            "0x25",
+            56
+          ]
+        ],
+        "top_leaders_u16": [
+          [
+            "ff24",
+            88
+          ],
+          [
+            "ff2b",
+            78
+          ],
+          [
+            "ff2d",
+            78
+          ],
+          [
+            "ff3e",
+            78
+          ],
+          [
+            "00f9",
+            77
+          ],
+          [
+            "ff28",
+            73
+          ],
+          [
+            "0700",
+            68
+          ],
+          [
+            "ff3d",
+            60
+          ],
+          [
+            "ff2f",
+            58
+          ],
+          [
+            "ff37",
+            58
+          ],
+          [
+            "ff2e",
+            43
+          ],
+          [
+            "ff31",
+            43
+          ]
+        ]
+      },
       "records_sample": [
         {
           "offset": 0,
           "length": 8,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f808214d1001"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f808214d1001",
+          "tail_hex": "0900f808214d1001"
         },
         {
           "offset": 8,
           "length": 23,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f902223c08030300f90423332906"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f902223c08030300f904233329060600fa0724391c",
+          "tail_hex": "060600fa0724391c"
         },
         {
           "offset": 31,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 32,
           "length": 8,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90625190007"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90625190007",
+          "tail_hex": "0700f90625190007"
         },
         {
           "offset": 40,
           "length": 8,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90826162307"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90826162307",
+          "tail_hex": "0700f90826162307"
         },
         {
           "offset": 48,
           "length": 16,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f908273a2c010300f902283e3503"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f908273a2c010300f902283e3503",
+          "tail_hex": "0300f902283e3503"
         },
         {
           "offset": 64,
           "length": 8,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f80429412403"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f80429412403",
+          "tail_hex": "0900f80429412403"
         },
         {
           "offset": 72,
           "length": 55,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f8042a2a64050500fa062b147a05"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f8042a2a64050500fa062b147a050500fa062c361c02",
+          "tail_hex": "040800f905303a0c"
         },
         {
           "offset": 127,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 128,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f906313a14"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f906313a14",
+          "tail_hex": "0700f906313a14"
         },
         {
           "offset": 135,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 136,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f906323c00"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f906323c00",
+          "tail_hex": "0700f906323c00"
         },
         {
           "offset": 143,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 144,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90633305b"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90633305b",
+          "tail_hex": "0700f90633305b"
         },
         {
           "offset": 151,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 152,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906343144"
-        },
-        {
-          "offset": 159,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 160,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906353239"
-        },
-        {
-          "offset": 167,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 168,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906363630"
-        },
-        {
-          "offset": 175,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 176,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906373a24"
-        },
-        {
-          "offset": 183,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 184,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906383f1c"
-        },
-        {
-          "offset": 191,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         }
       ],
-      "records_total": 109,
-      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+      "records_total": 109
     },
     {
       "file": "snuggle.crf",
+      "header": {
+        "byte0": 1,
+        "line_height_guess": 12,
+        "field_a": 177,
+        "section1_bytes": 2623,
+        "field_c": 118817023
+      },
       "section1_len": 2623,
       "section2_len": 6658,
       "marker_count": 114,
@@ -647,188 +1052,322 @@
           3
         ]
       ],
+      "tag_stats": {
+        "0xf8": {
+          "name": "glyph_run_f8",
+          "count": 8,
+          "len_min": 8,
+          "len_max": 55,
+          "len_avg": 21.75,
+          "prefix_u16": [
+            [
+              9,
+              8
+            ]
+          ]
+        },
+        "0xf9": {
+          "name": "glyph_run_f9",
+          "count": 62,
+          "len_min": 7,
+          "len_max": 1223,
+          "len_avg": 36.0,
+          "prefix_u16": [
+            [
+              7,
+              59
+            ],
+            [
+              9,
+              3
+            ]
+          ]
+        },
+        "0x0": {
+          "name": "unknown",
+          "count": 6,
+          "len_min": 8,
+          "len_max": 65,
+          "len_avg": 29.833333333333332,
+          "prefix_u16": [
+            [
+              1798,
+              5
+            ],
+            [
+              1797,
+              1
+            ]
+          ]
+        }
+      },
+      "opcode_scan": {
+        "unique_bytes": 212,
+        "top_bytes": [
+          [
+            "0xff",
+            404
+          ],
+          [
+            "0x0",
+            198
+          ],
+          [
+            "0x7",
+            187
+          ],
+          [
+            "0x6",
+            114
+          ],
+          [
+            "0x28",
+            81
+          ],
+          [
+            "0x8",
+            68
+          ],
+          [
+            "0xf9",
+            65
+          ],
+          [
+            "0x2f",
+            57
+          ],
+          [
+            "0x5",
+            56
+          ],
+          [
+            "0x2b",
+            52
+          ],
+          [
+            "0x2d",
+            42
+          ],
+          [
+            "0xf8",
+            41
+          ],
+          [
+            "0x24",
+            41
+          ],
+          [
+            "0x37",
+            33
+          ],
+          [
+            "0x2e",
+            31
+          ],
+          [
+            "0x4",
+            30
+          ]
+        ],
+        "top_leaders_u16": [
+          [
+            "ff28",
+            73
+          ],
+          [
+            "0700",
+            66
+          ],
+          [
+            "00f9",
+            65
+          ],
+          [
+            "ff2f",
+            48
+          ],
+          [
+            "00f8",
+            41
+          ],
+          [
+            "0607",
+            40
+          ],
+          [
+            "f907",
+            37
+          ],
+          [
+            "ff2b",
+            36
+          ],
+          [
+            "ff2d",
+            36
+          ],
+          [
+            "00fb",
+            27
+          ],
+          [
+            "0500",
+            25
+          ],
+          [
+            "0800",
+            25
+          ]
+        ]
+      },
       "records_sample": [
         {
           "offset": 0,
           "length": 8,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f80821452402"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f80821452402",
+          "tail_hex": "0900f80821452402"
         },
         {
           "offset": 8,
           "length": 24,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f903223f54050400f80623165605"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f903223f54050400f806231656050500fa06240e3c07",
+          "tail_hex": "0500fa06240e3c07"
         },
         {
           "offset": 32,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f908252b00"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f908252b00",
+          "tail_hex": "0700f908252b00"
         },
         {
           "offset": 39,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 40,
           "length": 8,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90726151b07"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90726151b07",
+          "tail_hex": "0700f90726151b07"
         },
         {
           "offset": 48,
           "length": 16,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f908274748020400f80328315104"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f908274748020400f80328315104",
+          "tail_hex": "0400f80328315104"
         },
         {
           "offset": 64,
           "length": 8,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f80529323004"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f80529323004",
+          "tail_hex": "0900f80529323004"
         },
         {
           "offset": 72,
           "length": 55,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f8052a3b34050500f9062b3b3a05"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f8052a3b34050500f9062b3b3a050500fa062c397103",
+          "tail_hex": "050800f906301d34"
         },
         {
           "offset": 127,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 128,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90731232a"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90731232a",
+          "tail_hex": "0700f90731232a"
         },
         {
           "offset": 135,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 136,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f907322418"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f907322418",
+          "tail_hex": "0700f907322418"
         },
         {
           "offset": 143,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         },
         {
           "offset": 144,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f907332810"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f907332810",
+          "tail_hex": "0700f907332810"
         },
         {
           "offset": 151,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "06"
-        },
-        {
-          "offset": 152,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f907342e08"
-        },
-        {
-          "offset": 159,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "06"
-        },
-        {
-          "offset": 160,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f907353200"
-        },
-        {
-          "offset": 167,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "06"
-        },
-        {
-          "offset": 168,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f907362420"
-        },
-        {
-          "offset": 175,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "06"
-        },
-        {
-          "offset": 176,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f907371d3c"
-        },
-        {
-          "offset": 183,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "06"
-        },
-        {
-          "offset": 184,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f907381d44"
-        },
-        {
-          "offset": 191,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "06"
+          "tag_name": null,
+          "head_hex": "06",
+          "tail_hex": "06"
         }
       ],
-      "records_total": 114,
-      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+      "records_total": 114
     },
     {
       "file": "virtue_narrow_bold.crf",
+      "header": {
+        "byte0": 1,
+        "line_height_guess": 12,
+        "field_a": 185,
+        "section1_bytes": 2831,
+        "field_c": 101255167
+      },
       "section1_len": 2831,
       "section2_len": 7138,
       "marker_count": 123,
@@ -854,185 +1393,487 @@
           3
         ]
       ],
+      "tag_stats": {
+        "0xf8": {
+          "name": "glyph_run_f8",
+          "count": 8,
+          "len_min": 8,
+          "len_max": 55,
+          "len_avg": 21.625,
+          "prefix_u16": [
+            [
+              9,
+              8
+            ]
+          ]
+        },
+        "0xf9": {
+          "name": "glyph_run_f9",
+          "count": 67,
+          "len_min": 7,
+          "len_max": 1375,
+          "len_avg": 36.95522388059702,
+          "prefix_u16": [
+            [
+              7,
+              64
+            ],
+            [
+              9,
+              3
+            ]
+          ]
+        },
+        "0x0": {
+          "name": "unknown",
+          "count": 4,
+          "len_min": 17,
+          "len_max": 57,
+          "len_avg": 34.5,
+          "prefix_u16": [
+            [
+              1797,
+              3
+            ],
+            [
+              1798,
+              1
+            ]
+          ]
+        }
+      },
+      "opcode_scan": {
+        "unique_bytes": 217,
+        "top_bytes": [
+          [
+            "0xff",
+            455
+          ],
+          [
+            "0x0",
+            213
+          ],
+          [
+            "0x5",
+            143
+          ],
+          [
+            "0x6",
+            129
+          ],
+          [
+            "0x7",
+            125
+          ],
+          [
+            "0x28",
+            91
+          ],
+          [
+            "0xf9",
+            81
+          ],
+          [
+            "0x2f",
+            62
+          ],
+          [
+            "0x27",
+            60
+          ],
+          [
+            "0x2d",
+            59
+          ],
+          [
+            "0x2b",
+            56
+          ],
+          [
+            "0x8",
+            55
+          ],
+          [
+            "0x31",
+            47
+          ],
+          [
+            "0x2e",
+            43
+          ],
+          [
+            "0x24",
+            41
+          ],
+          [
+            "0x4",
+            41
+          ]
+        ],
+        "top_leaders_u16": [
+          [
+            "00f9",
+            81
+          ],
+          [
+            "ff28",
+            76
+          ],
+          [
+            "0700",
+            70
+          ],
+          [
+            "ff27",
+            56
+          ],
+          [
+            "ff2f",
+            56
+          ],
+          [
+            "ff2b",
+            47
+          ],
+          [
+            "ff2d",
+            47
+          ],
+          [
+            "f906",
+            42
+          ],
+          [
+            "0507",
+            38
+          ],
+          [
+            "ff31",
+            36
+          ],
+          [
+            "ff24",
+            34
+          ],
+          [
+            "00f8",
+            31
+          ]
+        ]
+      },
       "records_sample": [
         {
           "offset": 0,
           "length": 8,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f80721375402"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f80721375402",
+          "tail_hex": "0900f80721375402"
         },
         {
           "offset": 8,
           "length": 23,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f903223764050300f90623490805"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f903223764050300f906234908050500fb06242014",
+          "tail_hex": "050500fb06242014"
         },
         {
           "offset": 31,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 32,
           "length": 32,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f906254308050600fa0626201c06"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f906254308050600fa0626201c060600fa07273c3902",
+          "tail_hex": "0300f903281b0004"
         },
         {
           "offset": 64,
           "length": 8,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f805291b0a04"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f805291b0a04",
+          "tail_hex": "0900f805291b0a04"
         },
         {
           "offset": 72,
           "length": 55,
           "prefix_u16": 9,
           "tag_byte": 248,
-          "head_hex": "0900f8052a4e00050500f9062b287a05"
+          "tag_name": "glyph_run_f8",
+          "head_hex": "0900f8052a4e00050500f9062b287a050500fa062c3c3503",
+          "tail_hex": "050800f906302500"
         },
         {
           "offset": 127,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 128,
           "length": 8,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f90631160004"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f90631160004",
+          "tail_hex": "0700f90631160004"
         },
         {
           "offset": 136,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f905322508"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f905322508",
+          "tail_hex": "0700f905322508"
         },
         {
           "offset": 143,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 144,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f906332610"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f906332610",
+          "tail_hex": "0700f906332610"
         },
         {
           "offset": 151,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 152,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f906342b00"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f906342b00",
+          "tail_hex": "0700f906342b00"
         },
         {
           "offset": 159,
           "length": 1,
           "prefix_u16": 0,
           "tag_byte": null,
-          "head_hex": "05"
+          "tag_name": null,
+          "head_hex": "05",
+          "tail_hex": "05"
         },
         {
           "offset": 160,
           "length": 7,
           "prefix_u16": 7,
           "tag_byte": 249,
-          "head_hex": "0700f906352b08"
-        },
-        {
-          "offset": 167,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 168,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906362223"
-        },
-        {
-          "offset": 175,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 176,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906372718"
-        },
-        {
-          "offset": 183,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 184,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906382c10"
-        },
-        {
-          "offset": 191,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 192,
-          "length": 7,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f906393100"
-        },
-        {
-          "offset": 199,
-          "length": 1,
-          "prefix_u16": 0,
-          "tag_byte": null,
-          "head_hex": "05"
-        },
-        {
-          "offset": 200,
-          "length": 47,
-          "prefix_u16": 7,
-          "tag_byte": 249,
-          "head_hex": "0700f9063a145c020500fb033b384003"
+          "tag_name": "glyph_run_f9",
+          "head_hex": "0700f906352b08",
+          "tail_hex": "0700f906352b08"
         }
       ],
-      "records_total": 123,
-      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+      "records_total": 123
     }
-  ]
+  ],
+  "exe_loader": {
+    "region": [
+      "0xbf100",
+      "0xbfa00"
+    ],
+    "calls": [
+      {
+        "at": "0xbf104",
+        "target": "0xe9cd0"
+      },
+      {
+        "at": "0xbf10f",
+        "target": "0x225410"
+      },
+      {
+        "at": "0xbf118",
+        "target": "0x27920"
+      },
+      {
+        "at": "0xbf1b8",
+        "target": "0x27830"
+      },
+      {
+        "at": "0xbf210",
+        "target": "0x82500"
+      },
+      {
+        "at": "0xbf24b",
+        "target": "0x21e450"
+      },
+      {
+        "at": "0xbf287",
+        "target": "0x21e450"
+      },
+      {
+        "at": "0xbf2c6",
+        "target": "0x6f3c0"
+      },
+      {
+        "at": "0xbf2e0",
+        "target": "0x27830"
+      },
+      {
+        "at": "0xbf30a",
+        "target": "0xc0900"
+      },
+      {
+        "at": "0xbf345",
+        "target": "0x21e450"
+      },
+      {
+        "at": "0xbf381",
+        "target": "0x21e450"
+      },
+      {
+        "at": "0xbf3cd",
+        "target": "0x21e450"
+      },
+      {
+        "at": "0xbf3e6",
+        "target": "0x225894"
+      },
+      {
+        "at": "0xbf3f6",
+        "target": "0x27920"
+      },
+      {
+        "at": "0xbf40a",
+        "target": "0x226280"
+      },
+      {
+        "at": "0xbf412",
+        "target": "0x226948"
+      },
+      {
+        "at": "0xbf422",
+        "target": "0x226280"
+      },
+      {
+        "at": "0xbf42a",
+        "target": "0x21ec20"
+      },
+      {
+        "at": "0xbf445",
+        "target": "0x225e9c"
+      },
+      {
+        "at": "0xbf456",
+        "target": "0x225a24"
+      },
+      {
+        "at": "0xbf45f",
+        "target": "0x27920"
+      },
+      {
+        "at": "0xbf492",
+        "target": "0x224844"
+      },
+      {
+        "at": "0xbf4a7",
+        "target": "0x224844"
+      },
+      {
+        "at": "0xbf4bc",
+        "target": "0x224844"
+      },
+      {
+        "at": "0xbf4d1",
+        "target": "0x224844"
+      },
+      {
+        "at": "0xbf4e6",
+        "target": "0x224844"
+      },
+      {
+        "at": "0xbf56e",
+        "target": "0x6f3c0"
+      },
+      {
+        "at": "0xbf588",
+        "target": "0x27830"
+      },
+      {
+        "at": "0xbf5b5",
+        "target": "0xc0900"
+      },
+      {
+        "at": "0xbf5f2",
+        "target": "0x21e450"
+      },
+      {
+        "at": "0xbf633",
+        "target": "0x21e450"
+      },
+      {
+        "at": "0xbf686",
+        "target": "0x21e450"
+      },
+      {
+        "at": "0xbf69f",
+        "target": "0x225894"
+      },
+      {
+        "at": "0xbf6af",
+        "target": "0x27920"
+      },
+      {
+        "at": "0xbf6c3",
+        "target": "0x226280"
+      },
+      {
+        "at": "0xbf6cb",
+        "target": "0x226948"
+      },
+      {
+        "at": "0xbf6db",
+        "target": "0x226280"
+      },
+      {
+        "at": "0xbf6e3",
+        "target": "0x21ec20"
+      },
+      {
+        "at": "0xbf6fe",
+        "target": "0x225e9c"
+      }
+    ]
+  },
+  "aggregate_prefixes": {
+    "0700f9": 5,
+    "060700": 5,
+    "0900f8": 5,
+    "050700": 4,
+    "0900f9": 3
+  }
 }

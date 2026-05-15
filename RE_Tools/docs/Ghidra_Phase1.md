@@ -1,5 +1,7 @@
 # Ghidra / x64dbg — Phase 1 Tasks
 
+**Collaboration guide (breakpoints + paste targets):** [Ghidra_User_Tasks.md](Ghidra_User_Tasks.md)
+
 Use **image base `0x140000000`** (RVA + base = VA). Verified on `Game/Horsey.exe` via `phase1_verify.py`.
 
 ## 1. Entry → main init (confirmed call edge)

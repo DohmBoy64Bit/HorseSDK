@@ -1,0 +1,24 @@
+# Function: Game_UpdateWorld (Ghidra FUN_140087510)
+# RVA: 0x87510 - 0x877EF (RET)
+# Caller: GameMain @ 0xBEAD4; Game_PostSwapHook @ 0xC0196
+# RCX: frame/year counter (used in LEA [0x140+rcx*2], [0xb4+rcx*2])
+
+                             FUN_140087510                                   XREF[3]:     FUN_1400be0f0:1400bead4(c), 
+                                                                                          FUN_1400bffa0:1400c0196(c), 
+                                                                                          1403290c8(*)  
+       140087510 40 53           PUSH       RBX
+       140087520 e8 6b 7d        CALL       FUN_14003f290
+       140087525 80 3d c9        CMP        byte ptr [DAT_140312cf5],0x0
+       14008752f f3 0f 2a        CVTSI2SS   XMM0,dword ptr [DAT_140312ce0]
+       14008754a f3 0f 2a        CVTSI2SS   XMM6,dword ptr [DAT_1402f1e20]                   = 000003C0h
+       14008755c f3 0f 2a        CVTSI2SS   XMM1,dword ptr [DAT_140312ce4]
+       140087583 f3 0f 2a        CVTSI2SS   XMM3,dword ptr [DAT_1402f1e24]                   = 0000021Ch
+       1400875f4 0f 84 ef        JZ         LAB_1400876e9
+       1400875fa e8 11 0f        CALL       FUN_140088510
+       140087614-1400876b5       MOVUPS to DAT_140312830..920 (map coord tables)
+       1400876bc-e4              CALL FUN_140251850 x3
+       1400876f5 e8 46 09        CALL       FUN_140098040
+       14008770b-788             MOV qword DAT_140312cc0/cc8, RBX
+       14008778f-a3              CALL FUN_140251850 x2
+       1400877c9-d5              clear DAT_140312cb0/cb1/cb3; MOV DAT_1402f1e48; INC DAT_140312cb4
+       1400877ef c3              RET

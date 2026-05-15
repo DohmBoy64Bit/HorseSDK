@@ -21,8 +21,16 @@ static int count_nonzero(const uint8_t *t, size_t n) {
 
 int main(int argc, char **argv) {
     const char *path = "RE_Tools/analysis/save_buffer_dump.bin";
-    if (argc > 1) {
-        path = argv[1];
+    int roundtrip = 0;
+    for (int i = 1; i < argc; ++i) {
+        if (strcmp(argv[i], "--roundtrip") == 0 || strcmp(argv[i], "-r") == 0) {
+            roundtrip = 1;
+        } else {
+            path = argv[i];
+        }
+    }
+    if (getenv("HORSE_SAVE_ROUNDTRIP")) {
+        roundtrip = 1;
     }
 
     HorseSaveFile sf;
@@ -98,6 +106,47 @@ int main(int argc, char **argv) {
                s0->ptr_item_count,
                count_nonzero(s0->genes.track_a, HORSE_SAVE_GENE_COUNT),
                count_nonzero(s0->genes.track_b, HORSE_SAVE_GENE_COUNT));
+    }
+
+    if (roundtrip) {
+        const char *out_path = "RE_Tools/analysis/save_roundtrip_c.bin";
+        HorseSaveStatus wst = horse_save_write_path(&sf, out_path);
+        if (wst != HORSE_SAVE_OK) {
+            fprintf(stderr, "write failed: %s\n", horse_save_status_string(wst));
+            horse_save_file_free(&sf);
+            return 1;
+        }
+        size_t n = sf.size;
+        int ok = 0;
+        FILE *a = fopen(path, "rb");
+        FILE *b = fopen(out_path, "rb");
+        if (a && b) {
+            ok = 1;
+            uint8_t buf_a[65536];
+            uint8_t buf_b[65536];
+            size_t left = n;
+            while (left > 0 && ok) {
+                size_t chunk = left > sizeof(buf_a) ? sizeof(buf_a) : left;
+                if (fread(buf_a, 1, chunk, a) != chunk || fread(buf_b, 1, chunk, b) != chunk) {
+                    ok = 0;
+                    break;
+                }
+                if (memcmp(buf_a, buf_b, chunk) != 0) {
+                    ok = 0;
+                    break;
+                }
+                left -= chunk;
+            }
+        }
+        if (a) {
+            fclose(a);
+        }
+        if (b) {
+            fclose(b);
+        }
+        printf("roundtrip match=%s (%zu bytes)\n", ok ? "yes" : "no", n);
+        horse_save_file_free(&sf);
+        return ok ? 0 : 1;
     }
 
     horse_save_file_free(&sf);
