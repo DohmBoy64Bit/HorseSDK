@@ -1,0 +1,12 @@
+LIBRARY steam_api64
+EXPORTS
+    SteamAPI_Shutdown
+    SteamAPI_RegisterCallback
+    SteamAPI_ManualDispatch_Init
+    SteamInternal_SteamAPI_Init
+    SteamInternal_ContextInit
+    SteamAPI_RunCallbacks
+    SteamInternal_FindOrCreateUserInterface
+    SteamAPI_UnregisterCallback
+    SteamAPI_GetHSteamUser
+    SteamAPI_RestartAppIfNecessary

@@ -1,0 +1,2943 @@
+{
+  "file_offset": 57035,
+  "file_end": 58169,
+  "size": 1134,
+  "caller_rva": "0x6E0A6",
+  "insn": "0x6D440 WriteNestedSave on ctx nested object",
+  "name": "unknown",
+  "semantic": "world_placed_entities_container",
+  "d440_header": {
+    "name_std_string": {
+      "len": 7,
+      "text": "unknown"
+    },
+    "ptr_item_count": 0,
+    "merge_index": 4294967295,
+    "b8_vector_count": 343,
+    "note": "b8 loop: per entry WriteU32([obj+8]) + vcall [obj+0]+0x48 (variable bytes; compact trace gaps)"
+  },
+  "entity_f32_clusters": [
+    {
+      "rel_start": 48,
+      "count": 4,
+      "values": [
+        3190.0,
+        3718.0,
+        26.0,
+        12.0
+      ]
+    },
+    {
+      "rel_start": 109,
+      "count": 4,
+      "values": [
+        3888.0,
+        3408.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 150,
+      "count": 4,
+      "values": [
+        3024.0,
+        3952.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 191,
+      "count": 4,
+      "values": [
+        2544.0,
+        3792.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 232,
+      "count": 4,
+      "values": [
+        3280.0,
+        4784.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 273,
+      "count": 4,
+      "values": [
+        4240.0,
+        4560.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 314,
+      "count": 4,
+      "values": [
+        3056.0,
+        3696.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 355,
+      "count": 4,
+      "values": [
+        3184.0,
+        3696.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 396,
+      "count": 4,
+      "values": [
+        3280.0,
+        3664.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 437,
+      "count": 4,
+      "values": [
+        3152.0,
+        3696.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 478,
+      "count": 4,
+      "values": [
+        3088.0,
+        3792.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 519,
+      "count": 4,
+      "values": [
+        3888.0,
+        3856.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 560,
+      "count": 4,
+      "values": [
+        3088.0,
+        3536.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 601,
+      "count": 4,
+      "values": [
+        3600.0,
+        3600.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 642,
+      "count": 4,
+      "values": [
+        3504.0,
+        4048.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 683,
+      "count": 4,
+      "values": [
+        3376.0,
+        3472.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 724,
+      "count": 4,
+      "values": [
+        3504.0,
+        3824.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 765,
+      "count": 4,
+      "values": [
+        3696.0,
+        4112.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 806,
+      "count": 4,
+      "values": [
+        5040.0,
+        5008.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 847,
+      "count": 4,
+      "values": [
+        2191.475341796875,
+        4656.8916015625,
+        14.399999618530273,
+        14.13248062133789
+      ]
+    }
+  ],
+  "coverage": {
+    "traced_bytes": 825,
+    "gap_bytes": 309,
+    "pct_traced": 72.8,
+    "gap_encoding": "vtable+0x48 serialized blobs (WriteU8 omitted in compact trace)"
+  },
+  "f32_clusters": [
+    {
+      "rel_start": 48,
+      "count": 4,
+      "values": [
+        3190.0,
+        3718.0,
+        26.0,
+        12.0
+      ]
+    },
+    {
+      "rel_start": 109,
+      "count": 4,
+      "values": [
+        3888.0,
+        3408.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 150,
+      "count": 4,
+      "values": [
+        3024.0,
+        3952.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 191,
+      "count": 4,
+      "values": [
+        2544.0,
+        3792.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 232,
+      "count": 4,
+      "values": [
+        3280.0,
+        4784.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 273,
+      "count": 4,
+      "values": [
+        4240.0,
+        4560.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 314,
+      "count": 4,
+      "values": [
+        3056.0,
+        3696.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 355,
+      "count": 4,
+      "values": [
+        3184.0,
+        3696.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 396,
+      "count": 4,
+      "values": [
+        3280.0,
+        3664.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 437,
+      "count": 4,
+      "values": [
+        3152.0,
+        3696.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 478,
+      "count": 4,
+      "values": [
+        3088.0,
+        3792.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 519,
+      "count": 4,
+      "values": [
+        3888.0,
+        3856.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 560,
+      "count": 4,
+      "values": [
+        3088.0,
+        3536.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 601,
+      "count": 4,
+      "values": [
+        3600.0,
+        3600.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 642,
+      "count": 4,
+      "values": [
+        3504.0,
+        4048.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 683,
+      "count": 4,
+      "values": [
+        3376.0,
+        3472.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 724,
+      "count": 4,
+      "values": [
+        3504.0,
+        3824.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 765,
+      "count": 4,
+      "values": [
+        3696.0,
+        4112.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 806,
+      "count": 4,
+      "values": [
+        5040.0,
+        5008.0,
+        32.0,
+        32.0
+      ]
+    },
+    {
+      "rel_start": 847,
+      "count": 4,
+      "values": [
+        2191.475341796875,
+        4656.8916015625,
+        14.399999618530273,
+        14.13248062133789
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "rel": 0,
+      "file_offset": 57035,
+      "size": 11,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "hex": "07000000756e6b6e6f776e",
+      "value": {
+        "len": 7,
+        "text": "unknown"
+      }
+    },
+    {
+      "rel": 11,
+      "file_offset": 57046,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FED0",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 15,
+      "file_offset": 57050,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "ffffffff",
+      "value": {
+        "u32": 4294967295,
+        "f32": NaN
+      }
+    },
+    {
+      "rel": 19,
+      "file_offset": 57054,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FED0",
+      "hex": "57010000",
+      "value": {
+        "u32": 343,
+        "f32": 4.8064537326341226e-43
+      }
+    },
+    {
+      "rel": 23,
+      "file_offset": 57058,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "01000000",
+      "value": {
+        "u32": 1,
+        "f32": 1.401298464324817e-45
+      }
+    },
+    {
+      "rel": 27,
+      "file_offset": 57062,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a001f"
+    },
+    {
+      "rel": 30,
+      "file_offset": 57065,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 32,
+      "file_offset": 57067,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 36,
+      "file_offset": 57071,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 40,
+      "file_offset": 57075,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "30b27d3fe71209be",
+      "value": {
+        "xy": [
+          0.9910001754760742,
+          -0.13386116921901703
+        ]
+      }
+    },
+    {
+      "rel": 48,
+      "file_offset": 57083,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00604745",
+      "value": {
+        "u32": 1162305536,
+        "f32": 3190.0
+      }
+    },
+    {
+      "rel": 52,
+      "file_offset": 57087,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00606845",
+      "value": {
+        "u32": 1164468224,
+        "f32": 3718.0
+      }
+    },
+    {
+      "rel": 56,
+      "file_offset": 57091,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "0000d041",
+      "value": {
+        "u32": 1104150528,
+        "f32": 26.0
+      }
+    },
+    {
+      "rel": 60,
+      "file_offset": 57095,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00004041",
+      "value": {
+        "u32": 1094713344,
+        "f32": 12.0
+      }
+    },
+    {
+      "rel": 64,
+      "file_offset": 57099,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 68,
+      "file_offset": 57103,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 72,
+      "file_offset": 57107,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 76,
+      "file_offset": 57111,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "writer_rva": "0x6FEF0",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 80,
+      "file_offset": 57115,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "writer_rva": "0x6FEF0",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 84,
+      "file_offset": 57119,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 88,
+      "file_offset": 57123,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a0617"
+    },
+    {
+      "rel": 91,
+      "file_offset": 57126,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 93,
+      "file_offset": 57128,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 97,
+      "file_offset": 57132,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 101,
+      "file_offset": 57136,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c392c392c392c",
+      "value": {
+        "xy": [
+          2.6314629728713124e-12,
+          2.6314629728713124e-12
+        ]
+      }
+    },
+    {
+      "rel": 109,
+      "file_offset": 57144,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00007345",
+      "value": {
+        "u32": 1165164544,
+        "f32": 3888.0
+      }
+    },
+    {
+      "rel": 113,
+      "file_offset": 57148,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00005545",
+      "value": {
+        "u32": 1163198464,
+        "f32": 3408.0
+      }
+    },
+    {
+      "rel": 117,
+      "file_offset": 57152,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 121,
+      "file_offset": 57156,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 125,
+      "file_offset": 57160,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 129,
+      "file_offset": 57164,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a0317"
+    },
+    {
+      "rel": 132,
+      "file_offset": 57167,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 134,
+      "file_offset": 57169,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 138,
+      "file_offset": 57173,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 142,
+      "file_offset": 57177,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "2c36392c36392c36",
+      "value": {
+        "xy": [
+          2.6320152654579765e-12,
+          2.5663298401923385e-06
+        ]
+      }
+    },
+    {
+      "rel": 150,
+      "file_offset": 57185,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00003d45",
+      "value": {
+        "u32": 1161625600,
+        "f32": 3024.0
+      }
+    },
+    {
+      "rel": 154,
+      "file_offset": 57189,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00007745",
+      "value": {
+        "u32": 1165426688,
+        "f32": 3952.0
+      }
+    },
+    {
+      "rel": 158,
+      "file_offset": 57193,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 162,
+      "file_offset": 57197,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 166,
+      "file_offset": 57201,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 170,
+      "file_offset": 57205,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a0117"
+    },
+    {
+      "rel": 173,
+      "file_offset": 57208,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 175,
+      "file_offset": 57210,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 179,
+      "file_offset": 57214,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 183,
+      "file_offset": 57218,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c392c392c392c",
+      "value": {
+        "xy": [
+          2.6314629728713124e-12,
+          2.6314629728713124e-12
+        ]
+      }
+    },
+    {
+      "rel": 191,
+      "file_offset": 57226,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00001f45",
+      "value": {
+        "u32": 1159659520,
+        "f32": 2544.0
+      }
+    },
+    {
+      "rel": 195,
+      "file_offset": 57230,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006d45",
+      "value": {
+        "u32": 1164771328,
+        "f32": 3792.0
+      }
+    },
+    {
+      "rel": 199,
+      "file_offset": 57234,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 203,
+      "file_offset": 57238,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 207,
+      "file_offset": 57242,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 211,
+      "file_offset": 57246,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a0417"
+    },
+    {
+      "rel": 214,
+      "file_offset": 57249,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 216,
+      "file_offset": 57251,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 220,
+      "file_offset": 57255,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 224,
+      "file_offset": 57259,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "2c36392c36392c36",
+      "value": {
+        "xy": [
+          2.6320152654579765e-12,
+          2.5663298401923385e-06
+        ]
+      }
+    },
+    {
+      "rel": 232,
+      "file_offset": 57267,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00004d45",
+      "value": {
+        "u32": 1162674176,
+        "f32": 3280.0
+      }
+    },
+    {
+      "rel": 236,
+      "file_offset": 57271,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00809545",
+      "value": {
+        "u32": 1167425536,
+        "f32": 4784.0
+      }
+    },
+    {
+      "rel": 240,
+      "file_offset": 57275,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 244,
+      "file_offset": 57279,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 248,
+      "file_offset": 57283,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 252,
+      "file_offset": 57287,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a0517"
+    },
+    {
+      "rel": 255,
+      "file_offset": 57290,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 257,
+      "file_offset": 57292,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 261,
+      "file_offset": 57296,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 265,
+      "file_offset": 57300,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c392c392c392c",
+      "value": {
+        "xy": [
+          2.6314629728713124e-12,
+          2.6314629728713124e-12
+        ]
+      }
+    },
+    {
+      "rel": 273,
+      "file_offset": 57308,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00808445",
+      "value": {
+        "u32": 1166311424,
+        "f32": 4240.0
+      }
+    },
+    {
+      "rel": 277,
+      "file_offset": 57312,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00808e45",
+      "value": {
+        "u32": 1166966784,
+        "f32": 4560.0
+      }
+    },
+    {
+      "rel": 281,
+      "file_offset": 57316,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 285,
+      "file_offset": 57320,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 289,
+      "file_offset": 57324,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 293,
+      "file_offset": 57328,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a0017"
+    },
+    {
+      "rel": 296,
+      "file_offset": 57331,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 298,
+      "file_offset": 57333,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 302,
+      "file_offset": 57337,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 306,
+      "file_offset": 57341,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "2c392c392c392c39",
+      "value": {
+        "xy": [
+          0.00016424496425315738,
+          0.00016424496425315738
+        ]
+      }
+    },
+    {
+      "rel": 314,
+      "file_offset": 57349,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00003f45",
+      "value": {
+        "u32": 1161756672,
+        "f32": 3056.0
+      }
+    },
+    {
+      "rel": 318,
+      "file_offset": 57353,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006745",
+      "value": {
+        "u32": 1164378112,
+        "f32": 3696.0
+      }
+    },
+    {
+      "rel": 322,
+      "file_offset": 57357,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 326,
+      "file_offset": 57361,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 330,
+      "file_offset": 57365,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 334,
+      "file_offset": 57369,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a0d17"
+    },
+    {
+      "rel": 337,
+      "file_offset": 57372,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 339,
+      "file_offset": 57374,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 343,
+      "file_offset": 57378,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 347,
+      "file_offset": 57382,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "2c392c392c392c39",
+      "value": {
+        "xy": [
+          0.00016424496425315738,
+          0.00016424496425315738
+        ]
+      }
+    },
+    {
+      "rel": 355,
+      "file_offset": 57390,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00004745",
+      "value": {
+        "u32": 1162280960,
+        "f32": 3184.0
+      }
+    },
+    {
+      "rel": 359,
+      "file_offset": 57394,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006745",
+      "value": {
+        "u32": 1164378112,
+        "f32": 3696.0
+      }
+    },
+    {
+      "rel": 363,
+      "file_offset": 57398,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 367,
+      "file_offset": 57402,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 371,
+      "file_offset": 57406,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 375,
+      "file_offset": 57410,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1c17"
+    },
+    {
+      "rel": 378,
+      "file_offset": 57413,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 380,
+      "file_offset": 57415,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 384,
+      "file_offset": 57419,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 388,
+      "file_offset": 57423,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c392c392c392c",
+      "value": {
+        "xy": [
+          2.6314629728713124e-12,
+          2.6314629728713124e-12
+        ]
+      }
+    },
+    {
+      "rel": 396,
+      "file_offset": 57431,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00004d45",
+      "value": {
+        "u32": 1162674176,
+        "f32": 3280.0
+      }
+    },
+    {
+      "rel": 400,
+      "file_offset": 57435,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006545",
+      "value": {
+        "u32": 1164247040,
+        "f32": 3664.0
+      }
+    },
+    {
+      "rel": 404,
+      "file_offset": 57439,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 408,
+      "file_offset": 57443,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 412,
+      "file_offset": 57447,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 416,
+      "file_offset": 57451,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a0e17"
+    },
+    {
+      "rel": 419,
+      "file_offset": 57454,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 421,
+      "file_offset": 57456,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 425,
+      "file_offset": 57460,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 429,
+      "file_offset": 57464,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "2c392c392c392c39",
+      "value": {
+        "xy": [
+          0.00016424496425315738,
+          0.00016424496425315738
+        ]
+      }
+    },
+    {
+      "rel": 437,
+      "file_offset": 57472,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00004545",
+      "value": {
+        "u32": 1162149888,
+        "f32": 3152.0
+      }
+    },
+    {
+      "rel": 441,
+      "file_offset": 57476,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006745",
+      "value": {
+        "u32": 1164378112,
+        "f32": 3696.0
+      }
+    },
+    {
+      "rel": 445,
+      "file_offset": 57480,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 449,
+      "file_offset": 57484,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 453,
+      "file_offset": 57488,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 457,
+      "file_offset": 57492,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1417"
+    },
+    {
+      "rel": 460,
+      "file_offset": 57495,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 462,
+      "file_offset": 57497,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 466,
+      "file_offset": 57501,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 470,
+      "file_offset": 57505,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c392c392c392c",
+      "value": {
+        "xy": [
+          2.6314629728713124e-12,
+          2.6314629728713124e-12
+        ]
+      }
+    },
+    {
+      "rel": 478,
+      "file_offset": 57513,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00004145",
+      "value": {
+        "u32": 1161887744,
+        "f32": 3088.0
+      }
+    },
+    {
+      "rel": 482,
+      "file_offset": 57517,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006d45",
+      "value": {
+        "u32": 1164771328,
+        "f32": 3792.0
+      }
+    },
+    {
+      "rel": 486,
+      "file_offset": 57521,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 490,
+      "file_offset": 57525,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 494,
+      "file_offset": 57529,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 498,
+      "file_offset": 57533,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1017"
+    },
+    {
+      "rel": 501,
+      "file_offset": 57536,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 503,
+      "file_offset": 57538,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 507,
+      "file_offset": 57542,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 511,
+      "file_offset": 57546,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "2c392c392c392c39",
+      "value": {
+        "xy": [
+          0.00016424496425315738,
+          0.00016424496425315738
+        ]
+      }
+    },
+    {
+      "rel": 519,
+      "file_offset": 57554,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00007345",
+      "value": {
+        "u32": 1165164544,
+        "f32": 3888.0
+      }
+    },
+    {
+      "rel": 523,
+      "file_offset": 57558,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00007145",
+      "value": {
+        "u32": 1165033472,
+        "f32": 3856.0
+      }
+    },
+    {
+      "rel": 527,
+      "file_offset": 57562,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 531,
+      "file_offset": 57566,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 535,
+      "file_offset": 57570,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 539,
+      "file_offset": 57574,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1a17"
+    },
+    {
+      "rel": 542,
+      "file_offset": 57577,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 544,
+      "file_offset": 57579,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 548,
+      "file_offset": 57583,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 552,
+      "file_offset": 57587,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c392c392c392c",
+      "value": {
+        "xy": [
+          2.6314629728713124e-12,
+          2.6314629728713124e-12
+        ]
+      }
+    },
+    {
+      "rel": 560,
+      "file_offset": 57595,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00004145",
+      "value": {
+        "u32": 1161887744,
+        "f32": 3088.0
+      }
+    },
+    {
+      "rel": 564,
+      "file_offset": 57599,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00005d45",
+      "value": {
+        "u32": 1163722752,
+        "f32": 3536.0
+      }
+    },
+    {
+      "rel": 568,
+      "file_offset": 57603,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 572,
+      "file_offset": 57607,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 576,
+      "file_offset": 57611,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 580,
+      "file_offset": 57615,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1f17"
+    },
+    {
+      "rel": 583,
+      "file_offset": 57618,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 585,
+      "file_offset": 57620,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 589,
+      "file_offset": 57624,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 593,
+      "file_offset": 57628,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c392c392c392c",
+      "value": {
+        "xy": [
+          2.6314629728713124e-12,
+          2.6314629728713124e-12
+        ]
+      }
+    },
+    {
+      "rel": 601,
+      "file_offset": 57636,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006145",
+      "value": {
+        "u32": 1163984896,
+        "f32": 3600.0
+      }
+    },
+    {
+      "rel": 605,
+      "file_offset": 57640,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006145",
+      "value": {
+        "u32": 1163984896,
+        "f32": 3600.0
+      }
+    },
+    {
+      "rel": 609,
+      "file_offset": 57644,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 613,
+      "file_offset": 57648,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 617,
+      "file_offset": 57652,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 621,
+      "file_offset": 57656,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1617"
+    },
+    {
+      "rel": 624,
+      "file_offset": 57659,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 626,
+      "file_offset": 57661,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 630,
+      "file_offset": 57665,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 634,
+      "file_offset": 57669,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c392c392c392c",
+      "value": {
+        "xy": [
+          2.6314629728713124e-12,
+          2.6314629728713124e-12
+        ]
+      }
+    },
+    {
+      "rel": 642,
+      "file_offset": 57677,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00005b45",
+      "value": {
+        "u32": 1163591680,
+        "f32": 3504.0
+      }
+    },
+    {
+      "rel": 646,
+      "file_offset": 57681,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00007d45",
+      "value": {
+        "u32": 1165819904,
+        "f32": 4048.0
+      }
+    },
+    {
+      "rel": 650,
+      "file_offset": 57685,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 654,
+      "file_offset": 57689,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 658,
+      "file_offset": 57693,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 662,
+      "file_offset": 57697,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1917"
+    },
+    {
+      "rel": 665,
+      "file_offset": 57700,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 667,
+      "file_offset": 57702,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 671,
+      "file_offset": 57706,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 675,
+      "file_offset": 57710,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c36392c36392c",
+      "value": {
+        "xy": [
+          0.00017373346781823784,
+          2.6320152654579765e-12
+        ]
+      }
+    },
+    {
+      "rel": 683,
+      "file_offset": 57718,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00005345",
+      "value": {
+        "u32": 1163067392,
+        "f32": 3376.0
+      }
+    },
+    {
+      "rel": 687,
+      "file_offset": 57722,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00005945",
+      "value": {
+        "u32": 1163460608,
+        "f32": 3472.0
+      }
+    },
+    {
+      "rel": 691,
+      "file_offset": 57726,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 695,
+      "file_offset": 57730,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 699,
+      "file_offset": 57734,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 703,
+      "file_offset": 57738,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1117"
+    },
+    {
+      "rel": 706,
+      "file_offset": 57741,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 708,
+      "file_offset": 57743,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 712,
+      "file_offset": 57747,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 716,
+      "file_offset": 57751,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "392c392c392c392c",
+      "value": {
+        "xy": [
+          2.6314629728713124e-12,
+          2.6314629728713124e-12
+        ]
+      }
+    },
+    {
+      "rel": 724,
+      "file_offset": 57759,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00005b45",
+      "value": {
+        "u32": 1163591680,
+        "f32": 3504.0
+      }
+    },
+    {
+      "rel": 728,
+      "file_offset": 57763,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006f45",
+      "value": {
+        "u32": 1164902400,
+        "f32": 3824.0
+      }
+    },
+    {
+      "rel": 732,
+      "file_offset": 57767,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 736,
+      "file_offset": 57771,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 740,
+      "file_offset": 57775,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 744,
+      "file_offset": 57779,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1d17"
+    },
+    {
+      "rel": 747,
+      "file_offset": 57782,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 749,
+      "file_offset": 57784,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 753,
+      "file_offset": 57788,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 757,
+      "file_offset": 57792,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "2c392c392c392c39",
+      "value": {
+        "xy": [
+          0.00016424496425315738,
+          0.00016424496425315738
+        ]
+      }
+    },
+    {
+      "rel": 765,
+      "file_offset": 57800,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00006745",
+      "value": {
+        "u32": 1164378112,
+        "f32": 3696.0
+      }
+    },
+    {
+      "rel": 769,
+      "file_offset": 57804,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00808045",
+      "value": {
+        "u32": 1166049280,
+        "f32": 4112.0
+      }
+    },
+    {
+      "rel": 773,
+      "file_offset": 57808,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 777,
+      "file_offset": 57812,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 781,
+      "file_offset": 57816,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "02000000",
+      "value": {
+        "u32": 2,
+        "f32": 2.802596928649634e-45
+      }
+    },
+    {
+      "rel": 785,
+      "file_offset": 57820,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a1517"
+    },
+    {
+      "rel": 788,
+      "file_offset": 57823,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 790,
+      "file_offset": 57825,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 794,
+      "file_offset": 57829,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 798,
+      "file_offset": 57833,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "2c392c392c392c39",
+      "value": {
+        "xy": [
+          0.00016424496425315738,
+          0.00016424496425315738
+        ]
+      }
+    },
+    {
+      "rel": 806,
+      "file_offset": 57841,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00809d45",
+      "value": {
+        "u32": 1167949824,
+        "f32": 5040.0
+      }
+    },
+    {
+      "rel": 810,
+      "file_offset": 57845,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00809c45",
+      "value": {
+        "u32": 1167884288,
+        "f32": 5008.0
+      }
+    },
+    {
+      "rel": 814,
+      "file_offset": 57849,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 818,
+      "file_offset": 57853,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "00000042",
+      "value": {
+        "u32": 1107296256,
+        "f32": 32.0
+      }
+    },
+    {
+      "rel": 822,
+      "file_offset": 57857,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 826,
+      "file_offset": 57861,
+      "size": 3,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0a001f"
+    },
+    {
+      "rel": 829,
+      "file_offset": 57864,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "0000",
+      "value": {
+        "u16": 0
+      }
+    },
+    {
+      "rel": 831,
+      "file_offset": 57866,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "37000000",
+      "value": {
+        "u32": 55,
+        "f32": 7.707141553786494e-44
+      }
+    },
+    {
+      "rel": 835,
+      "file_offset": 57870,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "00000000",
+      "value": {
+        "u32": 0,
+        "f32": 0.0
+      }
+    },
+    {
+      "rel": 839,
+      "file_offset": 57874,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "f04b23bec227453e",
+      "value": {
+        "xy": [
+          -0.1594693660736084,
+          0.19253447651863098
+        ]
+      }
+    },
+    {
+      "rel": 847,
+      "file_offset": 57882,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "9bf70845",
+      "value": {
+        "u32": 1158215579,
+        "f32": 2191.475341796875
+      }
+    },
+    {
+      "rel": 851,
+      "file_offset": 57886,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "22879145",
+      "value": {
+        "u32": 1167165218,
+        "f32": 4656.8916015625
+      }
+    },
+    {
+      "rel": 855,
+      "file_offset": 57890,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "66666641",
+      "value": {
+        "u32": 1097229926,
+        "f32": 14.399999618530273
+      }
+    },
+    {
+      "rel": 859,
+      "file_offset": 57894,
+      "size": 4,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "hex": "a41e6241",
+      "value": {
+        "u32": 1096949412,
+        "f32": 14.13248062133789
+      }
+    },
+    {
+      "rel": 863,
+      "file_offset": 57898,
+      "size": 240,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0909211319121209090b190b0909090912090a09090c09090909090a09092411"
+    },
+    {
+      "rel": 1103,
+      "file_offset": 58138,
+      "size": 8,
+      "writer": "WriteU64",
+      "writer_rva": "0x6FE70",
+      "hex": "2e022b4e00000000",
+      "value": {
+        "u64": 1311441454
+      }
+    },
+    {
+      "rel": 1111,
+      "file_offset": 58146,
+      "size": 4,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "hex": "ffffffff",
+      "value": {
+        "u32": 4294967295,
+        "f32": NaN
+      }
+    },
+    {
+      "rel": 1115,
+      "file_offset": 58150,
+      "size": 2,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "hex": "1e00",
+      "value": {
+        "u16": 30
+      }
+    },
+    {
+      "rel": 1117,
+      "file_offset": 58152,
+      "size": 9,
+      "writer": "WriteU8_gap",
+      "note": "compact trace omits WriteU8",
+      "hex": "0003000400ff000000"
+    },
+    {
+      "rel": 1126,
+      "file_offset": 58161,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "hex": "0000000000000000",
+      "value": {
+        "xy": [
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ]
+}

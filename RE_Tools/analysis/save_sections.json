@@ -1,0 +1,73 @@
+{
+  "dump": "E:\\games\\HorseSDK\\RE_Tools\\analysis\\save_buffer_dump.bin",
+  "dump_size": 204386,
+  "row_table_end": "0xf4",
+  "trace_used": true,
+  "horse_u16_vector": {
+    "name": "horse_u16_vector",
+    "insn": "0x6DDF9 / 0x6DE30",
+    "ctx": "rdi+0x280 .. rdi+0x288",
+    "file_offset": 2621,
+    "count": 3,
+    "count_source": "save_trace_layout.json",
+    "disk_record_bytes": 8,
+    "records": [
+      {
+        "index": 0,
+        "file_offset": 2625,
+        "u16_x4": [
+          225,
+          28,
+          0,
+          466
+        ],
+        "hex": "e1001c000000d201"
+      },
+      {
+        "index": 1,
+        "file_offset": 2633,
+        "u16_x4": [
+          235,
+          28,
+          0,
+          470
+        ],
+        "hex": "eb001c000000d601"
+      },
+      {
+        "index": 2,
+        "file_offset": 2641,
+        "u16_x4": [
+          276,
+          30,
+          0,
+          483
+        ],
+        "hex": "14011e000000e301"
+      }
+    ],
+    "end_offset": 2649
+  },
+  "fields_278_27c": [
+    {
+      "file_offset": 2649,
+      "u32": 400,
+      "ctx": "rdi+0x278",
+      "insn": "0x6DEA9"
+    },
+    {
+      "file_offset": 2653,
+      "u32": 225,
+      "ctx": "rdi+0x27C",
+      "insn": "0x6DEB7"
+    }
+  ],
+  "inventory_strings": {
+    "name": "inventory_std_strings",
+    "insn": "0x6DF30 / 0x1167B0",
+    "ctx": "rdi+0x270 grid",
+    "file_offset": 2657,
+    "items": [],
+    "end_offset": 2657
+  }
+}

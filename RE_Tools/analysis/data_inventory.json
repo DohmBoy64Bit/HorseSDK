@@ -1,0 +1,629 @@
+{
+  "data_dir": "E:\\games\\HorseSDK\\Game\\data",
+  "file_count": 49,
+  "source_policy": "See RE_Tools/docs/SOURCES.md \u2014 repomix is NOT authoritative",
+  "files": [
+    {
+      "name": "biglogo.png",
+      "bytes": 75613,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": "biglogo.xml"
+      }
+    },
+    {
+      "name": "biglogo.xml",
+      "bytes": 159,
+      "kind": "texture_atlas_xml",
+      "verified": true,
+      "details": {
+        "sprite_count": 2,
+        "sample": [
+          "LogoHorsey",
+          "LogoGame"
+        ]
+      }
+    },
+    {
+      "name": "biglogo2.png",
+      "bytes": 77130,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "bubbletime.png",
+      "bytes": 7126,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "bubbletime.txt",
+      "bytes": 2469,
+      "kind": "bmfont_txt",
+      "verified": true,
+      "details": {
+        "font_name": "ChevyRay - Bubble Time",
+        "size": 21,
+        "char_count": 95,
+        "kerning_count": 11
+      }
+    },
+    {
+      "name": "capy_bold.crf",
+      "bytes": 8788,
+      "kind": "crf_binary",
+      "verified": true,
+      "details": {
+        "byte_size": 8788,
+        "header_hex": "010d0903b900000080090000ff107607",
+        "section1_bytes": 2432,
+        "section2_bytes": 6340,
+        "layout": "16-byte hdr; section1 + section2 (see crf_font.py)"
+      }
+    },
+    {
+      "name": "capy_bold.png",
+      "bytes": 3862,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "classified.png",
+      "bytes": 3427,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "classified.txt",
+      "bytes": 8250,
+      "kind": "bmfont_txt",
+      "verified": true,
+      "details": {
+        "font_name": "ChevyRay - Classified",
+        "size": 16,
+        "char_count": 95,
+        "kerning_count": 602
+      }
+    },
+    {
+      "name": "clop.png",
+      "bytes": 12985,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "filmset.png",
+      "bytes": 11892,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "furniture.png",
+      "bytes": 115394,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": "furniture.xml"
+      }
+    },
+    {
+      "name": "furniture.xml",
+      "bytes": 8165,
+      "kind": "texture_atlas_xml",
+      "verified": true,
+      "details": {
+        "sprite_count": 137,
+        "sample": [
+          "Bar",
+          "Bar2",
+          "Bar3",
+          "TV",
+          "TVOn"
+        ]
+      }
+    },
+    {
+      "name": "genes.dat",
+      "bytes": 3507,
+      "kind": "dat_binary",
+      "verified": true,
+      "details": {
+        "byte_size": 3507,
+        "gene_count": 240,
+        "first_name_length": 4,
+        "first_gene": "SIZE",
+        "last_gene": "LOCO_SYNC",
+        "layout": "u32 count; u32 len(first name); [name][u32 len(next)]* (n-1); [last name]",
+        "verified_by": "genes_dat.py parser + byte walk 2026-05-15"
+      }
+    },
+    {
+      "name": "genes.xml",
+      "bytes": 20726,
+      "kind": "genes_xml",
+      "verified": true,
+      "details": {
+        "gene_count": 240
+      }
+    },
+    {
+      "name": "habit_mono.crf",
+      "bytes": 1428,
+      "kind": "crf_binary",
+      "verified": true,
+      "details": {
+        "byte_size": 1428,
+        "header_hex": "010b0906b100000000000000ff122c05",
+        "section1_bytes": 0,
+        "section2_bytes": 1412,
+        "layout": "16-byte hdr; section1 + section2 (see crf_font.py)"
+      }
+    },
+    {
+      "name": "habit_mono.png",
+      "bytes": 3712,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "habit_narrow_bold.crf",
+      "bytes": 8167,
+      "kind": "crf_binary",
+      "verified": true,
+      "details": {
+        "byte_size": 8167,
+        "header_hex": "010b0a03b9000000b1080000ff000007",
+        "section1_bytes": 2225,
+        "section2_bytes": 5926,
+        "layout": "16-byte hdr; section1 + section2 (see crf_font.py)"
+      }
+    },
+    {
+      "name": "habit_narrow_bold.png",
+      "bytes": 3613,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "horsey.tmx",
+      "bytes": 190650,
+      "kind": "tmx",
+      "verified": true,
+      "details": {
+        "width": 400,
+        "height": 225,
+        "tile_size": [
+          32,
+          32
+        ],
+        "tilesets": [
+          {
+            "first_gid": 1,
+            "source": "terrain.tsx"
+          },
+          {
+            "first_gid": 97,
+            "source": "locs.tsx"
+          }
+        ],
+        "layers": [
+          "Tiles"
+        ],
+        "tile_count": 90000,
+        "unique_gids": 56,
+        "top10_gids": [
+          [
+            9,
+            60950
+          ],
+          [
+            1,
+            17137
+          ],
+          [
+            5,
+            8061
+          ],
+          [
+            17,
+            599
+          ],
+          [
+            69,
+            582
+          ],
+          [
+            16,
+            457
+          ],
+          [
+            6,
+            440
+          ],
+          [
+            70,
+            381
+          ],
+          [
+            25,
+            256
+          ],
+          [
+            65,
+            156
+          ]
+        ],
+        "gid_0_count": 0
+      }
+    },
+    {
+      "name": "info.png",
+      "bytes": 9199,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "island.png",
+      "bytes": 80204,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "locs.png",
+      "bytes": 11716,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": "locs.xml"
+      }
+    },
+    {
+      "name": "locs.xml",
+      "bytes": 1909,
+      "kind": "texture_atlas_xml",
+      "verified": true,
+      "details": {
+        "sprite_count": 34,
+        "sample": [
+          "LocStable",
+          "LocTrack",
+          "LocSweetie",
+          "LocHermit",
+          "LocCrispr"
+        ]
+      }
+    },
+    {
+      "name": "n64.fnt",
+      "bytes": 3857,
+      "kind": "angelcode_fnt",
+      "verified": true,
+      "details": {
+        "byte_size": 3857,
+        "bmf_version": 3,
+        "face": "Amiga Forever",
+        "font_size": -8,
+        "line_height": 12,
+        "glyph_count": 189,
+        "pages": [
+          "c64_0.png"
+        ],
+        "page_png_exists": {
+          "c64_0.png": false
+        }
+      }
+    },
+    {
+      "name": "n64_0.png",
+      "bytes": 3366,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "names.txt",
+      "bytes": 66726,
+      "kind": "text_lines",
+      "verified": true,
+      "details": {
+        "line_count": 5000
+      }
+    },
+    {
+      "name": "picory.png",
+      "bytes": 2637,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "picory.txt",
+      "bytes": 2435,
+      "kind": "bmfont_txt",
+      "verified": true,
+      "details": {
+        "font_name": "ChevyRay - Picory",
+        "size": 16,
+        "char_count": 95,
+        "kerning_count": 39
+      }
+    },
+    {
+      "name": "pop.xml",
+      "bytes": 141760,
+      "kind": "pop_xml",
+      "verified": true,
+      "details": {
+        "variant_count": 23,
+        "variant_names": [
+          "default",
+          "scratch",
+          "fest horse",
+          "impala",
+          "alligator",
+          "giraffe",
+          "rabbit",
+          "duck",
+          "dino",
+          "centipede",
+          "tiger",
+          "moose",
+          "dachshund",
+          "bear",
+          "cow",
+          "human",
+          "car",
+          "appletree",
+          "yeast",
+          "hay",
+          "fish",
+          "helix",
+          "freak"
+        ]
+      }
+    },
+    {
+      "name": "poster.jpg",
+      "bytes": 53534,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "poster2.jpg",
+      "bytes": 419783,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "powerplant.jpg",
+      "bytes": 327774,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "quip.crf",
+      "bytes": 18948,
+      "kind": "crf_binary",
+      "verified": true,
+      "details": {
+        "byte_size": 18948,
+        "header_hex": "010e0a03b1000000d0160000ff090007",
+        "section1_bytes": 5840,
+        "section2_bytes": 13092,
+        "layout": "16-byte hdr; section1 + section2 (see crf_font.py)"
+      }
+    },
+    {
+      "name": "quip.png",
+      "bytes": 4630,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "snuggle.crf",
+      "bytes": 9297,
+      "kind": "crf_binary",
+      "verified": true,
+      "details": {
+        "byte_size": 9297,
+        "header_hex": "010c0b03b10000003f0a0000ff001507",
+        "section1_bytes": 2623,
+        "section2_bytes": 6658,
+        "layout": "16-byte hdr; section1 + section2 (see crf_font.py)"
+      }
+    },
+    {
+      "name": "snuggle.png",
+      "bytes": 3603,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "softsquare.png",
+      "bytes": 2645,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "softsquare.txt",
+      "bytes": 2259,
+      "kind": "bmfont_txt",
+      "verified": true,
+      "details": {
+        "font_name": "ChevyRay - Softsquare Wide",
+        "size": 9,
+        "char_count": 95,
+        "kerning_count": 22
+      }
+    },
+    {
+      "name": "sound.xml",
+      "bytes": 36355,
+      "kind": "sound_xml",
+      "verified": true,
+      "details": {
+        "music_count": 23,
+        "sound_count": 476
+      }
+    },
+    {
+      "name": "sprites.png",
+      "bytes": 41128,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": "sprites.xml"
+      }
+    },
+    {
+      "name": "sprites.xml",
+      "bytes": 19583,
+      "kind": "texture_atlas_xml",
+      "verified": true,
+      "details": {
+        "sprite_count": 294,
+        "sample": [
+          "Pause",
+          "Pointer",
+          "Pointer2",
+          "GrabHand",
+          "GrabHand2"
+        ]
+      }
+    },
+    {
+      "name": "terrain.png",
+      "bytes": 11612,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": "terrain.xml"
+      }
+    },
+    {
+      "name": "terrain.xml",
+      "bytes": 2309,
+      "kind": "texture_atlas_xml",
+      "verified": true,
+      "details": {
+        "sprite_count": 42,
+        "sample": [
+          "Plain",
+          "GrassLand",
+          "BogLand",
+          "PalmLand",
+          "CactusLand"
+        ]
+      }
+    },
+    {
+      "name": "treasuremap.png",
+      "bytes": 8002,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    },
+    {
+      "name": "veg.png",
+      "bytes": 4751,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": "veg.xml"
+      }
+    },
+    {
+      "name": "veg.xml",
+      "bytes": 420,
+      "kind": "texture_atlas_xml",
+      "verified": true,
+      "details": {
+        "sprite_count": 7,
+        "sample": [
+          "Grass",
+          "Reeds",
+          "Acacia",
+          "Apple",
+          "Palm"
+        ]
+      }
+    },
+    {
+      "name": "virtue_narrow_bold.crf",
+      "bytes": 9985,
+      "kind": "crf_binary",
+      "verified": true,
+      "details": {
+        "byte_size": 9985,
+        "header_hex": "010c0a03b90000000f0b0000ff070906",
+        "section1_bytes": 2831,
+        "section2_bytes": 7138,
+        "layout": "16-byte hdr; section1 + section2 (see crf_font.py)"
+      }
+    },
+    {
+      "name": "virtue_narrow_bold.png",
+      "bytes": 3603,
+      "kind": "image",
+      "verified": true,
+      "details": {
+        "companion_xml": null
+      }
+    }
+  ]
+}

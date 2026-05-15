@@ -1,0 +1,428 @@
+[
+  {
+    "file_offset": 20,
+    "len": 4,
+    "text": "Dale",
+    "hex": "44616c65"
+  },
+  {
+    "file_offset": 76,
+    "len": 22,
+    "text": "Hoofy And The Blowfish",
+    "hex": "486f6f667920416e642054686520426c6f7766697368"
+  },
+  {
+    "file_offset": 124,
+    "len": 7,
+    "text": "Neptune",
+    "hex": "4e657074756e65"
+  },
+  {
+    "file_offset": 183,
+    "len": 6,
+    "text": "Armano",
+    "hex": "41726d616e6f"
+  },
+  {
+    "file_offset": 215,
+    "len": 16,
+    "text": "Baguette Magique",
+    "hex": "4261677565747465204d616769717565"
+  },
+  {
+    "file_offset": 257,
+    "len": 15,
+    "text": "Call Me Ishmael",
+    "hex": "43616c6c204d65204973686d61656c"
+  },
+  {
+    "file_offset": 324,
+    "len": 11,
+    "text": "Ham Grenade",
+    "hex": "48616d204772656e616465"
+  },
+  {
+    "file_offset": 361,
+    "len": 3,
+    "text": "Bob",
+    "hex": "426f62"
+  },
+  {
+    "file_offset": 390,
+    "len": 10,
+    "text": "Jazzercise",
+    "hex": "4a617a7a657263697365"
+  },
+  {
+    "file_offset": 430,
+    "len": 11,
+    "text": "X-Mas Bonus",
+    "hex": "582d4d617320426f6e7573"
+  },
+  {
+    "file_offset": 471,
+    "len": 6,
+    "text": "Guvnuh",
+    "hex": "4775766e7568"
+  },
+  {
+    "file_offset": 503,
+    "len": 19,
+    "text": "Celestial Seasoning",
+    "hex": "43656c65737469616c20536561736f6e696e67"
+  },
+  {
+    "file_offset": 548,
+    "len": 5,
+    "text": "Mabel",
+    "hex": "4d6162656c"
+  },
+  {
+    "file_offset": 683,
+    "len": 3,
+    "text": "Max",
+    "hex": "4d6178"
+  },
+  {
+    "file_offset": 738,
+    "len": 6,
+    "text": "Awesum",
+    "hex": "41776573756d"
+  },
+  {
+    "file_offset": 822,
+    "len": 6,
+    "text": "Lupita",
+    "hex": "4c7570697461"
+  },
+  {
+    "file_offset": 854,
+    "len": 7,
+    "text": "Crouton",
+    "hex": "43726f75746f6e"
+  },
+  {
+    "file_offset": 917,
+    "len": 20,
+    "text": "For Love Of The Race",
+    "hex": "466f72204c6f7665204f66205468652052616365"
+  },
+  {
+    "file_offset": 993,
+    "len": 3,
+    "text": "Dot",
+    "hex": "446f74"
+  },
+  {
+    "file_offset": 1022,
+    "len": 10,
+    "text": "Sap Fromly",
+    "hex": "5361702046726f6d6c79"
+  },
+  {
+    "file_offset": 1110,
+    "len": 13,
+    "text": "Suppervillain",
+    "hex": "53757070657276696c6c61696e"
+  },
+  {
+    "file_offset": 1149,
+    "len": 6,
+    "text": "Bookie",
+    "hex": "426f6f6b6965"
+  },
+  {
+    "file_offset": 1181,
+    "len": 6,
+    "text": "Bookie",
+    "hex": "426f6f6b6965"
+  },
+  {
+    "file_offset": 1213,
+    "len": 6,
+    "text": "Bookie",
+    "hex": "426f6f6b6965"
+  },
+  {
+    "file_offset": 1245,
+    "len": 12,
+    "text": "Horse Master",
+    "hex": "486f727365204d6173746572"
+  },
+  {
+    "file_offset": 1283,
+    "len": 13,
+    "text": "Eddy Bentfoot",
+    "hex": "456464792042656e74666f6f74"
+  },
+  {
+    "file_offset": 1322,
+    "len": 11,
+    "text": "Dr. Crispin",
+    "hex": "44722e204372697370696e"
+  },
+  {
+    "file_offset": 1359,
+    "len": 3,
+    "text": "Sue",
+    "hex": "537565"
+  },
+  {
+    "file_offset": 1388,
+    "len": 5,
+    "text": "Clide",
+    "hex": "436c696465"
+  },
+  {
+    "file_offset": 1419,
+    "len": 7,
+    "text": "Hyundai",
+    "hex": "4879756e646169"
+  },
+  {
+    "file_offset": 1431,
+    "len": 3,
+    "text": "\ufffd\ufffd\ufffd",
+    "hex": "ffffff"
+  },
+  {
+    "file_offset": 1452,
+    "len": 13,
+    "text": "Coupe DeVille",
+    "hex": "436f75706520446556696c6c65"
+  },
+  {
+    "file_offset": 1470,
+    "len": 3,
+    "text": "\ufffd\ufffd\ufffd",
+    "hex": "ffffff"
+  },
+  {
+    "file_offset": 1491,
+    "len": 8,
+    "text": "Shopkeep",
+    "hex": "53686f706b656570"
+  },
+  {
+    "file_offset": 1525,
+    "len": 9,
+    "text": "Zoologist",
+    "hex": "5a6f6f6c6f67697374"
+  },
+  {
+    "file_offset": 1560,
+    "len": 6,
+    "text": "Bubber",
+    "hex": "427562626572"
+  },
+  {
+    "file_offset": 1592,
+    "len": 18,
+    "text": "Artistic Statement",
+    "hex": "41727469737469632053746174656d656e74"
+  },
+  {
+    "file_offset": 1615,
+    "len": 4,
+    "text": "\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffff"
+  },
+  {
+    "file_offset": 1636,
+    "len": 7,
+    "text": "Samwise",
+    "hex": "53616d77697365"
+  },
+  {
+    "file_offset": 1648,
+    "len": 5,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffff"
+  },
+  {
+    "file_offset": 1669,
+    "len": 16,
+    "text": "Hit With Critics",
+    "hex": "48697420576974682043726974696373"
+  },
+  {
+    "file_offset": 1690,
+    "len": 6,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffff"
+  },
+  {
+    "file_offset": 1711,
+    "len": 10,
+    "text": "Ringmaster",
+    "hex": "52696e676d6173746572"
+  },
+  {
+    "file_offset": 1747,
+    "len": 5,
+    "text": "Bitsy",
+    "hex": "4269747379"
+  },
+  {
+    "file_offset": 1778,
+    "len": 3,
+    "text": "Wad",
+    "hex": "576164"
+  },
+  {
+    "file_offset": 1786,
+    "len": 7,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffffff"
+  },
+  {
+    "file_offset": 1807,
+    "len": 3,
+    "text": "Yad",
+    "hex": "596164"
+  },
+  {
+    "file_offset": 1815,
+    "len": 7,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffffff"
+  },
+  {
+    "file_offset": 1836,
+    "len": 3,
+    "text": "Red",
+    "hex": "526564"
+  },
+  {
+    "file_offset": 1844,
+    "len": 7,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffffff"
+  },
+  {
+    "file_offset": 1865,
+    "len": 17,
+    "text": "Nuclear Physicist",
+    "hex": "4e75636c65617220506879736963697374"
+  },
+  {
+    "file_offset": 1908,
+    "len": 16,
+    "text": "Doctor Horse PhD",
+    "hex": "446f63746f7220486f72736520506844"
+  },
+  {
+    "file_offset": 1950,
+    "len": 7,
+    "text": "Sweetie",
+    "hex": "53776565746965"
+  },
+  {
+    "file_offset": 1962,
+    "len": 6,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffff"
+  },
+  {
+    "file_offset": 1983,
+    "len": 15,
+    "text": "Normal Neighbor",
+    "hex": "4e6f726d616c204e65696768626f72"
+  },
+  {
+    "file_offset": 2024,
+    "len": 5,
+    "text": "Tiago",
+    "hex": "546961676f"
+  },
+  {
+    "file_offset": 2034,
+    "len": 7,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffffff"
+  },
+  {
+    "file_offset": 2055,
+    "len": 4,
+    "text": "Fido",
+    "hex": "4669646f"
+  },
+  {
+    "file_offset": 2064,
+    "len": 7,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffffff"
+  },
+  {
+    "file_offset": 2085,
+    "len": 3,
+    "text": "Uno",
+    "hex": "556e6f"
+  },
+  {
+    "file_offset": 2093,
+    "len": 7,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffffff"
+  },
+  {
+    "file_offset": 2114,
+    "len": 4,
+    "text": "Yoyo",
+    "hex": "596f796f"
+  },
+  {
+    "file_offset": 2123,
+    "len": 7,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffffff"
+  },
+  {
+    "file_offset": 2144,
+    "len": 4,
+    "text": "Dino",
+    "hex": "44696e6f"
+  },
+  {
+    "file_offset": 2153,
+    "len": 7,
+    "text": "\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "hex": "ffffffffffffff"
+  },
+  {
+    "file_offset": 2174,
+    "len": 12,
+    "text": "Fluffy Taffy",
+    "hex": "466c75666679205461666679"
+  },
+  {
+    "file_offset": 2212,
+    "len": 15,
+    "text": "Born To Be Wild",
+    "hex": "426f726e20546f2042652057696c64"
+  },
+  {
+    "file_offset": 2253,
+    "len": 13,
+    "text": "Hurkle Durkle",
+    "hex": "4875726b6c65204475726b6c65"
+  },
+  {
+    "file_offset": 2292,
+    "len": 4,
+    "text": "Putz",
+    "hex": "5075747a"
+  },
+  {
+    "file_offset": 2322,
+    "len": 3,
+    "text": "GMO",
+    "hex": "474d4f"
+  },
+  {
+    "file_offset": 2351,
+    "len": 4,
+    "text": "tesr",
+    "hex": "74657372"
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "pool_hits_count": 9,
+  "font": {
+    "font_string_uses": [],
+    "crf_loader_candidates": [],
+    "note": "function_start_guess = scan back to push rbp / int3"
+  },
+  "all_pool_hits_sample": [
+    {
+      "insn_rva": "0x353d1",
+      "mnemonic": "mov",
+      "op_str": "eax, dword ptr [rip + 0x22e389]",
+      "ref_rva": "0x263760",
+      "string": null
+    },
+    {
+      "insn_rva": "0x39f25",
+      "mnemonic": "mov",
+      "op_str": "eax, dword ptr [rip + 0x229835]",
+      "ref_rva": "0x263760",
+      "string": null
+    },
+    {
+      "insn_rva": "0x3aa4e",
+      "mnemonic": "mov",
+      "op_str": "ecx, dword ptr [rip + 0x228d10]",
+      "ref_rva": "0x263764",
+      "string": null
+    },
+    {
+      "insn_rva": "0x3aa66",
+      "mnemonic": "mov",
+      "op_str": "eax, dword ptr [rip + 0x228cf4]",
+      "ref_rva": "0x263760",
+      "string": null
+    },
+    {
+      "insn_rva": "0x3aac6",
+      "mnemonic": "mov",
+      "op_str": "eax, dword ptr [rip + 0x228c94]",
+      "ref_rva": "0x263760",
+      "string": null
+    },
+    {
+      "insn_rva": "0x3ab0d",
+      "mnemonic": "mov",
+      "op_str": "eax, dword ptr [rip + 0x228c4d]",
+      "ref_rva": "0x263760",
+      "string": null
+    },
+    {
+      "insn_rva": "0x3aba3",
+      "mnemonic": "movd",
+      "op_str": "xmm1, dword ptr [rip + 0x228bb5]",
+      "ref_rva": "0x263760",
+      "string": null
+    },
+    {
+      "insn_rva": "0x3c05a",
+      "mnemonic": "mov",
+      "op_str": "eax, dword ptr [rip + 0x227704]",
+      "ref_rva": "0x263764",
+      "string": null
+    },
+    {
+      "insn_rva": "0x3c070",
+      "mnemonic": "mov",
+      "op_str": "eax, dword ptr [rip + 0x2276ea]",
+      "ref_rva": "0x263760",
+      "string": null
+    }
+  ]
+}

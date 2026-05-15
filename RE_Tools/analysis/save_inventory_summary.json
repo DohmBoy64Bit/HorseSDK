@@ -1,0 +1,37 @@
+{
+  "record_size": 352,
+  "count": 413,
+  "path_counts": {
+    "compact_352": 372,
+    "inline_ec40_header": 41
+  },
+  "ptr_item_count_histogram": {
+    "0": 378,
+    "3201799874": 1,
+    "3197672212": 1,
+    "235929600": 1,
+    "344986681": 1,
+    "15": 8,
+    "2554462062": 1,
+    "3203321504": 1,
+    "4294967295": 2,
+    "1122107392": 1,
+    "959199532": 4,
+    "3355392": 1,
+    "3357472144": 4,
+    "1986098990": 1,
+    "1633906508": 1,
+    "1735290624": 1,
+    "741944377": 4,
+    "892088620": 1,
+    "4540160": 1
+  },
+  "ptr_zero_slots": 378,
+  "ptr_small_slots": 0,
+  "note": "352 B cadence from trace (WriteStdString every 0x160 bytes). ptr_item_count>8 usually means header misaligned or nonstandard slot; gene pack @ +0x51 is 0xF0 bytes (0x6D2A0).",
+  "disasm": {
+    "loop": "0x6E0B0 rsi+=8 while rsi<0x180 (48 in-memory inventory pointers)",
+    "write": "0x6E0D6 call 0x6D440 per non-null pointer",
+    "item": "0x6EC40 when ptr_item_count>0"
+  }
+}

@@ -1,0 +1,834 @@
+{
+  "event_count": 9619,
+  "save_completions": [
+    {
+      "type": "save_done",
+      "save": 1,
+      "events": 9619,
+      "final_size": 204260
+    }
+  ],
+  "by_writer": {
+    "WriteU32": 3059,
+    "WriteU64": 381,
+    "WriteStdString": 485,
+    "WriteF32": 1473,
+    "WriteU32FromU8": 1377,
+    "WriteVec2F32": 1157,
+    "WriteU16": 1687
+  },
+  "header_writes": [
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 0,
+      "size": 4,
+      "after_offset": 4,
+      "hex": "0c000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU64",
+      "writer_rva": "0x6FE70",
+      "file_offset": 4,
+      "size": 8,
+      "after_offset": 12,
+      "hex": "9fa8d20600000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 12,
+      "size": 4,
+      "after_offset": 16,
+      "hex": "16000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FED0",
+      "file_offset": 16,
+      "size": 4,
+      "after_offset": 20,
+      "hex": "47000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 20,
+      "size": -1,
+      "after_offset": 28,
+      "str_len": -1,
+      "hex": "04000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 34,
+      "size": 4,
+      "after_offset": 38,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 38,
+      "size": 4,
+      "after_offset": 42,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 42,
+      "size": 4,
+      "after_offset": 46,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 50,
+      "size": -1,
+      "after_offset": 54,
+      "str_len": -1,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 60,
+      "size": 4,
+      "after_offset": 64,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 64,
+      "size": 4,
+      "after_offset": 68,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 68,
+      "size": 4,
+      "after_offset": 72,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 76,
+      "size": -1,
+      "after_offset": 102,
+      "str_len": -1,
+      "hex": "16000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 108,
+      "size": 4,
+      "after_offset": 112,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 112,
+      "size": 4,
+      "after_offset": 116,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 116,
+      "size": 4,
+      "after_offset": 120,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 124,
+      "size": -1,
+      "after_offset": 135,
+      "str_len": -1,
+      "hex": "07000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 141,
+      "size": 4,
+      "after_offset": 145,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 145,
+      "size": 4,
+      "after_offset": 149,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 149,
+      "size": 4,
+      "after_offset": 153,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 157,
+      "size": -1,
+      "after_offset": 161,
+      "str_len": -1,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 167,
+      "size": 4,
+      "after_offset": 171,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 171,
+      "size": 4,
+      "after_offset": 175,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 175,
+      "size": 4,
+      "after_offset": 179,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 183,
+      "size": -1,
+      "after_offset": 193,
+      "str_len": -1,
+      "hex": "06000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 199,
+      "size": 4,
+      "after_offset": 203,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 203,
+      "size": 4,
+      "after_offset": 207,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 207,
+      "size": 4,
+      "after_offset": 211,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 215,
+      "size": -1,
+      "after_offset": 235,
+      "str_len": -1,
+      "hex": "10000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 241,
+      "size": 4,
+      "after_offset": 245,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 245,
+      "size": 4,
+      "after_offset": 249,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 249,
+      "size": 4,
+      "after_offset": 253,
+      "hex": "00000000"
+    }
+  ],
+  "region_F0_200": [
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 241,
+      "size": 4,
+      "after_offset": 245,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 245,
+      "size": 4,
+      "after_offset": 249,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 249,
+      "size": 4,
+      "after_offset": 253,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 257,
+      "size": -1,
+      "after_offset": 276,
+      "str_len": -1,
+      "hex": "0f000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 282,
+      "size": 4,
+      "after_offset": 286,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 286,
+      "size": 4,
+      "after_offset": 290,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 290,
+      "size": 4,
+      "after_offset": 294,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 298,
+      "size": -1,
+      "after_offset": 302,
+      "str_len": -1,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 308,
+      "size": 4,
+      "after_offset": 312,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 312,
+      "size": 4,
+      "after_offset": 316,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 316,
+      "size": 4,
+      "after_offset": 320,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 324,
+      "size": -1,
+      "after_offset": 339,
+      "str_len": -1,
+      "hex": "0b000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 345,
+      "size": 4,
+      "after_offset": 349,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 349,
+      "size": 4,
+      "after_offset": 353,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 353,
+      "size": 4,
+      "after_offset": 357,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 361,
+      "size": -1,
+      "after_offset": 368,
+      "str_len": -1,
+      "hex": "03000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 374,
+      "size": 4,
+      "after_offset": 378,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 378,
+      "size": 4,
+      "after_offset": 382,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 382,
+      "size": 4,
+      "after_offset": 386,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 390,
+      "size": -1,
+      "after_offset": 404,
+      "str_len": -1,
+      "hex": "0a000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 410,
+      "size": 4,
+      "after_offset": 414,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 414,
+      "size": 4,
+      "after_offset": 418,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 418,
+      "size": 4,
+      "after_offset": 422,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 430,
+      "size": -1,
+      "after_offset": 445,
+      "str_len": -1,
+      "hex": "0b000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 451,
+      "size": 4,
+      "after_offset": 455,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 455,
+      "size": 4,
+      "after_offset": 459,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 459,
+      "size": 4,
+      "after_offset": 463,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 471,
+      "size": -1,
+      "after_offset": 481,
+      "str_len": -1,
+      "hex": "06000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 487,
+      "size": 4,
+      "after_offset": 491,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 491,
+      "size": 4,
+      "after_offset": 495,
+      "hex": "ffffffff"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 495,
+      "size": 4,
+      "after_offset": 499,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteStdString",
+      "writer_rva": "0x6FFF0",
+      "file_offset": 503,
+      "size": -1,
+      "after_offset": 526,
+      "str_len": -1,
+      "hex": "13000000"
+    }
+  ],
+  "write_u32_count_calls": [
+    {
+      "file_offset": 16,
+      "value_u32": null
+    },
+    {
+      "file_offset": 2621,
+      "value_u32": null
+    },
+    {
+      "file_offset": 56999,
+      "value_u32": null
+    },
+    {
+      "file_offset": 57046,
+      "value_u32": null
+    },
+    {
+      "file_offset": 57054,
+      "value_u32": null
+    },
+    {
+      "file_offset": 169004,
+      "value_u32": null
+    },
+    {
+      "file_offset": 169307,
+      "value_u32": null
+    },
+    {
+      "file_offset": 169812,
+      "value_u32": null
+    },
+    {
+      "file_offset": 171295,
+      "value_u32": null
+    },
+    {
+      "file_offset": 171826,
+      "value_u32": null
+    },
+    {
+      "file_offset": 173309,
+      "value_u32": null
+    },
+    {
+      "file_offset": 173835,
+      "value_u32": null
+    },
+    {
+      "file_offset": 175613,
+      "value_u32": null
+    },
+    {
+      "file_offset": 176144,
+      "value_u32": null
+    },
+    {
+      "file_offset": 177922,
+      "value_u32": null
+    },
+    {
+      "file_offset": 178456,
+      "value_u32": null
+    },
+    {
+      "file_offset": 180234,
+      "value_u32": null
+    },
+    {
+      "file_offset": 180766,
+      "value_u32": null
+    },
+    {
+      "file_offset": 182544,
+      "value_u32": null
+    },
+    {
+      "file_offset": 183077,
+      "value_u32": null
+    }
+  ],
+  "last_writes": [
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 204191,
+      "size": 4,
+      "after_offset": 204195,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU16",
+      "writer_rva": "0x6FE50",
+      "file_offset": 204198,
+      "size": 2,
+      "after_offset": 204200,
+      "hex": "0a00"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 204200,
+      "size": 4,
+      "after_offset": 204204,
+      "hex": "1f010000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 204204,
+      "size": 4,
+      "after_offset": 204208,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "file_offset": 204208,
+      "size": 8,
+      "after_offset": 204216,
+      "hex": "0000000000000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "file_offset": 204216,
+      "size": 4,
+      "after_offset": 204220,
+      "hex": "04178e41"
+    },
+    {
+      "save": 0,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "file_offset": 204220,
+      "size": 4,
+      "after_offset": 204224,
+      "hex": "00b2ea40"
+    },
+    {
+      "save": 0,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "file_offset": 204224,
+      "size": 4,
+      "after_offset": 204228,
+      "hex": "0000303f"
+    },
+    {
+      "save": 0,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "file_offset": 204228,
+      "size": 4,
+      "after_offset": 204232,
+      "hex": "0000503f"
+    },
+    {
+      "save": 0,
+      "writer": "WriteVec2F32",
+      "writer_rva": "0x6FF30",
+      "file_offset": 204232,
+      "size": 8,
+      "after_offset": 204240,
+      "hex": "0000000000000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 204240,
+      "size": 4,
+      "after_offset": 204244,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 204244,
+      "size": 4,
+      "after_offset": 204248,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32FromU8",
+      "writer_rva": "0x6FEF0",
+      "file_offset": 204248,
+      "size": 4,
+      "after_offset": 204252,
+      "hex": "00000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32FromU8",
+      "writer_rva": "0x6FEF0",
+      "file_offset": 204252,
+      "size": 4,
+      "after_offset": 204256,
+      "hex": "01000000"
+    },
+    {
+      "save": 0,
+      "writer": "WriteU32FromU8",
+      "writer_rva": "0x6FEF0",
+      "file_offset": 204256,
+      "size": 4,
+      "after_offset": 204260,
+      "hex": "00000000"
+    }
+  ]
+}

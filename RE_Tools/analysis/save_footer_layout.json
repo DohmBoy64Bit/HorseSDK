@@ -1,0 +1,1209 @@
+{
+  "file_offset": 203545,
+  "file_end": 204386,
+  "size": 841,
+  "disasm": {
+    "write_nested": "0x6E103 call FUN_14006d440 (rcx = DAT_14031a660)",
+    "vtable_b0": "0x6E112 call [rax+0xB0]",
+    "stream_flush": "0x6E11C call FUN_14006fd90",
+    "global_object_rva": "0x31A660"
+  },
+  "semantic": {
+    "summary": "Single global footer object (not inventory nested); 841 B = nested wire + vcall B0 blob",
+    "track_display_name": "Old Abandoned Track",
+    "loc_sprite": "LocAbandoned (locs.xml)"
+  },
+  "panels": [
+    {
+      "id": "prefix_gap",
+      "file_offset": 203545,
+      "size": 303,
+      "role": "8 B before first traced WriteVec2F32 (not hooked as stream writer)",
+      "hex": "03000400ff000010000000000000000000000000000000000000000000000000fb7e0a41503f7f40121b09120b12121409121212090909091209121b0909120a0a1109090909090a09120909090a0a190a0b090909091119090909190b09090a130a1b091109091219091209120c0909090a24121b1b09121209091409090922111b0909091209091209090909091a120909090a09091224190909090912240909090909191213090a0a130a0909090b09130b09090a090b09090a1a09120c090a1209090c1a1213090909090b0911091209131212220b0912121a0a0911120c19120a1a091c12090a1212120a0921090914190909091b090909121209090909091209091212091909121209090909090909091109241212960f79c2ffffffff400000001e000003000600ff000010"
+    },
+    {
+      "id": "panel_settings",
+      "file_offset": 203545,
+      "size": 303,
+      "role": "Global save settings stub (empty name, vec2 @ +0x0C path)",
+      "name": "",
+      "vec2_0c": [
+        0.0,
+        0.0
+      ],
+      "vec2_extra": [
+        8.656001091003418,
+        3.988239288330078
+      ],
+      "gene_pack_settings": {
+        "file_offset": 203585,
+        "bytes": 240,
+        "codec": "0x6D2A0/0x6D3B0"
+      },
+      "fields": [
+        {
+          "file_offset": 203545,
+          "size": 8,
+          "writer": "untraced_gap",
+          "hex": "03000400ff000010"
+        },
+        {
+          "file_offset": 203553,
+          "rel": 8,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "file_offset": 203561,
+          "rel": 16,
+          "size": 4,
+          "writer": "WriteStdString",
+          "value": {
+            "len": 0,
+            "text": "",
+            "file_offset": 203561
+          }
+        },
+        {
+          "file_offset": 203565,
+          "size": 4,
+          "writer": "untraced_gap",
+          "hex": "00000000"
+        },
+        {
+          "file_offset": 203569,
+          "rel": 24,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 203573,
+          "rel": 28,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 203577,
+          "rel": 32,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            8.656001091003418,
+            3.988239288330078
+          ]
+        },
+        {
+          "file_offset": 203585,
+          "size": 240,
+          "writer": "GenePack_0xF0",
+          "role": "footer_gene_settings",
+          "disasm": "0x6D2A0 pack -> 0x70220 bulk (not Frida WriteU8)",
+          "hex": "121b09120b12121409121212090909091209121b0909120a0a1109090909090a"
+        },
+        {
+          "file_offset": 203825,
+          "rel": 280,
+          "size": 8,
+          "writer": "WriteU64",
+          "value": "960f79c2ffffffff"
+        },
+        {
+          "file_offset": 203833,
+          "rel": 288,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 64
+        },
+        {
+          "file_offset": 203837,
+          "rel": 292,
+          "size": 2,
+          "writer": "WriteU16",
+          "value": "1e00"
+        },
+        {
+          "file_offset": 203839,
+          "size": 9,
+          "writer": "untraced_gap",
+          "hex": "0003000600ff000010"
+        }
+      ]
+    },
+    {
+      "id": "panel_world_track",
+      "file_offset": 203848,
+      "size": 538,
+      "role": "Active track / world footer (display name + tile coords + byte flags)",
+      "name_empty": "",
+      "track_display_name": "Old Abandoned Track",
+      "track_name_note": "Exe string @ 0x25B1F8; locs.xml sprite LocAbandoned",
+      "world_vec2": [
+        176.0,
+        7056.0
+      ],
+      "world_vec2_note": "Sample (176, 7056) \u2014 world/tile space (FUN_140107650 grid context)",
+      "camera_vec2": [
+        4240.0,
+        4016.0
+      ],
+      "nested_name_unknown": "unknown",
+      "gene_pack_track": {
+        "file_offset": 204006,
+        "bytes": 240,
+        "codec": "0x6D2A0/0x6D3B0 (240 diploid gene indices)"
+      },
+      "fields": [
+        {
+          "file_offset": 203848,
+          "rel": 303,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "file_offset": 203856,
+          "rel": 311,
+          "size": 4,
+          "writer": "WriteStdString",
+          "value": {
+            "len": 0,
+            "text": "",
+            "file_offset": 203856
+          }
+        },
+        {
+          "file_offset": 203860,
+          "size": 4,
+          "writer": "untraced_gap",
+          "hex": "00000000"
+        },
+        {
+          "file_offset": 203864,
+          "rel": 319,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 203868,
+          "rel": 323,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 203872,
+          "rel": 327,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            10.698176383972168,
+            4.112283706665039
+          ]
+        },
+        {
+          "file_offset": 203880,
+          "rel": 335,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 4294967295
+        },
+        {
+          "file_offset": 203884,
+          "rel": 339,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 203888,
+          "rel": 343,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            176.0,
+            7056.0
+          ]
+        },
+        {
+          "file_offset": 203896,
+          "rel": 351,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 203900,
+          "rel": 355,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 1
+        },
+        {
+          "file_offset": 203904,
+          "rel": 359,
+          "size": 23,
+          "writer": "WriteStdString",
+          "value": {
+            "len": 19,
+            "text": "Old Abandoned Track",
+            "file_offset": 203904
+          }
+        },
+        {
+          "file_offset": 203927,
+          "rel": 382,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 203931,
+          "rel": 386,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 4294967295
+        },
+        {
+          "file_offset": 203935,
+          "rel": 390,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 203939,
+          "rel": 394,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            4240.0,
+            4016.0
+          ]
+        },
+        {
+          "file_offset": 203947,
+          "rel": 402,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 203951,
+          "rel": 406,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203955,
+          "rel": 410,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203959,
+          "rel": 414,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203963,
+          "rel": 418,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203967,
+          "rel": 422,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203971,
+          "rel": 426,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203975,
+          "rel": 430,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203979,
+          "rel": 434,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203983,
+          "rel": 438,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203987,
+          "rel": 442,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 203991,
+          "rel": 446,
+          "size": 11,
+          "writer": "WriteStdString",
+          "value": {
+            "len": 7,
+            "text": "unknown",
+            "file_offset": 203991
+          }
+        },
+        {
+          "file_offset": 204002,
+          "rel": 457,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 1
+        },
+        {
+          "file_offset": 204006,
+          "size": 240,
+          "writer": "GenePack_0xF0",
+          "role": "footer_gene_track",
+          "disasm": "0x6D2A0 pack -> 0x70220 bulk (not Frida WriteU8)",
+          "hex": "090b091a0b121209090b090a0909090912090909090909120909090909092409"
+        },
+        {
+          "file_offset": 204246,
+          "rel": 701,
+          "size": 8,
+          "writer": "WriteU64",
+          "value": "335a6d82ffffffff"
+        },
+        {
+          "file_offset": 204254,
+          "rel": 709,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 70
+        },
+        {
+          "file_offset": 204258,
+          "rel": 713,
+          "size": 2,
+          "writer": "WriteU16",
+          "value": "1e00"
+        },
+        {
+          "file_offset": 204260,
+          "size": 9,
+          "writer": "untraced_gap",
+          "hex": "0002000500ff000003"
+        },
+        {
+          "file_offset": 204269,
+          "rel": 724,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            12.426082611083984,
+            8.456404685974121
+          ]
+        },
+        {
+          "file_offset": 204277,
+          "rel": 732,
+          "size": 4,
+          "writer": "WriteStdString",
+          "value": {
+            "len": 0,
+            "text": "",
+            "file_offset": 204277
+          }
+        },
+        {
+          "file_offset": 204281,
+          "size": 4,
+          "writer": "untraced_gap",
+          "hex": "00000000"
+        },
+        {
+          "file_offset": 204285,
+          "rel": 740,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 204289,
+          "rel": 744,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 204293,
+          "rel": 748,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            13.501542091369629,
+            9.024398803710938
+          ]
+        },
+        {
+          "file_offset": 204301,
+          "rel": 756,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 4294967295
+        },
+        {
+          "file_offset": 204305,
+          "rel": 760,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 1
+        },
+        {
+          "file_offset": 204309,
+          "rel": 764,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 3
+        },
+        {
+          "file_offset": 204313,
+          "rel": 768,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 204317,
+          "rel": 772,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 204321,
+          "size": 3,
+          "writer": "untraced_gap",
+          "hex": "0a0217"
+        },
+        {
+          "file_offset": 204324,
+          "rel": 779,
+          "size": 2,
+          "writer": "WriteU16",
+          "value": "0a00"
+        },
+        {
+          "file_offset": 204326,
+          "rel": 781,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 1352
+        },
+        {
+          "file_offset": 204330,
+          "rel": 785,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 204334,
+          "rel": 789,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "file_offset": 204342,
+          "rel": 797,
+          "size": 4,
+          "writer": "WriteF32",
+          "value": 17.76123809814453
+        },
+        {
+          "file_offset": 204346,
+          "rel": 801,
+          "size": 4,
+          "writer": "WriteF32",
+          "value": 7.334228515625
+        },
+        {
+          "file_offset": 204350,
+          "rel": 805,
+          "size": 4,
+          "writer": "WriteF32",
+          "value": 0.6875
+        },
+        {
+          "file_offset": 204354,
+          "rel": 809,
+          "size": 4,
+          "writer": "WriteF32",
+          "value": 0.8125
+        },
+        {
+          "file_offset": 204358,
+          "rel": 813,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "file_offset": 204366,
+          "rel": 821,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 204370,
+          "rel": 825,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "file_offset": 204374,
+          "rel": 829,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "file_offset": 204378,
+          "rel": 833,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 1
+        },
+        {
+          "file_offset": 204382,
+          "rel": 837,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "epilogue_state",
+      "role": "Trailing WriteF32\u00d74 + vec2 + WriteU32FromU8\u00d73 (session tail @ ~0x31DED)",
+      "vec2": [
+        0.0,
+        0.0
+      ],
+      "floats": [
+        17.76123809814453,
+        7.334228515625,
+        0.6875,
+        0.8125
+      ],
+      "u8_expanded": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "notable_strings": [
+    {
+      "len": 19,
+      "text": "Old Abandoned Track",
+      "file_offset": 203904
+    },
+    {
+      "len": 7,
+      "text": "unknown",
+      "file_offset": 203991
+    }
+  ],
+  "coverage": {
+    "traced_bytes": 800,
+    "gap_bytes": 41,
+    "pct": 95.1
+  },
+  "fields": [
+    {
+      "file_offset": 203545,
+      "size": 8,
+      "writer": "untraced_gap",
+      "hex": "03000400ff000010"
+    },
+    {
+      "file_offset": 203553,
+      "rel": 8,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file_offset": 203561,
+      "rel": 16,
+      "size": 4,
+      "writer": "WriteStdString",
+      "value": {
+        "len": 0,
+        "text": "",
+        "file_offset": 203561
+      }
+    },
+    {
+      "file_offset": 203565,
+      "size": 4,
+      "writer": "untraced_gap",
+      "hex": "00000000"
+    },
+    {
+      "file_offset": 203569,
+      "rel": 24,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 203573,
+      "rel": 28,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 203577,
+      "rel": 32,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        8.656001091003418,
+        3.988239288330078
+      ]
+    },
+    {
+      "file_offset": 203585,
+      "size": 240,
+      "writer": "GenePack_0xF0",
+      "role": "footer_gene_settings",
+      "disasm": "0x6D2A0 pack -> 0x70220 bulk (not Frida WriteU8)",
+      "hex": "121b09120b12121409121212090909091209121b0909120a0a1109090909090a"
+    },
+    {
+      "file_offset": 203825,
+      "rel": 280,
+      "size": 8,
+      "writer": "WriteU64",
+      "value": "960f79c2ffffffff"
+    },
+    {
+      "file_offset": 203833,
+      "rel": 288,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 64
+    },
+    {
+      "file_offset": 203837,
+      "rel": 292,
+      "size": 2,
+      "writer": "WriteU16",
+      "value": "1e00"
+    },
+    {
+      "file_offset": 203839,
+      "size": 9,
+      "writer": "untraced_gap",
+      "hex": "0003000600ff000010"
+    },
+    {
+      "file_offset": 203848,
+      "rel": 303,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file_offset": 203856,
+      "rel": 311,
+      "size": 4,
+      "writer": "WriteStdString",
+      "value": {
+        "len": 0,
+        "text": "",
+        "file_offset": 203856
+      }
+    },
+    {
+      "file_offset": 203860,
+      "size": 4,
+      "writer": "untraced_gap",
+      "hex": "00000000"
+    },
+    {
+      "file_offset": 203864,
+      "rel": 319,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 203868,
+      "rel": 323,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 203872,
+      "rel": 327,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        10.698176383972168,
+        4.112283706665039
+      ]
+    },
+    {
+      "file_offset": 203880,
+      "rel": 335,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 4294967295
+    },
+    {
+      "file_offset": 203884,
+      "rel": 339,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 203888,
+      "rel": 343,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        176.0,
+        7056.0
+      ]
+    },
+    {
+      "file_offset": 203896,
+      "rel": 351,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 203900,
+      "rel": 355,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 1
+    },
+    {
+      "file_offset": 203904,
+      "rel": 359,
+      "size": 23,
+      "writer": "WriteStdString",
+      "value": {
+        "len": 19,
+        "text": "Old Abandoned Track",
+        "file_offset": 203904
+      }
+    },
+    {
+      "file_offset": 203927,
+      "rel": 382,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 203931,
+      "rel": 386,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 4294967295
+    },
+    {
+      "file_offset": 203935,
+      "rel": 390,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 203939,
+      "rel": 394,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        4240.0,
+        4016.0
+      ]
+    },
+    {
+      "file_offset": 203947,
+      "rel": 402,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 203951,
+      "rel": 406,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203955,
+      "rel": 410,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203959,
+      "rel": 414,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203963,
+      "rel": 418,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203967,
+      "rel": 422,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203971,
+      "rel": 426,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203975,
+      "rel": 430,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203979,
+      "rel": 434,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203983,
+      "rel": 438,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203987,
+      "rel": 442,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 203991,
+      "rel": 446,
+      "size": 11,
+      "writer": "WriteStdString",
+      "value": {
+        "len": 7,
+        "text": "unknown",
+        "file_offset": 203991
+      }
+    },
+    {
+      "file_offset": 204002,
+      "rel": 457,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 1
+    },
+    {
+      "file_offset": 204006,
+      "size": 240,
+      "writer": "GenePack_0xF0",
+      "role": "footer_gene_track",
+      "disasm": "0x6D2A0 pack -> 0x70220 bulk (not Frida WriteU8)",
+      "hex": "090b091a0b121209090b090a0909090912090909090909120909090909092409"
+    },
+    {
+      "file_offset": 204246,
+      "rel": 701,
+      "size": 8,
+      "writer": "WriteU64",
+      "value": "335a6d82ffffffff"
+    },
+    {
+      "file_offset": 204254,
+      "rel": 709,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 70
+    },
+    {
+      "file_offset": 204258,
+      "rel": 713,
+      "size": 2,
+      "writer": "WriteU16",
+      "value": "1e00"
+    },
+    {
+      "file_offset": 204260,
+      "size": 9,
+      "writer": "untraced_gap",
+      "hex": "0002000500ff000003"
+    },
+    {
+      "file_offset": 204269,
+      "rel": 724,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        12.426082611083984,
+        8.456404685974121
+      ]
+    },
+    {
+      "file_offset": 204277,
+      "rel": 732,
+      "size": 4,
+      "writer": "WriteStdString",
+      "value": {
+        "len": 0,
+        "text": "",
+        "file_offset": 204277
+      }
+    },
+    {
+      "file_offset": 204281,
+      "size": 4,
+      "writer": "untraced_gap",
+      "hex": "00000000"
+    },
+    {
+      "file_offset": 204285,
+      "rel": 740,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 204289,
+      "rel": 744,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 204293,
+      "rel": 748,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        13.501542091369629,
+        9.024398803710938
+      ]
+    },
+    {
+      "file_offset": 204301,
+      "rel": 756,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 4294967295
+    },
+    {
+      "file_offset": 204305,
+      "rel": 760,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 1
+    },
+    {
+      "file_offset": 204309,
+      "rel": 764,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 3
+    },
+    {
+      "file_offset": 204313,
+      "rel": 768,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 204317,
+      "rel": 772,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 204321,
+      "size": 3,
+      "writer": "untraced_gap",
+      "hex": "0a0217"
+    },
+    {
+      "file_offset": 204324,
+      "rel": 779,
+      "size": 2,
+      "writer": "WriteU16",
+      "value": "0a00"
+    },
+    {
+      "file_offset": 204326,
+      "rel": 781,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 1352
+    },
+    {
+      "file_offset": 204330,
+      "rel": 785,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 204334,
+      "rel": 789,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file_offset": 204342,
+      "rel": 797,
+      "size": 4,
+      "writer": "WriteF32",
+      "value": 17.76123809814453
+    },
+    {
+      "file_offset": 204346,
+      "rel": 801,
+      "size": 4,
+      "writer": "WriteF32",
+      "value": 7.334228515625
+    },
+    {
+      "file_offset": 204350,
+      "rel": 805,
+      "size": 4,
+      "writer": "WriteF32",
+      "value": 0.6875
+    },
+    {
+      "file_offset": 204354,
+      "rel": 809,
+      "size": 4,
+      "writer": "WriteF32",
+      "value": 0.8125
+    },
+    {
+      "file_offset": 204358,
+      "rel": 813,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "value": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file_offset": 204366,
+      "rel": 821,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 204370,
+      "rel": 825,
+      "size": 4,
+      "writer": "WriteU32",
+      "value": 0
+    },
+    {
+      "file_offset": 204374,
+      "rel": 829,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    },
+    {
+      "file_offset": 204378,
+      "rel": 833,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 1
+    },
+    {
+      "file_offset": 204382,
+      "rel": 837,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "value": 0
+    }
+  ]
+}

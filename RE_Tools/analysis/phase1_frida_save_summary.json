@@ -1,0 +1,22 @@
+{
+  "verification": "Frida spawn 55s — startup load + auto-save (no manual save). Script fix: events collected in Python.",
+  "save_path_dir": "E:\\games\\HorseSDK\\Game\\save\\",
+  "save_path_built_at": ["Horsey.exe+6DB9A", "Horsey.exe+6E2F4"],
+  "save_function": "Save_Write @ RVA 0x6DAB0",
+  "save_signature": "rcx=game ctx, edx=1 (observed all hits)",
+  "callers_observed": {
+    "0x10A2C2": "auto-save during gameplay (backtrace via Horsey.exe+876FA, +98392, +10AB67, +BEAD9)",
+    "0x10A822": "paired flush after 0x10A2C2",
+    "0x9828C": "not seen this run — likely load-only path"
+  },
+  "startup_load_chain": [
+    "Horsey.exe+BE7C6",
+    "Horsey.exe+96F59",
+    "Horsey.exe+103B84",
+    "Horsey.exe+6EAB9",
+    "Horsey.exe+10183D"
+  ],
+  "quit_save_chain": ["Horsey.exe+BED11", "Horsey.exe+21EE12"],
+  "static_path_format": "save%d.dat @ exe RVA 0x263830 (Capstone string cluster); _saving_ @ 0x263820",
+  "note_io_hooks": "CreateFile/fopen logged 0 paths — game uses C++ streams or custom VFS; path built via std::string append @ 0x6F3C0"
+}

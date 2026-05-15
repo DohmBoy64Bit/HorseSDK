@@ -1,0 +1,471 @@
+{
+  "record_size": 352,
+  "sample_file_offset": 58169,
+  "disasm": {
+    "outer": "0x6D440 WriteNestedSave",
+    "inventory_caller": "0x6E0D6",
+    "item": "0x6EC40 WriteNestedItem"
+  },
+  "sections": [
+    {
+      "file_offset": 58169,
+      "size": 24,
+      "insn": "0x6D440",
+      "fields": [
+        {
+          "rel": 0,
+          "size": 4,
+          "mem": "object+0x18",
+          "writer": "WriteStdString",
+          "value": {
+            "len": 0,
+            "text": ""
+          }
+        },
+        {
+          "rel": 4,
+          "size": 4,
+          "mem": "(end+0x138)-(beg+0x130)>>3",
+          "writer": "WriteU32",
+          "value": 0,
+          "note": "pointer-vector count; 0 => skip 0x6EC40"
+        },
+        {
+          "rel": 8,
+          "size": 4,
+          "mem": "merged run index",
+          "writer": "WriteU32",
+          "value": 0,
+          "insn": "0x6D4F1"
+        },
+        {
+          "rel": 12,
+          "size": 4,
+          "mem": "(end+0xC0)-(beg+0xB8)>>3",
+          "writer": "WriteU32",
+          "value": 0,
+          "insn": "0x6D508",
+          "note": "secondary vector count; each entry u32 + vcall +0x48"
+        },
+        {
+          "rel": 16,
+          "size": 8,
+          "mem": "object+0x0C",
+          "writer": "WriteVec2F32",
+          "value": [
+            0.0,
+            0.0
+          ],
+          "insn": "0x6D574"
+        }
+      ]
+    },
+    {
+      "rel": 24,
+      "size": 57,
+      "insn": "0x6EC40 partial / 0x6D2A0 @ +0x150",
+      "note": "Present in sample even when ptr-vector count=0; likely 6D2A0 sub-serializer",
+      "fields": [
+        {
+          "rel": 26,
+          "size": 2,
+          "writer": "WriteU16",
+          "mem": "rbp+0x220",
+          "value": 118
+        },
+        {
+          "rel": 28,
+          "size": 2,
+          "writer": "WriteU16",
+          "value": 0
+        },
+        {
+          "rel": 30,
+          "size": 2,
+          "writer": "WriteU16",
+          "value": 0
+        },
+        {
+          "rel": 32,
+          "size": 4,
+          "writer": "WriteU32",
+          "mem": "rbp+0x1F8",
+          "value": 309
+        },
+        {
+          "rel": 36,
+          "size": 4,
+          "writer": "WriteU32FromU8",
+          "value": 0
+        },
+        {
+          "rel": 40,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "rel": 47,
+          "size": 2,
+          "writer": "WriteU16",
+          "value": 0
+        },
+        {
+          "rel": 49,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 25
+        },
+        {
+          "rel": 53,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 0
+        },
+        {
+          "rel": 57,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "mem": "rbp+0x1D4",
+          "value": [
+            -0.022944722324609756,
+            0.24894484877586365
+          ]
+        },
+        {
+          "rel": 65,
+          "size": 4,
+          "writer": "WriteF32",
+          "mem": "rbp+0xC0",
+          "value": 2070.193359375
+        },
+        {
+          "rel": 69,
+          "size": 4,
+          "writer": "WriteF32",
+          "value": 4727.42333984375
+        },
+        {
+          "rel": 73,
+          "size": 4,
+          "writer": "WriteF32",
+          "value": 16.37989044189453
+        },
+        {
+          "rel": 77,
+          "size": 4,
+          "writer": "WriteF32",
+          "value": 15.982643127441406
+        }
+      ]
+    },
+    {
+      "rel": 81,
+      "size": 240,
+      "writer": "WriteU8 x N (compact trace omitted)",
+      "insn": "vtable+0x48 or 0x6EC40 gene bytes @ 0x6ED86+",
+      "hex_prefix": "09110912121212090909090b09110a091209090909090a0b110b120a090a240921120909111a0b1a12090a0909091209",
+      "byte_histogram_top": [
+        {
+          "byte": "0x09",
+          "count": 128
+        },
+        {
+          "byte": "0x12",
+          "count": 27
+        },
+        {
+          "byte": "0x24",
+          "count": 24
+        },
+        {
+          "byte": "0x0A",
+          "count": 15
+        },
+        {
+          "byte": "0x11",
+          "count": 12
+        },
+        {
+          "byte": "0x0B",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "rel": 321,
+      "size": 31,
+      "insn": "0x6D440 tail / 0x6EC40",
+      "fields": [
+        {
+          "rel": 321,
+          "size": 8,
+          "writer": "WriteU64",
+          "mem": "rbp+0x2A8",
+          "value": 118243777
+        },
+        {
+          "rel": 329,
+          "size": 4,
+          "writer": "WriteU32",
+          "value": 4294967295
+        },
+        {
+          "rel": 333,
+          "size": 2,
+          "writer": "WriteU16",
+          "value": 30
+        },
+        {
+          "rel": 335,
+          "size": 9,
+          "writer": "(gap)",
+          "hex": "0006000000ff000000"
+        },
+        {
+          "rel": 344,
+          "size": 8,
+          "writer": "WriteVec2F32",
+          "value": [
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "ec40_in_memory": {
+    "note": "In-memory item object passed to 0x6EC40 (when ptr-vector count >= 1)",
+    "insn": "0x6EC40",
+    "fields_write_order": [
+      {
+        "mem": "+0x2A8",
+        "writer": "WriteU64"
+      },
+      {
+        "mem": "+0x1F8",
+        "writer": "WriteU32"
+      },
+      {
+        "mem": "+0x220",
+        "writer": "WriteU16"
+      },
+      {
+        "mem": "+0x1C",
+        "writer": "WriteU8"
+      },
+      {
+        "mem": "+0x1FC",
+        "writer": "WriteU8"
+      },
+      {
+        "mem": "+0x21C",
+        "writer": "WriteU8"
+      },
+      {
+        "mem": "+0x284",
+        "writer": "WriteU8"
+      },
+      {
+        "mem": "+0x214",
+        "writer": "WriteU8"
+      },
+      {
+        "mem": "+0x234",
+        "writer": "WriteU8"
+      },
+      {
+        "mem": "+0x210",
+        "writer": "WriteU8"
+      },
+      {
+        "mem": "+0x1CC",
+        "writer": "WriteU8"
+      },
+      {
+        "mem": "+0x206..+0x22",
+        "writer": "WriteU8 bitfield pack"
+      },
+      {
+        "mem": "+0x1A",
+        "writer": "WriteU8 optional 0x3F prefix"
+      },
+      {
+        "mem": "+0x1D4",
+        "writer": "WriteVec2F32"
+      },
+      {
+        "mem": "+0x168",
+        "writer": "WriteStdString"
+      },
+      {
+        "mem": "+0xC0",
+        "writer": "WriteF32 via 0x6FF80"
+      },
+      {
+        "mem": "+0xCC..+0x118",
+        "writer": "WriteU32 gene slots if != -1"
+      },
+      {
+        "mem": "+0x40",
+        "writer": "WriteU32 x3 + WriteVec2F32"
+      }
+    ]
+  },
+  "trace_events": [
+    {
+      "file_offset": 58169,
+      "rel": 0,
+      "writer": "WriteStdString",
+      "size": 4,
+      "hex": "00000000"
+    },
+    {
+      "file_offset": 58177,
+      "rel": 8,
+      "writer": "WriteU32",
+      "size": 4,
+      "hex": "00000000"
+    },
+    {
+      "file_offset": 58181,
+      "rel": 12,
+      "writer": "WriteU32",
+      "size": 4,
+      "hex": "00000000"
+    },
+    {
+      "file_offset": 58185,
+      "rel": 16,
+      "writer": "WriteVec2F32",
+      "size": 8,
+      "hex": "0000000000000000"
+    },
+    {
+      "file_offset": 58195,
+      "rel": 26,
+      "writer": "WriteU16",
+      "size": 2,
+      "hex": "7600"
+    },
+    {
+      "file_offset": 58197,
+      "rel": 28,
+      "writer": "WriteU16",
+      "size": 2,
+      "hex": "0000"
+    },
+    {
+      "file_offset": 58199,
+      "rel": 30,
+      "writer": "WriteU16",
+      "size": 2,
+      "hex": "0000"
+    },
+    {
+      "file_offset": 58201,
+      "rel": 32,
+      "writer": "WriteU32",
+      "size": 4,
+      "hex": "35010000"
+    },
+    {
+      "file_offset": 58205,
+      "rel": 36,
+      "writer": "WriteU32FromU8",
+      "size": 4,
+      "hex": "00000000"
+    },
+    {
+      "file_offset": 58209,
+      "rel": 40,
+      "writer": "WriteU32",
+      "size": 4,
+      "hex": "00000000"
+    },
+    {
+      "file_offset": 58216,
+      "rel": 47,
+      "writer": "WriteU16",
+      "size": 2,
+      "hex": "0000"
+    },
+    {
+      "file_offset": 58218,
+      "rel": 49,
+      "writer": "WriteU32",
+      "size": 4,
+      "hex": "15000000"
+    },
+    {
+      "file_offset": 58222,
+      "rel": 53,
+      "writer": "WriteU32",
+      "size": 4,
+      "hex": "00000000"
+    },
+    {
+      "file_offset": 58226,
+      "rel": 57,
+      "writer": "WriteVec2F32",
+      "size": 8,
+      "hex": "92f6bbbc66eb7e3e"
+    },
+    {
+      "file_offset": 58234,
+      "rel": 65,
+      "writer": "WriteF32",
+      "size": 4,
+      "hex": "18630145"
+    },
+    {
+      "file_offset": 58238,
+      "rel": 69,
+      "writer": "WriteF32",
+      "size": 4,
+      "hex": "63bb9345"
+    },
+    {
+      "file_offset": 58242,
+      "rel": 73,
+      "writer": "WriteF32",
+      "size": 4,
+      "hex": "040a8341"
+    },
+    {
+      "file_offset": 58246,
+      "rel": 77,
+      "writer": "WriteF32",
+      "size": 4,
+      "hex": "e8b87f41"
+    },
+    {
+      "file_offset": 58490,
+      "rel": 321,
+      "writer": "WriteU64",
+      "size": 8,
+      "hex": "c1410c0700000000"
+    },
+    {
+      "file_offset": 58498,
+      "rel": 329,
+      "writer": "WriteU32",
+      "size": 4,
+      "hex": "ffffffff"
+    },
+    {
+      "file_offset": 58502,
+      "rel": 333,
+      "writer": "WriteU16",
+      "size": 2,
+      "hex": "1e00"
+    },
+    {
+      "file_offset": 58513,
+      "rel": 344,
+      "writer": "WriteVec2F32",
+      "size": 8,
+      "hex": "0000000000000000"
+    }
+  ]
+}

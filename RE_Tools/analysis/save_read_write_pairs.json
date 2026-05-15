@@ -1,0 +1,131 @@
+{
+  "pairs": [
+    {
+      "write_rva": "0x6FD40",
+      "read_rva": null,
+      "name": "StreamOpen",
+      "note": "Write only; load uses file -> read cursor globals"
+    },
+    {
+      "write_rva": "0x6FDF0",
+      "read_rva": "0x70540",
+      "name": "StreamAvail/ReadU32Peek",
+      "size": 4
+    },
+    {
+      "write_rva": "0x6FE10",
+      "read_rva": "0x70320",
+      "name": "WriteU32/ReadU32",
+      "size": 4
+    },
+    {
+      "write_rva": "0x6FEB0",
+      "read_rva": "0x705D0",
+      "name": "WriteU8/ReadU8",
+      "size": 1
+    },
+    {
+      "write_rva": "0x6FE30",
+      "read_rva": "0x705D0",
+      "name": "WriteU8 alt/ReadU8",
+      "size": 1
+    },
+    {
+      "write_rva": "0x6FEF0",
+      "read_rva": "0x70620",
+      "name": "WriteU32FromU8/ReadU8asU32",
+      "size": 4
+    },
+    {
+      "write_rva": "0x6FE50",
+      "read_rva": "0x70450",
+      "name": "WriteU16/ReadU16",
+      "size": 2
+    },
+    {
+      "write_rva": "0x6FE70",
+      "read_rva": "0x704F0",
+      "name": "WriteU64/ReadU64",
+      "size": 8
+    },
+    {
+      "write_rva": "0x6FF10",
+      "read_rva": "0x70670",
+      "name": "WriteF32/ReadF32",
+      "size": 4
+    },
+    {
+      "write_rva": "0x6FF30",
+      "read_rva": "0x70670",
+      "name": "WriteVec2F32/ReadF32x2",
+      "size": 8
+    },
+    {
+      "write_rva": "0x6FFF0",
+      "read_rva": "0x70890",
+      "name": "WriteStdString/ReadStringLen",
+      "size": -1
+    },
+    {
+      "write_rva": "0x6D440",
+      "read_rva": "0x6D5C0",
+      "name": "WriteNestedSave/ReadNestedSave",
+      "size": -2
+    },
+    {
+      "write_rva": "0x6EC40",
+      "read_rva": "0x6EF80",
+      "name": "WriteNestedItem/ReadNestedItem",
+      "size": -2
+    },
+    {
+      "write_rva": "0x6DF30",
+      "read_rva": "0x6E700",
+      "name": "GridWriteLoop/GridReadLoop",
+      "size": -2
+    },
+    {
+      "write_rva": "0x6E043",
+      "read_rva": "0x6E838",
+      "name": "PairWrite/ReadPairVec",
+      "size": -2
+    },
+    {
+      "write_rva": "0x6FD90",
+      "read_rva": "0x229340",
+      "name": "FlushToFile/fopenRead",
+      "note": "6FD90 writes file; load path sets read cursor from loaded buffer"
+    }
+  ],
+  "ghidra_crossref": "RE_Tools/docs/SaveGhidraCrossref.md",
+  "top_level": {
+    "Save_Write": { "rva": "0x6DAB0", "ghidra": "FUN_14006dab0" },
+    "Save_Load": { "rva": "0x6E2B0", "ghidra": "FUN_14006e2b0", "caller": "0x103B7F" },
+    "Save_LoadFromBuffer": { "rva": "0x6E643", "note": "buffer parser; grid loop 0x6E700" },
+    "WriteFlush": { "rva": "0x6FD90" },
+    "ReadOpen": { "rva": "0x6F3C0" },
+    "ReadCheck": { "rva": "0x6FB90" }
+  },
+  "grid_tls_bases": {
+    "DAT_1403103e0": "Water",
+    "DAT_1403103f8": "Plain",
+    "DAT_140310400": "Pond"
+  },
+  "functions": {
+    "Save_Load": {
+      "rva": "0x6E2B0",
+      "ghidra": "FUN_14006e2b0",
+      "role": "Open save%d.dat, full deserialize into ctx"
+    },
+    "Save_LoadFromBuffer": {
+      "rva": "0x6E643",
+      "end": "0x6EAE2",
+      "role": "Deserialize save blob into ctx (rsi): grid, pairs, nested"
+    },
+    "Save_Write": {
+      "rva": "0x6DAB0",
+      "ghidra": "FUN_14006dab0",
+      "role": "Serialize ctx to heap buffer then 6FD90 flush"
+    }
+  }
+}

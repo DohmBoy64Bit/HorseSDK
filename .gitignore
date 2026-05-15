@@ -1,0 +1,32 @@
+# Shipped game (binary, assets, saves) — not distributed from this repo
+Game/
+
+# CMake / MSVC build outputs
+build/
+out/
+cmake-build-*/
+*.dir/
+*.user
+*.suo
+*.vcxproj.user
+x64/
+Debug/
+Release/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Frida / local captures (regenerate via scripts)
+# Keep analysis/*.json in repo; ignore huge optional dumps if re-captured locally
+# RE_Tools/analysis/save_buffer_dump.bin

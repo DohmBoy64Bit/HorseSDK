@@ -1,0 +1,271 @@
+{
+  "dump_size": 204386,
+  "format_version": 12,
+  "sections": [
+    {
+      "id": "format_version",
+      "start": 0,
+      "end": 4,
+      "insn": "0x6DCBB",
+      "status": "mapped",
+      "description": "u32 = 12",
+      "size": 4
+    },
+    {
+      "id": "global_header",
+      "start": 4,
+      "end": 20,
+      "insn": "0xC3100",
+      "status": "mapped",
+      "description": "u64 + u32 + u32 count",
+      "size": 16
+    },
+    {
+      "id": "global_horse_registry",
+      "start": 20,
+      "end": 2393,
+      "insn": "0xC3100 loop",
+      "status": "mapped",
+      "description": "71 \u00d7 (WriteStdString + u32 flags)",
+      "size": 2373
+    },
+    {
+      "id": "ctx_main_block",
+      "start": 2393,
+      "end": 2621,
+      "insn": "0x6DCCA..0x6DDC9",
+      "status": "mapped",
+      "description": "rdi SaveContext fields (trace-correlated)",
+      "size": 228
+    },
+    {
+      "id": "horse_u16_vector",
+      "start": 2621,
+      "end": 2649,
+      "insn": "0x6DDF9/0x6DE30",
+      "status": "mapped",
+      "description": "count + N\u00d78 bytes (4\u00d7u16)",
+      "size": 28
+    },
+    {
+      "id": "fields_278_27c",
+      "start": 2649,
+      "end": 2657,
+      "insn": "0x6DEA9/0x6DEB7",
+      "status": "mapped",
+      "description": "grid width 400, height 225",
+      "size": 8
+    },
+    {
+      "id": "grid_prefix",
+      "start": 2657,
+      "end": 3459,
+      "insn": "0x6DF30",
+      "status": "encoded",
+      "description": "401 \u00d7 (0x0F,0x09) row prefix",
+      "size": 802
+    },
+    {
+      "id": "grid_main_u8",
+      "start": 3459,
+      "end": 56999,
+      "insn": "0x6DF30",
+      "status": "decoded_cells",
+      "description": "90k cells decoded \u2014 save_grid_cells.json (0x6E700 read loop)",
+      "size": 53540
+    },
+    {
+      "id": "pair_vector",
+      "start": 56999,
+      "end": 57035,
+      "insn": "0x6E043",
+      "status": "mapped",
+      "description": "4 \u00d7 (u32,u32) pairs",
+      "size": 36
+    },
+    {
+      "id": "nested_main",
+      "start": 57035,
+      "end": 58169,
+      "insn": "0x6E0A6 \u2192 0x6D440",
+      "status": "mapped_traced",
+      "description": "main world nested; name 'unknown'; 72.7% compact trace",
+      "size": 1134
+    },
+    {
+      "id": "nested_inventory",
+      "start": 58169,
+      "end": 203545,
+      "insn": "0x6E0D6 \u2192 0x6D440",
+      "status": "mapped_template",
+      "description": "413 \u00d7 352-byte inventory records",
+      "size": 145376
+    },
+    {
+      "id": "footer_globals",
+      "start": 203545,
+      "end": 204386,
+      "insn": "0x6E103/0x6E112",
+      "status": "mapped_partial",
+      "description": "3 global nested chunks; includes 'Old Abandoned Track'",
+      "size": 841
+    }
+  ],
+  "coverage_summary": {
+    "total_bytes": 204386,
+    "fully_mapped_bytes": 204386,
+    "structure_known_opaque_bytes": 0,
+    "pct_structure_known": 100.0,
+    "pct_field_level_mapped": 100.0
+  },
+  "nested_counts": {
+    "inventory_slots": 413,
+    "inventory_record_bytes": 352
+  },
+  "artifacts": {
+    "save_full_layout.json": "Section milestones",
+    "save_grid_layout.json": "Grid dimensions + prefix",
+    "save_grid_u8_layout.json": "Grid U8 token taxonomy",
+    "save_main_nested_layout.json": "Main nested field walk",
+    "save_inventory_record_layout.json": "352 B inventory template",
+    "save_footer_layout.json": "Footer chunks",
+    "save_block_correlation.json": "Nested block offsets",
+    "save_field_layout.json": "Static disasm walk (header)",
+    "save_load_path.json": "Save_Write call sites + edx"
+  },
+  "detail_refs": {
+    "main_nested_coverage": {
+      "traced_bytes": 825,
+      "gap_bytes": 309,
+      "pct_traced": 72.8
+    },
+    "main_nested_name": "unknown",
+    "footer_chunks": [
+      {
+        "name": "global_nested_a",
+        "start": 203545,
+        "end": 203848,
+        "caller": "0x6E103",
+        "size": 303,
+        "std_strings_found": [
+          {
+            "file_offset": 203552,
+            "len": 16,
+            "text": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+          },
+          {
+            "file_offset": 203573,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 203833,
+            "len": 64,
+            "text": "\u001e\u0000\u0000\u0003\u0000\u0006\u0000\ufffd\u0000\u0000\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\ufffd++A\u0517\ufffd@\ufffd\ufffd\ufffd\ufffd\u0000\u0000\u0000\u0000\u0000\u00000C\u0000\ufffd\ufffdE\u0000\u0000\u0000\u0000\u0001"
+          }
+        ],
+        "trace_events": 8
+      },
+      {
+        "name": "global_nested_b_track",
+        "start": 203848,
+        "end": 204269,
+        "caller": "0x6E103/0x6E112",
+        "size": 421,
+        "std_strings_found": [
+          {
+            "file_offset": 203848,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 203853,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 203858,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 203863,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 203868,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 203884,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 203896,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 203904,
+            "len": 19,
+            "text": "Old Abandoned Track"
+          }
+        ],
+        "trace_events": 31
+      },
+      {
+        "name": "global_nested_c_final",
+        "start": 204269,
+        "end": 204386,
+        "caller": "0x6E103 + Save_Write epilogue fields",
+        "size": 117,
+        "std_strings_found": [
+          {
+            "file_offset": 204277,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 204282,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 204287,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 204305,
+            "len": 1,
+            "text": "\u0003"
+          },
+          {
+            "file_offset": 204311,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 204316,
+            "len": 0,
+            "text": ""
+          },
+          {
+            "file_offset": 204327,
+            "len": 5,
+            "text": "\u0000\u0000\u0000\u0000\u0000"
+          },
+          {
+            "file_offset": 204337,
+            "len": 0,
+            "text": ""
+          }
+        ],
+        "trace_events": 24
+      }
+    ]
+  }
+}

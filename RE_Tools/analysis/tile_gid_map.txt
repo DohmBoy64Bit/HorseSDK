@@ -1,0 +1,60 @@
+# Tile GID map — horsey.tmx
+# Map 400x225, 56 unique GIDs > 0
+
+gid	count	tileset	local_id	sprite
+1	17137	terrain.tsx	0	Plain
+2	16	terrain.tsx	1	GrassLand
+5	8061	terrain.tsx	4	CactusLand
+6	440	terrain.tsx	5	Water
+7	16	terrain.tsx	6	Pond
+8	101	terrain.tsx	7	Bush
+9	60950	terrain.tsx	8	Stump
+10	3	terrain.tsx	9	Birch
+11	2	terrain.tsx	10	BridgeH
+12	20	terrain.tsx	11	BridgeV
+13	24	terrain.tsx	12	BadLand
+16	457	terrain.tsx	15	Un1
+17	599	terrain.tsx	16	Un2
+18	1	terrain.tsx	17	Boulder
+19	1	terrain.tsx	18	AcaciaLand
+21	30	terrain.tsx	20	DeadTree
+22	1	terrain.tsx	21	Cave
+25	256	terrain.tsx	24	Tumbleweed
+26	20	terrain.tsx	25	Pebbles
+27	47	terrain.tsx	26	Road
+28	13	terrain.tsx	27	Road8
+29	86	terrain.tsx	28	DirtRoad
+30	33	terrain.tsx	29	DirtRoad8
+31	19	terrain.tsx	30	Goop
+32	9	terrain.tsx	31	Glass
+33	82	terrain.tsx	32	GlassBG
+36	3	terrain.tsx	35	Grass
+38	64	terrain.tsx	37	Acacia
+39	2	terrain.tsx	38	Apple
+40	3	terrain.tsx	39	Palm
+42	2	terrain.tsx	41	NGrass
+43	86	?	?	ERROR: local_id out of range
+44	2	?	?	ERROR: local_id out of range
+45	3	?	?	ERROR: local_id out of range
+46	1	?	?	ERROR: local_id out of range
+47	3	?	?	ERROR: local_id out of range
+48	1	?	?	ERROR: local_id out of range
+49	11	?	?	ERROR: local_id out of range
+50	1	?	?	ERROR: local_id out of range
+51	3	?	?	ERROR: local_id out of range
+52	11	?	?	ERROR: local_id out of range
+53	5	?	?	ERROR: local_id out of range
+54	75	?	?	ERROR: local_id out of range
+55	3	?	?	ERROR: local_id out of range
+57	3	?	?	ERROR: local_id out of range
+58	8	?	?	ERROR: local_id out of range
+59	56	?	?	ERROR: local_id out of range
+60	1	?	?	ERROR: local_id out of range
+61	6	?	?	ERROR: local_id out of range
+62	1	?	?	ERROR: local_id out of range
+63	1	?	?	ERROR: local_id out of range
+65	156	?	?	ERROR: local_id out of range
+67	58	?	?	ERROR: local_id out of range
+68	44	?	?	ERROR: local_id out of range
+69	582	?	?	ERROR: local_id out of range
+70	381	?	?	ERROR: local_id out of range

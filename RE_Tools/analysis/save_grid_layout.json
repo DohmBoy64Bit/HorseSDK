@@ -1,0 +1,139 @@
+{
+  "source": {
+    "dump": "E:\\games\\HorseSDK\\RE_Tools\\analysis\\save_buffer_dump.bin",
+    "dump_size": 204386,
+    "disasm_refs": {
+      "grid_loop": "0x6DF30",
+      "cell_stride_mem": "0x28",
+      "grid_ptr": "rdi+0x270",
+      "dimensions": "imul [rdi+0x27C], [rdi+0x278] @ 0x6DF18",
+      "type_lookup": "0x1167B0 (returns u32; test eax @ 0x6DFF3)",
+      "pair_loop": "0x6E043",
+      "nested_save": "0x6D440",
+      "nested_item": "0x6EC40"
+    }
+  },
+  "dimensions": {
+    "width_ctx_278": 400,
+    "height_ctx_27C": 225,
+    "expected_cell_count": 90000,
+    "note": "Empty cells (type==6) write 0 bytes; disk size << count*stride"
+  },
+  "save_grid_cell_mem": {
+    "size": 40,
+    "fields": [
+      {
+        "offset": 0,
+        "type": "u32",
+        "role": "cell type; 6 = skip write"
+      },
+      {
+        "offset": 4,
+        "type": "u8",
+        "role": "extra byte if 0x1167B0 lookup > 0"
+      },
+      {
+        "offset": 8,
+        "type": "u32",
+        "role": "layer / height index vs globals"
+      },
+      {
+        "offset": 12,
+        "type": "u8",
+        "role": "flag (encoding OR 0x40 path)"
+      },
+      {
+        "offset": 13,
+        "type": "u8",
+        "role": "flag (encoding OR 0x80 path)"
+      }
+    ]
+  },
+  "on_disk_encoding": {
+    "common_pair": "0x0F 0x09",
+    "note": "WriteU8 @ 0x6FEB0; compact Frida trace omits these bytes"
+  },
+  "sections": [
+    {
+      "name": "grid_prefix_0f09",
+      "file_offset": 2657,
+      "file_end": 3459,
+      "size": 802,
+      "pair_count": 401,
+      "note": "Leading 401 x (0x0F,0x09); often width+1 (401) pairs"
+    },
+    {
+      "name": "grid_main_u8",
+      "file_offset": 3459,
+      "file_end": 56999,
+      "size": 53540,
+      "histogram": [
+        {
+          "byte": "0x3B",
+          "count": 17201
+        },
+        {
+          "byte": "0x01",
+          "count": 8200
+        },
+        {
+          "byte": "0x47",
+          "count": 8064
+        },
+        {
+          "byte": "0x14",
+          "count": 3826
+        },
+        {
+          "byte": "0x0F",
+          "count": 2003
+        },
+        {
+          "byte": "0x00",
+          "count": 2001
+        },
+        {
+          "byte": "0x05",
+          "count": 1546
+        },
+        {
+          "byte": "0x09",
+          "count": 1252
+        }
+      ],
+      "bytes_per_cell_if_uniform": 0.5949
+    },
+    {
+      "name": "inventory_nested_traced",
+      "file_offset": 56999,
+      "file_end": 204386,
+      "size": 147387,
+      "note": "WriteU32/WriteStdString visible in compact trace; includes 0x6D440 blobs"
+    }
+  ],
+  "milestones": {
+    "tail_start": 2657,
+    "grid_prefix_end": 3459,
+    "first_compact_trace_offset": 56999,
+    "tail_total": 201729
+  },
+  "write_nested_save_6D440": {
+    "order": [
+      "std::string @ object+0x18 (0x6FFF0 via 0x279E0)",
+      "u32 count: (end+0x138 - begin+0x130) >> 3; per ptr call 0x6EC40",
+      "u32 merged index (0x6FE10)",
+      "u32 count: (end+0xC0 - begin+0xB8) >> 3; per entry u32 + vcall [+0x48]",
+      "Vec2F32 @ object+0x0C (0x6FF30)",
+      "u32 flag if object+0x150 non-null; optional 0x6D2A0"
+    ]
+  },
+  "write_nested_item_6EC40": {
+    "writers": [
+      "0x6FE70 @ object+0x2A8",
+      "0x6FE10 @ object+0x1F8",
+      "0x6FE50 @ object+0x220",
+      "0x6FE30 bytes @ +0x1C, +0x1FC, +0x21C, +0x284, +0x214, ...",
+      "0x6D2A0 @ object+0x2B8"
+    ]
+  }
+}

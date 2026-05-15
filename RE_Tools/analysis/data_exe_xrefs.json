@@ -1,0 +1,628 @@
+{
+  "exe": "E:\\games\\HorseSDK\\Game\\Horsey.exe",
+  "image_base_assumption": "0x140000000",
+  "verification": "Substring search in Horsey.exe \u2014 not full xref graph",
+  "files": [
+    {
+      "file": "biglogo.png",
+      "relative_dir": "data",
+      "bytes": 75613,
+      "exe_file_offset": [
+        "0x263220"
+      ],
+      "exe_rva_guess": [
+        "0x140263220"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "biglogo.xml",
+      "relative_dir": "data",
+      "bytes": 159,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "biglogo2.png",
+      "relative_dir": "data",
+      "bytes": 77130,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "bubbletime.png",
+      "relative_dir": "data",
+      "bytes": 7126,
+      "exe_file_offset": [
+        "0x2632c0"
+      ],
+      "exe_rva_guess": [
+        "0x1402632c0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "bubbletime.txt",
+      "relative_dir": "data",
+      "bytes": 2469,
+      "exe_file_offset": [
+        "0x263118"
+      ],
+      "exe_rva_guess": [
+        "0x140263118"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "capy_bold.crf",
+      "relative_dir": "data",
+      "bytes": 8788,
+      "exe_file_offset": [
+        "0x263158"
+      ],
+      "exe_rva_guess": [
+        "0x140263158"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "capy_bold.png",
+      "relative_dir": "data",
+      "bytes": 3862,
+      "exe_file_offset": [
+        "0x2632e0"
+      ],
+      "exe_rva_guess": [
+        "0x1402632e0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "classified.png",
+      "relative_dir": "data",
+      "bytes": 3427,
+      "exe_file_offset": [
+        "0x2632a0"
+      ],
+      "exe_rva_guess": [
+        "0x1402632a0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "classified.txt",
+      "relative_dir": "data",
+      "bytes": 8250,
+      "exe_file_offset": [
+        "0x2630d8"
+      ],
+      "exe_rva_guess": [
+        "0x1402630d8"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "clop.png",
+      "relative_dir": "data",
+      "bytes": 12985,
+      "exe_file_offset": [
+        "0x96d34"
+      ],
+      "exe_rva_guess": [
+        "0x140096d34"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "filmset.png",
+      "relative_dir": "data",
+      "bytes": 11892,
+      "exe_file_offset": [
+        "0x263260"
+      ],
+      "exe_rva_guess": [
+        "0x140263260"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "furniture.png",
+      "relative_dir": "data",
+      "bytes": 115394,
+      "exe_file_offset": [
+        "0x263240"
+      ],
+      "exe_rva_guess": [
+        "0x140263240"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "furniture.xml",
+      "relative_dir": "data",
+      "bytes": 8165,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "genes.dat",
+      "relative_dir": "data",
+      "bytes": 3507,
+      "exe_file_offset": [
+        "0x263920"
+      ],
+      "exe_rva_guess": [
+        "0x140263920"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "genes.xml",
+      "relative_dir": "data",
+      "bytes": 20726,
+      "exe_file_offset": [
+        "0x263930"
+      ],
+      "exe_rva_guess": [
+        "0x140263930"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "habit_mono.crf",
+      "relative_dir": "data",
+      "bytes": 1428,
+      "exe_file_offset": [
+        "0x263138"
+      ],
+      "exe_rva_guess": [
+        "0x140263138"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "habit_mono.png",
+      "relative_dir": "data",
+      "bytes": 3712,
+      "exe_file_offset": [
+        "0x2632d0"
+      ],
+      "exe_rva_guess": [
+        "0x1402632d0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "habit_narrow_bold.crf",
+      "relative_dir": "data",
+      "bytes": 8167,
+      "exe_file_offset": [
+        "0x263180"
+      ],
+      "exe_rva_guess": [
+        "0x140263180"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "habit_narrow_bold.png",
+      "relative_dir": "data",
+      "bytes": 3613,
+      "exe_file_offset": [
+        "0x2632f0"
+      ],
+      "exe_rva_guess": [
+        "0x1402632f0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "horsey.tmx",
+      "relative_dir": "data",
+      "bytes": 190650,
+      "exe_file_offset": [
+        "0x261050"
+      ],
+      "exe_rva_guess": [
+        "0x140261050"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "info.png",
+      "relative_dir": "data",
+      "bytes": 9199,
+      "exe_file_offset": [
+        "0x9700b"
+      ],
+      "exe_rva_guess": [
+        "0x14009700b"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "island.png",
+      "relative_dir": "data",
+      "bytes": 80204,
+      "exe_file_offset": [
+        "0x2631f0"
+      ],
+      "exe_rva_guess": [
+        "0x1402631f0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "locs.png",
+      "relative_dir": "data",
+      "bytes": 11716,
+      "exe_file_offset": [
+        "0x96e6a"
+      ],
+      "exe_rva_guess": [
+        "0x140096e6a"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "locs.xml",
+      "relative_dir": "data",
+      "bytes": 1909,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "n64.fnt",
+      "relative_dir": "data",
+      "bytes": 3857,
+      "exe_file_offset": [
+        "0x2630a8"
+      ],
+      "exe_rva_guess": [
+        "0x1402630a8"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "n64_0.png",
+      "relative_dir": "data",
+      "bytes": 3366,
+      "exe_file_offset": [
+        "0x263280"
+      ],
+      "exe_rva_guess": [
+        "0x140263280"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "names.txt",
+      "relative_dir": "data",
+      "bytes": 66726,
+      "exe_file_offset": [
+        "0x264e00"
+      ],
+      "exe_rva_guess": [
+        "0x140264e00"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "picory.png",
+      "relative_dir": "data",
+      "bytes": 2637,
+      "exe_file_offset": [
+        "0x263290"
+      ],
+      "exe_rva_guess": [
+        "0x140263290"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "picory.txt",
+      "relative_dir": "data",
+      "bytes": 2435,
+      "exe_file_offset": [
+        "0x2630b8"
+      ],
+      "exe_rva_guess": [
+        "0x1402630b8"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "pop.xml",
+      "relative_dir": "data",
+      "bytes": 141760,
+      "exe_file_offset": [
+        "0x2639c0",
+        "0x2639c8"
+      ],
+      "exe_rva_guess": [
+        "0x1402639c0",
+        "0x1402639c8"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "poster.jpg",
+      "relative_dir": "data",
+      "bytes": 53534,
+      "exe_file_offset": [
+        "0x263200"
+      ],
+      "exe_rva_guess": [
+        "0x140263200"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "poster2.jpg",
+      "relative_dir": "data",
+      "bytes": 419783,
+      "exe_file_offset": [
+        "0x263210"
+      ],
+      "exe_rva_guess": [
+        "0x140263210"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "powerplant.jpg",
+      "relative_dir": "data",
+      "bytes": 327774,
+      "exe_file_offset": [
+        "0x263270"
+      ],
+      "exe_rva_guess": [
+        "0x140263270"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "quip.crf",
+      "relative_dir": "data",
+      "bytes": 18948,
+      "exe_file_offset": [
+        "0x968de"
+      ],
+      "exe_rva_guess": [
+        "0x1400968de"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "quip.png",
+      "relative_dir": "data",
+      "bytes": 4630,
+      "exe_file_offset": [
+        "0x97277"
+      ],
+      "exe_rva_guess": [
+        "0x140097277"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "snuggle.crf",
+      "relative_dir": "data",
+      "bytes": 9297,
+      "exe_file_offset": [
+        "0x2631d0"
+      ],
+      "exe_rva_guess": [
+        "0x1402631d0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "snuggle.png",
+      "relative_dir": "data",
+      "bytes": 3603,
+      "exe_file_offset": [
+        "0x263320"
+      ],
+      "exe_rva_guess": [
+        "0x140263320"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "softsquare.png",
+      "relative_dir": "data",
+      "bytes": 2645,
+      "exe_file_offset": [
+        "0x2632b0"
+      ],
+      "exe_rva_guess": [
+        "0x1402632b0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "softsquare.txt",
+      "relative_dir": "data",
+      "bytes": 2259,
+      "exe_file_offset": [
+        "0x2630f8"
+      ],
+      "exe_rva_guess": [
+        "0x1402630f8"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "sound.xml",
+      "relative_dir": "data",
+      "bytes": 36355,
+      "exe_file_offset": [
+        "0x25c090"
+      ],
+      "exe_rva_guess": [
+        "0x14025c090"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "sprites.png",
+      "relative_dir": "data",
+      "bytes": 41128,
+      "exe_file_offset": [
+        "0x263230"
+      ],
+      "exe_rva_guess": [
+        "0x140263230"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "sprites.xml",
+      "relative_dir": "data",
+      "bytes": 19583,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "terrain.png",
+      "relative_dir": "data",
+      "bytes": 11612,
+      "exe_file_offset": [
+        "0x2631e0"
+      ],
+      "exe_rva_guess": [
+        "0x1402631e0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "terrain.xml",
+      "relative_dir": "data",
+      "bytes": 2309,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "treasuremap.png",
+      "relative_dir": "data",
+      "bytes": 8002,
+      "exe_file_offset": [
+        "0x263250"
+      ],
+      "exe_rva_guess": [
+        "0x140263250"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "veg.png",
+      "relative_dir": "data",
+      "bytes": 4751,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "veg.xml",
+      "relative_dir": "data",
+      "bytes": 420,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "virtue_narrow_bold.crf",
+      "relative_dir": "data",
+      "bytes": 9985,
+      "exe_file_offset": [
+        "0x2631b0"
+      ],
+      "exe_rva_guess": [
+        "0x1402631b0"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "virtue_narrow_bold.png",
+      "relative_dir": "data",
+      "bytes": 3603,
+      "exe_file_offset": [
+        "0x263308"
+      ],
+      "exe_rva_guess": [
+        "0x140263308"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "save1.dat",
+      "relative_dir": "save",
+      "bytes": 182417,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "save1.dat.prev",
+      "relative_dir": "save",
+      "bytes": 179953,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    },
+    {
+      "file": "settings.xml",
+      "relative_dir": "save",
+      "bytes": 156,
+      "exe_file_offset": [
+        "0x261060"
+      ],
+      "exe_rva_guess": [
+        "0x140261060"
+      ],
+      "referenced_in_exe": true
+    },
+    {
+      "file": "steam_autocloud.vdf",
+      "relative_dir": "save",
+      "bytes": 52,
+      "exe_file_offset": [],
+      "exe_rva_guess": [],
+      "referenced_in_exe": false
+    }
+  ],
+  "extra_strings": {
+    "data\\": [
+      "0x261be4"
+    ],
+    "data/": [],
+    ".crf": [
+      "0x968e2",
+      "0x261ce0",
+      "0x263142",
+      "0x263161",
+      "0x263191",
+      "0x2631c2",
+      "0x2631d7"
+    ],
+    ".fnt": [
+      "0x2630ab"
+    ],
+    "BMF": [],
+    "settings.xml": [
+      "0x261060"
+    ],
+    "horsey.tmx": [
+      "0x261050"
+    ]
+  },
+  "referenced_count": 42,
+  "unreferenced_count": 11
+}

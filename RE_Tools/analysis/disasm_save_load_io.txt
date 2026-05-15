@@ -1,0 +1,47 @@
+# Save load I/O — Save_LoadFromBuffer @ 0x6E643 (Horsey.exe)
+# Serialize: Save_Write @ 0x6DAB0
+
+## Entry: load grid + nested into ctx (rsi)
+
+0x6E643: bounds check slot index
+0x6E663: eax = [rsi+0x27C] * [rsi+0x278]  ; height * width
+0x6E68D: malloc(0x28 * cell_count)       ; grid cell array
+0x6E6D8: [rsi+0x270] = grid_ptr
+
+## Grid read loop @ 0x6E700 (mirror 0x6DF30 write)
+
+0x6E72B: call ReadU8  @ 0x705D0
+0x6E734: cmp cl, 0x3F                     ; skip-run prefix
+0x6E73D: call ReadU8                      ; run length
+0x6E762: lea eax, [rcx-0x3B]              ; type 0 + layer offset
+0x6E781: mov type = cl & 0x3F
+0x6E793/79F: flag_c / flag_d from bits 6,7
+0x6E7A8: call ReadU8                      ; layer byte
+0x6E7D3: call GridTypeLookup @ 0x1167B0
+0x6E7E0: call ReadU8                      ; optional +4
+
+## After grid
+
+0x6E810: call 0x106440 (dl=1)
+0x6E838: call ReadPairVec @ 0x6F810       ; pairs -> [rsi+0x420]
+0x6E88B: call ReadNestedSave @ 0x6D5C0   ; main nested into ctx
+0x6E930/9F9: more ReadNestedSave + vcall +0xB8
+
+## Read / Write stream API
+
+| Read RVA | Write RVA | Role |
+|----------|-----------|------|
+| 0x70320 | 0x6FE10 | u32 |
+| 0x705D0 | 0x6FEB0 | u8 |
+| 0x70450 | 0x6FE50 | u16 |
+| 0x704F0 | 0x6FE70 | u64 |
+| 0x70670 | 0x6FF10 | f32 |
+| 0x70890 | 0x6FFF0 | string len + bytes |
+| 0x6D5C0 | 0x6D440 | nested save |
+| 0x6EF80 | 0x6EC40 | nested item |
+| 0x6D3B0 | 0x6D2A0 | pack/unpack +0x2B8 blob |
+
+## File -> buffer
+
+0x6FD90: fopen + fread (0x229340) on save path — sets global read cursor
+0x6E643: consumes cursor via Read* functions

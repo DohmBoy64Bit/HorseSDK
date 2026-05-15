@@ -1,0 +1,450 @@
+{
+  "function_rva": "0x6dab0",
+  "disasm_end_rva": "0x6e17a",
+  "signature": "Save_Write(void* ctx /*rcx*/, int flags /*edx*/)",
+  "callees": [
+    {
+      "at": "0x6dae0",
+      "target": "0x1400bee80"
+    },
+    {
+      "at": "0x6db2d",
+      "target": "0x14003f360"
+    },
+    {
+      "at": "0x6db44",
+      "target": "0x1400dcbb0"
+    },
+    {
+      "at": "0x6db4b",
+      "target": "0x14003f360"
+    },
+    {
+      "at": "0x6db6b",
+      "target": "0x140060540"
+    },
+    {
+      "at": "0x6db7e",
+      "target": "0x140088000"
+    },
+    {
+      "at": "0x6db86",
+      "target": "0x1400bfb60"
+    },
+    {
+      "at": "0x6db95",
+      "target": "0x14006f3c0"
+    },
+    {
+      "at": "0x6dbd1",
+      "target": "0x14021e450"
+    },
+    {
+      "at": "0x6dc77",
+      "target": "0x140028600"
+    },
+    {
+      "at": "0x6dc92",
+      "target": "0x1402511b0"
+    },
+    {
+      "at": "0x6dc9b",
+      "target": "0x1400bfb90"
+    },
+    {
+      "at": "0x6dcb1",
+      "target": "0x14006fd40"
+    },
+    {
+      "at": "0x6dcbb",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dcc0",
+      "target": "0x1400c3100"
+    },
+    {
+      "at": "0x6dcc5",
+      "target": "0x14006fdf0"
+    },
+    {
+      "at": "0x6dcd0",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dcdb",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dce6",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dcf3",
+      "target": "0x14006ff10"
+    },
+    {
+      "at": "0x6dcfe",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dd09",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dd14",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dd20",
+      "target": "0x14006fef0"
+    },
+    {
+      "at": "0x6dd2c",
+      "target": "0x14006fef0"
+    },
+    {
+      "at": "0x6dd37",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dd3e",
+      "target": "0x14006fef0"
+    },
+    {
+      "at": "0x6dd49",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dd55",
+      "target": "0x14006fef0"
+    },
+    {
+      "at": "0x6dd61",
+      "target": "0x14006ff30"
+    },
+    {
+      "at": "0x6dd6c",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dd84",
+      "target": "0x14006fef0"
+    },
+    {
+      "at": "0x6dd8b",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6dd94",
+      "target": "0x14006fef0"
+    },
+    {
+      "at": "0x6ddb3",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6ddba",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6ddc9",
+      "target": "0x14006fdf0"
+    },
+    {
+      "at": "0x6ddf9",
+      "target": "0x14006fed0"
+    },
+    {
+      "at": "0x6de36",
+      "target": "0x14006fe50"
+    },
+    {
+      "at": "0x6de47",
+      "target": "0x14006fe50"
+    },
+    {
+      "at": "0x6de58",
+      "target": "0x14006fe50"
+    },
+    {
+      "at": "0x6de69",
+      "target": "0x14006fe50"
+    },
+    {
+      "at": "0x6dea9",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6deb7",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6debc",
+      "target": "0x14006fdf0"
+    },
+    {
+      "at": "0x6df6f",
+      "target": "0x14006feb0"
+    },
+    {
+      "at": "0x6df78",
+      "target": "0x14006feb0"
+    },
+    {
+      "at": "0x6dfdc",
+      "target": "0x14006feb0"
+    },
+    {
+      "at": "0x6dfe6",
+      "target": "0x14006feb0"
+    },
+    {
+      "at": "0x6dfee",
+      "target": "0x1401167b0"
+    },
+    {
+      "at": "0x6dffc",
+      "target": "0x14006feb0"
+    },
+    {
+      "at": "0x6e023",
+      "target": "0x14006feb0"
+    },
+    {
+      "at": "0x6e02c",
+      "target": "0x14006feb0"
+    },
+    {
+      "at": "0x6e043",
+      "target": "0x14006fed0"
+    },
+    {
+      "at": "0x6e06b",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6e07b",
+      "target": "0x14006fe10"
+    },
+    {
+      "at": "0x6e0a6",
+      "target": "0x14006d440"
+    },
+    {
+      "at": "0x6e0c1",
+      "target": "0x14006fef0"
+    },
+    {
+      "at": "0x6e0d6",
+      "target": "0x14006d440"
+    },
+    {
+      "at": "0x6e0e9",
+      "target": "qword ptr [rax + 0xb0]"
+    },
+    {
+      "at": "0x6e103",
+      "target": "0x14006d440"
+    },
+    {
+      "at": "0x6e112",
+      "target": "qword ptr [rax + 0xb0]"
+    },
+    {
+      "at": "0x6e11c",
+      "target": "0x14006fd90"
+    },
+    {
+      "at": "0x6e154",
+      "target": "0x14021e450"
+    }
+  ],
+  "rip_refs_in_save": [
+    {
+      "insn": "0x6dad9",
+      "mnemonic": "lea",
+      "string_rva": "0x262420"
+    },
+    {
+      "insn": "0x6db73",
+      "mnemonic": "lea",
+      "string_rva": "0x262430"
+    }
+  ],
+  "callee_entry_snippets": {
+    "0x6f3c0": [
+      "0x6f3c0: mov qword ptr [rsp + 0x18], rbx",
+      "0x6f3c5: mov qword ptr [rsp + 0x20], rbp",
+      "0x6f3ca: push rdi",
+      "0x6f3cb: push r12",
+      "0x6f3cd: push r14",
+      "0x6f3cf: sub rsp, 0x40",
+      "0x6f3d3: xor r12d, r12d",
+      "0x6f3d6: mov rbx, r8",
+      "0x6f3d9: cmp qword ptr [rdx + 0x18], 0xf",
+      "0x6f3de: mov rbp, rcx",
+      "0x6f3e1: mov rdi, rdx",
+      "0x6f3e4: jbe 0x14006f3e9",
+      "0x6f3e6: mov rdi, qword ptr [rdx]",
+      "0x6f3e9: mov rcx, qword ptr [rbx + 0x18]",
+      "0x6f3ed: mov r8, qword ptr [r8 + 0x10]",
+      "0x6f3f1: mov rax, rcx",
+      "0x6f3f4: mov r14, qword ptr [rdx + 0x10]",
+      "0x6f3f8: sub rax, r8",
+      "0x6f3fb: cmp r14, rax",
+      "0x6f3fe: ja 0x14006f488",
+      "0x6f404: mov qword ptr [rsp + 0x60], rsi",
+      "0x6f409: lea rax, [r8 + r14]",
+      "0x6f40d: mov qword ptr [rbx + 0x10], rax",
+      "0x6f411: mov rsi, rbx",
+      "0x6f414: mov qword ptr [rsp + 0x68], r15",
+      "0x6f419: cmp rcx, 0xf",
+      "0x6f41d: jbe 0x14006f422",
+      "0x6f41f: mov rsi, qword ptr [rbx]",
+      "0x6f422: lea rax, [r14 + rdi]",
+      "0x6f426: cmp rax, rsi",
+      "0x6f429: jbe 0x14006f446",
+      "0x6f42b: lea rax, [r8 + rsi]",
+      "0x6f42f: cmp rdi, rax",
+      "0x6f432: ja 0x14006f446",
+      "0x6f434: cmp rsi, rdi",
+      "0x6f437: ja 0x14006f43e",
+      "0x6f439: mov r15, r12",
+      "0x6f43c: jmp 0x14006f449",
+      "0x6f43e: mov r15, rsi",
+      "0x6f441: sub r15, rdi"
+    ],
+    "0x88000": [
+      "0x88000: mov rax, rsp",
+      "0x88003: mov qword ptr [rax + 0x10], rdx",
+      "0x88007: mov qword ptr [rax + 0x18], r8",
+      "0x8800b: mov qword ptr [rax + 0x20], r9",
+      "0x8800f: push rbx",
+      "0x88010: push rbp",
+      "0x88011: push rsi",
+      "0x88012: push rdi",
+      "0x88013: sub rsp, 0x48",
+      "0x88017: mov rbx, rdx",
+      "0x8801a: lea rsi, [rax + 0x18]",
+      "0x8801e: mov rdi, rcx",
+      "0x88021: xor ebp, ebp",
+      "0x88023: call 0x140023ee0",
+      "0x88028: mov qword ptr [rsp + 0x28], rsi",
+      "0x8802d: lea rdx, [rip + 0x28b0dc]",
+      "0x88034: mov r9, rbx",
+      "0x88037: mov qword ptr [rsp + 0x20], rbp",
+      "0x8803c: mov r8d, 0x3ff",
+      "0x88042: mov rcx, qword ptr [rax]",
+      "0x88045: or rcx, 2",
+      "0x88049: call 0x14022f7f0",
+      "0x8804e: xorps xmm0, xmm0",
+      "0x88051: lea rcx, [rip + 0x28b0b8]",
+      "0x88058: movups xmmword ptr [rdi], xmm0",
+      "0x8805b: mov qword ptr [rdi + 0x10], rbp",
+      "0x8805f: mov qword ptr [rdi + 0x18], rbp",
+      "0x88063: call 0x140251ce0",
+      "0x88068: mov r8, rax",
+      "0x8806b: lea rdx, [rip + 0x28b09e]",
+      "0x88072: mov rcx, rdi",
+      "0x88075: call 0x140027e50",
+      "0x8807a: mov rax, rdi",
+      "0x8807d: add rsp, 0x48",
+      "0x88081: pop rdi",
+      "0x88082: pop rsi",
+      "0x88083: pop rbp",
+      "0x88084: pop rbx",
+      "0x88085: ret ",
+      "0x88086: int3 "
+    ],
+    "0xbee80": [
+      "0xbee80: mov qword ptr [rsp + 0x10], rdx",
+      "0xbee85: mov qword ptr [rsp + 0x18], r8",
+      "0xbee8a: mov qword ptr [rsp + 0x20], r9",
+      "0xbee8f: ret ",
+      "0xbee90: int3 ",
+      "0xbee91: int3 ",
+      "0xbee92: int3 ",
+      "0xbee93: int3 ",
+      "0xbee94: int3 ",
+      "0xbee95: int3 ",
+      "0xbee96: int3 ",
+      "0xbee97: int3 ",
+      "0xbee98: int3 ",
+      "0xbee99: int3 ",
+      "0xbee9a: int3 ",
+      "0xbee9b: int3 ",
+      "0xbee9c: int3 ",
+      "0xbee9d: int3 ",
+      "0xbee9e: int3 ",
+      "0xbee9f: int3 ",
+      "0xbeea0: mov qword ptr [rsp + 8], rcx",
+      "0xbeea5: mov qword ptr [rsp + 0x10], rdx",
+      "0xbeeaa: mov qword ptr [rsp + 0x18], r8",
+      "0xbeeaf: mov qword ptr [rsp + 0x20], r9",
+      "0xbeeb4: sub rsp, 0x28",
+      "0xbeeb8: mov r8, rcx",
+      "0xbeebb: lea r9, [rsp + 0x38]",
+      "0xbeec0: lea rcx, [rip + 0x259c99]",
+      "0xbeec7: mov edx, 0xff",
+      "0xbeecc: call 0x1400c0a00",
+      "0xbeed1: xor r9d, r9d",
+      "0xbeed4: lea r8, [rip + 0x200a39]",
+      "0xbeedb: lea rdx, [rip + 0x259c7e]",
+      "0xbeee2: xor ecx, ecx",
+      "0xbeee4: call qword ptr [rip + 0x19bbc6]",
+      "0xbeeea: xor ecx, ecx",
+      "0xbeeec: call 0x140231d44",
+      "0xbeef1: int3 ",
+      "0xbeef2: int3 ",
+      "0xbeef3: int3 "
+    ],
+    "0xbfb60": [
+      "0xbfb60: lea rax, [rip + 0x232a91]",
+      "0xbfb67: ret ",
+      "0xbfb68: int3 ",
+      "0xbfb69: int3 ",
+      "0xbfb6a: int3 ",
+      "0xbfb6b: int3 ",
+      "0xbfb6c: int3 ",
+      "0xbfb6d: int3 ",
+      "0xbfb6e: int3 ",
+      "0xbfb6f: int3 ",
+      "0xbfb70: lea rax, [rip + 0x232a61]",
+      "0xbfb77: ret ",
+      "0xbfb78: int3 ",
+      "0xbfb79: int3 ",
+      "0xbfb7a: int3 ",
+      "0xbfb7b: int3 ",
+      "0xbfb7c: int3 ",
+      "0xbfb7d: int3 ",
+      "0xbfb7e: int3 ",
+      "0xbfb7f: int3 ",
+      "0xbfb80: lea rax, [rip + 0x232ab1]",
+      "0xbfb87: ret ",
+      "0xbfb88: int3 ",
+      "0xbfb89: int3 ",
+      "0xbfb8a: int3 ",
+      "0xbfb8b: int3 ",
+      "0xbfb8c: int3 ",
+      "0xbfb8d: int3 ",
+      "0xbfb8e: int3 ",
+      "0xbfb8f: int3 ",
+      "0xbfb90: mov qword ptr [rsp + 0x18], rbx",
+      "0xbfb95: mov qword ptr [rsp + 8], rcx",
+      "0xbfb9a: push rbp",
+      "0xbfb9b: push rsi",
+      "0xbfb9c: push rdi",
+      "0xbfb9d: push r14",
+      "0xbfb9f: push r15",
+      "0xbfba1: sub rsp, 0x50",
+      "0xbfba5: mov rbx, rcx",
+      "0xbfba8: mov rbp, qword ptr [rcx + 0x10]"
+    ]
+  },
+  "write_chain_hypothesis": [
+    "0x6DB7E call 0x88000 \u2014 build path/std::string",
+    "0x6DB86 call 0xBFB60 \u2014 helper",
+    "0x6DB95 call 0x6F3C0 \u2014 serialize/write buffer"
+  ]
+}

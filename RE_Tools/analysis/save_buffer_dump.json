@@ -1,0 +1,168 @@
+{
+  "timestamp": "2026-05-15T15:12:35.196768+00:00",
+  "globals_rva": {
+    "G_START": "0x310408",
+    "G_END": "0x310410",
+    "G_WRITE_PTR": "0x310410",
+    "G_BUF_BASE": "0x310418"
+  },
+  "save_rva": "0x6dab0",
+  "on_disk_reference": "E:\\games\\HorseSDK\\Game\\save\\save1.dat",
+  "dumps": [
+    {
+      "label": "Save_Write_leave",
+      "size": 204675,
+      "startOff": 3305219456,
+      "endOff": 3305424131,
+      "base": "0x1ecc501a580",
+      "writePtr": "0x1ecc504c503",
+      "bufBase": "0x1ecc501a580",
+      "header_hex": "0c0000009fa8d2060000000016000000470000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff",
+      "backtrace": []
+    },
+    {
+      "label": "Save_Write_leave",
+      "size": 204675,
+      "startOff": 3305219456,
+      "endOff": 3305424131,
+      "base": "0x1ecc501a580",
+      "writePtr": "0x1ecc504c503",
+      "bufBase": "0x1ecc501a580",
+      "header_hex": "0c0000009fa8d2060000000016000000470000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff",
+      "backtrace": []
+    },
+    {
+      "label": "Save_Write_leave",
+      "size": 204386,
+      "startOff": 3305219456,
+      "endOff": 3305423842,
+      "base": "0x1ecc501a580",
+      "writePtr": "0x1ecc504c3e2",
+      "bufBase": "0x1ecc501a580",
+      "header_hex": "0c0000009fa8d2060000000016000000470000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff",
+      "backtrace": []
+    },
+    {
+      "label": "Save_Write_leave",
+      "size": 204386,
+      "startOff": 3305219456,
+      "endOff": 3305423842,
+      "base": "0x1ecc501a580",
+      "writePtr": "0x1ecc504c3e2",
+      "bufBase": "0x1ecc501a580",
+      "header_hex": "0c0000009fa8d2060000000016000000470000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff",
+      "backtrace": []
+    }
+  ],
+  "events": [
+    {
+      "type": "info",
+      "base": "0x7ff74db40000"
+    },
+    {
+      "type": "ready"
+    },
+    {
+      "type": "stream_open",
+      "reserve": 250000,
+      "bufBase": "0x1ecc501a580"
+    },
+    {
+      "type": "get_size",
+      "eax": 2381
+    },
+    {
+      "type": "dump_ok"
+    },
+    {
+      "type": "stream_open",
+      "reserve": 250000,
+      "bufBase": "0x1ecc501a580"
+    },
+    {
+      "type": "get_size",
+      "eax": 2381
+    },
+    {
+      "type": "dump_ok"
+    },
+    {
+      "type": "stream_open",
+      "reserve": 250000,
+      "bufBase": "0x1ecc501a580"
+    },
+    {
+      "type": "get_size",
+      "eax": 2381
+    },
+    {
+      "type": "dump_ok"
+    },
+    {
+      "type": "stream_open",
+      "reserve": 250000,
+      "bufBase": "0x1ecc501a580"
+    },
+    {
+      "type": "get_size",
+      "eax": 2381
+    },
+    {
+      "type": "dump_ok"
+    }
+  ],
+  "summary": {
+    "dumps": [
+      {
+        "label": "Save_Write_leave",
+        "size": 204675,
+        "startOff": 3305219456,
+        "endOff": 3305424131,
+        "base": "0x1ecc501a580",
+        "writePtr": "0x1ecc504c503",
+        "bufBase": "0x1ecc501a580",
+        "header_hex": "0c0000009fa8d2060000000016000000470000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff",
+        "backtrace": []
+      },
+      {
+        "label": "Save_Write_leave",
+        "size": 204675,
+        "startOff": 3305219456,
+        "endOff": 3305424131,
+        "base": "0x1ecc501a580",
+        "writePtr": "0x1ecc504c503",
+        "bufBase": "0x1ecc501a580",
+        "header_hex": "0c0000009fa8d2060000000016000000470000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff",
+        "backtrace": []
+      },
+      {
+        "label": "Save_Write_leave",
+        "size": 204386,
+        "startOff": 3305219456,
+        "endOff": 3305423842,
+        "base": "0x1ecc501a580",
+        "writePtr": "0x1ecc504c3e2",
+        "bufBase": "0x1ecc501a580",
+        "header_hex": "0c0000009fa8d2060000000016000000470000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff",
+        "backtrace": []
+      },
+      {
+        "label": "Save_Write_leave",
+        "size": 204386,
+        "startOff": 3305219456,
+        "endOff": 3305423842,
+        "base": "0x1ecc501a580",
+        "writePtr": "0x1ecc504c3e2",
+        "bufBase": "0x1ecc501a580",
+        "header_hex": "0c0000009fa8d2060000000016000000470000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff",
+        "backtrace": []
+      }
+    ]
+  },
+  "compare_on_disk": {
+    "disk_size": 204386,
+    "dump_size": 204386,
+    "headers_match": true,
+    "disk_header_hex": "0c0000009fa8d2060000000016000000470000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff"
+  }
+}

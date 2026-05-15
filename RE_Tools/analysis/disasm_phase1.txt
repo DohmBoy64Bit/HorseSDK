@@ -1,0 +1,256 @@
+Disassembly — E:\games\HorseSDK\Game\Horsey.exe
+Image base 0x140000000
+
+=== GameMain_InitAndLoop @ RVA 0xBE0F0 (file+0xBD4F0, 288 bytes) ===
+  0x000BE0F0: push     rbp
+  0x000BE0F2: lea      rbp, [rsp - 0x1f0]
+  0x000BE0FA: sub      rsp, 0x2f0
+  0x000BE101: mov      ecx, 0x36f88b
+  0x000BE106: call     qword ptr [rip + 0x19cb04]
+  0x000BE10C: test     al, al
+  0x000BE10E: je       0x1400be11b
+  0x000BE110: xor      eax, eax
+  0x000BE112: add      rsp, 0x2f0
+  0x000BE119: pop      rbp
+  0x000BE11A: ret      
+  0x000BE11B: mov      ecx, 0x4020
+  0x000BE120: mov      qword ptr [rsp + 0x310], rdi
+  0x000BE128: call     0x1401248b0
+  0x000BE12D: test     eax, eax
+  0x000BE12F: je       0x1400be149
+  0x000BE131: mov      rdi, qword ptr [rsp + 0x310]
+  0x000BE139: mov      rax, 0xffffffffffffffff
+  0x000BE140: add      rsp, 0x2f0
+  0x000BE147: pop      rbp
+  0x000BE148: ret      
+  0x000BE149: mov      qword ptr [rsp + 0x300], rbx
+  0x000BE151: mov      qword ptr [rsp + 0x308], rsi
+  0x000BE159: mov      qword ptr [rsp + 0x2e8], r12
+  0x000BE161: mov      qword ptr [rsp + 0x2d8], r14
+  0x000BE169: mov      qword ptr [rsp + 0x2d0], r15
+  0x000BE171: call     qword ptr [rip + 0x19bff9]
+  0x000BE177: mov      r9d, 0x104
+  0x000BE17D: lea      r8, [rbp - 0x40]
+  0x000BE181: mov      rcx, rax
+  0x000BE184: xor      edx, edx
+  0x000BE186: call     0x1401196bc
+  0x000BE18B: lea      rcx, [rbp - 0x40]
+  0x000BE18F: call     0x140251ce0
+  0x000BE194: lea      r15, [rip + 0x23443d]
+  0x000BE19B: mov      r8, rax
+  0x000BE19E: mov      rcx, r15
+  0x000BE1A1: lea      rdx, [rbp - 0x40]
+  0x000BE1A5: call     0x140027f70
+  0x000BE1AA: mov      r8, qword ptr [rip + 0x23443f]
+  0x000BE1B1: mov      rsi, r15
+  0x000BE1B4: mov      rdx, qword ptr [rip + 0x23441d]
+  0x000BE1BB: cmp      r8, 0xf
+  0x000BE1BF: mov      rcx, qword ptr [rip + 0x234422]
+  0x000BE1C6: mov      rdi, 0xffffffffffffffff
+  0x000BE1CD: cmova    rsi, rdx
+  0x000BE1D1: cmp      rcx, 1
+  0x000BE1D5: jb       0x1400be224
+  0x000BE1D7: dec      rcx
+  0x000BE1DA: lea      r8, [rip + 0x1a7e57]
+  0x000BE1E1: mov      rbx, rdi
+  0x000BE1E4: mov      r9d, 1
+  0x000BE1EA: cmp      rcx, rbx
+  0x000BE1ED: cmovb    rbx, rcx
+  0x000BE1F1: mov      rcx, rsi
+  0x000BE1F4: inc      rbx
+  0x000BE1F7: add      rbx, rsi
+  0x000BE1FA: mov      rdx, rbx
+  0x000BE1FD: call     0x14021ddc0
+  0x000BE202: mov      r8, qword ptr [rip + 0x2343e7]
+  0x000BE209: mov      rcx, rax
+
+=== Loop_PollEvent_First @ RVA 0xBEA80 (file+0xBDE80, 128 bytes) ===
+  0x000BEA80: adc      eax, 0x19c16b
+  0x000BEA85: lea      rcx, [rsp + 0x30]
+  0x000BEA8A: call     0x1401253b0
+  0x000BEA8F: test     eax, eax
+  0x000BEA91: je       0x1400beaae
+  0x000BEA93: lea      rdx, [rsp + 0x30]
+  0x000BEA98: mov      rcx, rdi
+  0x000BEA9B: call     0x1400c0430
+  0x000BEAA0: lea      rcx, [rsp + 0x30]
+  0x000BEAA5: call     0x1401253b0
+  0x000BEAAA: test     eax, eax
+  0x000BEAAC: jne      0x1400bea93
+  0x000BEAAE: cmp      byte ptr [rip + 0x259fa0], bl
+  0x000BEAB4: mov      byte ptr [rip + 0x259f99], bl
+  0x000BEABA: je       0x1400beac4
+  0x000BEABC: cmp      byte ptr [rip + 0x233b96], bl
+  0x000BEAC2: jne      0x1400bead9
+  0x000BEAC4: cmp      byte ptr [rip + 0x259f87], bl
+  0x000BEACA: jne      0x1400bead4
+  0x000BEACC: cmp      byte ptr [rip + 0x232a19], bl
+  0x000BEAD2: je       0x1400beae1
+  0x000BEAD4: call     0x140087510
+  0x000BEAD9: cmp      byte ptr [rip + 0x259f72], bl
+  0x000BEADF: jne      0x1400beaed
+  0x000BEAE1: cmp      byte ptr [rip + 0x232a03], bl
+  0x000BEAE7: je       0x1400bece7
+  0x000BEAED: mov      rcx, rdi
+  0x000BEAF0: call     0x1401238d0
+  0x000BEAF5: cmp      byte ptr [rip + 0x259f58], bl
+  0x000BEAFB: je       0x1400beb05
+  0x000BEAFD: mov      rcx, rdi
+
+=== Loop_GL_SwapWindow @ RVA 0xBEAD0 (file+0xBDED0, 64 bytes) ===
+  0x000BEAD0: and      eax, dword ptr [rax]
+  0x000BEAD2: je       0x1400beae1
+  0x000BEAD4: call     0x140087510
+  0x000BEAD9: cmp      byte ptr [rip + 0x259f72], bl
+  0x000BEADF: jne      0x1400beaed
+  0x000BEAE1: cmp      byte ptr [rip + 0x232a03], bl
+  0x000BEAE7: je       0x1400bece7
+  0x000BEAED: mov      rcx, rdi
+  0x000BEAF0: call     0x1401238d0
+  0x000BEAF5: cmp      byte ptr [rip + 0x259f58], bl
+  0x000BEAFB: je       0x1400beb05
+  0x000BEAFD: mov      rcx, rdi
+  0x000BEB00: call     0x1400bffa0
+  0x000BEB05: cmp      byte ptr [rip + 0x259f47], bl
+  0x000BEB0B: je       0x1400beb63
+
+=== Save_Write @ RVA 0x6DAB0 (file+0x6CEB0, 256 bytes) ===
+  0x0006DAB0: mov      qword ptr [rsp + 0x10], rbx
+  0x0006DAB5: mov      qword ptr [rsp + 0x18], rsi
+  0x0006DABA: mov      qword ptr [rsp + 0x20], rdi
+  0x0006DABF: push     rbp
+  0x0006DAC0: push     r12
+  0x0006DAC2: push     r13
+  0x0006DAC4: push     r14
+  0x0006DAC6: push     r15
+  0x0006DAC8: lea      rbp, [rsp - 0x37]
+  0x0006DACD: sub      rsp, 0x90
+  0x0006DAD4: mov      ebx, edx
+  0x0006DAD6: mov      rdi, rcx
+  0x0006DAD9: lea      rcx, [rip + 0x1f4940]
+  0x0006DAE0: call     0x1400bee80
+  0x0006DAE5: mov      r8d, dword ptr [rdi + 0x25c]
+  0x0006DAEC: cmp      r8d, 0x1c
+  0x0006DAF0: jne      0x14006db0f
+  0x0006DAF2: mov      rax, qword ptr [rdi + 0x438]
+  0x0006DAF9: mov      rcx, qword ptr [rax + 0xe0]
+  0x0006DB00: cmp      dword ptr [rcx + 0x260], 0
+  0x0006DB07: je       0x14006e159
+  0x0006DB0D: jmp      0x14006db15
+  0x0006DB0F: cmp      r8d, -1
+  0x0006DB13: je       0x14006db50
+  0x0006DB15: mov      rax, qword ptr [rdi + 0x300]
+  0x0006DB1C: cmp      byte ptr [rax + 0xac], 0
+  0x0006DB23: jne      0x14006db50
+  0x0006DB25: cmp      r8d, 0xd
+  0x0006DB29: je       0x14006db50
+  0x0006DB2B: mov      cl, 1
+  0x0006DB2D: call     0x14003f360
+  0x0006DB32: movsxd   rax, dword ptr [rdi + 0x25c]
+  0x0006DB39: mov      rcx, qword ptr [rdi + 0x438]
+  0x0006DB40: mov      rcx, qword ptr [rcx + rax*8]
+  0x0006DB44: call     0x1400dcbb0
+  0x0006DB49: xor      ecx, ecx
+  0x0006DB4B: call     0x14003f360
+  0x0006DB50: cmp      dword ptr [rdi + 0x25c], 0xd
+  0x0006DB57: jne      0x14006db70
+  0x0006DB59: mov      rax, qword ptr [rdi + 0x438]
+  0x0006DB60: mov      rcx, qword ptr [rax + 0x70]
+  0x0006DB64: test     rcx, rcx
+  0x0006DB67: je       0x14006db70
+  0x0006DB69: mov      dl, 1
+  0x0006DB6B: call     0x140060540
+  0x0006DB70: mov      r8d, ebx
+  0x0006DB73: lea      rdx, [rip + 0x1f48b6]
+  0x0006DB7A: lea      rcx, [rbp + 0x17]
+  0x0006DB7E: call     0x140088000
+  0x0006DB83: mov      rbx, rax
+  0x0006DB86: call     0x1400bfb60
+  0x0006DB8B: mov      rdx, rax
+  0x0006DB8E: mov      r8, rbx
+  0x0006DB91: lea      rcx, [rbp - 9]
+  0x0006DB95: call     0x14006f3c0
+  0x0006DB9A: nop      
+  0x0006DB9B: mov      rdx, qword ptr [rbp + 0x2f]
+  0x0006DB9F: cmp      rdx, 0xf
+  0x0006DBA3: jbe      0x14006dbd6
+  0x0006DBA5: inc      rdx
+  0x0006DBA8: mov      rcx, qword ptr [rbp + 0x17]
+  0x0006DBAC: mov      rax, rcx
+
+=== SettingsLoader @ RVA 0x711B0 (file+0x705B0, 256 bytes) ===
+  0x000711B0: mov      qword ptr [rsp + 0x10], rbx
+  0x000711B5: mov      qword ptr [rsp + 0x18], rsi
+  0x000711BA: mov      qword ptr [rsp + 0x20], rdi
+  0x000711BF: push     rbp
+  0x000711C0: push     r12
+  0x000711C2: push     r13
+  0x000711C4: push     r14
+  0x000711C6: push     r15
+  0x000711C8: mov      rbp, rsp
+  0x000711CB: sub      rsp, 0x70
+  0x000711CF: xor      r12d, r12d
+  0x000711D2: mov      byte ptr [rip + 0x2802f3], r12b
+  0x000711D9: mov      byte ptr [rip + 0x2802e0], 1
+  0x000711E0: mov      dword ptr [rip + 0x2802da], 0x64
+  0x000711EA: mov      dword ptr [rip + 0x2802d4], 0x64
+  0x000711F4: movdqa   xmm0, xmmword ptr [rip + 0x1f13d4]
+  0x000711FC: movdqa   xmmword ptr [rip + 0x2802cc], xmm0
+  0x00071204: mov      dword ptr [rip + 0x2802d2], 0x10101
+  0x0007120E: mov      word ptr [rip + 0x2802cd], 0x101
+  0x00071217: mov      r8d, 0xa
+  0x0007121D: lea      rdx, [rip + 0x1f122c]
+  0x00071224: lea      rcx, [rip + 0x2802e5]
+  0x0007122B: call     0x140027f70
+  0x00071230: mov      r8d, 7
+  0x00071236: lea      rdx, [rip + 0x1eee4b]
+  0x0007123D: lea      rcx, [rip + 0x2802ec]
+  0x00071244: call     0x140027f70
+  0x00071249: mov      dword ptr [rip + 0x2802fd], 0xffffffff
+  0x00071253: mov      dword ptr [rip + 0x2802fa], r12d
+  0x0007125A: mov      dword ptr [rip + 0x2802f4], 0x100
+  0x00071264: mov      dword ptr [rip + 0x280312], 0xffffffff
+  0x0007126E: mov      dword ptr [rip + 0x280271], r12d
+  0x00071275: mov      word ptr [rip + 0x280307], r12w
+  0x0007127D: mov      word ptr [rip + 0x280264], 0x100
+  0x00071286: mov      byte ptr [rip + 0x28025f], 1
+  0x0007128D: call     0x1400bfb60
+  0x00071292: mov      rdi, rax
+  0x00071295: mov      r13, qword ptr [rax + 0x10]
+  0x00071299: movabs   rcx, 0x7fffffffffffffff
+  0x000712A3: mov      rax, rcx
+  0x000712A6: sub      rax, r13
+  0x000712A9: cmp      rax, 0xc
+
+=== Save_Caller_1 @ RVA 0x98280 (file+0x97680, 64 bytes) ===
+  0x00098280: mov      edx, 1
+  0x00098285: mov      rcx, qword ptr [rip + 0x2886ac]
+  0x0009828C: call     0x14006dab0
+  0x00098291: call     0x1400bee70
+  0x00098296: jmp      0x140098528
+  0x0009829B: cmp      byte ptr [rip + 0x27a629], 0
+  0x000982A2: je       0x1400982f2
+  0x000982A4: mov      rcx, qword ptr [rbx + 8]
+  0x000982A8: cmp      dword ptr [rcx + 8], 0x13
+  0x000982AC: je       0x1400982f2
+  0x000982AE: cmp      rcx, qword ptr [rip + 0x288683]
+  0x000982B5: jne      0x1400982c7
+  0x000982B7: cmp      byte ptr [rip + 0x259225], 0
+  0x000982BE: je       0x1400982c7
+
+=== CRT_call_GameMain @ RVA 0x21EE00 (file+0x21E200, 48 bytes) ===
+  0x0021EE00: retf     
+  0x0021EE01: mov      r8, rax
+  0x0021EE04: xor      edx, edx
+  0x0021EE06: lea      rcx, [rip - 0x21ee0d]
+  0x0021EE0D: call     0x1400be0f0
+  0x0021EE12: mov      ebx, eax
+  0x0021EE14: call     0x14021f198
+  0x0021EE19: test     al, al
+  0x0021EE1B: je       0x14021ee6d
+  0x0021EE1D: test     dil, dil
+  0x0021EE20: jne      0x14021ee27
+  0x0021EE22: call     0x140231cec
+  0x0021EE27: xor      edx, edx
+  0x0021EE29: mov      cl, 1
+  0x0021EE2B: call     0x14021e768

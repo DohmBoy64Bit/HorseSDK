@@ -1,0 +1,88 @@
+{
+  "format": "gene_pack_0xF0",
+  "gene_count": 240,
+  "note": "Same codec as inventory +0x51; values are g0..g3 indices into genes.xml",
+  "ae470": "deferred \u2014 see SaveFutureWork.md (runtime only)",
+  "packs": [
+    {
+      "id": "footer_gene_settings",
+      "file_offset": 203585,
+      "role": "Global footer nested gene buffer (settings panel)",
+      "packed_bytes": 240,
+      "unpacked_bytes": 480,
+      "packed_hex_prefix": "121b09120b1212140912121209090909",
+      "track_a": {
+        "nonzero": 106,
+        "min": 0,
+        "max": 3,
+        "sample": [
+          1,
+          2,
+          0,
+          1,
+          2,
+          1,
+          1,
+          3
+        ]
+      },
+      "track_b": {
+        "nonzero": 91,
+        "min": 0,
+        "max": 3,
+        "sample": [
+          1,
+          2,
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      "disasm_write": "0x6D2A0 -> 0x70220 (0xF0 B, not Frida WriteU8)",
+      "disasm_read": "0x6D811 Read 0xF0 + 0x6D840 unpack"
+    },
+    {
+      "id": "footer_gene_track",
+      "file_offset": 204006,
+      "role": "Track panel gene buffer (after name 'unknown')",
+      "packed_bytes": 240,
+      "unpacked_bytes": 480,
+      "packed_hex_prefix": "090b091a0b121209090b090a09090909",
+      "track_a": {
+        "nonzero": 84,
+        "min": 0,
+        "max": 3,
+        "sample": [
+          0,
+          2,
+          0,
+          1,
+          2,
+          1,
+          1,
+          0
+        ]
+      },
+      "track_b": {
+        "nonzero": 91,
+        "min": 0,
+        "max": 3,
+        "sample": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          1,
+          1,
+          0
+        ]
+      },
+      "disasm_write": "0x6D2A0 -> 0x70220 (0xF0 B, not Frida WriteU8)",
+      "disasm_read": "0x6D811 Read 0xF0 + 0x6D840 unpack"
+    }
+  ]
+}

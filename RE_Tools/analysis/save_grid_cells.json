@@ -1,0 +1,528 @@
+{
+  "disasm_write": "0x6DF30",
+  "disasm_read": "0x6E700",
+  "dimensions": {
+    "width": 400,
+    "height": 225,
+    "expected": 90000
+  },
+  "prefix": {
+    "off": 2657,
+    "size": 802,
+    "pairs_0f09": 200
+  },
+  "grid_main": {
+    "cells_decoded": 90000,
+    "stream_bytes": 52664,
+    "remaining_bytes": 0,
+    "type_counts": {
+      "6": 48975,
+      "0": 30879,
+      "5": 582,
+      "63": 30,
+      "3": 58,
+      "4": 44,
+      "32": 101,
+      "7": 8061,
+      "1": 156,
+      "27": 16,
+      "17": 256,
+      "12": 440,
+      "22": 20,
+      "37": 381,
+      "9": 1
+    }
+  },
+  "encoding_rules": [
+    "0x3F + N: mark next N cells as type 6 (empty)",
+    "byte in [0x3B..0x3E]: type 0 + layer = byte - 0x3B + global_base",
+    "else: byte0 = type|(flag_c<<6)|(flag_d<<7), byte1 = layer",
+    "pair 0x0F 0x09: type 15, layer 9 (common empty-ish tile)"
+  ],
+  "sample_nonempty": [
+    {
+      "i": 255,
+      "off": 3461,
+      "enc": "0x06",
+      "type": 0,
+      "layer": -53,
+      "bytes": 1
+    },
+    {
+      "i": 256,
+      "off": 3462,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 399,
+      "off": 3465,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 400,
+      "off": 3466,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 401,
+      "off": 3467,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 402,
+      "off": 3468,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 658,
+      "off": 3471,
+      "enc": "0x06",
+      "type": 0,
+      "layer": -53,
+      "bytes": 1
+    },
+    {
+      "i": 659,
+      "off": 3472,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 802,
+      "off": 3475,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 803,
+      "off": 3476,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 804,
+      "off": 3477,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 805,
+      "off": 3478,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 1061,
+      "off": 3481,
+      "enc": "0x06",
+      "type": 0,
+      "layer": -53,
+      "bytes": 1
+    },
+    {
+      "i": 1062,
+      "off": 3482,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 1205,
+      "off": 3485,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 1206,
+      "off": 3486,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 1207,
+      "off": 3487,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 1208,
+      "off": 3488,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 1212,
+      "off": 3491,
+      "enc": "0x00",
+      "type": 0,
+      "layer": -59,
+      "bytes": 1
+    },
+    {
+      "i": 1213,
+      "off": 3492,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1214,
+      "off": 3494,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1215,
+      "off": 3496,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1216,
+      "off": 3498,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1217,
+      "off": 3500,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1218,
+      "off": 3502,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1219,
+      "off": 3504,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1220,
+      "off": 3506,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1221,
+      "off": 3508,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1222,
+      "off": 3510,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1223,
+      "off": 3512,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1224,
+      "off": 3514,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1225,
+      "off": 3516,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1226,
+      "off": 3518,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1227,
+      "off": 3520,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1228,
+      "off": 3522,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1229,
+      "off": 3524,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1230,
+      "off": 3526,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1231,
+      "off": 3528,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1232,
+      "off": 3530,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    },
+    {
+      "i": 1233,
+      "off": 3532,
+      "enc": "0x45 00",
+      "type": 5,
+      "layer": 0,
+      "flag_c": 1,
+      "flag_d": 0,
+      "bytes": 2
+    }
+  ],
+  "sample_tail": [
+    {
+      "i": 89020,
+      "off": 56098,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 89021,
+      "off": 56099,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 89022,
+      "off": 56100,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 89278,
+      "off": 56103,
+      "enc": "0x06",
+      "type": 0,
+      "layer": -53,
+      "bytes": 1
+    },
+    {
+      "i": 89279,
+      "off": 56104,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 89422,
+      "off": 56107,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 89423,
+      "off": 56108,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 89424,
+      "off": 56109,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 89425,
+      "off": 56110,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 89681,
+      "off": 56113,
+      "enc": "0x06",
+      "type": 0,
+      "layer": -53,
+      "bytes": 1
+    },
+    {
+      "i": 89682,
+      "off": 56114,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 89825,
+      "off": 56117,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 89826,
+      "off": 56118,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    },
+    {
+      "i": 89827,
+      "off": 56119,
+      "enc": "0x0F",
+      "type": 0,
+      "layer": -44,
+      "bytes": 1
+    },
+    {
+      "i": 89828,
+      "off": 56120,
+      "enc": "0x09",
+      "type": 0,
+      "layer": -50,
+      "bytes": 1
+    }
+  ]
+}

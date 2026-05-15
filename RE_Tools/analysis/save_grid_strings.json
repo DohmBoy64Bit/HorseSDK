@@ -1,0 +1,314 @@
+[
+  {
+    "file_offset": 56999,
+    "len": 4,
+    "text": "#\ufffd",
+    "hex": "23c20000"
+  },
+  {
+    "file_offset": 57015,
+    "len": 15,
+    "text": "\ufffd\ufffd",
+    "hex": "bcd900002f000000e0ad00000d0000"
+  },
+  {
+    "file_offset": 57035,
+    "len": 7,
+    "text": "unknown",
+    "hex": "756e6b6e6f776e"
+  },
+  {
+    "file_offset": 57365,
+    "len": 2,
+    "text": "\n\r",
+    "hex": "0a0d"
+  },
+  {
+    "file_offset": 92530,
+    "len": 7,
+    "text": "\ufffd\ufffd\r>vTU",
+    "hex": "b3830d3e765455"
+  },
+  {
+    "file_offset": 108005,
+    "len": 2,
+    "text": "\n$",
+    "hex": "0a24"
+  },
+  {
+    "file_offset": 126797,
+    "len": 47,
+    "text": "\ufffd\"y>\ufffd\ufffdk\ufffd)j\ufffdE",
+    "hex": "fe22793e91856bbd296a8b4500aa94457e5781416686834109190913121212090909091b09091309"
+  },
+  {
+    "file_offset": 127853,
+    "len": 2,
+    "text": "\ufffd\ufffd",
+    "hex": "84bd"
+  },
+  {
+    "file_offset": 128909,
+    "len": 2,
+    "text": "\ufffdr",
+    "hex": "c372"
+  },
+  {
+    "file_offset": 130656,
+    "len": 2,
+    "text": "\n%",
+    "hex": "0a25"
+  },
+  {
+    "file_offset": 144790,
+    "len": 3,
+    "text": "\ufffd\ufffd{",
+    "hex": "99d67b"
+  },
+  {
+    "file_offset": 146902,
+    "len": 19,
+    "text": "\ufffd\ufffd\u01be\ufffdQ\ufffd\ufffd3\ufffd\ufffdE9\ufffdmE]\u06d5",
+    "hex": "b8c6c6bed051a1be3381f04539bf6d455ddb95"
+  },
+  {
+    "file_offset": 169118,
+    "len": 8,
+    "text": "My House",
+    "hex": "4d7920486f757365"
+  },
+  {
+    "file_offset": 169320,
+    "len": 101,
+    "text": "\ufffd?\ufffd\u0301@",
+    "hex": "fa3fcdcc81400000303f0000503f00003f4500006745000000003d3a3d3a3d3a3d3a3d3a3d3a3d3a"
+  },
+  {
+    "file_offset": 169626,
+    "len": 13,
+    "text": "Willaby Ranch",
+    "hex": "57696c6c6162792052616e6368"
+  },
+  {
+    "file_offset": 171638,
+    "len": 15,
+    "text": "Circle-D Corral",
+    "hex": "436972636c652d4420436f7272616c"
+  },
+  {
+    "file_offset": 173652,
+    "len": 10,
+    "text": "Bob's Farm",
+    "hex": "426f622773204661726d"
+  },
+  {
+    "file_offset": 175956,
+    "len": 15,
+    "text": "Mabel's Stables",
+    "hex": "4d6162656c277320537461626c6573"
+  },
+  {
+    "file_offset": 178265,
+    "len": 18,
+    "text": "Surebreed Steeples",
+    "hex": "5375726562726565642053746565706c6573"
+  },
+  {
+    "file_offset": 180577,
+    "len": 16,
+    "text": "Hacienda Picante",
+    "hex": "48616369656e646120506963616e7465"
+  },
+  {
+    "file_offset": 182887,
+    "len": 17,
+    "text": "Paradise Pastures",
+    "hex": "5061726164697365205061737475726573"
+  },
+  {
+    "file_offset": 185218,
+    "len": 10,
+    "text": "Race Track",
+    "hex": "5261636520547261636b"
+  },
+  {
+    "file_offset": 186185,
+    "len": 7,
+    "text": "Paddock",
+    "hex": "506164646f636b"
+  },
+  {
+    "file_offset": 186795,
+    "len": 4,
+    "text": "Cave",
+    "hex": "43617665"
+  },
+  {
+    "file_offset": 187157,
+    "len": 101,
+    "text": "P@",
+    "hex": "5040000002410000203f0000983f0300000000000000000000000a04170a000000000000000000e3"
+  },
+  {
+    "file_offset": 187544,
+    "len": 92,
+    "text": "\ufffd@",
+    "hex": "ee40000011410000903f0000103f0300000000000000010000001212090b0a12110909191911090a"
+  },
+  {
+    "file_offset": 188400,
+    "len": 10,
+    "text": "CRISPR Lab",
+    "hex": "435249535052204c6162"
+  },
+  {
+    "file_offset": 188997,
+    "len": 11,
+    "text": "Sue's Glues",
+    "hex": "537565277320476c756573"
+  },
+  {
+    "file_offset": 189575,
+    "len": 13,
+    "text": "Clide's Rides",
+    "hex": "436c6964652773205269646573"
+  },
+  {
+    "file_offset": 189592,
+    "len": 3,
+    "text": "\t\t\t",
+    "hex": "090909"
+  },
+  {
+    "file_offset": 190520,
+    "len": 101,
+    "text": "\ufffd@",
+    "hex": "b040000000400000903f0000883f03000000000000000000000002181700000f010000000000006f"
+  },
+  {
+    "file_offset": 190851,
+    "len": 10,
+    "text": "Lasso-Mart",
+    "hex": "4c6173736f2d4d617274"
+  },
+  {
+    "file_offset": 191881,
+    "len": 4,
+    "text": "Tent",
+    "hex": "54656e74"
+  },
+  {
+    "file_offset": 192468,
+    "len": 14,
+    "text": "Bubber's Hutch",
+    "hex": "4275626265722773204875746368"
+  },
+  {
+    "file_offset": 193930,
+    "len": 6,
+    "text": "Bubber",
+    "hex": "427562626572"
+  },
+  {
+    "file_offset": 193940,
+    "len": 18,
+    "text": "Artistic Statement",
+    "hex": "41727469737469632053746174656d656e74"
+  },
+  {
+    "file_offset": 193962,
+    "len": 7,
+    "text": "Samwise",
+    "hex": "53616d77697365"
+  },
+  {
+    "file_offset": 193973,
+    "len": 16,
+    "text": "Hit With Critics",
+    "hex": "48697420576974682043726974696373"
+  },
+  {
+    "file_offset": 193993,
+    "len": 66,
+    "text": "\u2164Artistic Statement\u214f, \u212cSamwise\u214f, or \u2117Hit With Critics\u214f",
+    "hex": "e285a441727469737469632053746174656d656e74e2858f2c20e284ac53616d77697365e2858f2c"
+  },
+  {
+    "file_offset": 194083,
+    "len": 10,
+    "text": "The Circus",
+    "hex": "54686520436972637573"
+  },
+  {
+    "file_offset": 194684,
+    "len": 17,
+    "text": "O'er Yonder Acres",
+    "hex": "4f27657220596f6e646572204163726573"
+  },
+  {
+    "file_offset": 195276,
+    "len": 6,
+    "text": "Saloon",
+    "hex": "53616c6f6f6e"
+  },
+  {
+    "file_offset": 195286,
+    "len": 3,
+    "text": "\t\t\t",
+    "hex": "090909"
+  },
+  {
+    "file_offset": 196263,
+    "len": 101,
+    "text": "pA",
+    "hex": "70410000a8400000703f0000903f0000414500005d45000000000000000000000000010000000b00"
+  },
+  {
+    "file_offset": 196891,
+    "len": 15,
+    "text": "Sweetie's House",
+    "hex": "53776565746965277320486f757365"
+  },
+  {
+    "file_offset": 196910,
+    "len": 2,
+    "text": "\t\t",
+    "hex": "0909"
+  },
+  {
+    "file_offset": 197488,
+    "len": 12,
+    "text": "SweetieVoice",
+    "hex": "53776565746965566f696365"
+  },
+  {
+    "file_offset": 197845,
+    "len": 9,
+    "text": "Sumo Ring",
+    "hex": "53756d6f2052696e67"
+  },
+  {
+    "file_offset": 197906,
+    "len": 21,
+    "text": "Normal Suburban House",
+    "hex": "4e6f726d616c20537562757262616e20486f757365"
+  },
+  {
+    "file_offset": 202382,
+    "len": 15,
+    "text": "The Jockey Club",
+    "hex": "546865204a6f636b657920436c7562"
+  },
+  {
+    "file_offset": 203904,
+    "len": 19,
+    "text": "Old Abandoned Track",
+    "hex": "4f6c64204162616e646f6e656420547261636b"
+  },
+  {
+    "file_offset": 203991,
+    "len": 7,
+    "text": "unknown",
+    "hex": "756e6b6e6f776e"
+  }
+]

@@ -1,0 +1,475 @@
+{
+  "source": "E:\\games\\HorseSDK\\RE_Tools\\analysis\\save_writer_trace.json",
+  "event_count": 9641,
+  "final_size": 204386,
+  "file_header_from_C3100": {
+    "note": "0xC3100 @ 0x6DCC0 runs BEFORE ctx fields; was wrongly skipped as empty",
+    "fields": [
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 0,
+        "size": 4,
+        "after_offset": 4,
+        "hex": "0c000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU64",
+        "writer_rva": "0x6FE70",
+        "file_offset": 4,
+        "size": 8,
+        "after_offset": 12,
+        "hex": "9fa8d20600000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 12,
+        "size": 4,
+        "after_offset": 16,
+        "hex": "16000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FED0",
+        "file_offset": 16,
+        "size": 4,
+        "after_offset": 20,
+        "hex": "47000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteStdString",
+        "writer_rva": "0x6FFF0",
+        "file_offset": 20,
+        "size": -1,
+        "after_offset": 28,
+        "str_len": -1,
+        "hex": "04000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 34,
+        "size": 4,
+        "after_offset": 38,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 38,
+        "size": 4,
+        "after_offset": 42,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 42,
+        "size": 4,
+        "after_offset": 46,
+        "hex": "00000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteStdString",
+        "writer_rva": "0x6FFF0",
+        "file_offset": 50,
+        "size": -1,
+        "after_offset": 54,
+        "str_len": -1,
+        "hex": "00000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 60,
+        "size": 4,
+        "after_offset": 64,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 64,
+        "size": 4,
+        "after_offset": 68,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 68,
+        "size": 4,
+        "after_offset": 72,
+        "hex": "00000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteStdString",
+        "writer_rva": "0x6FFF0",
+        "file_offset": 76,
+        "size": -1,
+        "after_offset": 102,
+        "str_len": -1,
+        "hex": "16000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 108,
+        "size": 4,
+        "after_offset": 112,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 112,
+        "size": 4,
+        "after_offset": 116,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 116,
+        "size": 4,
+        "after_offset": 120,
+        "hex": "00000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteStdString",
+        "writer_rva": "0x6FFF0",
+        "file_offset": 124,
+        "size": -1,
+        "after_offset": 135,
+        "str_len": -1,
+        "hex": "07000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 141,
+        "size": 4,
+        "after_offset": 145,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 145,
+        "size": 4,
+        "after_offset": 149,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 149,
+        "size": 4,
+        "after_offset": 153,
+        "hex": "00000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteStdString",
+        "writer_rva": "0x6FFF0",
+        "file_offset": 157,
+        "size": -1,
+        "after_offset": 161,
+        "str_len": -1,
+        "hex": "00000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 167,
+        "size": 4,
+        "after_offset": 171,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 171,
+        "size": 4,
+        "after_offset": 175,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 175,
+        "size": 4,
+        "after_offset": 179,
+        "hex": "00000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteStdString",
+        "writer_rva": "0x6FFF0",
+        "file_offset": 183,
+        "size": -1,
+        "after_offset": 193,
+        "str_len": -1,
+        "hex": "06000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 199,
+        "size": 4,
+        "after_offset": 203,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 203,
+        "size": 4,
+        "after_offset": 207,
+        "hex": "ffffffff"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 207,
+        "size": 4,
+        "after_offset": 211,
+        "hex": "00000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteStdString",
+        "writer_rva": "0x6FFF0",
+        "file_offset": 215,
+        "size": -1,
+        "after_offset": 235,
+        "str_len": -1,
+        "hex": "10000000"
+      },
+      {
+        "save": 0,
+        "writer": "WriteU32",
+        "writer_rva": "0x6FE10",
+        "file_offset": 241,
+        "size": 4,
+        "after_offset": 245,
+        "hex": "ffffffff"
+      }
+    ]
+  },
+  "global_name_table": {
+    "file_offset": 16,
+    "count_insn": "0xC314D WriteU32 count",
+    "count_value_hex": "47000000",
+    "first_string_at": 20
+  },
+  "ctx_block_estimate": {
+    "note": "ctx[rdi+\u2026] writes from 0x6DCCA start after C3100 block ends",
+    "search": "first WriteU32 @ 0x6DCFE region \u2014 use trace offset ~0x900+"
+  },
+  "horse_u16_vector_rdi_280": {
+    "file_offset": 2621,
+    "count_hex": "03000000",
+    "count": 3,
+    "records": 2625,
+    "disk_bytes_per_record": 8,
+    "insn": "0x6DDF9 / 0x6DE30",
+    "dump_count_at_offset": 3
+  },
+  "all_write_u32_count_calls": [
+    {
+      "off": 16,
+      "hex": "47000000",
+      "val": 1191182336
+    },
+    {
+      "off": 2621,
+      "hex": "03000000",
+      "val": 50331648
+    },
+    {
+      "off": 56999,
+      "hex": "04000000",
+      "val": 67108864
+    },
+    {
+      "off": 57046,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 57054,
+      "hex": "57010000",
+      "val": 1459683328
+    },
+    {
+      "off": 169130,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 169138,
+      "hex": "04000000",
+      "val": 67108864
+    },
+    {
+      "off": 169643,
+      "hex": "05000000",
+      "val": 83886080
+    },
+    {
+      "off": 171126,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 171657,
+      "hex": "05000000",
+      "val": 83886080
+    },
+    {
+      "off": 173140,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 173666,
+      "hex": "06000000",
+      "val": 100663296
+    },
+    {
+      "off": 175444,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 175975,
+      "hex": "06000000",
+      "val": 100663296
+    },
+    {
+      "off": 177753,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 178287,
+      "hex": "06000000",
+      "val": 100663296
+    },
+    {
+      "off": 180065,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 180597,
+      "hex": "06000000",
+      "val": 100663296
+    },
+    {
+      "off": 182375,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 182908,
+      "hex": "06000000",
+      "val": 100663296
+    },
+    {
+      "off": 184686,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 185232,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 185240,
+      "hex": "00000000",
+      "val": 0
+    },
+    {
+      "off": 186196,
+      "hex": "01000000",
+      "val": 16777216
+    },
+    {
+      "off": 186499,
+      "hex": "00000000",
+      "val": 0
+    }
+  ],
+  "milestones": [
+    {
+      "name": "format_version",
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FE10",
+      "file_offset": 0,
+      "size": 4,
+      "after_offset": 4,
+      "hex": "0c000000"
+    },
+    {
+      "name": "first_WriteF32_ctx",
+      "save": 0,
+      "writer": "WriteF32",
+      "writer_rva": "0x6FF10",
+      "file_offset": 2393,
+      "size": 4,
+      "after_offset": 2397,
+      "hex": "0000803f"
+    },
+    {
+      "name": "horse_u16_vector_count",
+      "save": 0,
+      "writer": "WriteU32",
+      "writer_rva": "0x6FED0",
+      "file_offset": 2621,
+      "size": 4,
+      "after_offset": 2625,
+      "hex": "03000000"
+    },
+    {
+      "name": "last_event",
+      "save": 0,
+      "writer": "WriteU32FromU8",
+      "writer_rva": "0x6FEF0",
+      "file_offset": 204382,
+      "size": 4,
+      "after_offset": 204386,
+      "hex": "00000000"
+    }
+  ]
+}

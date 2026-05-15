@@ -1,0 +1,1038 @@
+{
+  "verification": "Marker scan on section1 only; not executed by game",
+  "fonts": [
+    {
+      "file": "capy_bold.crf",
+      "section1_len": 2432,
+      "section2_len": 6340,
+      "marker_count": 34,
+      "top_prefixes": [
+        [
+          "0700f9",
+          19
+        ],
+        [
+          "060700",
+          13
+        ],
+        [
+          "0900f8",
+          2
+        ]
+      ],
+      "records_sample": [
+        {
+          "offset": 32,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f908254725"
+        },
+        {
+          "offset": 39,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 40,
+          "length": 87,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907261818080800f80927416202"
+        },
+        {
+          "offset": 127,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 128,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907314d11"
+        },
+        {
+          "offset": 135,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 136,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907324e08"
+        },
+        {
+          "offset": 143,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 144,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907334f00"
+        },
+        {
+          "offset": 151,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 152,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90734356a"
+        },
+        {
+          "offset": 159,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 160,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907353a5f"
+        },
+        {
+          "offset": 167,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 168,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907363c53"
+        },
+        {
+          "offset": 175,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 176,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907373f4a"
+        },
+        {
+          "offset": 183,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 184,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907384540"
+        },
+        {
+          "offset": 191,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 192,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90739492d"
+        },
+        {
+          "offset": 199,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 200,
+          "length": 568,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f9073a6522020600fa033b2a1d03"
+        },
+        {
+          "offset": 768,
+          "length": 8,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90882470007"
+        },
+        {
+          "offset": 776,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f908835508"
+        }
+      ],
+      "records_total": 34,
+      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+    },
+    {
+      "file": "habit_mono.crf",
+      "section1_len": 0,
+      "section2_len": 1412,
+      "marker_count": 0,
+      "top_prefixes": [],
+      "records_sample": [],
+      "records_total": 0,
+      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+    },
+    {
+      "file": "habit_narrow_bold.crf",
+      "section1_len": 2225,
+      "section2_len": 5926,
+      "marker_count": 121,
+      "top_prefixes": [
+        [
+          "0700f9",
+          64
+        ],
+        [
+          "050700",
+          25
+        ],
+        [
+          "060700",
+          23
+        ],
+        [
+          "0900f8",
+          9
+        ]
+      ],
+      "records_sample": [
+        {
+          "offset": 0,
+          "length": 8,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f808213b3a02"
+        },
+        {
+          "offset": 8,
+          "length": 24,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f903221735050300f90623087a07"
+        },
+        {
+          "offset": 32,
+          "length": 16,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f908253669060500fb0726170007"
+        },
+        {
+          "offset": 48,
+          "length": 16,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90827470c020300f90328284f04"
+        },
+        {
+          "offset": 64,
+          "length": 8,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f80529292304"
+        },
+        {
+          "offset": 72,
+          "length": 55,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f8052a446b050500f9062b457105"
+        },
+        {
+          "offset": 127,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 128,
+          "length": 8,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90631280904"
+        },
+        {
+          "offset": 136,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f905322e00"
+        },
+        {
+          "offset": 143,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 144,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906332937"
+        },
+        {
+          "offset": 151,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 152,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90634293f"
+        },
+        {
+          "offset": 159,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 160,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906352947"
+        },
+        {
+          "offset": 167,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 168,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906362d4f"
+        },
+        {
+          "offset": 175,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 176,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906372e1d"
+        },
+        {
+          "offset": 183,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 184,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906382e25"
+        },
+        {
+          "offset": 191,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 192,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906392e2d"
+        },
+        {
+          "offset": 199,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 200,
+          "length": 47,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f9063a4d00020500fb033b4a0c03"
+        }
+      ],
+      "records_total": 121,
+      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+    },
+    {
+      "file": "quip.crf",
+      "section1_len": 5840,
+      "section2_len": 13092,
+      "marker_count": 109,
+      "top_prefixes": [
+        [
+          "0700f9",
+          61
+        ],
+        [
+          "050700",
+          19
+        ],
+        [
+          "060700",
+          18
+        ],
+        [
+          "0900f8",
+          8
+        ],
+        [
+          "0900f9",
+          3
+        ]
+      ],
+      "records_sample": [
+        {
+          "offset": 0,
+          "length": 8,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f808214d1001"
+        },
+        {
+          "offset": 8,
+          "length": 23,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f902223c08030300f90423332906"
+        },
+        {
+          "offset": 31,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 32,
+          "length": 8,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90625190007"
+        },
+        {
+          "offset": 40,
+          "length": 8,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90826162307"
+        },
+        {
+          "offset": 48,
+          "length": 16,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f908273a2c010300f902283e3503"
+        },
+        {
+          "offset": 64,
+          "length": 8,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f80429412403"
+        },
+        {
+          "offset": 72,
+          "length": 55,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f8042a2a64050500fa062b147a05"
+        },
+        {
+          "offset": 127,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 128,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906313a14"
+        },
+        {
+          "offset": 135,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 136,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906323c00"
+        },
+        {
+          "offset": 143,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 144,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90633305b"
+        },
+        {
+          "offset": 151,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 152,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906343144"
+        },
+        {
+          "offset": 159,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 160,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906353239"
+        },
+        {
+          "offset": 167,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 168,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906363630"
+        },
+        {
+          "offset": 175,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 176,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906373a24"
+        },
+        {
+          "offset": 183,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 184,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906383f1c"
+        },
+        {
+          "offset": 191,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        }
+      ],
+      "records_total": 109,
+      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+    },
+    {
+      "file": "snuggle.crf",
+      "section1_len": 2623,
+      "section2_len": 6658,
+      "marker_count": 114,
+      "top_prefixes": [
+        [
+          "0700f9",
+          59
+        ],
+        [
+          "060700",
+          40
+        ],
+        [
+          "0900f8",
+          8
+        ],
+        [
+          "050700",
+          4
+        ],
+        [
+          "0900f9",
+          3
+        ]
+      ],
+      "records_sample": [
+        {
+          "offset": 0,
+          "length": 8,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f80821452402"
+        },
+        {
+          "offset": 8,
+          "length": 24,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f903223f54050400f80623165605"
+        },
+        {
+          "offset": 32,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f908252b00"
+        },
+        {
+          "offset": 39,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 40,
+          "length": 8,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90726151b07"
+        },
+        {
+          "offset": 48,
+          "length": 16,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f908274748020400f80328315104"
+        },
+        {
+          "offset": 64,
+          "length": 8,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f80529323004"
+        },
+        {
+          "offset": 72,
+          "length": 55,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f8052a3b34050500f9062b3b3a05"
+        },
+        {
+          "offset": 127,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 128,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90731232a"
+        },
+        {
+          "offset": 135,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 136,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907322418"
+        },
+        {
+          "offset": 143,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 144,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907332810"
+        },
+        {
+          "offset": 151,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 152,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907342e08"
+        },
+        {
+          "offset": 159,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 160,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907353200"
+        },
+        {
+          "offset": 167,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 168,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907362420"
+        },
+        {
+          "offset": 175,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 176,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907371d3c"
+        },
+        {
+          "offset": 183,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        },
+        {
+          "offset": 184,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f907381d44"
+        },
+        {
+          "offset": 191,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "06"
+        }
+      ],
+      "records_total": 114,
+      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+    },
+    {
+      "file": "virtue_narrow_bold.crf",
+      "section1_len": 2831,
+      "section2_len": 7138,
+      "marker_count": 123,
+      "top_prefixes": [
+        [
+          "0700f9",
+          64
+        ],
+        [
+          "050700",
+          38
+        ],
+        [
+          "060700",
+          10
+        ],
+        [
+          "0900f8",
+          8
+        ],
+        [
+          "0900f9",
+          3
+        ]
+      ],
+      "records_sample": [
+        {
+          "offset": 0,
+          "length": 8,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f80721375402"
+        },
+        {
+          "offset": 8,
+          "length": 23,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f903223764050300f90623490805"
+        },
+        {
+          "offset": 31,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 32,
+          "length": 32,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906254308050600fa0626201c06"
+        },
+        {
+          "offset": 64,
+          "length": 8,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f805291b0a04"
+        },
+        {
+          "offset": 72,
+          "length": 55,
+          "prefix_u16": 9,
+          "tag_byte": 248,
+          "head_hex": "0900f8052a4e00050500f9062b287a05"
+        },
+        {
+          "offset": 127,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 128,
+          "length": 8,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f90631160004"
+        },
+        {
+          "offset": 136,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f905322508"
+        },
+        {
+          "offset": 143,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 144,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906332610"
+        },
+        {
+          "offset": 151,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 152,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906342b00"
+        },
+        {
+          "offset": 159,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 160,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906352b08"
+        },
+        {
+          "offset": 167,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 168,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906362223"
+        },
+        {
+          "offset": 175,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 176,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906372718"
+        },
+        {
+          "offset": 183,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 184,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906382c10"
+        },
+        {
+          "offset": 191,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 192,
+          "length": 7,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f906393100"
+        },
+        {
+          "offset": 199,
+          "length": 1,
+          "prefix_u16": 0,
+          "tag_byte": null,
+          "head_hex": "05"
+        },
+        {
+          "offset": 200,
+          "length": 47,
+          "prefix_u16": 7,
+          "tag_byte": 249,
+          "head_hex": "0700f9063a145c020500fb033b384003"
+        }
+      ],
+      "records_total": 123,
+      "hypothesis": "Records start at u16=09/07/05/06 + 00 + tag (f8/f9). Length = distance to next marker. Full opcode map UNVERIFIED."
+    }
+  ]
+}

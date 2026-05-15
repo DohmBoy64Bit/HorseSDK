@@ -1,0 +1,12 @@
+{'type': 'info', 'msg': 'base=0x7ff6c7f30000 size=0x361000'}
+{'type': 'info', 'msg': 'Hook repomix_11E0F0 @ 0x7ff6c804e0f0'}
+{'type': 'info', 'msg': 'Hook SDL_GL_SwapWindow @ 0x7ff6c80538d0'}
+{'type': 'info', 'msg': 'Hook main_game_BE0F0 @ 0x7ff6c7fee0f0'}
+{'type': 'info', 'msg': 'Hook SteamAPI_RunCallbacks @ 0x7ff6c7feea7f'}
+{'type': 'ready'}
+{'type': 'hit', 'tag': 'SDL_GL_SwapWindow', 'n': 1, 'hook': '0x1238d0', 'returnAddr': 'Horsey.exe+0xBEAF5', 'returnRva': '0xBEAF5', 'frames': ['Horsey.exe+0xBEAF5', 'Horsey.exe+0x21EE12', 'KERNEL32.DLL+0x2E957', 'ntdll.dll+0x427C']}
+{'type': 'hit', 'tag': 'SDL_GL_SwapWindow', 'n': 2, 'hook': '0x1238d0', 'returnAddr': 'Horsey.exe+0xBEAF5', 'returnRva': '0xBEAF5', 'frames': ['Horsey.exe+0xBEAF5', 'Horsey.exe+0x21EE12', 'KERNEL32.DLL+0x2E957', 'ntdll.dll+0x427C']}
+{'type': 'hit', 'tag': 'SDL_GL_SwapWindow', 'n': 3, 'hook': '0x1238d0', 'returnAddr': 'Horsey.exe+0xBEAF5', 'returnRva': '0xBEAF5', 'frames': ['Horsey.exe+0xBEAF5', 'Horsey.exe+0x21EE12', 'KERNEL32.DLL+0x2E957', 'ntdll.dll+0x427C']}
+{'type': 'hit', 'tag': 'SDL_GL_SwapWindow', 'n': 4, 'hook': '0x1238d0', 'returnAddr': 'Horsey.exe+0xBEAF5', 'returnRva': '0xBEAF5', 'frames': ['Horsey.exe+0xBEAF5', 'Horsey.exe+0x21EE12', 'KERNEL32.DLL+0x2E957', 'ntdll.dll+0x427C']}
+{'type': 'hit', 'tag': 'SDL_GL_SwapWindow', 'n': 5, 'hook': '0x1238d0', 'returnAddr': 'Horsey.exe+0xBEAF5', 'returnRva': '0xBEAF5', 'frames': ['Horsey.exe+0xBEAF5', 'Horsey.exe+0x21EE12', 'KERNEL32.DLL+0x2E957', 'ntdll.dll+0x427C']}
+{'type': 'hit', 'tag': 'SDL_GL_SwapWindow', 'n': 6, 'hook': '0x1238d0', 'returnAddr': 'Horsey.exe+0xBEAF5', 'returnRva': '0xBEAF5', 'frames': ['Horsey.exe+0xBEAF5', 'Horsey.exe+0x21EE12', 'KERNEL32.DLL+0x2E957', 'ntdll.dll+0x427C']}

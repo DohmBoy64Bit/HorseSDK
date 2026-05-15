@@ -1,0 +1,131 @@
+{
+  "data_dir": "E:\\games\\HorseSDK\\Game\\data",
+  "verification": "Section split verified: 16 + section1_bytes + section2 == file size (all 6 fonts)",
+  "exe_path": "E:\\games\\HorseSDK\\Game\\Horsey.exe",
+  "files": [
+    {
+      "name": "capy_bold.crf",
+      "byte_size": 8788,
+      "header_hex": "010d0903b900000080090000ff107607",
+      "header": {
+        "byte0": 1,
+        "byte1": 13,
+        "byte2": 9,
+        "byte3": 3,
+        "field_a": 185,
+        "section1_bytes": 2432,
+        "field_c": "0x77610ff"
+      },
+      "section1_len": 2432,
+      "section2_len": 6340,
+      "section2_head_hex": "ff31d0ff31d1ff322bff322dff3234ff",
+      "layout": "16-byte hdr; section1=[0x10..0x10+section1_bytes]; section2=rest",
+      "companion_png": "capy_bold.png"
+    },
+    {
+      "name": "habit_mono.crf",
+      "byte_size": 1428,
+      "header_hex": "010b0906b100000000000000ff122c05",
+      "header": {
+        "byte0": 1,
+        "byte1": 11,
+        "byte2": 9,
+        "byte3": 6,
+        "field_a": 177,
+        "section1_bytes": 0,
+        "field_c": "0x52c12ff"
+      },
+      "section1_len": 0,
+      "section2_len": 1412,
+      "section2_head_hex": "0900f80621790d010702f906227b1903",
+      "layout": "16-byte hdr; section1=[0x10..0x10+section1_bytes]; section2=rest",
+      "companion_png": "habit_mono.png"
+    },
+    {
+      "name": "habit_narrow_bold.crf",
+      "byte_size": 8167,
+      "header_hex": "010b0a03b9000000b1080000ff000007",
+      "header": {
+        "byte0": 1,
+        "byte1": 11,
+        "byte2": 10,
+        "byte3": 3,
+        "field_a": 185,
+        "section1_bytes": 2225,
+        "field_c": "0x70000ff"
+      },
+      "section1_len": 2225,
+      "section2_len": 5926,
+      "section2_head_hex": "ff2e2cff2e2dff2e31ff2e37ff2e39ff",
+      "layout": "16-byte hdr; section1=[0x10..0x10+section1_bytes]; section2=rest",
+      "companion_png": "habit_narrow_bold.png"
+    },
+    {
+      "name": "quip.crf",
+      "byte_size": 18948,
+      "header_hex": "010e0a03b1000000d0160000ff090007",
+      "header": {
+        "byte0": 1,
+        "byte1": 14,
+        "byte2": 10,
+        "byte3": 3,
+        "field_a": 177,
+        "section1_bytes": 5840,
+        "field_c": "0x70009ff"
+      },
+      "section1_len": 5840,
+      "section2_len": 13092,
+      "section2_head_hex": "563aff563bff563cff563dff5641ff56",
+      "layout": "16-byte hdr; section1=[0x10..0x10+section1_bytes]; section2=rest",
+      "companion_png": "quip.png"
+    },
+    {
+      "name": "snuggle.crf",
+      "byte_size": 9297,
+      "header_hex": "010c0b03b10000003f0a0000ff001507",
+      "header": {
+        "byte0": 1,
+        "byte1": 12,
+        "byte2": 11,
+        "byte3": 3,
+        "field_a": 177,
+        "section1_bytes": 2623,
+        "field_c": "0x71500ff"
+      },
+      "section1_len": 2623,
+      "section2_len": 6658,
+      "section2_head_hex": "ff383bff385dff386aff387dff38d1ff",
+      "layout": "16-byte hdr; section1=[0x10..0x10+section1_bytes]; section2=rest",
+      "companion_png": "snuggle.png"
+    },
+    {
+      "name": "virtue_narrow_bold.crf",
+      "byte_size": 9985,
+      "header_hex": "010c0a03b90000000f0b0000ff070906",
+      "header": {
+        "byte0": 1,
+        "byte1": 12,
+        "byte2": 10,
+        "byte3": 3,
+        "field_a": 185,
+        "section1_bytes": 2831,
+        "field_c": "0x60907ff"
+      },
+      "section1_len": 2831,
+      "section2_len": 7138,
+      "section2_head_hex": "ff3654ff3659ff365cff365dff366aff",
+      "layout": "16-byte hdr; section1=[0x10..0x10+section1_bytes]; section2=rest",
+      "companion_png": "virtue_narrow_bold.png"
+    }
+  ],
+  "exe_string_offsets": {
+    "capy_bold.crf": "0x263158",
+    "habit_mono.crf": "0x263138",
+    "habit_narrow_bold.crf": "0x263180",
+    "quip.crf": "0x968de",
+    "snuggle.crf": "0x2631d0",
+    "virtue_narrow_bold.crf": "0x2631b0"
+  },
+  "generic_crf_suffix_offset": "0x968e2",
+  "glyph_opcode_stream": "UNVERIFIED \u2014 section1 uses 07 00 f9 / 09 00 f8 prefixes"
+}

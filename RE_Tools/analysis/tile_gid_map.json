@@ -1,0 +1,713 @@
+{
+  "source": "Game/data horsey.tmx + terrain.xml + locs.xml (atlas sprite document order)",
+  "verification": "Tiled firstgid + local_id indexing; see RE_Tools/docs/SOURCES.md",
+  "map_size": [
+    400,
+    225
+  ],
+  "tilesets": [
+    {
+      "first_gid": 1,
+      "source": "terrain.tsx"
+    },
+    {
+      "first_gid": 97,
+      "source": "locs.tsx"
+    }
+  ],
+  "terrain_sprite_count": 42,
+  "locs_sprite_count": 34,
+  "unique_gids_used": 56,
+  "mappings": [
+    {
+      "gid": 1,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 0,
+      "sprite": "Plain",
+      "rect": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "tile_count": 17137
+    },
+    {
+      "gid": 2,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 1,
+      "sprite": "GrassLand",
+      "rect": [
+        128,
+        0,
+        32,
+        32
+      ],
+      "tile_count": 16
+    },
+    {
+      "gid": 5,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 4,
+      "sprite": "CactusLand",
+      "rect": [
+        224,
+        0,
+        32,
+        32
+      ],
+      "tile_count": 8061
+    },
+    {
+      "gid": 6,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 5,
+      "sprite": "Water",
+      "rect": [
+        0,
+        32,
+        32,
+        32
+      ],
+      "tile_count": 440
+    },
+    {
+      "gid": 7,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 6,
+      "sprite": "Pond",
+      "rect": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "tile_count": 16
+    },
+    {
+      "gid": 8,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 7,
+      "sprite": "Bush",
+      "rect": [
+        64,
+        32,
+        32,
+        32
+      ],
+      "tile_count": 101
+    },
+    {
+      "gid": 9,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 8,
+      "sprite": "Stump",
+      "rect": [
+        96,
+        32,
+        32,
+        32
+      ],
+      "tile_count": 60950
+    },
+    {
+      "gid": 10,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 9,
+      "sprite": "Birch",
+      "rect": [
+        128,
+        32,
+        32,
+        32
+      ],
+      "tile_count": 3
+    },
+    {
+      "gid": 11,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 10,
+      "sprite": "BridgeH",
+      "rect": [
+        160,
+        32,
+        32,
+        32
+      ],
+      "tile_count": 2
+    },
+    {
+      "gid": 12,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 11,
+      "sprite": "BridgeV",
+      "rect": [
+        192,
+        32,
+        32,
+        32
+      ],
+      "tile_count": 20
+    },
+    {
+      "gid": 13,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 12,
+      "sprite": "BadLand",
+      "rect": [
+        224,
+        32,
+        32,
+        32
+      ],
+      "tile_count": 24
+    },
+    {
+      "gid": 16,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 15,
+      "sprite": "Un1",
+      "rect": [
+        160,
+        64,
+        32,
+        32
+      ],
+      "tile_count": 457
+    },
+    {
+      "gid": 17,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 16,
+      "sprite": "Un2",
+      "rect": [
+        192,
+        64,
+        32,
+        32
+      ],
+      "tile_count": 599
+    },
+    {
+      "gid": 18,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 17,
+      "sprite": "Boulder",
+      "rect": [
+        160,
+        64,
+        32,
+        32
+      ],
+      "tile_count": 1
+    },
+    {
+      "gid": 19,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 18,
+      "sprite": "AcaciaLand",
+      "rect": [
+        0,
+        96,
+        32,
+        32
+      ],
+      "tile_count": 1
+    },
+    {
+      "gid": 21,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 20,
+      "sprite": "DeadTree",
+      "rect": [
+        64,
+        96,
+        32,
+        32
+      ],
+      "tile_count": 30
+    },
+    {
+      "gid": 22,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 21,
+      "sprite": "Cave",
+      "rect": [
+        96,
+        96,
+        32,
+        32
+      ],
+      "tile_count": 1
+    },
+    {
+      "gid": 25,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 24,
+      "sprite": "Tumbleweed",
+      "rect": [
+        192,
+        96,
+        32,
+        32
+      ],
+      "tile_count": 256
+    },
+    {
+      "gid": 26,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 25,
+      "sprite": "Pebbles",
+      "rect": [
+        224,
+        96,
+        32,
+        32
+      ],
+      "tile_count": 20
+    },
+    {
+      "gid": 27,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 26,
+      "sprite": "Road",
+      "rect": [
+        0,
+        128,
+        32,
+        32
+      ],
+      "tile_count": 47
+    },
+    {
+      "gid": 28,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 27,
+      "sprite": "Road8",
+      "rect": [
+        0,
+        160,
+        32,
+        32
+      ],
+      "tile_count": 13
+    },
+    {
+      "gid": 29,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 28,
+      "sprite": "DirtRoad",
+      "rect": [
+        0,
+        192,
+        32,
+        32
+      ],
+      "tile_count": 86
+    },
+    {
+      "gid": 30,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 29,
+      "sprite": "DirtRoad8",
+      "rect": [
+        0,
+        224,
+        32,
+        32
+      ],
+      "tile_count": 33
+    },
+    {
+      "gid": 31,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 30,
+      "sprite": "Goop",
+      "rect": [
+        0,
+        256,
+        32,
+        32
+      ],
+      "tile_count": 19
+    },
+    {
+      "gid": 32,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 31,
+      "sprite": "Glass",
+      "rect": [
+        64,
+        256,
+        32,
+        32
+      ],
+      "tile_count": 9
+    },
+    {
+      "gid": 33,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 32,
+      "sprite": "GlassBG",
+      "rect": [
+        96,
+        256,
+        32,
+        32
+      ],
+      "tile_count": 82
+    },
+    {
+      "gid": 36,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 35,
+      "sprite": "Grass",
+      "rect": [
+        0,
+        288,
+        32,
+        32
+      ],
+      "tile_count": 3
+    },
+    {
+      "gid": 38,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 37,
+      "sprite": "Acacia",
+      "rect": [
+        0,
+        352,
+        32,
+        32
+      ],
+      "tile_count": 64
+    },
+    {
+      "gid": 39,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 38,
+      "sprite": "Apple",
+      "rect": [
+        0,
+        384,
+        32,
+        32
+      ],
+      "tile_count": 2
+    },
+    {
+      "gid": 40,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 39,
+      "sprite": "Palm",
+      "rect": [
+        0,
+        416,
+        32,
+        32
+      ],
+      "tile_count": 3
+    },
+    {
+      "gid": 42,
+      "tileset": "terrain.tsx",
+      "atlas_xml": "terrain.xml",
+      "first_gid": 1,
+      "local_id": 41,
+      "sprite": "NGrass",
+      "rect": [
+        0,
+        480,
+        32,
+        32
+      ],
+      "tile_count": 2
+    },
+    {
+      "gid": 43,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 42,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 86
+    },
+    {
+      "gid": 44,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 43,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 2
+    },
+    {
+      "gid": 45,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 44,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 3
+    },
+    {
+      "gid": 46,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 45,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 1
+    },
+    {
+      "gid": 47,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 46,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 3
+    },
+    {
+      "gid": 48,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 47,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 1
+    },
+    {
+      "gid": 49,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 48,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 11
+    },
+    {
+      "gid": 50,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 49,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 1
+    },
+    {
+      "gid": 51,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 50,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 3
+    },
+    {
+      "gid": 52,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 51,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 11
+    },
+    {
+      "gid": 53,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 52,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 5
+    },
+    {
+      "gid": 54,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 53,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 75
+    },
+    {
+      "gid": 55,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 54,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 3
+    },
+    {
+      "gid": 57,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 56,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 3
+    },
+    {
+      "gid": 58,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 57,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 8
+    },
+    {
+      "gid": 59,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 58,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 56
+    },
+    {
+      "gid": 60,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 59,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 1
+    },
+    {
+      "gid": 61,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 60,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 6
+    },
+    {
+      "gid": 62,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 61,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 1
+    },
+    {
+      "gid": 63,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 62,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 1
+    },
+    {
+      "gid": 65,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 64,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 156
+    },
+    {
+      "gid": 67,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 66,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 58
+    },
+    {
+      "gid": 68,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 67,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 44
+    },
+    {
+      "gid": 69,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 68,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 582
+    },
+    {
+      "gid": 70,
+      "tileset": "terrain.tsx",
+      "first_gid": 1,
+      "local_id": 69,
+      "error": "local_id out of range",
+      "atlas_sprite_count": 42,
+      "tile_count": 381
+    }
+  ]
+}

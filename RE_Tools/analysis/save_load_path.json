@@ -1,0 +1,77 @@
+{
+  "save_write_rva": "0x6DAB0",
+  "signature": "void Save_Write(void* ctx /*rcx*/, int mode /*edx*/)",
+  "call_sites": [
+    {
+      "call_site_rva": "0x9828C",
+      "call_site_va": "0x14009828C",
+      "disasm_before": [
+        "0x98267: out dx, eax",
+        "0x98268: xchg edx, eax",
+        "0x98269: and eax, 0x2d740000",
+        "0x9826E: cmp byte ptr [rip + 0x25926f], 0",
+        "0x98275: jne 0x14009829b",
+        "0x98277: cmp byte ptr [rip + 0x27a970], 0",
+        "0x9827E: je 0x14009829b",
+        "0x98280: mov edx, 1",
+        "0x98285: mov rcx, qword ptr [rip + 0x2886ac]",
+        "0x9828C: call 0x14006dab0 <<",
+        "0x98291: call 0x1400bee70",
+        "0x98296: jmp 0x140098528"
+      ],
+      "edx_setup": "0x98280: mov edx, 1"
+    },
+    {
+      "call_site_rva": "0x10A2C2",
+      "call_site_va": "0x14010A2C2",
+      "disasm_before": [
+        "0x10A29D: mov rcx, qword ptr [rbx + 0x300]",
+        "0x10A2A4: call 0x1400a34d0",
+        "0x10A2A9: cmp byte ptr [rip + 0x1e7234], dil",
+        "0x10A2B0: je 0x14010a2c7",
+        "0x10A2B2: cmp dword ptr [rbx + 0x254], edi",
+        "0x10A2B8: je 0x14010a2c7",
+        "0x10A2BA: mov edx, 1",
+        "0x10A2BF: mov rcx, rbx",
+        "0x10A2C2: call 0x14006dab0 <<",
+        "0x10A2C7: cmp byte ptr [rip + 0x1e721b], dil",
+        "0x10A2CE: je 0x14010a2e3"
+      ],
+      "edx_setup": "0x10A2BA: mov edx, 1"
+    },
+    {
+      "call_site_rva": "0x10A822",
+      "call_site_va": "0x14010A822",
+      "disasm_before": [
+        "0x10A7FD: add bl, dh",
+        "0x10A7FF: movups xmmword ptr [rax + 0x2c], xmm0",
+        "0x10A803: cmp dword ptr [rbx + 0x25c], -1",
+        "0x10A80A: jne 0x14010a827",
+        "0x10A80C: cmp byte ptr [rip + 0x1e6cd1], r15b",
+        "0x10A813: je 0x14010a827",
+        "0x10A815: test r14b, r14b",
+        "0x10A818: jne 0x14010a827",
+        "0x10A81A: mov edx, 1",
+        "0x10A81F: mov rcx, rbx",
+        "0x10A822: call 0x14006dab0 <<",
+        "0x10A827: mov rcx, qword ptr [rip + 0x208ef2]"
+      ],
+      "edx_setup": "0x10A81A: mov edx, 1"
+    }
+  ],
+  "frida_observed": {
+    "0x9828C": "startup load chain (phase1_frida_save_summary.json)",
+    "0x10A2C2": "auto-save during gameplay",
+    "0x10A822": "paired flush after auto-save",
+    "0xBED11": "quit save from GameMain loop"
+  },
+  "load_chain_static": [
+    "0xBE7C6",
+    "0x96F59",
+    "0x103B84",
+    "0x6E663 (save I/O wrapper)",
+    "0x6EAB9 (tail)",
+    "0x9828C -> Save_Write"
+  ],
+  "note": "Same Save_Write serializes on write; load likely reads file into buffer then inverse parse \u2014 search ReadFile hooks or 0x9828C edx value at runtime."
+}

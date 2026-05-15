@@ -1,0 +1,153 @@
+{
+  "save_dir": "E:\\games\\HorseSDK\\Game\\save",
+  "files": [
+    {
+      "file": "save1.dat",
+      "byte_size": 182417,
+      "header_hex_64": "0c0000009fa8d2060000000003000000410000000400000044616c65000100000001ffffffffffffffff000000000000000000000000010100000001ffffffff",
+      "first_16_u32": [
+        "0xc",
+        "0x6d2a89f",
+        "0x0",
+        "0x3",
+        "0x41",
+        "0x4",
+        "0x656c6144",
+        "0x100",
+        "0xffff0100",
+        "0xffffffff",
+        "0xffff",
+        "0x0",
+        "0x0",
+        "0x1010000",
+        "0x1000000",
+        "0xffffffff"
+      ],
+      "first_ascii_strings": [
+        {
+          "offset": 24,
+          "text": "Dale"
+        },
+        {
+          "offset": 158,
+          "text": "Armano"
+        },
+        {
+          "offset": 427,
+          "text": "Mabel"
+        },
+        {
+          "offset": 695,
+          "text": "Lupita"
+        },
+        {
+          "offset": 964,
+          "text": "Bookie"
+        },
+        {
+          "offset": 996,
+          "text": "Bookie"
+        },
+        {
+          "offset": 1028,
+          "text": "Bookie"
+        },
+        {
+          "offset": 1060,
+          "text": "Horse Master"
+        },
+        {
+          "offset": 1098,
+          "text": "Eddy Bentfoot"
+        },
+        {
+          "offset": 1137,
+          "text": "Dr. Crispin"
+        },
+        {
+          "offset": 1203,
+          "text": "Clide"
+        },
+        {
+          "offset": 1234,
+          "text": "Hyundai"
+        },
+        {
+          "offset": 1267,
+          "text": "Coupe DeVille"
+        },
+        {
+          "offset": 1306,
+          "text": "Shopkeep"
+        },
+        {
+          "offset": 1340,
+          "text": "Zoologist"
+        },
+        {
+          "offset": 1375,
+          "text": "Bubber"
+        },
+        {
+          "offset": 1407,
+          "text": "Artistic Statement"
+        },
+        {
+          "offset": 1451,
+          "text": "Samwise"
+        },
+        {
+          "offset": 1484,
+          "text": "Hit With Critics"
+        },
+        {
+          "offset": 1526,
+          "text": "Ringmaster"
+        },
+        {
+          "offset": 1562,
+          "text": "Bitsy"
+        },
+        {
+          "offset": 1680,
+          "text": "Nuclear Physicist"
+        },
+        {
+          "offset": 1723,
+          "text": "Doctor Horse PhD"
+        },
+        {
+          "offset": 1765,
+          "text": "Sweetie"
+        },
+        {
+          "offset": 1798,
+          "text": "Normal Neighbor"
+        },
+        {
+          "offset": 1839,
+          "text": "Tiago"
+        },
+        {
+          "offset": 1870,
+          "text": "Fido"
+        },
+        {
+          "offset": 1929,
+          "text": "Yoyo"
+        },
+        {
+          "offset": 1959,
+          "text": "Dino"
+        },
+        {
+          "offset": 3751,
+          "text": "?$;;;;;;;;?C"
+        }
+      ],
+      "string_count_4plus": 2072,
+      "note": "Full schema needs Ghidra on Save @ 0x6DAB0"
+    }
+  ],
+  "exe_save_string": "save1.dat not found as literal in Horsey.exe (see phase1_string_xrefs.json)"
+}

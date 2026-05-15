@@ -1,0 +1,57 @@
+Phase 1 verification — 2026-05-15T10:42:50.004370+00:00
+Game dir: E:\games\HorseSDK\Game
+Data dir: E:\games\HorseSDK\Game\data
+Save dir: E:\games\HorseSDK\Game\save
+EXE: E:\games\HorseSDK\Game\Horsey.exe (3433984 bytes)
+
+=== PE header (confirm repomix §1.2) ===
+  Entry RVA: 0x0021EE80 (OK)
+  Image base: 0x0000000140000000 (OK)
+
+=== Data files (SystemPrompt baseline) ===
+  OK E:\games\HorseSDK\Game\data\horsey.tmx
+  OK E:\games\HorseSDK\Game\data\sprites.xml
+  OK E:\games\HorseSDK\Game\data\genes.xml
+  OK E:\games\HorseSDK\Game\save\settings.xml
+
+=== Strings (repomix / steam bypass) ===
+  0x00263860 'settings.xml'
+  0x00263850 'horsey.tmx'
+  0x0025D928 'got cheevo: %s' (matches repomix)
+  0x0025D8E8 'STEAMUSERSTATS_INTERFACE_VERSION013' (repomix had 0x25C4E8)
+  0x00267150 'STEAMAPPS_INTERFACE_VERSION008'
+  0x00267140 'SteamUtils010'
+
+=== Steam imports (see steam_bypass/README.md) ===
+  OK steam_api64 imports (10): SteamAPI_Shutdown, SteamAPI_RegisterCallback, SteamAPI_ManualDispatch_Init, SteamInternal_SteamAPI_Init, SteamInternal_ContextInit, SteamAPI_RunCallbacks, SteamInternal_FindOrCreateUserInterface, SteamAPI_UnregisterCallback, SteamAPI_GetHSteamUser, SteamAPI_RestartAppIfNecessary
+
+=== Function RVAs — incoming CALL sites (repomix claims) ===
+  RenderFrame @ 0x11E0F0: 0 direct call(s) — NEEDS GHIDRA/x64dbg
+  Save @ 0x6DAB0: 3 direct call(s) from 0x9828c, 0x10a2c2, 0x10a822
+  SettingsLoader @ 0x711B0: 1 direct call(s) from 0xbe562
+  MainGameInit @ 0xBE0F0: 1 direct call(s) from 0x21ee0d
+
+=== Steam API call sites (verified May 2026) ===
+  SteamAPI_RegisterCallback called from 0x4C80
+  SteamInternal_ContextInit called from 0x376A9
+  SteamInternal_ContextInit called from 0x378BB
+  SteamAPI_GetHSteamUser called from 0x379C9
+  SteamInternal_FindOrCreateUserInterface called from 0x379D8
+  SteamAPI_UnregisterCallback called from 0xBE0AF
+  SteamAPI_RestartAppIfNecessary called from 0xBE106
+  SteamInternal_SteamAPI_Init called from 0xBE74A
+  SteamInternal_ContextInit called from 0xBE762
+  SteamInternal_ContextInit called from 0xBE77D
+  SteamInternal_ContextInit called from 0xBE79F
+  SteamAPI_RunCallbacks called from 0xBEA7F
+  SteamAPI_Shutdown called from 0xBED1F
+  SteamInternal_ContextInit called from 0xC0814
+  SteamAPI_ManualDispatch_Init called from 0xC088A
+  SteamInternal_ContextInit called from 0xC08D4
+  SteamAPI_GetHSteamUser called from 0xC09A9
+  SteamInternal_FindOrCreateUserInterface called from 0xC09B8
+  SteamInternal_FindOrCreateUserInterface called from 0xC09E2
+
+=== SDL2 ===
+  SDL2.dll import: no (static SDL — matches repomix)
+  Export count: 845 (SDL re-exports if static)

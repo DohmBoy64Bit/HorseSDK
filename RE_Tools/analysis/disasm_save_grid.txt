@@ -1,0 +1,51 @@
+# Save_Write tail — grid + pairs + nested (Horsey.exe, Capstone May 2026)
+# Game ref: Save_Write @ 0x6DAB0, stream writers 0x6FE10..0x6FFF0
+
+## Grid dimensions @ 0x6DEA0
+0x6DEA0: lea    rbx, [rdi + 0x278]     ; width
+0x6DEA9: call   WriteU32              ; file: field_278
+0x6DEAE: lea    rsi, [rdi + 0x27c]     ; height
+0x6DEB7: call   WriteU32              ; file: field_27C
+...
+0x6DF16: mov    eax, dword ptr [rsi]   ; height
+0x6DF18: imul   eax, dword ptr [rbx]   ; cell_count = width * height
+0x6DF23: mov    rbx, r15               ; cell index = 0
+
+## Grid loop @ 0x6DF30 (stride 0x28, rsi = [rdi+0x270])
+0x6DF30: mov    rsi, qword ptr [rdi + 0x270]
+0x6DF37: cmp    dword ptr [rsi + rbx], 6    ; type==6 → skip cell
+0x6DF6F: call   WriteU8 @ 0x6FEB0            ; r14 run-length flush (0x3f prefix)
+0x6DFDC: call   WriteU8                     ; encoded type byte
+0x6DFE6: call   WriteU8                     ; [cell+8] low byte
+0x6DFEB: mov    ecx, dword ptr [rsi + rbx]
+0x6DFEE: call   0x1167B0                    ; GridTypeLookup (NOT a writer)
+0x6DFF3: test   eax, eax
+0x6DFF7: movzx  ecx, byte ptr [rsi + rbx + 4]
+0x6DFFC: call   WriteU8                     ; if lookup > 0
+0x6E008: add    rbx, 0x28
+0x6E016: jl     0x6DF30
+
+## Pair vector @ 0x6E031
+0x6E038: sub    rcx, [rdi+0x420]
+0x6E03F: sar    rcx, 3                      ; pair count
+0x6E043: call   WriteU32                    ; count
+0x6E068: call   WriteU32                    ; pair[i].a
+0x6E07B: call   WriteU32                    ; pair[i].b
+
+## Nested save @ 0x6D440 (rcx = sub-object)
+0x6D466: call   WriteStdString              ; name @ +0x18
+0x6D482: call   WriteU32                    ; count (ptr+0x130..+0x138)>>3
+0x6D4B4: call   0x6EC40                     ; per inventory pointer
+0x6D4F1: call   WriteU32                    ; merged index
+0x6D508: call   WriteU32                    ; count (ptr+0xb8..+0xc0)>>3
+0x6D537: call   WriteU32                    ; [entry+8]
+0x6D54A: call   [vtable+0x48]               ; variable blob
+0x6D574: call   WriteVec2F32 @ +0x0C
+0x6D598: call   0x6D2A0                   ; optional +0x150
+
+## Nested item @ 0x6EC40
+0x6EC70: call   WriteU64 @ +0x2A8
+0x6EC7B: call   WriteU32 @ +0x1F8
+0x6EC87: call   WriteU16 @ +0x220
+0x6EC90: call   WriteU8  @ +0x1C
+...

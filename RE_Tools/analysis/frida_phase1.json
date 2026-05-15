@@ -1,0 +1,290 @@
+{
+  "pid": 74380,
+  "events": [
+    {
+      "type": "info",
+      "msg": "base=0x7ff6c7f30000"
+    },
+    {
+      "type": "ready"
+    },
+    {
+      "type": "file_append",
+      "hit": {
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "from_save_chain": false,
+        "backtrace": [
+          "Horsey.exe+6E2F4",
+          "Horsey.exe+103B84",
+          "Horsey.exe+96F59",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957"
+        ]
+      }
+    },
+    {
+      "type": "save_caller",
+      "rva": "0x10A2C2",
+      "backtrace": []
+    },
+    {
+      "type": "save",
+      "hit": {
+        "ctx": "0x24fc3c2a680",
+        "edx": 1,
+        "backtrace": [
+          "0x7ff6c7f2024a",
+          "0x0",
+          "0xf",
+          "0x25",
+          "Horsey.exe+10183D",
+          "Horsey.exe+6EAB9",
+          "Horsey.exe+103B84",
+          "Horsey.exe+96F59",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    },
+    {
+      "type": "file_append",
+      "hit": {
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "from_save_chain": false,
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "0x7ff6c7f2024a",
+          "0x0",
+          "0x0",
+          "0x24fc3c2a680"
+        ]
+      }
+    },
+    {
+      "type": "save_caller",
+      "rva": "0x10A822",
+      "backtrace": [
+        "0x456e200045410000"
+      ]
+    },
+    {
+      "type": "save",
+      "hit": {
+        "ctx": "0x24fc3c2a680",
+        "edx": 1,
+        "backtrace": [
+          "0x7ff6c7f2034a",
+          "0x456e200045410000"
+        ]
+      }
+    },
+    {
+      "type": "file_append",
+      "hit": {
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "from_save_chain": false,
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "0x7ff6c7f2034a",
+          "0x456e200045410000",
+          "0x24fc3c2a680",
+          "0x13a",
+          "0x14"
+        ]
+      }
+    },
+    {
+      "type": "save_caller",
+      "rva": "0x10A2C2",
+      "backtrace": [
+        "0x48",
+        "0x24fcee12b20",
+        "0x44a00000",
+        "Horsey.exe+10AB67",
+        "Horsey.exe+98392",
+        "Horsey.exe+876FA",
+        "Horsey.exe+BEAD9",
+        "Horsey.exe+21EE12"
+      ]
+    },
+    {
+      "type": "save",
+      "hit": {
+        "ctx": "0x24fc3c2a680",
+        "edx": 1,
+        "backtrace": [
+          "0x7ff6c7f2024a",
+          "0x0",
+          "0x24fcee12b20",
+          "0x44a00000",
+          "Horsey.exe+10AB67",
+          "Horsey.exe+98392",
+          "Horsey.exe+876FA",
+          "Horsey.exe+BEAD9",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    },
+    {
+      "type": "file_append",
+      "hit": {
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "from_save_chain": false,
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "0x7ff6c7f2024a",
+          "0x0",
+          "0x24fc3c2a680"
+        ]
+      }
+    },
+    {
+      "type": "save",
+      "hit": {
+        "ctx": "0x24fc3c2a680",
+        "edx": 1,
+        "backtrace": [
+          "Horsey.exe+BED11",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    },
+    {
+      "type": "file_append",
+      "hit": {
+        "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+        "from_save_chain": false,
+        "backtrace": [
+          "Horsey.exe+6DB9A",
+          "Horsey.exe+BED11",
+          "Horsey.exe+21EE12",
+          "0x7ff9f39be957",
+          "0x7ff9f542427c"
+        ]
+      }
+    }
+  ],
+  "saveHits": [
+    {
+      "ctx": "0x24fc3c2a680",
+      "edx": 1,
+      "backtrace": [
+        "0x7ff6c7f2024a",
+        "0x0",
+        "0xf",
+        "0x25",
+        "Horsey.exe+10183D",
+        "Horsey.exe+6EAB9",
+        "Horsey.exe+103B84",
+        "Horsey.exe+96F59",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ff9f39be957",
+        "0x7ff9f542427c"
+      ]
+    },
+    {
+      "ctx": "0x24fc3c2a680",
+      "edx": 1,
+      "backtrace": [
+        "0x7ff6c7f2034a",
+        "0x456e200045410000"
+      ]
+    },
+    {
+      "ctx": "0x24fc3c2a680",
+      "edx": 1,
+      "backtrace": [
+        "0x7ff6c7f2024a",
+        "0x0",
+        "0x24fcee12b20",
+        "0x44a00000",
+        "Horsey.exe+10AB67",
+        "Horsey.exe+98392",
+        "Horsey.exe+876FA",
+        "Horsey.exe+BEAD9",
+        "Horsey.exe+21EE12",
+        "0x7ff9f39be957",
+        "0x7ff9f542427c"
+      ]
+    },
+    {
+      "ctx": "0x24fc3c2a680",
+      "edx": 1,
+      "backtrace": [
+        "Horsey.exe+BED11",
+        "Horsey.exe+21EE12",
+        "0x7ff9f39be957",
+        "0x7ff9f542427c"
+      ]
+    }
+  ],
+  "fileAppendHits": [
+    {
+      "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+      "from_save_chain": false,
+      "backtrace": [
+        "Horsey.exe+6E2F4",
+        "Horsey.exe+103B84",
+        "Horsey.exe+96F59",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ff9f39be957"
+      ]
+    },
+    {
+      "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+      "from_save_chain": false,
+      "backtrace": [
+        "Horsey.exe+6DB9A",
+        "0x7ff6c7f2024a",
+        "0x0",
+        "0x0",
+        "0x24fc3c2a680"
+      ]
+    },
+    {
+      "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+      "from_save_chain": false,
+      "backtrace": [
+        "Horsey.exe+6DB9A",
+        "0x7ff6c7f2034a",
+        "0x456e200045410000",
+        "0x24fc3c2a680",
+        "0x13a",
+        "0x14"
+      ]
+    },
+    {
+      "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+      "from_save_chain": false,
+      "backtrace": [
+        "Horsey.exe+6DB9A",
+        "0x7ff6c7f2024a",
+        "0x0",
+        "0x24fc3c2a680"
+      ]
+    },
+    {
+      "frag": "E:\\games\\HorseSDK\\Game\\save\\",
+      "from_save_chain": false,
+      "backtrace": [
+        "Horsey.exe+6DB9A",
+        "Horsey.exe+BED11",
+        "Horsey.exe+21EE12",
+        "0x7ff9f39be957",
+        "0x7ff9f542427c"
+      ]
+    }
+  ],
+  "ioPaths": [],
+  "readFileHits": [],
+  "ok": true
+}

@@ -1,0 +1,2407 @@
+{
+  "source": "E:\\games\\HorseSDK\\RE_Tools\\analysis\\save_buffer_dump.bin",
+  "file_offset": 58250,
+  "gene_count": 240,
+  "genes": [
+    {
+      "index": 0,
+      "name": "SIZE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 1,
+      "name": "ASPECT",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 200,
+      "value_b": 310
+    },
+    {
+      "index": 2,
+      "name": "SKINNY",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 3,
+      "name": "BONES",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": -14,
+      "value_b": -14
+    },
+    {
+      "index": 4,
+      "name": "BONES2",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 16,
+      "value_b": 16
+    },
+    {
+      "index": 5,
+      "name": "CHEST_BIG",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 102,
+      "value_b": 102
+    },
+    {
+      "index": 6,
+      "name": "CHEST_SMALL",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 7,
+      "name": "GIANT_DWARF",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 8,
+      "name": "MUSCLE_USE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 9,
+      "name": "QUADRUPED",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 10,
+      "name": "BIPED",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 11,
+      "name": "SPLAY",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": -5,
+      "value_b": 0
+    },
+    {
+      "index": 12,
+      "name": "LEG_IN",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 13,
+      "name": "LEG_IN2",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 13
+    },
+    {
+      "index": 14,
+      "name": "GUT",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 25,
+      "value_b": 0
+    },
+    {
+      "index": 15,
+      "name": "GUT_IS_UDDER",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 16,
+      "name": "OSTODERM",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 17,
+      "name": "OSTO_SIZE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 30,
+      "value_b": 30
+    },
+    {
+      "index": 18,
+      "name": "DERRIERE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 19,
+      "name": "SPEED_FACTOR",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 20,
+      "name": "BREAK_FORCE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 21,
+      "name": "TAIL_TAG",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 3,
+      "value_b": 3
+    },
+    {
+      "index": 22,
+      "name": "TAIL_EXISTS",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 1
+    },
+    {
+      "index": 23,
+      "name": "TAIL_SIZE",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": 120,
+      "value_b": 100
+    },
+    {
+      "index": 24,
+      "name": "TAIL_SHORT",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 100,
+      "value_b": 50
+    },
+    {
+      "index": 25,
+      "name": "TAIL_ASPECT",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": 30,
+      "value_b": 20
+    },
+    {
+      "index": 26,
+      "name": "TAIL_ANGLE",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 90,
+      "value_b": 90
+    },
+    {
+      "index": 27,
+      "name": "TAIL_JOINT_TYPE",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 0
+    },
+    {
+      "index": 28,
+      "name": "TAIL_STIFF",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 29,
+      "name": "TAIL_SPEED",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 200,
+      "value_b": 60
+    },
+    {
+      "index": 30,
+      "name": "TAIL_FLEXIBILITY",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 15,
+      "value_b": 15
+    },
+    {
+      "index": 31,
+      "name": "TAIL_SHAPE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 2,
+      "value_b": 2
+    },
+    {
+      "index": 32,
+      "name": "TAIL_BOTTOM",
+      "allele_a": 0,
+      "allele_b": 3,
+      "g0_index": 0,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 33,
+      "name": "TAIL_SEGMENTS",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 34,
+      "name": "LEG_TAG",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 35,
+      "name": "LEG_TYPE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 36,
+      "name": "LEG_LENGTH",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 80,
+      "value_b": 50
+    },
+    {
+      "index": 37,
+      "name": "LEG_STRETCH",
+      "allele_a": 1,
+      "allele_b": 2,
+      "g0_index": 1,
+      "g1_index": 2,
+      "value_a": 14,
+      "value_b": -14
+    },
+    {
+      "index": 38,
+      "name": "LEG_STRETCH2",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": 16,
+      "value_b": 0
+    },
+    {
+      "index": 39,
+      "name": "LEG_STRENGTH",
+      "allele_a": 1,
+      "allele_b": 2,
+      "g0_index": 1,
+      "g1_index": 2,
+      "value_a": 120,
+      "value_b": 80
+    },
+    {
+      "index": 40,
+      "name": "LEG_HAS_FOOT",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 41,
+      "name": "LEG_JOINT_TYPE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 42,
+      "name": "LEG_FLEXIBILITY",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 20,
+      "value_b": 30
+    },
+    {
+      "index": 43,
+      "name": "LEG_FLEX_BIAS",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 15,
+      "value_b": 15
+    },
+    {
+      "index": 44,
+      "name": "LEG_THRUST_BACK",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 45,
+      "name": "LEG_IS_CIRCLE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 46,
+      "name": "LEG_COUNT",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 47,
+      "name": "LEG_SKEW",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 48,
+      "name": "LEG_PENCIL",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 49,
+      "name": "LEG_AND_ARM_LIMP",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 50,
+      "name": "HAS_KNEE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 51,
+      "name": "KNEE_MIN",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 52,
+      "name": "KNEE_MAX",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 20,
+      "value_b": 20
+    },
+    {
+      "index": 53,
+      "name": "ARM_TAG",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 54,
+      "name": "ARM_TYPE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 55,
+      "name": "ARM_LENGTH",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 80,
+      "value_b": 80
+    },
+    {
+      "index": 56,
+      "name": "ARM_STRETCH",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 14,
+      "value_b": 14
+    },
+    {
+      "index": 57,
+      "name": "ARM_STRETCH2",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": -16,
+      "value_b": 0
+    },
+    {
+      "index": 58,
+      "name": "ARM_STRENGTH",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 95,
+      "value_b": 95
+    },
+    {
+      "index": 59,
+      "name": "ARM_HAS_HAND",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 60,
+      "name": "ARM_JOINT_TYPE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 61,
+      "name": "ARM_FLEXIBILITY",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": 40,
+      "value_b": 30
+    },
+    {
+      "index": 62,
+      "name": "ARM_FLEX_BIAS",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 20,
+      "value_b": 15
+    },
+    {
+      "index": 63,
+      "name": "ARM_FORWARD",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 64,
+      "name": "ARM_SKEW",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 65,
+      "name": "ARM_NODE_SCALE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 66,
+      "name": "HAS_ELBOW",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 67,
+      "name": "ELBOW_RANGE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 30,
+      "value_b": 30
+    },
+    {
+      "index": 68,
+      "name": "UPARM_TAG",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 69,
+      "name": "UPARM_Y",
+      "allele_a": 3,
+      "allele_b": 1,
+      "g0_index": 3,
+      "g1_index": 1,
+      "value_a": 50,
+      "value_b": 10
+    },
+    {
+      "index": 70,
+      "name": "UPARM_ANGLE",
+      "allele_a": 0,
+      "allele_b": 2,
+      "g0_index": 0,
+      "g1_index": 2,
+      "value_a": 0,
+      "value_b": -30
+    },
+    {
+      "index": 71,
+      "name": "UPARM_GOOFY",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 72,
+      "name": "NECK_TAG",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 4,
+      "value_b": 4
+    },
+    {
+      "index": 73,
+      "name": "NECK_TYPE",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 74,
+      "name": "NECK_LENGTH",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 60,
+      "value_b": 70
+    },
+    {
+      "index": 75,
+      "name": "NECK_GIRAFFE",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 76,
+      "name": "NECK_THICKNESS",
+      "allele_a": 0,
+      "allele_b": 3,
+      "g0_index": 0,
+      "g1_index": 3,
+      "value_a": 95,
+      "value_b": 80
+    },
+    {
+      "index": 77,
+      "name": "NECK_ANGLE",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 45,
+      "value_b": 30
+    },
+    {
+      "index": 78,
+      "name": "NECK_COCK",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 79,
+      "name": "NECK_JOINT_TYPE",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 80,
+      "name": "NECK_FLEXIBILITY",
+      "allele_a": 2,
+      "allele_b": 2,
+      "g0_index": 2,
+      "g1_index": 2,
+      "value_a": 40,
+      "value_b": 40
+    },
+    {
+      "index": 81,
+      "name": "NECK_FLEX_BIAS",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": -8,
+      "value_b": -8
+    },
+    {
+      "index": 82,
+      "name": "NECK_SLOUCH",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 83,
+      "name": "NECK_ONTOP",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 84,
+      "name": "NECK_STIFF",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 85,
+      "name": "NECK_SPEED",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 60,
+      "value_b": 60
+    },
+    {
+      "index": 86,
+      "name": "HAS_FOOT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 87,
+      "name": "FOOT_SIZE",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": 12,
+      "value_b": 0
+    },
+    {
+      "index": 88,
+      "name": "FOOT_CLOWN",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 89,
+      "name": "FOOT_THICKNESS",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 15,
+      "value_b": 20
+    },
+    {
+      "index": 90,
+      "name": "FOOT_TOE",
+      "allele_a": 2,
+      "allele_b": 2,
+      "g0_index": 2,
+      "g1_index": 2,
+      "value_a": 50,
+      "value_b": 50
+    },
+    {
+      "index": 91,
+      "name": "FOOT_IS_CIRCLE",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 1
+    },
+    {
+      "index": 92,
+      "name": "FOOT_BACKWARDS",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 93,
+      "name": "HAS_HAND",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 94,
+      "name": "HAND_WIDTH",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 95,
+      "name": "HAND_LENGTH",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 20,
+      "value_b": 20
+    },
+    {
+      "index": 96,
+      "name": "HAND_FINGER",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 97,
+      "name": "HEAD_SIZE",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": 133,
+      "value_b": 100
+    },
+    {
+      "index": 98,
+      "name": "HEAD_THICK_SKULL",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 99,
+      "name": "HEAD_X_GROWTH",
+      "allele_a": 0,
+      "allele_b": 3,
+      "g0_index": 0,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": -5
+    },
+    {
+      "index": 100,
+      "name": "HEAD_Y_GROWTH",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 101,
+      "name": "HEAD_ASPECT",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": 250,
+      "value_b": 200
+    },
+    {
+      "index": 102,
+      "name": "HEAD_SQUARE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 103,
+      "name": "HEAD_HAS_BACK",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 11,
+      "value_b": 11
+    },
+    {
+      "index": 104,
+      "name": "HEAD_GIANT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 105,
+      "name": "HEAD_SHRUNK",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 106,
+      "name": "HEAD_JOINTED",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 107,
+      "name": "HEAD_CHIMERA",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 108,
+      "name": "EYE_STYLE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 109,
+      "name": "BUGEYE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 110,
+      "name": "EYEBOX_X",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 33,
+      "value_b": 33
+    },
+    {
+      "index": 111,
+      "name": "EYEBOX_Y",
+      "allele_a": 2,
+      "allele_b": 2,
+      "g0_index": 2,
+      "g1_index": 2,
+      "value_a": -50,
+      "value_b": -50
+    },
+    {
+      "index": 112,
+      "name": "EYEBOX_SIZE",
+      "allele_a": 1,
+      "allele_b": 2,
+      "g0_index": 1,
+      "g1_index": 2,
+      "value_a": 15,
+      "value_b": 33
+    },
+    {
+      "index": 113,
+      "name": "EYE_SIZE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 50,
+      "value_b": 50
+    },
+    {
+      "index": 114,
+      "name": "PUPIL_SIZE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 66,
+      "value_b": 66
+    },
+    {
+      "index": 115,
+      "name": "HAS_PUPIL",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 116,
+      "name": "BROW_SIZE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 117,
+      "name": "BROW_SLANT",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": -15,
+      "value_b": -15
+    },
+    {
+      "index": 118,
+      "name": "EAR_STYLE",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 2
+    },
+    {
+      "index": 119,
+      "name": "EAR_SHAPE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 2,
+      "value_b": 2
+    },
+    {
+      "index": 120,
+      "name": "EAR_FLOP",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 121,
+      "name": "EAR_X",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 122,
+      "name": "EAR_SIZE",
+      "allele_a": 0,
+      "allele_b": 2,
+      "g0_index": 0,
+      "g1_index": 2,
+      "value_a": 20,
+      "value_b": 10
+    },
+    {
+      "index": 123,
+      "name": "EAR_ASPECT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 124,
+      "name": "EAR_SLANT",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": 50,
+      "value_b": 0
+    },
+    {
+      "index": 125,
+      "name": "EAR_INTERIOR",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 126,
+      "name": "TEETH_SHAPE",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 127,
+      "name": "HAS_MOUTH",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 128,
+      "name": "MOUTH_Y",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 70,
+      "value_b": 70
+    },
+    {
+      "index": 129,
+      "name": "MOUTH_SIZE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 20,
+      "value_b": 20
+    },
+    {
+      "index": 130,
+      "name": "JAW",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 131,
+      "name": "TEETH_UPPER",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 1
+    },
+    {
+      "index": 132,
+      "name": "TEETH_UPPER2",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 0
+    },
+    {
+      "index": 133,
+      "name": "TONGUE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 134,
+      "name": "TONGUE_SEGS",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 135,
+      "name": "NOSE_STYLE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 136,
+      "name": "NOSE_INNY",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 137,
+      "name": "NOSE_Y",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 138,
+      "name": "NOSE_SIZE",
+      "allele_a": 2,
+      "allele_b": 0,
+      "g0_index": 2,
+      "g1_index": 0,
+      "value_a": 20,
+      "value_b": 10
+    },
+    {
+      "index": 139,
+      "name": "NOSE_INTERIOR",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 140,
+      "name": "HAS_ANTLERS",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 141,
+      "name": "ANTLER_X",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 142,
+      "name": "ANTLER_W",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 12,
+      "value_b": 12
+    },
+    {
+      "index": 143,
+      "name": "ANTLER_H",
+      "allele_a": 1,
+      "allele_b": 3,
+      "g0_index": 1,
+      "g1_index": 3,
+      "value_a": 45,
+      "value_b": 25
+    },
+    {
+      "index": 144,
+      "name": "ANTLER_TAPER",
+      "allele_a": 3,
+      "allele_b": 2,
+      "g0_index": 3,
+      "g1_index": 2,
+      "value_a": 100,
+      "value_b": 50
+    },
+    {
+      "index": 145,
+      "name": "ANTLER_POM",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 146,
+      "name": "ANTLER_COLOR",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 2,
+      "value_b": 8
+    },
+    {
+      "index": 147,
+      "name": "POM_COLOR",
+      "allele_a": 2,
+      "allele_b": 2,
+      "g0_index": 2,
+      "g1_index": 2,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 148,
+      "name": "POM_USECOLOR",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 149,
+      "name": "ANTLER_REC",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 150,
+      "name": "ANTLER_REC2",
+      "allele_a": 1,
+      "allele_b": 3,
+      "g0_index": 1,
+      "g1_index": 3,
+      "value_a": 1,
+      "value_b": 0
+    },
+    {
+      "index": 151,
+      "name": "ANTLER_FLIP",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 152,
+      "name": "ANTLER_MOD",
+      "allele_a": 3,
+      "allele_b": 2,
+      "g0_index": 3,
+      "g1_index": 2,
+      "value_a": 3,
+      "value_b": 1
+    },
+    {
+      "index": 153,
+      "name": "ANTLER_SCALEH",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 154,
+      "name": "ANTLER_SCALEW",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 155,
+      "name": "ANTLER_ANGLE",
+      "allele_a": 3,
+      "allele_b": 2,
+      "g0_index": 3,
+      "g1_index": 2,
+      "value_a": 25,
+      "value_b": -25
+    },
+    {
+      "index": 156,
+      "name": "ANTLER_ANGLE2",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": -45,
+      "value_b": -45
+    },
+    {
+      "index": 157,
+      "name": "ANTLER_ANGLE_RAND",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 15,
+      "value_b": 15
+    },
+    {
+      "index": 158,
+      "name": "ANTLER_T1",
+      "allele_a": 3,
+      "allele_b": 1,
+      "g0_index": 3,
+      "g1_index": 1,
+      "value_a": 25,
+      "value_b": 100
+    },
+    {
+      "index": 159,
+      "name": "ANTLER_T2",
+      "allele_a": 2,
+      "allele_b": 2,
+      "g0_index": 2,
+      "g1_index": 2,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 160,
+      "name": "HAT_EXISTS",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 161,
+      "name": "HAT_SIZE",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 20,
+      "value_b": 20
+    },
+    {
+      "index": 162,
+      "name": "HAT_RAKE",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 163,
+      "name": "HAT_ASPECT",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 164,
+      "name": "HAT_TAPER",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 165,
+      "name": "HAT_POM",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 166,
+      "name": "HAT_POM_IS_LID",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 167,
+      "name": "HAT_CLONE",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 168,
+      "name": "HAT_BACK_SCALE",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 169,
+      "name": "HAT_FRONT_SCALE",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 170,
+      "name": "HAT_BACK_ANGLE",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 60,
+      "value_b": 60
+    },
+    {
+      "index": 171,
+      "name": "HAT_FRONT_ANGLE",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": -60,
+      "value_b": -60
+    },
+    {
+      "index": 172,
+      "name": "HAT_ANGLE_RAND",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 15,
+      "value_b": 15
+    },
+    {
+      "index": 173,
+      "name": "HAT_FLIP",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 174,
+      "name": "HAT_T",
+      "allele_a": 3,
+      "allele_b": 3,
+      "g0_index": 3,
+      "g1_index": 3,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 175,
+      "name": "BASE_BROWN",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 0
+    },
+    {
+      "index": 176,
+      "name": "BASE_BLACK",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 0
+    },
+    {
+      "index": 177,
+      "name": "BASE_RED",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 178,
+      "name": "BASE_GREEN",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 179,
+      "name": "GREEN_KNOCKOUT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 180,
+      "name": "BASE_CREAM",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 181,
+      "name": "ALT_BLUE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 182,
+      "name": "SPOT_YELLOW",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 183,
+      "name": "SKIN_HUE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 184,
+      "name": "SKIN_HUE2",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 185,
+      "name": "SWAP_BASE_SPOT",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 0
+    },
+    {
+      "index": 186,
+      "name": "SWAP_ALT_SPOT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 187,
+      "name": "WHITE",
+      "allele_a": 2,
+      "allele_b": 2,
+      "g0_index": 2,
+      "g1_index": 2,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 188,
+      "name": "WHITE_IS_LETHAL",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 189,
+      "name": "EYE_HUE",
+      "allele_a": 2,
+      "allele_b": 1,
+      "g0_index": 2,
+      "g1_index": 1,
+      "value_a": 153,
+      "value_b": 237
+    },
+    {
+      "index": 190,
+      "name": "NOSE_HUE",
+      "allele_a": 2,
+      "allele_b": 2,
+      "g0_index": 2,
+      "g1_index": 2,
+      "value_a": 2,
+      "value_b": 2
+    },
+    {
+      "index": 191,
+      "name": "HOOF_COLOR",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 192,
+      "name": "AGOUTI",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 1
+    },
+    {
+      "index": 193,
+      "name": "BELLY_ALT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 194,
+      "name": "SKIN_HEAD",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 195,
+      "name": "SKIN_HANDS",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 196,
+      "name": "FOOT_IS_HOOF",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 197,
+      "name": "COON_EYE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 198,
+      "name": "EAR_COMP",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 199,
+      "name": "TAIL_ALT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 200,
+      "name": "PAT_SPLIT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 201,
+      "name": "PAT_BELLY",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 202,
+      "name": "PAT_STRIPE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 203,
+      "name": "PAT_SPOT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 204,
+      "name": "PAT_PERLIN",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 100,
+      "value_b": 100
+    },
+    {
+      "index": 205,
+      "name": "PAT_PERLIN2",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 100,
+      "value_b": 0
+    },
+    {
+      "index": 206,
+      "name": "PAT_PERLIN_SIZE",
+      "allele_a": 0,
+      "allele_b": 2,
+      "g0_index": 0,
+      "g1_index": 2,
+      "value_a": 8,
+      "value_b": 4
+    },
+    {
+      "index": 207,
+      "name": "RAMPAGE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 208,
+      "name": "SPINAL_LOCO",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 209,
+      "name": "BRAIN_SPASTIC",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 210,
+      "name": "HIGH_INTELLECT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 211,
+      "name": "OMNIVORE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 212,
+      "name": "LITTER_SIZE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 213,
+      "name": "OLD_AGE",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 214,
+      "name": "LIMP",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 215,
+      "name": "NARCOLEPSY",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 216,
+      "name": "FLU_IMMUNITY",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 217,
+      "name": "TAIL_WAG",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 218,
+      "name": "STIFF_JOINTS",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 219,
+      "name": "L_LEG_SIGNAL",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 220,
+      "name": "L_LEG_FTOB_REACT",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 2
+    },
+    {
+      "index": 221,
+      "name": "L_LEG_FTOB_EVENT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 3,
+      "value_b": 3
+    },
+    {
+      "index": 222,
+      "name": "L_LEG_BTOF_REACT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 2,
+      "value_b": 2
+    },
+    {
+      "index": 223,
+      "name": "L_LEG_BTOF_EVENT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 2,
+      "value_b": 2
+    },
+    {
+      "index": 224,
+      "name": "L_ARM_SIGNAL",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 2,
+      "value_b": 2
+    },
+    {
+      "index": 225,
+      "name": "L_ARM_FTOB_REACT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 2,
+      "value_b": 2
+    },
+    {
+      "index": 226,
+      "name": "L_ARM_FTOB_EVENT",
+      "allele_a": 1,
+      "allele_b": 0,
+      "g0_index": 1,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 3
+    },
+    {
+      "index": 227,
+      "name": "L_ARM_BTOF_REACT",
+      "allele_a": 0,
+      "allele_b": 1,
+      "g0_index": 0,
+      "g1_index": 1,
+      "value_a": 1,
+      "value_b": 2
+    },
+    {
+      "index": 228,
+      "name": "L_ARM_BTOF_EVENT",
+      "allele_a": 1,
+      "allele_b": 1,
+      "g0_index": 1,
+      "g1_index": 1,
+      "value_a": 3,
+      "value_b": 3
+    },
+    {
+      "index": 229,
+      "name": "L_TAIL_SIGNAL",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 3,
+      "value_b": 3
+    },
+    {
+      "index": 230,
+      "name": "L_TAIL_FTOB_REACT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 231,
+      "name": "L_TAIL_FTOB_EVENT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 232,
+      "name": "L_TAIL_BTOF_REACT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 233,
+      "name": "L_TAIL_BTOF_EVENT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 2,
+      "value_b": 2
+    },
+    {
+      "index": 234,
+      "name": "L_NECK_SIGNAL",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 4,
+      "value_b": 4
+    },
+    {
+      "index": 235,
+      "name": "L_NECK_FTOB_REACT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 236,
+      "name": "L_NECK_FTOB_EVENT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 1,
+      "value_b": 1
+    },
+    {
+      "index": 237,
+      "name": "L_NECK_BTOF_REACT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    },
+    {
+      "index": 238,
+      "name": "L_NECK_BTOF_EVENT",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 2,
+      "value_b": 2
+    },
+    {
+      "index": 239,
+      "name": "LOCO_SYNC",
+      "allele_a": 0,
+      "allele_b": 0,
+      "g0_index": 0,
+      "g1_index": 0,
+      "value_a": 0,
+      "value_b": 0
+    }
+  ]
+}

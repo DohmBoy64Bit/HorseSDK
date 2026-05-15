@@ -1,0 +1,266 @@
+{
+  "infos": [
+    "base=0x7ff6c7f30000",
+    "hook main_game_entry @ 0xbe0f0",
+    "hook steam_run_callbacks @ 0xbea7f",
+    "hook sdl_poll_call_a @ 0xbea8a",
+    "hook sdl_poll_call_b @ 0xbeaa5",
+    "hook sdl_swap_call @ 0xbeaf0",
+    "hook loop_internal_call @ 0xbedb4",
+    "hook sdl_swap_alt @ 0xc019e"
+  ],
+  "frames": [
+    {
+      "type": "frame_done",
+      "frame": 0,
+      "events": [
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_a",
+          "n": 1,
+          "hookRva": "0xbea8a"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 1,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 1,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 2,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 2,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 3,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 3,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 4,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 4,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 5,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 5,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 6,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 6,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 7,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 7,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 8,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 8,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 9,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 9,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 10,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 10,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 11,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_poll_call_b",
+          "n": 11,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_PollEvent",
+          "n": 12,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 0,
+          "tag": "sdl_swap_call",
+          "n": 1,
+          "hookRva": "0xbeaf0",
+          "returnRva": null
+        },
+        {
+          "frame": 0,
+          "tag": "SDL_GL_SwapWindow",
+          "n": 1,
+          "hookRva": "0x1238d0",
+          "returnRva": null
+        }
+      ]
+    },
+    {
+      "type": "frame_done",
+      "frame": 1,
+      "events": [
+        {
+          "frame": 1,
+          "tag": "sdl_poll_call_a",
+          "n": 2,
+          "hookRva": "0xbea8a"
+        },
+        {
+          "frame": 1,
+          "tag": "SDL_PollEvent",
+          "n": 13,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 1,
+          "tag": "sdl_poll_call_b",
+          "n": 12,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 1,
+          "tag": "SDL_PollEvent",
+          "n": 14,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 1,
+          "tag": "sdl_swap_call",
+          "n": 2,
+          "hookRva": "0xbeaf0",
+          "returnRva": null
+        },
+        {
+          "frame": 1,
+          "tag": "SDL_GL_SwapWindow",
+          "n": 2,
+          "hookRva": "0x1238d0",
+          "returnRva": null
+        }
+      ]
+    },
+    {
+      "type": "frame_done",
+      "frame": 2,
+      "events": [
+        {
+          "frame": 2,
+          "tag": "sdl_poll_call_a",
+          "n": 3,
+          "hookRva": "0xbea8a"
+        },
+        {
+          "frame": 2,
+          "tag": "SDL_PollEvent",
+          "n": 15,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 2,
+          "tag": "sdl_poll_call_b",
+          "n": 13,
+          "hookRva": "0xbeaa5"
+        },
+        {
+          "frame": 2,
+          "tag": "SDL_PollEvent",
+          "n": 16,
+          "hookRva": "0x1253b0"
+        },
+        {
+          "frame": 2,
+          "tag": "sdl_swap_call",
+          "n": 3,
+          "hookRva": "0xbeaf0",
+          "returnRva": null
+        },
+        {
+          "frame": 2,
+          "tag": "SDL_GL_SwapWindow",
+          "n": 3,
+          "hookRva": "0x1238d0",
+          "returnRva": null
+        }
+      ]
+    }
+  ]
+}

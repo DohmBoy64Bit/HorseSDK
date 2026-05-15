@@ -1,0 +1,851 @@
+{
+  "source_dump": "E:\\games\\HorseSDK\\RE_Tools\\analysis\\save_buffer_dump.bin",
+  "dump_size": 196328,
+  "serialization_rva": "0x6DCAC-0x6E17A",
+  "simulated_linear_end": 279,
+  "linear_mismatch_issues": [],
+  "anchors": {
+    "0x0": {
+      "label": "format_version",
+      "insn": "WriteU32(12) @ 0x6DCBB",
+      "dump": "u32=12 (0x0000000C) f32=1.68156e-44 ascii=''"
+    },
+    "0x4": {
+      "label": "ctx+0x254",
+      "insn": "0x6DCCA",
+      "dump": "u32=114469023 (0x06D2A89F) f32=7.9241e-35 ascii=''"
+    },
+    "0x8": {
+      "label": "ctx+0x314",
+      "insn": "0x6DCD5",
+      "dump": "u32=0 (0x00000000) f32=0 ascii=''"
+    },
+    "0xc": {
+      "label": "ctx+0x268",
+      "insn": "0x6DCE0",
+      "dump": "u32=21 (0x00000015) f32=2.94273e-44 ascii=''"
+    },
+    "0x10": {
+      "label": "ctx+0x114 f32",
+      "insn": "0x6DCEB",
+      "dump": "u32=71 (0x00000047) f32=9.94922e-44 ascii='G'"
+    },
+    "0x14": {
+      "label": "ctx+0x318",
+      "insn": "0x6DCFE",
+      "dump": "u32=4 (0x00000004) f32=5.60519e-45 ascii=''"
+    },
+    "0x18": {
+      "label": "ctx+0x308 name",
+      "insn": "0x6DD09 \u2014 'Dale' as u32 fourcc",
+      "dump": "u32=1701601604 (0x656C6144) f32=6.9767e+22 ascii='Dale'"
+    },
+    "0x1c": {
+      "label": "ctx+0x440",
+      "insn": "0x6DD14",
+      "dump": "u32=256 (0x00000100) f32=3.58732e-43 ascii=''"
+    }
+  },
+  "fields": [
+    {
+      "file_offset": 0,
+      "size": 0,
+      "writer": "StreamOpen",
+      "insn_rva": "0x6DCB1",
+      "source": "ecx=0x3d090",
+      "raw_hex": "",
+      "decoded": "reserve ~0x3d090",
+      "note": "heap buffer @ 0x310418"
+    },
+    {
+      "file_offset": 0,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DCBB",
+      "source": "constant 12",
+      "raw_hex": "0c000000",
+      "decoded": "u32=12 (0x0000000C) f32=1.68156e-44 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 4,
+      "size": 0,
+      "writer": "WriteGlobalHorseTable",
+      "insn_rva": "0x6DCC0",
+      "source": "global vector",
+      "raw_hex": "",
+      "decoded": "empty in this save",
+      "note": "skipped 0 bytes \u2014 je @ 0xC317D"
+    },
+    {
+      "file_offset": 4,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DCD0",
+      "source": "ctx[rdi+0x254]",
+      "raw_hex": "9fa8d206",
+      "decoded": "u32=114469023 (0x06D2A89F) f32=7.9241e-35 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 8,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DCDB",
+      "source": "ctx[rdi+0x314]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 12,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DCE6",
+      "source": "ctx[rdi+0x268]",
+      "raw_hex": "15000000",
+      "decoded": "u32=21 (0x00000015) f32=2.94273e-44 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 16,
+      "size": 4,
+      "writer": "WriteF32",
+      "insn_rva": "0x6DCF3",
+      "source": "ctx[rdi+0x114]",
+      "raw_hex": "47000000",
+      "decoded": "u32=71 (0x00000047) f32=9.94922e-44 ascii='G'",
+      "note": ""
+    },
+    {
+      "file_offset": 20,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DCFE",
+      "source": "ctx[rdi+0x318]",
+      "raw_hex": "04000000",
+      "decoded": "u32=4 (0x00000004) f32=5.60519e-45 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 24,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD09",
+      "source": "ctx[rdi+0x308]",
+      "raw_hex": "44616c65",
+      "decoded": "u32=1701601604 (0x656C6144) f32=6.9767e+22 ascii='Dale'",
+      "note": ""
+    },
+    {
+      "file_offset": 28,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD14",
+      "source": "ctx[rdi+0x440]",
+      "raw_hex": "00010000",
+      "decoded": "u32=256 (0x00000100) f32=3.58732e-43 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 32,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD20",
+      "source": "ctx[rdi+0x414]",
+      "raw_hex": "0001ffff",
+      "decoded": "u32=4294902016 (0xFFFF0100) f32=nan ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 36,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD2C",
+      "source": "ctx[rdi+0x415]",
+      "raw_hex": "ffffffff",
+      "decoded": "u32=4294967295 (0xFFFFFFFF) f32=nan ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 40,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD37",
+      "source": "ctx[rdi+0x37C]",
+      "raw_hex": "ffff0000",
+      "decoded": "u32=65535 (0x0000FFFF) f32=9.18341e-41 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 44,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD3E",
+      "source": "constant 0",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 48,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD49",
+      "source": "ctx[rdi+0x418]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 52,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD55",
+      "source": "ctx[rdi+0x41C]",
+      "raw_hex": "00000101",
+      "decoded": "u32=16842752 (0x01010000) f32=2.36936e-38 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 56,
+      "size": 8,
+      "writer": "WriteVec2F32",
+      "insn_rva": "0x6DD61",
+      "source": "ctx[rdi+0x39C]",
+      "raw_hex": "00000001ffffffff",
+      "decoded": "u64=18446744069431361536 (0xFFFFFFFF01000000)",
+      "note": ""
+    },
+    {
+      "file_offset": 64,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD6C",
+      "source": "ctx[rdi+0x410]",
+      "raw_hex": "ffffffff",
+      "decoded": "u32=4294967295 (0xFFFFFFFF) f32=nan ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 68,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x321]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": "slot0 byte+5"
+    },
+    {
+      "file_offset": 72,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x31C]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": "slot0 dword+0"
+    },
+    {
+      "file_offset": 76,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x320]",
+      "raw_hex": "16000000",
+      "decoded": "u32=22 (0x00000016) f32=3.08286e-44 ascii=''",
+      "note": "slot0 byte+4"
+    },
+    {
+      "file_offset": 80,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x329]",
+      "raw_hex": "486f6f66",
+      "decoded": "u32=1718579016 (0x666F6F48) f32=2.82675e+23 ascii='Hoof'",
+      "note": "slot1 byte+5"
+    },
+    {
+      "file_offset": 84,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x324]",
+      "raw_hex": "7920416e",
+      "decoded": "u32=1849761913 (0x6E412079) f32=1.49425e+28 ascii='y An'",
+      "note": "slot1 dword+0"
+    },
+    {
+      "file_offset": 88,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x328]",
+      "raw_hex": "64205468",
+      "decoded": "u32=1750343780 (0x68542064) f32=4.00696e+24 ascii='d Th'",
+      "note": "slot1 byte+4"
+    },
+    {
+      "file_offset": 92,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x331]",
+      "raw_hex": "6520426c",
+      "decoded": "u32=1816272997 (0x6C422065) f32=9.38738e+26 ascii='e Bl'",
+      "note": "slot2 byte+5"
+    },
+    {
+      "file_offset": 96,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x32C]",
+      "raw_hex": "6f776669",
+      "decoded": "u32=1768322927 (0x6966776F) f32=1.74136e+25 ascii='owfi'",
+      "note": "slot2 dword+0"
+    },
+    {
+      "file_offset": 100,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x330]",
+      "raw_hex": "73680001",
+      "decoded": "u32=16803955 (0x01006873) f32=2.35848e-38 ascii=''",
+      "note": "slot2 byte+4"
+    },
+    {
+      "file_offset": 104,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x339]",
+      "raw_hex": "00000001",
+      "decoded": "u32=16777216 (0x01000000) f32=2.35099e-38 ascii=''",
+      "note": "slot3 byte+5"
+    },
+    {
+      "file_offset": 108,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x334]",
+      "raw_hex": "ffffffff",
+      "decoded": "u32=4294967295 (0xFFFFFFFF) f32=nan ascii=''",
+      "note": "slot3 dword+0"
+    },
+    {
+      "file_offset": 112,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x338]",
+      "raw_hex": "ffffffff",
+      "decoded": "u32=4294967295 (0xFFFFFFFF) f32=nan ascii=''",
+      "note": "slot3 byte+4"
+    },
+    {
+      "file_offset": 116,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x341]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": "slot4 byte+5"
+    },
+    {
+      "file_offset": 120,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x33C]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": "slot4 dword+0"
+    },
+    {
+      "file_offset": 124,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x340]",
+      "raw_hex": "07000000",
+      "decoded": "u32=7 (0x00000007) f32=9.80909e-45 ascii=''",
+      "note": "slot4 byte+4"
+    },
+    {
+      "file_offset": 128,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x349]",
+      "raw_hex": "4e657074",
+      "decoded": "u32=1953523022 (0x7470654E) f32=7.61844e+31 ascii='Nept'",
+      "note": "slot5 byte+5"
+    },
+    {
+      "file_offset": 132,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x344]",
+      "raw_hex": "756e6500",
+      "decoded": "u32=6647413 (0x00656E75) f32=9.31501e-39 ascii='une'",
+      "note": "slot5 dword+0"
+    },
+    {
+      "file_offset": 136,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6DD71",
+      "source": "ctx[rdi+0x348]",
+      "raw_hex": "01000000",
+      "decoded": "u32=1 (0x00000001) f32=1.4013e-45 ascii=''",
+      "note": "slot5 byte+4"
+    },
+    {
+      "file_offset": 140,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x298]",
+      "raw_hex": "01ffffff",
+      "decoded": "u32=4294967041 (0xFFFFFF01) f32=nan ascii=''",
+      "note": "row0 field-0x34"
+    },
+    {
+      "file_offset": 144,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2CC]",
+      "raw_hex": "ffffffff",
+      "decoded": "u32=4294967295 (0xFFFFFFFF) f32=nan ascii=''",
+      "note": "row0 field+0"
+    },
+    {
+      "file_offset": 148,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x29C]",
+      "raw_hex": "ff000000",
+      "decoded": "u32=255 (0x000000FF) f32=3.57331e-43 ascii=''",
+      "note": "row1 field-0x34"
+    },
+    {
+      "file_offset": 152,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2D0]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": "row1 field+0"
+    },
+    {
+      "file_offset": 156,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2A0]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": "row2 field-0x34"
+    },
+    {
+      "file_offset": 160,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2D4]",
+      "raw_hex": "00010100",
+      "decoded": "u32=65792 (0x00010100) f32=9.21942e-41 ascii=''",
+      "note": "row2 field+0"
+    },
+    {
+      "file_offset": 164,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2A4]",
+      "raw_hex": "000001ff",
+      "decoded": "u32=4278255616 (0xFF010000) f32=-1.7147e+38 ascii=''",
+      "note": "row3 field-0x34"
+    },
+    {
+      "file_offset": 168,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2D8]",
+      "raw_hex": "ffffffff",
+      "decoded": "u32=4294967295 (0xFFFFFFFF) f32=nan ascii=''",
+      "note": "row3 field+0"
+    },
+    {
+      "file_offset": 172,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2A8]",
+      "raw_hex": "ffffff00",
+      "decoded": "u32=16777215 (0x00FFFFFF) f32=2.35099e-38 ascii=''",
+      "note": "row4 field-0x34"
+    },
+    {
+      "file_offset": 176,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2DC]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": "row4 field+0"
+    },
+    {
+      "file_offset": 180,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2AC]",
+      "raw_hex": "00000006",
+      "decoded": "u32=100663296 (0x06000000) f32=2.40741e-35 ascii=''",
+      "note": "row5 field-0x34"
+    },
+    {
+      "file_offset": 184,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2E0]",
+      "raw_hex": "00000041",
+      "decoded": "u32=1090519040 (0x41000000) f32=8 ascii=''",
+      "note": "row5 field+0"
+    },
+    {
+      "file_offset": 188,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2B0]",
+      "raw_hex": "726d616e",
+      "decoded": "u32=1851878770 (0x6E616D72) f32=1.74416e+28 ascii='rman'",
+      "note": "row6 field-0x34"
+    },
+    {
+      "file_offset": 192,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2E4]",
+      "raw_hex": "6f000200",
+      "decoded": "u32=131183 (0x0002006F) f32=1.83827e-40 ascii=''",
+      "note": "row6 field+0"
+    },
+    {
+      "file_offset": 196,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2B4]",
+      "raw_hex": "000002ff",
+      "decoded": "u32=4278321152 (0xFF020000) f32=-1.728e+38 ascii=''",
+      "note": "row7 field-0x34"
+    },
+    {
+      "file_offset": 200,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2E8]",
+      "raw_hex": "ffffffff",
+      "decoded": "u32=4294967295 (0xFFFFFFFF) f32=nan ascii=''",
+      "note": "row7 field+0"
+    },
+    {
+      "file_offset": 204,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2B8]",
+      "raw_hex": "ffffff00",
+      "decoded": "u32=16777215 (0x00FFFFFF) f32=2.35099e-38 ascii=''",
+      "note": "row8 field-0x34"
+    },
+    {
+      "file_offset": 208,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2EC]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": "row8 field+0"
+    },
+    {
+      "file_offset": 212,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2BC]",
+      "raw_hex": "00000010",
+      "decoded": "u32=268435456 (0x10000000) f32=2.52435e-29 ascii=''",
+      "note": "row9 field-0x34"
+    },
+    {
+      "file_offset": 216,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2F0]",
+      "raw_hex": "00000042",
+      "decoded": "u32=1107296256 (0x42000000) f32=32 ascii=''",
+      "note": "row9 field+0"
+    },
+    {
+      "file_offset": 220,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2C0]",
+      "raw_hex": "61677565",
+      "decoded": "u32=1702192993 (0x65756761) f32=7.24304e+22 ascii='ague'",
+      "note": "row10 field-0x34"
+    },
+    {
+      "file_offset": 224,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2F4]",
+      "raw_hex": "74746520",
+      "decoded": "u32=543519860 (0x20657474) f32=1.94356e-19 ascii='tte '",
+      "note": "row10 field+0"
+    },
+    {
+      "file_offset": 228,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2C4]",
+      "raw_hex": "4d616769",
+      "decoded": "u32=1768382797 (0x6967614D) f32=1.74826e+25 ascii='Magi'",
+      "note": "row11 field-0x34"
+    },
+    {
+      "file_offset": 232,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2F8]",
+      "raw_hex": "71756500",
+      "decoded": "u32=6649201 (0x00657571) f32=9.31752e-39 ascii='que'",
+      "note": "row11 field+0"
+    },
+    {
+      "file_offset": 236,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2C8]",
+      "raw_hex": "02000000",
+      "decoded": "u32=2 (0x00000002) f32=2.8026e-45 ascii=''",
+      "note": "row12 field-0x34"
+    },
+    {
+      "file_offset": 240,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDA3",
+      "source": "ctx[rdi+0x2FC]",
+      "raw_hex": "02ffffff",
+      "decoded": "u32=4294967042 (0xFFFFFF02) f32=nan ascii=''",
+      "note": "row12 field+0"
+    },
+    {
+      "file_offset": 244,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DDF9",
+      "source": "ctx[rdi+0x280..0x288] count",
+      "raw_hex": "ffffffff",
+      "decoded": "u32=4294967295 (0xFFFFFFFF) f32=nan ascii=''",
+      "note": "N=0"
+    },
+    {
+      "file_offset": 248,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DEA9",
+      "source": "dword ptr [rbx]",
+      "raw_hex": "ff000000",
+      "decoded": "u32=255 (0x000000FF) f32=3.57331e-43 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 252,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6DEB7",
+      "source": "dword ptr [rsi]",
+      "raw_hex": "00000000",
+      "decoded": "u32=0 (0x00000000) f32=0 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 256,
+      "size": 1,
+      "writer": "WriteU8",
+      "insn_rva": "0x6DF6F",
+      "source": "?",
+      "raw_hex": "00",
+      "decoded": "u8=0",
+      "note": ""
+    },
+    {
+      "file_offset": 257,
+      "size": 1,
+      "writer": "WriteU8",
+      "insn_rva": "0x6DF78",
+      "source": "r14b",
+      "raw_hex": "0f",
+      "decoded": "u8=15",
+      "note": ""
+    },
+    {
+      "file_offset": 258,
+      "size": 1,
+      "writer": "WriteU8",
+      "insn_rva": "0x6DFDC",
+      "source": "al",
+      "raw_hex": "00",
+      "decoded": "u8=0",
+      "note": ""
+    },
+    {
+      "file_offset": 259,
+      "size": 1,
+      "writer": "WriteU8",
+      "insn_rva": "0x6DFE6",
+      "source": "byte ptr [rsi + rbx + 8]",
+      "raw_hex": "00",
+      "decoded": "u8=0",
+      "note": ""
+    },
+    {
+      "file_offset": 260,
+      "size": 0,
+      "writer": "WriteDynamicBlock",
+      "insn_rva": "0x6DFEE",
+      "source": "dword ptr [rsi + rbx]",
+      "raw_hex": "",
+      "decoded": "?",
+      "note": "variable-size block \u2014 not linearly simulated"
+    },
+    {
+      "file_offset": 260,
+      "size": 1,
+      "writer": "WriteU8",
+      "insn_rva": "0x6DFFC",
+      "source": "byte ptr [rsi + rbx + 4]",
+      "raw_hex": "00",
+      "decoded": "u8=0",
+      "note": ""
+    },
+    {
+      "file_offset": 261,
+      "size": 1,
+      "writer": "WriteU8",
+      "insn_rva": "0x6E023",
+      "source": "qword ptr [rbp + 0x67]",
+      "raw_hex": "43",
+      "decoded": "u8=67",
+      "note": ""
+    },
+    {
+      "file_offset": 262,
+      "size": 1,
+      "writer": "WriteU8",
+      "insn_rva": "0x6E02C",
+      "source": "r14b",
+      "raw_hex": "61",
+      "decoded": "u8=97",
+      "note": ""
+    },
+    {
+      "file_offset": 263,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6E043",
+      "source": "ctx[rdi+0x428]",
+      "raw_hex": "6c6c204d",
+      "decoded": "u32=1293970540 (0x4D206C6C) f32=1.68216e+08 ascii='ll M'",
+      "note": ""
+    },
+    {
+      "file_offset": 267,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6E06B",
+      "source": "dword ptr [rdx + rbx]",
+      "raw_hex": "65204973",
+      "decoded": "u32=1934172261 (0x73492065) f32=1.59349e+31 ascii='e Is'",
+      "note": ""
+    },
+    {
+      "file_offset": 271,
+      "size": 4,
+      "writer": "WriteU32",
+      "insn_rva": "0x6E07B",
+      "source": "dword ptr [rbx + rcx + 4]",
+      "raw_hex": "686d6165",
+      "decoded": "u32=1700883816 (0x65616D68) f32=6.65344e+22 ascii='hmae'",
+      "note": ""
+    },
+    {
+      "file_offset": 275,
+      "size": 0,
+      "writer": "WriteNestedSave",
+      "insn_rva": "0x6E0A6",
+      "source": "rdi",
+      "raw_hex": "",
+      "decoded": "?",
+      "note": "variable-size block \u2014 not linearly simulated"
+    },
+    {
+      "file_offset": 275,
+      "size": 4,
+      "writer": "WriteU32FromU8",
+      "insn_rva": "0x6E0C1",
+      "source": "?",
+      "raw_hex": "6c000200",
+      "decoded": "u32=131180 (0x0002006C) f32=1.83822e-40 ascii=''",
+      "note": ""
+    },
+    {
+      "file_offset": 279,
+      "size": 0,
+      "writer": "WriteNestedSave",
+      "insn_rva": "0x6E0D6",
+      "source": "qword ptr [rsi + rcx]",
+      "raw_hex": "",
+      "decoded": "?",
+      "note": "variable-size block \u2014 not linearly simulated"
+    },
+    {
+      "file_offset": 279,
+      "size": 0,
+      "writer": "WriteNestedSave",
+      "insn_rva": "0x6E103",
+      "source": "qword ptr [rip + 0x2ac55d]",
+      "raw_hex": "",
+      "decoded": "?",
+      "note": "variable-size block \u2014 not linearly simulated"
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "disasm": "0x6DF30 grid loop; WriteU8 @ 0x6FEB0",
+  "dimensions": {
+    "width": 400,
+    "height": 225,
+    "cells": 90000
+  },
+  "prefix": {
+    "file_offset": 2657,
+    "size": 802,
+    "pair_0F09_count": 401,
+    "note": "401 pairs = width+1 row markers before main grid stream"
+  },
+  "grid_main": {
+    "file_offset": 3459,
+    "size": 53540,
+    "decoded_token_count": 50001,
+    "token_kinds": {
+      "r14_flush": 656,
+      "u8_tag": 48979,
+      "pair_0F09": 366
+    },
+    "avg_bytes_per_token": 1.071,
+    "implied_nonempty_cells": 50001
+  },
+  "encoding_rules": [
+    "type==6 + empty flags: 0 bytes (skipped)",
+    "r14 run: 0x3F + count byte (skipped row batch)",
+    "common empty on disk: 0x0F 0x09 (2 bytes)",
+    "nonzero type: 1-4 bytes + optional byte @ cell+4 if GridTypeLookup>0"
+  ],
+  "samples": [
+    {
+      "off": 0,
+      "size": 2,
+      "kind": "r14_flush",
+      "value": 255
+    },
+    {
+      "off": 2,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 6,
+      "hex": "0x06"
+    },
+    {
+      "off": 3,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 9,
+      "hex": "0x09"
+    },
+    {
+      "off": 4,
+      "size": 2,
+      "kind": "r14_flush",
+      "value": 142
+    },
+    {
+      "off": 6,
+      "size": 2,
+      "kind": "pair_0F09",
+      "note": "default/empty encoding"
+    },
+    {
+      "off": 8,
+      "size": 2,
+      "kind": "pair_0F09",
+      "note": "default/empty encoding"
+    },
+    {
+      "off": 10,
+      "size": 2,
+      "kind": "r14_flush",
+      "value": 255
+    },
+    {
+      "off": 12,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 6,
+      "hex": "0x06"
+    },
+    {
+      "off": 13,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 9,
+      "hex": "0x09"
+    },
+    {
+      "off": 14,
+      "size": 2,
+      "kind": "r14_flush",
+      "value": 142
+    },
+    {
+      "off": 16,
+      "size": 2,
+      "kind": "pair_0F09",
+      "note": "default/empty encoding"
+    },
+    {
+      "off": 18,
+      "size": 2,
+      "kind": "pair_0F09",
+      "note": "default/empty encoding"
+    },
+    {
+      "off": 20,
+      "size": 2,
+      "kind": "r14_flush",
+      "value": 255
+    },
+    {
+      "off": 22,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 6,
+      "hex": "0x06"
+    },
+    {
+      "off": 23,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 9,
+      "hex": "0x09"
+    },
+    {
+      "off": 24,
+      "size": 2,
+      "kind": "r14_flush",
+      "value": 142
+    },
+    {
+      "off": 26,
+      "size": 2,
+      "kind": "pair_0F09",
+      "note": "default/empty encoding"
+    },
+    {
+      "off": 28,
+      "size": 2,
+      "kind": "pair_0F09",
+      "note": "default/empty encoding"
+    },
+    {
+      "off": 30,
+      "size": 2,
+      "kind": "r14_flush",
+      "value": 3
+    },
+    {
+      "off": 32,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 33,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 34,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 35,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 36,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 37,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 38,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 39,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 40,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 41,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 42,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 43,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 44,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 45,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 46,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 47,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 48,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 49,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 50,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 51,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 69,
+      "hex": "0x45"
+    },
+    {
+      "off": 52,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    }
+  ],
+  "samples_tail": [
+    {
+      "off": 51008,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 51009,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 1,
+      "hex": "0x01"
+    },
+    {
+      "off": 51010,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 71,
+      "hex": "0x47"
+    },
+    {
+      "off": 51011,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 51012,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 1,
+      "hex": "0x01"
+    },
+    {
+      "off": 51013,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 71,
+      "hex": "0x47"
+    },
+    {
+      "off": 51014,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 51015,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 1,
+      "hex": "0x01"
+    },
+    {
+      "off": 51016,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 71,
+      "hex": "0x47"
+    },
+    {
+      "off": 51017,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 51018,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 1,
+      "hex": "0x01"
+    },
+    {
+      "off": 51019,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 71,
+      "hex": "0x47"
+    },
+    {
+      "off": 51020,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 0,
+      "hex": "0x00"
+    },
+    {
+      "off": 51021,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 1,
+      "hex": "0x01"
+    },
+    {
+      "off": 51022,
+      "size": 1,
+      "kind": "u8_tag",
+      "value": 71,
+      "hex": "0x47"
+    }
+  ]
+}

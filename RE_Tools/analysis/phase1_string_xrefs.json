@@ -1,0 +1,120 @@
+{
+  "image_base": "0x140000000",
+  "method": "Capstone RIP-relative memory operands in .text",
+  "entries": [
+    {
+      "string": ".crf",
+      "string_rvas": [
+        "0x980e2",
+        "0x2644e0",
+        "0x265942",
+        "0x265961",
+        "0x265991",
+        "0x2659c2",
+        "0x2659d7"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "Save",
+      "string_rvas": [
+        "0x25d708",
+        "0x2614a0",
+        "0x2614b7",
+        "0x2e66be",
+        "0x2e66e9",
+        "0x2e7ff3",
+        "0x2e90a2",
+        "0x2e90bd",
+        "0x2e90cc"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "data\\",
+      "string_rvas": [
+        "0x2643e4"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "genes.dat",
+      "string_rvas": [
+        "0x266120"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "genes.xml",
+      "string_rvas": [
+        "0x266130"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "got cheevo: %s",
+      "string_rvas": [
+        "0x25d928"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "horsey.tmx",
+      "string_rvas": [
+        "0x263850"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "n64.fnt",
+      "string_rvas": [
+        "0x2658a8"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "n64_0.png",
+      "string_rvas": [
+        "0x265a80"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "quip.crf",
+      "string_rvas": [
+        "0x980de"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "save",
+      "string_rvas": [
+        "0x263830",
+        "0x2638c8",
+        "0x2638ec",
+        "0x263940",
+        "0x267444"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    },
+    {
+      "string": "settings.xml",
+      "string_rvas": [
+        "0x263860"
+      ],
+      "in_exe": true,
+      "code_xrefs": []
+    }
+  ]
+}

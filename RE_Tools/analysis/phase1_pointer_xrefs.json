@@ -1,0 +1,120 @@
+{
+  "image_base": "0x140000000",
+  "method": "8-byte VA equality scan",
+  "entries": [
+    {
+      "string": "settings.xml",
+      "string_rva": "0x263860",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "horsey.tmx",
+      "string_rva": "0x263850",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "genes.dat",
+      "string_rva": "0x266120",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "genes.xml",
+      "string_rva": "0x266130",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "quip.crf",
+      "string_rva": "0x980de",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "n64.fnt",
+      "string_rva": "0x2658a8",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "n64_0.png",
+      "string_rva": "0x265a80",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": ".dat",
+      "string_rva": "0x278",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": ".dat",
+      "string_rva": "0x263836",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": ".dat",
+      "string_rva": "0x266125",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": ".dat",
+      "string_rva": "0x2c31f0",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": ".dat",
+      "string_rva": "0x2c3200",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": ".dat",
+      "string_rva": "0x2c3210",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "save",
+      "string_rva": "0x263830",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "save",
+      "string_rva": "0x2638c8",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "save",
+      "string_rva": "0x2638ec",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "save",
+      "string_rva": "0x263940",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "save",
+      "string_rva": "0x267444",
+      "pointer_sites": [],
+      "pointer_count": 0
+    },
+    {
+      "string": "data\\",
+      "string_rva": "0x2643e4",
+      "pointer_sites": [],
+      "pointer_count": 0
+    }
+  ]
+}
