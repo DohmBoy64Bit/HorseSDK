@@ -54,7 +54,8 @@ See `steam_bypass/README.md`. Summary:
 | Main game init | `0xBE0F0` | **Confirmed:** caller `0x21EE0D`; Steam @ `0xBE106` |
 | Settings loader | `0x711B0` | **Confirmed:** caller `0xBE562` (inside main init) |
 | Save writer | `0x6DAB0` | **Confirmed:** callers `0x9828C`, `0x10A2C2`, `0x10A822` |
-| `Game_SimStep` | `0xC12D0` | **Capstone:** 24 E8 callers; frame `0xBE607`/`0xBE620`; Frida: burst @ init, ~0/frame idle — [Game_SimStep.md](Game_SimStep.md) |
+| `ClampInt3` | `0xC12D0` | **Not sim** — `int clamp(val,lo,hi)`; settings caps `0x64`/`0xC8` — [ClampInt3.md](ClampInt3.md) |
+| `Font_LoadOrInit` | `0x7F8A0` | **Frida:** all 6 `.crf` @ init — [FontLoad.md](FontLoad.md) |
 | `g_game_state` | `0x313720` | **Capstone:** 1 store @ `0x874F1`, 18 loads — [g_game_state.md](g_game_state.md) |
 | ~~RenderFrame~~ `0x11E0F0` | **Debunked (Frida):** tail thunk (`call` + `jmp [rip+disp]`), **0 hits** in live loop |
 | Per-frame loop (swap) | `0xBEAF0` / `0xBEAF5` | **Frida:** `SDL_GL_SwapWindow` returns to `0xBEAF5` every frame |
@@ -80,7 +81,7 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 
 **Data (verified 2026-05-15):** GID→sprite map, `genes.dat` name index, `.crf` 16-byte header + 2 sections, `n64.fnt` BMF v3, sound paths, exe string xrefs — see `docs/DataFileFormats.md`.
 
-**UNVERIFIED (data):** `.crf` glyph opcodes; `n64` page filename remap; Ghidra font loaders.
+**UNVERIFIED (data):** nested `.crf` sub-opcodes (`0xFA`–`0xFF` in payloads); `n64` page filename remap.
 
 ### 1.7 Phase 1 checklist
 
@@ -126,6 +127,12 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - [x] **Phase 1 CI** — `phase1_ci.py` (PE verify + codec + horse_save + static scripts)
 
 ---
+
+## [KNOWLEDGE UPDATE] 2026-05-15 (deeper RE — font / clamp / crf)
+
+- **`0xC12D0` renamed `ClampInt3`:** `int clamp(ecx, edx, r8d)` — Frida `rcx=0x64` was **`r8d=100`** cap @ `SettingsLoader` `0x714D2`.
+- **Font load:** `Font_LoadOrInit` @ **`0x7F8A0`**; `fopen` @ **`0x6FB90`** — Frida logs all 6 `.crf` (caller `0x97467`…`0x97839`, bootstrap `0xBE7C6`).
+- **`.crf` opcodes:** record = `u16` + `F8`/`F9` + payload; nested `FA`–`FF` inside `F9` — `crf_record_decode.json`; header parsed via save stream readers @ `0x7FA90`.
 
 ## [KNOWLEDGE UPDATE] 2026-05-15 (Phase 1 close — items 1–5)
 

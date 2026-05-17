@@ -1,0 +1,607 @@
+{
+  "hypothesis": {
+    "record_header": "u16 prefix (7|9) + u8 tag (F8|F9)",
+    "payload": "opaque; often contains nested u16+tag runs (FA/FB/FC\u2026)",
+    "exe_parse": "Font load @ 0x7F8A0 uses shared stream readers @ 0x705D0/0x70670 (see FontLoad.md)"
+  },
+  "global_embedded_subtags": {
+    "0xf8": 146,
+    "0xfb": 93,
+    "0xfa": 56,
+    "0xf9": 52,
+    "0xfe": 19,
+    "0xfc": 14,
+    "0xff": 11,
+    "0xfd": 3
+  },
+  "fonts": [
+    {
+      "file": "capy_bold.crf",
+      "section1_len": 2432,
+      "record_count": 34,
+      "records_sample": [
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 7,
+          "payload_len": 4,
+          "payload_head_hex": "08254725",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 0,
+          "tag": "0x0",
+          "tag_name": null,
+          "length": 1,
+          "payload_len": 0,
+          "payload_head_hex": "",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 87,
+          "payload_len": 84,
+          "payload_head_hex": "07261818080800f809274162020300f80328461a040a00f705293f2e040a00f7",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 8,
+              "tag": "0xf8"
+            },
+            {
+              "off": 13,
+              "u16": 3,
+              "tag": "0xf8"
+            },
+            {
+              "off": 37,
+              "u16": 5,
+              "tag": "0xfa"
+            },
+            {
+              "off": 45,
+              "u16": 5,
+              "tag": "0xfb"
+            },
+            {
+              "off": 53,
+              "u16": 3,
+              "tag": "0xfe"
+            },
+            {
+              "off": 61,
+              "u16": 1,
+              "tag": "0xfd"
+            },
+            {
+              "off": 69,
+              "u16": 2,
+              "tag": "0xfe"
+            },
+            {
+              "off": 77,
+              "u16": 8,
+              "tag": "0xf8"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf8": 3,
+            "0xfa": 1,
+            "0xfb": 1,
+            "0xfe": 2,
+            "0xfd": 1
+          }
+        },
+        {
+          "prefix_u16": 0,
+          "tag": "0x0",
+          "tag_name": null,
+          "length": 1,
+          "payload_len": 0,
+          "payload_head_hex": "",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 7,
+          "payload_len": 4,
+          "payload_head_hex": "07314d11",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 0,
+          "tag": "0x0",
+          "tag_name": null,
+          "length": 1,
+          "payload_len": 0,
+          "payload_head_hex": "",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        }
+      ],
+      "tag_stats": {
+        "glyph_run_f9": 19,
+        "glyph_run_f8": 2
+      }
+    },
+    {
+      "file": "habit_mono.crf",
+      "section1_len": 0,
+      "record_count": 0,
+      "records_sample": [],
+      "tag_stats": {}
+    },
+    {
+      "file": "habit_narrow_bold.crf",
+      "section1_len": 2225,
+      "record_count": 121,
+      "records_sample": [
+        {
+          "prefix_u16": 9,
+          "tag": "0xf8",
+          "tag_name": "glyph_run_f8",
+          "length": 8,
+          "payload_len": 5,
+          "payload_head_hex": "08213b3a02",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 24,
+          "payload_len": 21,
+          "payload_head_hex": "03221735050300f90623087a070500fa0824120a07",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 3,
+              "tag": "0xf9"
+            },
+            {
+              "off": 13,
+              "u16": 5,
+              "tag": "0xfa"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf9": 1,
+            "0xfa": 1
+          }
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 16,
+          "payload_len": 13,
+          "payload_head_hex": "08253669060500fb0726170007",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 5,
+              "tag": "0xfb"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xfb": 1
+          }
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 16,
+          "payload_len": 13,
+          "payload_head_hex": "0827470c020300f90328284f04",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 3,
+              "tag": "0xf9"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf9": 1
+          }
+        },
+        {
+          "prefix_u16": 9,
+          "tag": "0xf8",
+          "tag_name": "glyph_run_f8",
+          "length": 8,
+          "payload_len": 5,
+          "payload_head_hex": "0529292304",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 9,
+          "tag": "0xf8",
+          "tag_name": "glyph_run_f8",
+          "length": 55,
+          "payload_len": 52,
+          "payload_head_hex": "052a446b050500f9062b4571050500fa062c2159030300fe042d4074040100fc",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 5,
+              "tag": "0xf9"
+            },
+            {
+              "off": 13,
+              "u16": 5,
+              "tag": "0xfa"
+            },
+            {
+              "off": 21,
+              "u16": 3,
+              "tag": "0xfe"
+            },
+            {
+              "off": 29,
+              "u16": 1,
+              "tag": "0xfc"
+            },
+            {
+              "off": 37,
+              "u16": 2,
+              "tag": "0xfe"
+            },
+            {
+              "off": 45,
+              "u16": 8,
+              "tag": "0xf9"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf9": 2,
+            "0xfa": 1,
+            "0xfe": 2,
+            "0xfc": 1
+          }
+        }
+      ],
+      "tag_stats": {
+        "glyph_run_f8": 9,
+        "glyph_run_f9": 64
+      }
+    },
+    {
+      "file": "quip.crf",
+      "section1_len": 5840,
+      "record_count": 109,
+      "records_sample": [
+        {
+          "prefix_u16": 9,
+          "tag": "0xf8",
+          "tag_name": "glyph_run_f8",
+          "length": 8,
+          "payload_len": 5,
+          "payload_head_hex": "08214d1001",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 23,
+          "payload_len": 20,
+          "payload_head_hex": "02223c08030300f904233329060600fa0724391c",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 3,
+              "tag": "0xf9"
+            },
+            {
+              "off": 13,
+              "u16": 6,
+              "tag": "0xfa"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf9": 1,
+            "0xfa": 1
+          }
+        },
+        {
+          "prefix_u16": 0,
+          "tag": "0x0",
+          "tag_name": null,
+          "length": 1,
+          "payload_len": 0,
+          "payload_head_hex": "",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 8,
+          "payload_len": 5,
+          "payload_head_hex": "0625190007",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 8,
+          "payload_len": 5,
+          "payload_head_hex": "0826162307",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 16,
+          "payload_len": 13,
+          "payload_head_hex": "08273a2c010300f902283e3503",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 3,
+              "tag": "0xf9"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf9": 1
+          }
+        }
+      ],
+      "tag_stats": {
+        "glyph_run_f8": 8,
+        "glyph_run_f9": 64
+      }
+    },
+    {
+      "file": "snuggle.crf",
+      "section1_len": 2623,
+      "record_count": 114,
+      "records_sample": [
+        {
+          "prefix_u16": 9,
+          "tag": "0xf8",
+          "tag_name": "glyph_run_f8",
+          "length": 8,
+          "payload_len": 5,
+          "payload_head_hex": "0821452402",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 24,
+          "payload_len": 21,
+          "payload_head_hex": "03223f54050400f806231656050500fa06240e3c07",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 4,
+              "tag": "0xf8"
+            },
+            {
+              "off": 13,
+              "u16": 5,
+              "tag": "0xfa"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf8": 1,
+            "0xfa": 1
+          }
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 7,
+          "payload_len": 4,
+          "payload_head_hex": "08252b00",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 0,
+          "tag": "0x0",
+          "tag_name": null,
+          "length": 1,
+          "payload_len": 0,
+          "payload_head_hex": "",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 8,
+          "payload_len": 5,
+          "payload_head_hex": "0726151b07",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 16,
+          "payload_len": 13,
+          "payload_head_hex": "08274748020400f80328315104",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 4,
+              "tag": "0xf8"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf8": 1
+          }
+        }
+      ],
+      "tag_stats": {
+        "glyph_run_f8": 8,
+        "glyph_run_f9": 62
+      }
+    },
+    {
+      "file": "virtue_narrow_bold.crf",
+      "section1_len": 2831,
+      "record_count": 123,
+      "records_sample": [
+        {
+          "prefix_u16": 9,
+          "tag": "0xf8",
+          "tag_name": "glyph_run_f8",
+          "length": 8,
+          "payload_len": 5,
+          "payload_head_hex": "0721375402",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 23,
+          "payload_len": 20,
+          "payload_head_hex": "03223764050300f906234908050500fb06242014",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 3,
+              "tag": "0xf9"
+            },
+            {
+              "off": 13,
+              "u16": 5,
+              "tag": "0xfb"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf9": 1,
+            "0xfb": 1
+          }
+        },
+        {
+          "prefix_u16": 0,
+          "tag": "0x0",
+          "tag_name": null,
+          "length": 1,
+          "payload_len": 0,
+          "payload_head_hex": "",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 7,
+          "tag": "0xf9",
+          "tag_name": "glyph_run_f9",
+          "length": 32,
+          "payload_len": 29,
+          "payload_head_hex": "06254308050600fa0626201c060600fa07273c39020300f903281b0004",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 6,
+              "tag": "0xfa"
+            },
+            {
+              "off": 13,
+              "u16": 6,
+              "tag": "0xfa"
+            },
+            {
+              "off": 21,
+              "u16": 3,
+              "tag": "0xf9"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xfa": 2,
+            "0xf9": 1
+          }
+        },
+        {
+          "prefix_u16": 9,
+          "tag": "0xf8",
+          "tag_name": "glyph_run_f8",
+          "length": 8,
+          "payload_len": 5,
+          "payload_head_hex": "05291b0a04",
+          "embedded_subtags": [],
+          "embedded_tag_counts": {}
+        },
+        {
+          "prefix_u16": 9,
+          "tag": "0xf8",
+          "tag_name": "glyph_run_f8",
+          "length": 55,
+          "payload_len": 52,
+          "payload_head_hex": "052a4e00050500f9062b287a050500fa062c3c35030300fe042d1d32040100fc",
+          "embedded_subtags": [
+            {
+              "off": 5,
+              "u16": 5,
+              "tag": "0xf9"
+            },
+            {
+              "off": 13,
+              "u16": 5,
+              "tag": "0xfa"
+            },
+            {
+              "off": 21,
+              "u16": 3,
+              "tag": "0xfe"
+            },
+            {
+              "off": 29,
+              "u16": 1,
+              "tag": "0xfc"
+            },
+            {
+              "off": 37,
+              "u16": 2,
+              "tag": "0xfe"
+            },
+            {
+              "off": 45,
+              "u16": 8,
+              "tag": "0xf9"
+            }
+          ],
+          "embedded_tag_counts": {
+            "0xf9": 2,
+            "0xfa": 1,
+            "0xfe": 2,
+            "0xfc": 1
+          }
+        }
+      ],
+      "tag_stats": {
+        "glyph_run_f8": 8,
+        "glyph_run_f9": 67
+      }
+    }
+  ]
+}

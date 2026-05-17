@@ -1,0 +1,346 @@
+{
+  "ok": true,
+  "font_loads": [
+    {
+      "path": "habit_mono.crf",
+      "r8": 608,
+      "ctx": "0x152fb73e160",
+      "bt": [
+        "Horsey.exe+9746C",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "quip.crf",
+      "r8": 609,
+      "ctx": "0x152fb74f980",
+      "bt": [
+        "Horsey.exe+97504",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "capy_bold.crf",
+      "r8": 610,
+      "ctx": "0x152fb7611a0",
+      "bt": [
+        "Horsey.exe+975BB",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "habit_narrow_bold.crf",
+      "r8": 611,
+      "ctx": "0x152fb7729c0",
+      "bt": [
+        "Horsey.exe+9769D",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "virtue_narrow_bold.crf",
+      "r8": 612,
+      "ctx": "0x152fb7841e0",
+      "bt": [
+        "Horsey.exe+97781",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "snuggle.crf",
+      "r8": 613,
+      "ctx": "0x152fb795a00",
+      "bt": [
+        "Horsey.exe+9783E",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    }
+  ],
+  "stream_reads": [
+    {
+      "path": "E:\\games\\HorseSDK\\Game\\data\\genes.dat",
+      "bt": [
+        "Horsey.exe+9E510",
+        "Horsey.exe+97135",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "E:\\games\\HorseSDK\\Game\\data\\habit_mono.crf",
+      "bt": [
+        "Horsey.exe+7FA50",
+        "Horsey.exe+9746C",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "E:\\games\\HorseSDK\\Game\\data\\quip.crf",
+      "bt": [
+        "Horsey.exe+7FA50",
+        "Horsey.exe+97504",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "E:\\games\\HorseSDK\\Game\\data\\capy_bold.crf",
+      "bt": [
+        "Horsey.exe+7FA50",
+        "Horsey.exe+975BB",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "E:\\games\\HorseSDK\\Game\\data\\habit_narrow_bold.crf",
+      "bt": [
+        "Horsey.exe+7FA50",
+        "Horsey.exe+9769D",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "E:\\games\\HorseSDK\\Game\\data\\virtue_narrow_bold.crf",
+      "bt": [
+        "Horsey.exe+7FA50",
+        "Horsey.exe+97781",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    },
+    {
+      "path": "E:\\games\\HorseSDK\\Game\\data\\snuggle.crf",
+      "bt": [
+        "Horsey.exe+7FA50",
+        "Horsey.exe+9783E",
+        "Horsey.exe+BE7C6",
+        "Horsey.exe+21EE12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "type": "stream_read",
+      "row": {
+        "path": "E:\\games\\HorseSDK\\Game\\data\\genes.dat",
+        "bt": [
+          "Horsey.exe+9E510",
+          "Horsey.exe+97135",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "font_load",
+      "row": {
+        "path": "habit_mono.crf",
+        "r8": 608,
+        "ctx": "0x152fb73e160",
+        "bt": [
+          "Horsey.exe+9746C",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "stream_read",
+      "row": {
+        "path": "E:\\games\\HorseSDK\\Game\\data\\habit_mono.crf",
+        "bt": [
+          "Horsey.exe+7FA50",
+          "Horsey.exe+9746C",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "font_load",
+      "row": {
+        "path": "quip.crf",
+        "r8": 609,
+        "ctx": "0x152fb74f980",
+        "bt": [
+          "Horsey.exe+97504",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "stream_read",
+      "row": {
+        "path": "E:\\games\\HorseSDK\\Game\\data\\quip.crf",
+        "bt": [
+          "Horsey.exe+7FA50",
+          "Horsey.exe+97504",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "font_load",
+      "row": {
+        "path": "capy_bold.crf",
+        "r8": 610,
+        "ctx": "0x152fb7611a0",
+        "bt": [
+          "Horsey.exe+975BB",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "stream_read",
+      "row": {
+        "path": "E:\\games\\HorseSDK\\Game\\data\\capy_bold.crf",
+        "bt": [
+          "Horsey.exe+7FA50",
+          "Horsey.exe+975BB",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "font_load",
+      "row": {
+        "path": "habit_narrow_bold.crf",
+        "r8": 611,
+        "ctx": "0x152fb7729c0",
+        "bt": [
+          "Horsey.exe+9769D",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "stream_read",
+      "row": {
+        "path": "E:\\games\\HorseSDK\\Game\\data\\habit_narrow_bold.crf",
+        "bt": [
+          "Horsey.exe+7FA50",
+          "Horsey.exe+9769D",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "font_load",
+      "row": {
+        "path": "virtue_narrow_bold.crf",
+        "r8": 612,
+        "ctx": "0x152fb7841e0",
+        "bt": [
+          "Horsey.exe+97781",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "stream_read",
+      "row": {
+        "path": "E:\\games\\HorseSDK\\Game\\data\\virtue_narrow_bold.crf",
+        "bt": [
+          "Horsey.exe+7FA50",
+          "Horsey.exe+97781",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "font_load",
+      "row": {
+        "path": "snuggle.crf",
+        "r8": 613,
+        "ctx": "0x152fb795a00",
+        "bt": [
+          "Horsey.exe+9783E",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    },
+    {
+      "type": "stream_read",
+      "row": {
+        "path": "E:\\games\\HorseSDK\\Game\\data\\snuggle.crf",
+        "bt": [
+          "Horsey.exe+7FA50",
+          "Horsey.exe+9783E",
+          "Horsey.exe+BE7C6",
+          "Horsey.exe+21EE12",
+          "0x7ffa1ac9e957",
+          "0x7ffa1bca427c"
+        ]
+      }
+    }
+  ]
+}

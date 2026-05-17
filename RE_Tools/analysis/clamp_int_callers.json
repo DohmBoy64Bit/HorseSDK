@@ -1,0 +1,554 @@
+{
+  "correction": "0xC12D0 is NOT a sim step; rename to ClampInt3",
+  "signature": "int ClampInt3(int val, int lo, int hi)",
+  "cluster_rvas": {
+    "ClampInt3": "0xC12D0",
+    "MinSS": "0xC12F0",
+    "FloatLerpClamp": "0xC1310"
+  },
+  "entry_disasm": [
+    "0xc12d0: cmp ecx, edx",
+    "0xc12d2: jge 0x1400c12d7",
+    "0xc12d4: mov eax, edx",
+    "0xc12d6: ret ",
+    "0xc12d7: cmp ecx, r8d",
+    "0xc12da: cmovg ecx, r8d",
+    "0xc12de: mov eax, ecx",
+    "0xc12e0: ret ",
+    "0xc12e1: int3 ",
+    "0xc12e2: int3 ",
+    "0xc12e3: int3 ",
+    "0xc12e4: int3 "
+  ],
+  "caller_count": 24,
+  "known_sites": [
+    {
+      "site": "0xBE607",
+      "ecx": "r10d (computed width)",
+      "edx": "0x140 (320)",
+      "r8d": "r12d (max width cap)",
+      "stores": "dword @ rip+0x232EB8"
+    },
+    {
+      "site": "0xBE620",
+      "ecx": "global dword",
+      "edx": "0xB4 (180)",
+      "r8d": "r15d (max height cap)",
+      "stores": "dword @ rip+0x232EA0"
+    },
+    {
+      "site": "0x714A3",
+      "ecx": "settings dword",
+      "edx": "0",
+      "r8d": "0xC8 (200)",
+      "context": "SettingsLoader init \u2014 caps UI dimension"
+    },
+    {
+      "site": "0x714D2",
+      "ecx": "settings dword",
+      "edx": "0",
+      "r8d": "0x64 (100)",
+      "context": "SettingsLoader init"
+    }
+  ],
+  "all_sites": [
+    {
+      "call_rva": "0x35d59",
+      "label": "",
+      "disasm_tail": [
+        "0x35d29: or eax, 0x2dd80a",
+        "0x35d2e: call 0x140080d10",
+        "0x35d33: call 0x1400caba0",
+        "0x35d38: cmp dword ptr [rdi + 0x250], 3",
+        "0x35d3f: jne 0x140035d67",
+        "0x35d41: mov eax, dword ptr [rdi + 0x254]",
+        "0x35d47: sub eax, 0x5a",
+        "0x35d4a: cdq ",
+        "0x35d4b: sub eax, edx",
+        "0x35d4d: sar eax, 1",
+        "0x35d4f: mov ecx, eax",
+        "0x35d51: xor edx, edx",
+        "0x35d53: mov r8d, 0x58",
+        "0x35d59: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0x58"
+      ]
+    },
+    {
+      "call_rva": "0x35fca",
+      "label": "",
+      "disasm_tail": [
+        "0x35f9f: call 0x1400c1a40",
+        "0x35fa5: movzx eax, al",
+        "0x35fa8: add eax, eax",
+        "0x35faa: dec eax",
+        "0x35fac: add dword ptr [rbx + rsi], eax",
+        "0x35faf: call 0x1400c1a40",
+        "0x35fb4: movzx eax, al",
+        "0x35fb7: add eax, eax",
+        "0x35fb9: dec eax",
+        "0x35fbb: add dword ptr [rbx + rsi + 4], eax",
+        "0x35fbf: xor edx, edx",
+        "0x35fc1: mov r8d, 0x23",
+        "0x35fc7: mov ecx, dword ptr [rbx + rsi]",
+        "0x35fca: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0x23"
+      ]
+    },
+    {
+      "call_rva": "0x35fe4",
+      "label": "",
+      "disasm_tail": [
+        "0x35fb4: movzx eax, al",
+        "0x35fb7: add eax, eax",
+        "0x35fb9: dec eax",
+        "0x35fbb: add dword ptr [rbx + rsi + 4], eax",
+        "0x35fbf: xor edx, edx",
+        "0x35fc1: mov r8d, 0x23",
+        "0x35fc7: mov ecx, dword ptr [rbx + rsi]",
+        "0x35fca: call 0x1400c12d0",
+        "0x35fcf: mov dword ptr [rbx + rsi], eax",
+        "0x35fd2: mov edx, 0x1e",
+        "0x35fd7: sub edx, r12d",
+        "0x35fda: mov r8d, 0x1e",
+        "0x35fe0: mov ecx, dword ptr [rbx + rsi + 4]",
+        "0x35fe4: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0x23",
+        "edx, 0x1e",
+        "r8d, 0x1e"
+      ]
+    },
+    {
+      "call_rva": "0x714a3",
+      "label": "Settings_Clamp200",
+      "disasm_tail": [
+        "0x71473: mov cs, word ptr [rdx]",
+        "0x71475: add byte ptr [rax], al",
+        "0x71477: mov rsi, qword ptr [rbp - 0x28]",
+        "0x7147b: mov rbx, qword ptr [rbp - 0x40]",
+        "0x7147f: lea r8, [rip + 0x28003e]",
+        "0x71486: lea rdx, [rip + 0x1f0feb]",
+        "0x7148d: mov rcx, rdi",
+        "0x71490: call 0x140025750",
+        "0x71495: xor edx, edx",
+        "0x71497: mov r8d, 0xc8",
+        "0x7149d: mov ecx, dword ptr [rip + 0x280021]",
+        "0x714a3: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0xc8"
+      ]
+    },
+    {
+      "call_rva": "0x714d2",
+      "label": "Settings_Clamp100",
+      "disasm_tail": [
+        "0x714a2: add al, ch",
+        "0x714a4: sub dh, bh",
+        "0x714a6: add al, 0",
+        "0x714a8: mov dword ptr [rip + 0x280016], eax",
+        "0x714ae: lea r8, [rip + 0x280013]",
+        "0x714b5: lea rdx, [rip + 0x1ec0b0]",
+        "0x714bc: mov rcx, rdi",
+        "0x714bf: call 0x140025750",
+        "0x714c4: xor edx, edx",
+        "0x714c6: mov r8d, 0x64",
+        "0x714cc: mov ecx, dword ptr [rip + 0x27fff6]",
+        "0x714d2: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0x64"
+      ]
+    },
+    {
+      "call_rva": "0x86913",
+      "label": "",
+      "disasm_tail": [
+        "0x868e3: sbb eax, 0xfd96e800",
+        "0x868e8: add eax, dword ptr [rax]",
+        "0x868ea: mov eax, dword ptr [rsi + 0x250]",
+        "0x868f0: cmp eax, 5",
+        "0x868f3: jne 0x14008693e",
+        "0x868f5: mov edx, dword ptr [rsi + 0x254]",
+        "0x868fb: mov eax, 0x38",
+        "0x86900: sub eax, edx",
+        "0x86902: lea ecx, [rdx - 0x3c]",
+        "0x86905: cmp edx, 0x3c",
+        "0x86908: cmovle ecx, eax",
+        "0x8690b: xor edx, edx",
+        "0x8690d: mov r8d, 0x37",
+        "0x86913: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "eax, 0x38",
+        "r8d, 0x37"
+      ]
+    },
+    {
+      "call_rva": "0x8a603",
+      "label": "",
+      "disasm_tail": [
+        "0x8a5d5: xchg edi, eax",
+        "0x8a5d6: fyl2xp1 ",
+        "0x8a5d8: dec dword ptr [rax - 0x75]",
+        "0x8a5db: or eax, 0x28e230",
+        "0x8a5e0: test rcx, rcx",
+        "0x8a5e3: je 0x14008a5ea",
+        "0x8a5e5: call 0x1400cef30",
+        "0x8a5ea: cmp qword ptr [rdi + 0x3a8], rsi",
+        "0x8a5f1: jne 0x14008a636",
+        "0x8a5f3: mov ecx, dword ptr [rdi + 0x268]",
+        "0x8a5f9: dec ecx",
+        "0x8a5fb: xor edx, edx",
+        "0x8a5fd: mov r8d, 2",
+        "0x8a603: call 0x1400c12d0"
+      ],
+      "mov_immediates": []
+    },
+    {
+      "call_rva": "0x8c60a",
+      "label": "",
+      "disasm_tail": [
+        "0x8c5da: jne 0x14008c6e8",
+        "0x8c5e0: cmp byte ptr [r12 + 0x259], bl",
+        "0x8c5e8: jne 0x14008c6e8",
+        "0x8c5ee: cmp byte ptr [r12 + 0x270], bl",
+        "0x8c5f6: je 0x14008c642",
+        "0x8c5f8: mov ecx, dword ptr [r12 + 0x268]",
+        "0x8c600: dec ecx",
+        "0x8c602: xor edx, edx",
+        "0x8c604: mov r8d, 2",
+        "0x8c60a: call 0x1400c12d0"
+      ],
+      "mov_immediates": []
+    },
+    {
+      "call_rva": "0x8cb30",
+      "label": "",
+      "disasm_tail": [
+        "0x8cb0d: sar r9d, 2",
+        "0x8cb11: mov eax, r14d",
+        "0x8cb14: mov r8d, 0x2710",
+        "0x8cb1a: cdq ",
+        "0x8cb1b: sub eax, edx",
+        "0x8cb1d: sar eax, 1",
+        "0x8cb1f: mov ecx, eax",
+        "0x8cb21: mov eax, r9d",
+        "0x8cb24: cdq ",
+        "0x8cb25: sub eax, edx",
+        "0x8cb27: mov edx, 0xa",
+        "0x8cb2c: sar eax, 1",
+        "0x8cb2e: add ecx, eax",
+        "0x8cb30: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0x2710",
+        "edx, 0xa"
+      ]
+    },
+    {
+      "call_rva": "0x8cb5b",
+      "label": "",
+      "disasm_tail": [
+        "0x8cb2b: add cl, dl",
+        "0x8cb2d: clc ",
+        "0x8cb2e: add ecx, eax",
+        "0x8cb30: call 0x1400c12d0",
+        "0x8cb35: mov rcx, qword ptr [rsi + rbx]",
+        "0x8cb39: mov dword ptr [rcx + 0x220], eax",
+        "0x8cb3f: mov rbx, qword ptr [rdi + 0x130]",
+        "0x8cb46: mov edx, 5",
+        "0x8cb4b: mov r8d, 0x3e8",
+        "0x8cb51: mov rcx, qword ptr [rsi + rbx]",
+        "0x8cb55: mov ecx, dword ptr [rcx + 0x220]",
+        "0x8cb5b: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0x3e8"
+      ]
+    },
+    {
+      "call_rva": "0xa6875",
+      "label": "",
+      "disasm_tail": [],
+      "mov_immediates": []
+    },
+    {
+      "call_rva": "0xbcbe1",
+      "label": "",
+      "disasm_tail": [
+        "0xbcbb1: sub al, 0xc0",
+        "0xbcbb3: mov dword ptr [rbp + 0x170], eax",
+        "0xbcbb9: movsxd rax, dword ptr [r13 + 0x250]",
+        "0xbcbc0: imul r9, rax, 0x406",
+        "0xbcbc7: add r9, rcx",
+        "0xbcbca: add r9, r10",
+        "0xbcbcd: xor edx, edx",
+        "0xbcbcf: mov r8d, 0x14",
+        "0xbcbd5: mov rcx, qword ptr [rip + 0x25bae4]",
+        "0xbcbdc: mov ecx, dword ptr [rcx + r9*4 + 0x28]",
+        "0xbcbe1: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0x14"
+      ]
+    },
+    {
+      "call_rva": "0xbe607",
+      "label": "Loop_ClampW320",
+      "disasm_tail": [
+        "0xbe5d7: cli ",
+        "0xbe5d8: add cl, byte ptr [rbx + 0x1fe8c1c2]",
+        "0xbe5de: add edx, eax",
+        "0xbe5e0: cmp r8d, edx",
+        "0xbe5e3: jle 0x1400be5fc",
+        "0xbe5e5: sub r8d, 0xb4",
+        "0xbe5ec: sub r9d, 0x140",
+        "0xbe5f3: cmp r8d, 0xb4",
+        "0xbe5fa: jge 0x1400be5b1",
+        "0xbe5fc: mov r8d, r12d",
+        "0xbe5ff: mov edx, 0x140",
+        "0xbe604: mov ecx, r10d",
+        "0xbe607: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "edx, 0x140"
+      ]
+    },
+    {
+      "call_rva": "0xbe620",
+      "label": "Loop_ClampH180",
+      "disasm_tail": [
+        "0xbe5f2: add byte ptr [rcx - 0x7f], al",
+        "0xbe5f5: clc ",
+        "0xbe5f6: mov ah, 0",
+        "0xbe5f8: add byte ptr [rax], al",
+        "0xbe5fa: jge 0x1400be5b1",
+        "0xbe5fc: mov r8d, r12d",
+        "0xbe5ff: mov edx, 0x140",
+        "0xbe604: mov ecx, r10d",
+        "0xbe607: call 0x1400c12d0",
+        "0xbe60c: mov ecx, dword ptr [rip + 0x232eca]",
+        "0xbe612: mov r8d, r15d",
+        "0xbe615: mov edx, 0xb4",
+        "0xbe61a: mov dword ptr [rip + 0x232eb8], eax",
+        "0xbe620: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "edx, 0x140",
+        "edx, 0xb4"
+      ]
+    },
+    {
+      "call_rva": "0xbe69c",
+      "label": "",
+      "disasm_tail": [
+        "0xbe67b: sub eax, edx",
+        "0xbe67d: sar eax, 1",
+        "0xbe67f: mov ecx, eax",
+        "0xbe681: mov eax, r15d",
+        "0xbe684: cdq ",
+        "0xbe685: sub eax, edx",
+        "0xbe687: sar eax, 1",
+        "0xbe689: sub eax, ecx",
+        "0xbe68b: mov dword ptr [rip + 0x232e43], eax",
+        "0xbe691: mov r8d, r12d",
+        "0xbe694: xor edx, edx",
+        "0xbe696: sub r8d, r10d",
+        "0xbe699: mov ecx, r9d",
+        "0xbe69c: call 0x1400c12d0"
+      ],
+      "mov_immediates": []
+    },
+    {
+      "call_rva": "0xbe6b9",
+      "label": "",
+      "disasm_tail": [
+        "0xbe689: sub eax, ecx",
+        "0xbe68b: mov dword ptr [rip + 0x232e43], eax",
+        "0xbe691: mov r8d, r12d",
+        "0xbe694: xor edx, edx",
+        "0xbe696: sub r8d, r10d",
+        "0xbe699: mov ecx, r9d",
+        "0xbe69c: call 0x1400c12d0",
+        "0xbe6a1: mov ecx, dword ptr [rip + 0x232e2d]",
+        "0xbe6a7: mov r8d, r15d",
+        "0xbe6aa: sub r8d, dword ptr [rip + 0x232e2b]",
+        "0xbe6b1: xor edx, edx",
+        "0xbe6b3: mov dword ptr [rip + 0x232e17], eax",
+        "0xbe6b9: call 0x1400c12d0"
+      ],
+      "mov_immediates": []
+    },
+    {
+      "call_rva": "0xbec53",
+      "label": "Loop_ClampPostSwapA",
+      "disasm_tail": [
+        "0xbec23: ret 0xf8d1",
+        "0xbec26: mov r8d, eax",
+        "0xbec29: mov eax, dword ptr [rip + 0x2328ad]",
+        "0xbec2f: cdq ",
+        "0xbec30: sub eax, edx",
+        "0xbec32: mov edx, dword ptr [rsp + 0x68]",
+        "0xbec36: sar eax, 1",
+        "0xbec38: sub eax, r8d",
+        "0xbec3b: mov r8d, r12d",
+        "0xbec3e: add dword ptr [rip + 0x232890], eax",
+        "0xbec44: sub r8d, edx",
+        "0xbec47: sub r8d, dword ptr [rip + 0x259e0a]",
+        "0xbec4e: sub r8d, dword ptr [rsp + 0x70]",
+        "0xbec53: call 0x1400c12d0"
+      ],
+      "mov_immediates": []
+    },
+    {
+      "call_rva": "0xbec79",
+      "label": "Loop_ClampPostSwapB",
+      "disasm_tail": [
+        "0xbec49: add eax, 0x259e0a",
+        "0xbec4e: sub r8d, dword ptr [rsp + 0x70]",
+        "0xbec53: call 0x1400c12d0",
+        "0xbec58: mov edx, dword ptr [rsp + 0x78]",
+        "0xbec5c: mov r8d, r15d",
+        "0xbec5f: mov ecx, dword ptr [rip + 0x23286f]",
+        "0xbec65: sub r8d, edx",
+        "0xbec68: sub r8d, dword ptr [rip + 0x259ded]",
+        "0xbec6f: sub r8d, dword ptr [rbp - 0x80]",
+        "0xbec73: mov dword ptr [rip + 0x232857], eax",
+        "0xbec79: call 0x1400c12d0"
+      ],
+      "mov_immediates": []
+    },
+    {
+      "call_rva": "0xe2c35",
+      "label": "",
+      "disasm_tail": [
+        "0xe2c0a: test esp, edi",
+        "0xe2c0c: add dword ptr [rax], eax",
+        "0xe2c0e: add byte ptr [rbp + 0x38450150], cl",
+        "0xe2c14: mov ch, 6",
+        "0xe2c16: add al, byte ptr [rax]",
+        "0xe2c18: add byte ptr [rdi], cl",
+        "0xe2c1a: ror byte ptr [rcx - 0x74be48ab], 1",
+        "0xe2c21: test dword ptr [rax], eax",
+        "0xe2c23: add al, byte ptr [rax]",
+        "0xe2c25: add byte ptr [rcx - 0x37744cbb], cl",
+        "0xe2c2b: sub ecx, edx",
+        "0xe2c2d: xor edx, edx",
+        "0xe2c2f: mov r8d, 0xb",
+        "0xe2c35: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0xb"
+      ]
+    },
+    {
+      "call_rva": "0x104cbe",
+      "label": "",
+      "disasm_tail": [
+        "0x104c8e: imul esi, dword ptr [rbp + 0x66], 0x4788166",
+        "0x104c95: jne 0x140104cf7",
+        "0x104c99: mov eax, dword ptr [rbp + 0x3c0]",
+        "0x104c9f: mov rcx, qword ptr [rbp + 0xa8]",
+        "0x104ca6: imul eax, dword ptr [rcx]",
+        "0x104ca9: add eax, dword ptr [rbp + 0x3c8]",
+        "0x104caf: mov dword ptr [rbp - 0x20], eax",
+        "0x104cb2: xor edx, edx",
+        "0x104cb4: mov r8d, 0x31",
+        "0x104cba: mov ecx, dword ptr [rsp + 0x48]",
+        "0x104cbe: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0x31"
+      ]
+    },
+    {
+      "call_rva": "0x104d43",
+      "label": "",
+      "disasm_tail": [
+        "0x104d16: add cl, al",
+        "0x104d18: loopne 0x140104d1f",
+        "0x104d1a: add eax, 0x10",
+        "0x104d1d: movd xmm7, eax",
+        "0x104d21: cvtdq2ps xmm7, xmm7",
+        "0x104d24: mov eax, dword ptr [rbp + 0x3c8]",
+        "0x104d2a: shl eax, 5",
+        "0x104d2d: add eax, 0x10",
+        "0x104d30: movd xmm6, eax",
+        "0x104d34: cvtdq2ps xmm6, xmm6",
+        "0x104d37: xor edx, edx",
+        "0x104d39: mov r8d, 0x31",
+        "0x104d3f: mov ecx, dword ptr [rsp + 0x48]",
+        "0x104d43: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0x31"
+      ]
+    },
+    {
+      "call_rva": "0x106d27",
+      "label": "",
+      "disasm_tail": [
+        "0x106cf8: and al, 0x18",
+        "0x106cfa: mov qword ptr [rsp + 0x20], rsi",
+        "0x106cff: mov qword ptr [rsp + 0x10], rdx",
+        "0x106d04: push rdi",
+        "0x106d05: sub rsp, 0x20",
+        "0x106d09: mov eax, r8d",
+        "0x106d0c: mov rbp, rdx",
+        "0x106d0f: mov r8d, dword ptr [rcx + 0x278]",
+        "0x106d16: mov rdi, rcx",
+        "0x106d19: sub r8d, 2",
+        "0x106d1d: mov edx, 1",
+        "0x106d22: mov ecx, eax",
+        "0x106d24: mov ebx, r9d",
+        "0x106d27: call 0x1400c12d0"
+      ],
+      "mov_immediates": []
+    },
+    {
+      "call_rva": "0x106d40",
+      "label": "",
+      "disasm_tail": [
+        "0x106d10: mov eax, dword ptr [rcx + 0x278]",
+        "0x106d16: mov rdi, rcx",
+        "0x106d19: sub r8d, 2",
+        "0x106d1d: mov edx, 1",
+        "0x106d22: mov ecx, eax",
+        "0x106d24: mov ebx, r9d",
+        "0x106d27: call 0x1400c12d0",
+        "0x106d2c: mov r8d, dword ptr [rdi + 0x27c]",
+        "0x106d33: mov edx, 1",
+        "0x106d38: sub r8d, 2",
+        "0x106d3c: mov ecx, ebx",
+        "0x106d3e: mov esi, eax",
+        "0x106d40: call 0x1400c12d0"
+      ],
+      "mov_immediates": []
+    },
+    {
+      "call_rva": "0x112e25",
+      "label": "",
+      "disasm_tail": [
+        "0x112df5: movabs al, byte ptr [0x260b980000000]",
+        "0x112dfe: add byte ptr [rax], al",
+        "0x112e00: mov rbx, rcx",
+        "0x112e03: mov qword ptr [rsp + 0x50], rdx",
+        "0x112e08: je 0x140112f36",
+        "0x112e0e: mulss xmm2, dword ptr [rip + 0x148536]",
+        "0x112e16: mov edx, 3",
+        "0x112e1b: mov r8d, 0xa",
+        "0x112e21: cvttss2si ecx, xmm2",
+        "0x112e25: call 0x1400c12d0"
+      ],
+      "mov_immediates": [
+        "r8d, 0xa"
+      ]
+    }
+  ]
+}

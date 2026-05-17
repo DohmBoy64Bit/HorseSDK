@@ -2,6 +2,9 @@
 
 **Capstone** on `Game/Horsey.exe` — complements [CrfOpcodeSemantics.md](CrfOpcodeSemantics.md).
 
+**Read path:** fonts load via **`0x7F8A0`** + **`0x6FB90`** (`fopen`), not `0x6F3C0` — see [FontLoad.md](FontLoad.md).  
+`0x6F3C0` here is the **write/append** stream used when **building** paths and saving.
+
 **Artifact:** `RE_Tools\analysis\phase1_crf_vm.json`
 
 ## Regions
