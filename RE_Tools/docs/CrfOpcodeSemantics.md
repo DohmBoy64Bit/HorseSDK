@@ -28,7 +28,10 @@ Container: [DataFileFormats.md](DataFileFormats.md) / `crf_font.py`.
 
 `.crf` files are read via **`Font_LoadOrInit` @ `0x7F8A0`** using the **same binary stream layer** as saves
 (`ReadU8` @ `0x705D0`, `ReadU32` @ `0x70320`, `ReadF32` @ `0x70670` — [SaveGhidraCrossref.md](SaveGhidraCrossref.md)).
-Section-1 **glyph records are not interpreted in a second pass** at load time in the traced path;
-the game loads the file into a ~`0x11810`-byte heap object and consumes the **16-byte header** via stream readers @ `0x7FA90`–`0x7FC44`.
+Section-1 **8-byte payloads** are parsed into **`0x118`-byte runtime glyphs** @ `0x7FC90` inside `Font_LoadOrInit` (not a separate VM).
 
-See [FontLoad.md](FontLoad.md) for path build + Frida hooks.
+| On-disk tag | Loader |
+|-------------|--------|
+| `0xF8` / `0xF9` record envelope | Stream length; **8-byte body** → glyph struct |
+
+Full field map: [CrfGlyphParse.md](CrfGlyphParse.md). Draw: [FontDraw.md](FontDraw.md) @ `0x80D10`.

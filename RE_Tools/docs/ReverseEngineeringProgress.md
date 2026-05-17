@@ -132,7 +132,7 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 
 - **`0xC12D0` renamed `ClampInt3`:** `int clamp(ecx, edx, r8d)` — Frida `rcx=0x64` was **`r8d=100`** cap @ `SettingsLoader` `0x714D2`.
 - **Font load:** `Font_LoadOrInit` @ **`0x7F8A0`**; `fopen` @ **`0x6FB90`** — Frida logs all 6 `.crf` (caller `0x97467`…`0x97839`, bootstrap `0xBE7C6`).
-- **`.crf` opcodes:** record = `u16` + `F8`/`F9` + payload; nested `FA`–`FF` inside `F9` — `crf_record_decode.json`; header parsed via save stream readers @ `0x7FA90`.
+- **`.crf` opcodes:** record = `u16` + `F8`/`F9` + payload; **8-byte body → glyph @ `0x7FC90`** — [CrfGlyphParse.md](CrfGlyphParse.md); draw @ `0x80D10` — [FontDraw.md](FontDraw.md).
 
 ## [KNOWLEDGE UPDATE] 2026-05-15 (Phase 1 close — items 1–5)
 

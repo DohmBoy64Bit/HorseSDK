@@ -1,0 +1,94 @@
+{
+  "function": "Font_LoadOrInit (CRF parse tail)",
+  "parent_rva": "0x7F8A0",
+  "parse_region": "0x7FAB0-0x7FE00",
+  "glyph_stride": "0x118",
+  "glyph_heap_reserve": "0x11800",
+  "loops": [
+    {
+      "rva": "0x7FBB0",
+      "name": "CrfParse_Section2_EightByte",
+      "step_bytes": 8,
+      "count": "(section2_end - section2_buf) / 8",
+      "reads": "8x ReadU8 @ 0x705D0 per entry (offsets 0..7)"
+    },
+    {
+      "rva": "0x7FC31",
+      "name": "CrfParse_Section1_ThreeByte",
+      "step_bytes": 3,
+      "count": "(s1_end - s1_buf) / 3 (rounded)",
+      "reads": "ReadU8 + ReadU8 + ReadU16 @ 0x70450"
+    },
+    {
+      "rva": "0x7FC90",
+      "name": "CrfParse_GlyphEightByte",
+      "step_bytes": 8,
+      "maps_to": "font_object + glyph_index * 0x118",
+      "field_map": {
+        "byte0": "glyph_index \u2192 imul index, 0x118",
+        "byte1": "\u00f7 line_height \u2192 float @ glyph+0x10",
+        "byte2": "\u00f7 field \u2192 float @ glyph+0x18",
+        "byte1+byte3": "sum \u00f7 line_height \u2192 float @ glyph+0x14",
+        "byte2+byte4": "sum \u00f7 field \u2192 float @ glyph+0x1c",
+        "byte3": "stored @ glyph+0x24",
+        "byte4": "stored @ glyph+0x25",
+        "byte5": "stored @ glyph+0x26",
+        "byte6": "stored @ glyph+0x27",
+        "byte7": "+ header_byte \u2192 dword @ glyph+0x20 (advance)"
+      }
+    },
+    {
+      "rva": "0x7FD60",
+      "name": "CrfParse_KernThreeByte",
+      "step_bytes": 3,
+      "writes": "byte @ glyph+0x28 for glyph index"
+    }
+  ],
+  "font_draw": {
+    "rva": "0x80d10",
+    "name": "Font_DrawString",
+    "callers": 102,
+    "notes": "Walks UTF-8/byte string; lookup @ rip+0x262e50; width table @ rip+0x310620; dl==0x20 space"
+  },
+  "file_record_envelope": {
+    "on_disk": "u16 prefix (7|9) + tag F8/F9 + payload (see crf_record_decode.json)",
+    "in_exe": "stream reader consumes bytes; 8-byte payload \u2192 glyph struct (markers not compared as immediates)"
+  },
+  "disasm_sample": [
+    "0x7fc84: lea r8, [rdi + 2]",
+    "0x7fc88: nop dword ptr [rax + rax]",
+    "0x7fc90: movzx eax, byte ptr [r8 - 2]",
+    "0x7fc95: imul rdx, rax, 0x118",
+    "0x7fc9c: movzx eax, byte ptr [r8 - 1]",
+    "0x7fca1: movd xmm0, eax",
+    "0x7fca5: cvtdq2ps xmm0, xmm0",
+    "0x7fca8: divss xmm0, xmm6",
+    "0x7fcac: movss dword ptr [rdx + r14 + 0x10], xmm0",
+    "0x7fcb3: movzx eax, byte ptr [r8]",
+    "0x7fcb7: movd xmm1, eax",
+    "0x7fcbb: cvtdq2ps xmm1, xmm1",
+    "0x7fcbe: divss xmm1, xmm7",
+    "0x7fcc2: movss dword ptr [rdx + r14 + 0x18], xmm1",
+    "0x7fcc9: movzx ecx, byte ptr [r8 - 1]",
+    "0x7fcce: movzx eax, byte ptr [r8 + 1]",
+    "0x7fcd3: add ecx, eax",
+    "0x7fcd5: movd xmm0, ecx",
+    "0x7fcd9: cvtdq2ps xmm0, xmm0",
+    "0x7fcdc: divss xmm0, xmm6",
+    "0x7fce0: movss dword ptr [rdx + r14 + 0x14], xmm0",
+    "0x7fce7: movzx ecx, byte ptr [r8]",
+    "0x7fceb: movzx eax, byte ptr [r8 + 2]",
+    "0x7fcf0: add ecx, eax",
+    "0x7fcf2: movd xmm0, ecx",
+    "0x7fcf6: cvtdq2ps xmm0, xmm0",
+    "0x7fcf9: divss xmm0, xmm7",
+    "0x7fcfd: movss dword ptr [rdx + r14 + 0x1c], xmm0",
+    "0x7fd04: movzx eax, byte ptr [r8 + 1]",
+    "0x7fd09: mov byte ptr [rdx + r14 + 0x24], al",
+    "0x7fd0e: movzx eax, byte ptr [r8 + 2]",
+    "0x7fd13: mov byte ptr [rdx + r14 + 0x25], al",
+    "0x7fd18: movzx eax, byte ptr [r8 + 3]",
+    "0x7fd1d: mov byte ptr [rdx + r14 + 0x26], al",
+    "0x7fd22: movzx eax, byte ptr [r8 + 4]"
+  ]
+}
