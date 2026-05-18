@@ -25,6 +25,7 @@ Each mod exports `HorseMod_GetInfo`, `HorseMod_Init`, `HorseMod_Shutdown`. The h
 
 - `example_mod` logs and forwards **GainMoney** (3-arg) and **SpendMoney** (4-arg: `ctx`, `cost`, `show_ui`, `str_variant`).
 - **`minimap_mod` v0.2.1** — **M** / console **`map`**; static atlas from `horsey.tmx` + terrain/locs PNGs; zoom/pan; SDK `horse_map_*` for view/dot ([MinimapMod.md](MinimapMod.md)).
+- **`race_predictor_mod` v0.1.0** — pre-race lane ranking from `HorseRaceScore` → `[ctx+0x450]`; **P** re-print ([RacePredictorMod.md](RacePredictorMod.md)).
 - Wrong detour arity **crashes** (shop buy) — see disasm @ `0x10AC94` / `0x10ACAB`, catalog `SpendMoney` parameters.
 
 ### Realistic in-game mod types now
@@ -47,7 +48,8 @@ Each mod exports `HorseMod_GetInfo`, `HorseMod_Init`, `HorseMod_Shutdown`. The h
 | Full in-game UI (menus, HUD) | No ImGui/SDL overlay; **`minimap_mod`** is a separate Win32 map window only |
 | Asset packs | No renderer / asset injection |
 | Script mods (Lua) | Phase 6 — not started |
-| Reliable race rigging | Sim documented; PRNG/seed path still open ([RaceMechanics.md](RaceMechanics.md)) |
+| Guaranteed race winner | Power score ≠ finish order; `SimRandMod` in sim ([RaceMechanics.md](RaceMechanics.md)) |
+| Reliable race rigging | PRNG/seed path still open; use `race_predictor_mod` for hints only |
 | Live genetics editor | Runtime `GeneticsApply` @ `0xAE470` — [SaveFutureWork.md](SaveFutureWork.md) |
 | Full map editor in-game | Use SDK `horse_map_load_tmx` + your own UI; `minimap_mod` is reference |
 | C# / BepInEx | C DLL + manual inject only |

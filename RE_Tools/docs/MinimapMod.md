@@ -88,6 +88,8 @@ Reference UI stays in `minimap_mod`; copy `map_atlas` / `map_raster` patterns if
 
 ## Roadmap
 
+**Pinned for later** (active work: race predictor mod):
+
 - [ ] **Live player dot** — per-frame XY (Frida scan; `+0x394` static in probe)
 - [ ] Save grid overlay on static TMX
 - [ ] Corner HUD (`overlay=2` or ImGui — [ImGuiOverlay.md](ImGuiOverlay.md))

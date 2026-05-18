@@ -23,6 +23,7 @@ ARTIFACTS = (
     ("horse_inject.exe", MOD_BUILD / "Release" / "horse_inject.exe"),
     ("example_mod.dll", MOD_BUILD / "mods" / "Release" / "example_mod.dll"),
     ("minimap_mod.dll", MOD_BUILD / "mods" / "Release" / "minimap_mod.dll"),
+    ("race_predictor_mod.dll", MOD_BUILD / "mods" / "Release" / "race_predictor_mod.dll"),
 )
 
 

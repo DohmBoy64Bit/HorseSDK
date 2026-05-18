@@ -6,7 +6,7 @@
 
 **Status:** `g_save_context` **confirmed** · live pan offset **open** (Frida pinned below)
 
-> **Pinned for later:** finish live dot RE before changing `horse_map_read_view` offsets.
+> **Pinned for later** (active: [RacePredictorMod.md](RacePredictorMod.md)): finish live dot RE before changing `horse_map_read_view` offsets.
 
 ## Active save context global
 

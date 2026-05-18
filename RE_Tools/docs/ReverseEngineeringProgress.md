@@ -195,6 +195,11 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - **CRF VM cluster:** `0xBF200` → `FileWrite_6F3C0` @ `0xBF2C6`; also save path `0x6DB95` — [CrfLoaderVm.md](CrfLoaderVm.md).
 - **CI:** `python RE_Tools/tools/scripts/phase1_ci.py` (add `--skip-frida` for local quick runs).
 
+## [KNOWLEDGE UPDATE] 2026-05-17 (race_predictor_mod)
+
+- **`race_predictor_mod` v0.1.0:** Hooks `HorseRaceScore` @ `0xE2B80`, ranks lanes by `[race_ctx+0x450]` before race; **P** re-print — [RacePredictorMod.md](RacePredictorMod.md).
+- **Minimap follow-ups pinned:** live dot, save grid overlay, corner HUD — [MinimapMod.md](MinimapMod.md) roadmap.
+
 ## [KNOWLEDGE UPDATE] 2026-05-17 (minimap + SDK horse_map)
 
 - **`minimap_mod` v0.2.1:** Atlas map window, wheel zoom, drag/arrow pan, **R** fit, console **`map`** — [MinimapMod.md](MinimapMod.md).

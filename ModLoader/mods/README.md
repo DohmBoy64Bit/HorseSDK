@@ -16,6 +16,7 @@ See `example_mod/` and `SDK/include/horse/mod_api.h`.
 |-----|---------|-----|
 | `example_mod.dll` | GainMoney / SpendMoney hooks, logging | [ModLoaderSmokeTest.md](../../RE_Tools/docs/ModLoaderSmokeTest.md) |
 | `minimap_mod.dll` | Atlas map from `data/horsey.tmx`, **M** or console **`map`** | [MinimapMod.md](../../RE_Tools/docs/MinimapMod.md) |
+| `race_predictor_mod.dll` | Pre-race ranking from `HorseRaceScore` power, **P** re-print | [RacePredictorMod.md](../../RE_Tools/docs/RacePredictorMod.md) |
 
 Enable in `HorseModLoader.ini`:
 

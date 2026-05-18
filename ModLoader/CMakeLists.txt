@@ -39,3 +39,4 @@ endif()
 
 add_subdirectory(mods/example_mod)
 add_subdirectory(mods/minimap_mod)
+add_subdirectory(mods/race_predictor_mod)
