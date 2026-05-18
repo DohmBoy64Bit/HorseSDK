@@ -9,13 +9,18 @@
 
 #define MAP_SCALE 2
 #define WM_MAP_REFRESH (WM_USER + 40)
+#define WM_MAP_TOGGLE (WM_USER + 41)
+#define WM_MAP_SET_VIEW (WM_USER + 42)
 
 static HWND g_hwnd;
+static DWORD g_map_tid;
 static HANDLE g_thread;
+static HANDLE g_ready_event;
 static volatile int g_run;
 static CRITICAL_SECTION g_cs;
 static int g_cs_ok;
 static volatile int g_visible;
+static volatile int g_pending_toggle;
 
 static HorseDataTmxMap g_map;
 static int g_map_loaded;
@@ -44,9 +49,49 @@ static int rebuild_raster(void)
     if (g_have_view && g_view.valid) {
         int tx = 0, ty = 0;
         horse_map_world_to_tile(&g_map, g_view.world_x, g_view.world_y, &tx, &ty);
-        map_raster_draw_dot(&g_raster, tx, ty, MAP_SCALE, 0xFF0000FF); /* red BGRA */
+        map_raster_draw_dot(&g_raster, tx, ty, MAP_SCALE, 0xFF0000FF);
     }
     return 1;
+}
+
+static void load_map_locked(const char *path)
+{
+    if (path == NULL || !path[0]) {
+        return;
+    }
+    strncpy(g_tmx_path, path, sizeof(g_tmx_path) - 1);
+    g_tmx_path[sizeof(g_tmx_path) - 1] = '\0';
+    if (g_map_loaded) {
+        horse_data_tmx_free(&g_map);
+        g_map_loaded = 0;
+    }
+    memset(&g_map, 0, sizeof(g_map));
+    if (horse_map_load_tmx(path, &g_map) == HORSE_DATA_OK) {
+        g_map_loaded = 1;
+    }
+    rebuild_raster();
+}
+
+static void do_toggle_visibility(void)
+{
+    if (!g_hwnd) {
+        g_pending_toggle = 1;
+        return;
+    }
+    if (g_visible) {
+        ShowWindow(g_hwnd, SW_HIDE);
+        g_visible = 0;
+    } else {
+        if (g_tmx_path[0]) {
+            EnterCriticalSection(&g_cs);
+            load_map_locked(g_tmx_path);
+            LeaveCriticalSection(&g_cs);
+        }
+        ShowWindow(g_hwnd, SW_SHOWNA);
+        SetForegroundWindow(g_hwnd);
+        PostMessageA(g_hwnd, WM_MAP_REFRESH, 0, 0);
+        g_visible = 1;
+    }
 }
 
 static LRESULT CALLBACK map_wndproc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
@@ -90,8 +135,21 @@ static LRESULT CALLBACK map_wndproc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         return 0;
     }
     case WM_MAP_REFRESH:
+        EnterCriticalSection(&g_cs);
         rebuild_raster();
+        LeaveCriticalSection(&g_cs);
         InvalidateRect(hwnd, NULL, FALSE);
+        return 0;
+    case WM_MAP_TOGGLE:
+        do_toggle_visibility();
+        return 0;
+    case WM_MAP_SET_VIEW:
+        EnterCriticalSection(&g_cs);
+        rebuild_raster();
+        LeaveCriticalSection(&g_cs);
+        if (g_visible) {
+            InvalidateRect(hwnd, NULL, FALSE);
+        }
         return 0;
     case WM_KEYDOWN:
         if (wp == VK_ESCAPE) {
@@ -103,8 +161,6 @@ static LRESULT CALLBACK map_wndproc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
         ShowWindow(hwnd, SW_HIDE);
         g_visible = 0;
         return 0;
-    case WM_DESTROY:
-        return 0;
     default:
         return DefWindowProcA(hwnd, msg, wp, lp);
     }
@@ -113,6 +169,7 @@ static LRESULT CALLBACK map_wndproc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 static DWORD WINAPI map_thread(LPVOID unused)
 {
     (void)unused;
+    g_map_tid = GetCurrentThreadId();
     ensure_cs();
     WNDCLASSA wc = {0};
     wc.lpfnWndProc = map_wndproc;
@@ -135,6 +192,14 @@ static DWORD WINAPI map_thread(LPVOID unused)
         wc.hInstance,
         NULL);
 
+    if (g_ready_event) {
+        SetEvent(g_ready_event);
+    }
+    if (g_pending_toggle) {
+        g_pending_toggle = 0;
+        do_toggle_visibility();
+    }
+
     MSG msg;
     while (g_run) {
         while (PeekMessageA(&msg, NULL, 0, 0, PM_REMOVE)) {
@@ -145,12 +210,13 @@ static DWORD WINAPI map_thread(LPVOID unused)
             TranslateMessage(&msg);
             DispatchMessageA(&msg);
         }
-        Sleep(50);
+        Sleep(20);
     }
     if (g_hwnd) {
         DestroyWindow(g_hwnd);
         g_hwnd = NULL;
     }
+    g_map_tid = 0;
     return 0;
 }
 
@@ -159,21 +225,35 @@ int map_window_start(void)
     if (g_thread) {
         return 1;
     }
+    g_ready_event = CreateEventA(NULL, TRUE, FALSE, NULL);
+    if (!g_ready_event) {
+        return 0;
+    }
     g_run = 1;
     g_thread = CreateThread(NULL, 0, map_thread, NULL, 0, NULL);
-    return g_thread != NULL;
+    if (!g_thread) {
+        CloseHandle(g_ready_event);
+        g_ready_event = NULL;
+        return 0;
+    }
+    WaitForSingleObject(g_ready_event, 5000);
+    return 1;
 }
 
 void map_window_stop(void)
 {
     g_run = 0;
-    if (g_hwnd) {
-        PostMessageA(g_hwnd, WM_CLOSE, 0, 0);
+    if (g_map_tid) {
+        PostThreadMessageA(g_map_tid, WM_QUIT, 0, 0);
     }
     if (g_thread) {
         WaitForSingleObject(g_thread, 2000);
         CloseHandle(g_thread);
         g_thread = NULL;
+    }
+    if (g_ready_event) {
+        CloseHandle(g_ready_event);
+        g_ready_event = NULL;
     }
     ensure_cs();
     EnterCriticalSection(&g_cs);
@@ -183,47 +263,21 @@ void map_window_stop(void)
         g_map_loaded = 0;
     }
     LeaveCriticalSection(&g_cs);
-}
-
-static void load_map_locked(const char *path)
-{
-    if (path == NULL) {
-        return;
-    }
-    strncpy(g_tmx_path, path, sizeof(g_tmx_path) - 1);
-    if (g_map_loaded) {
-        horse_data_tmx_free(&g_map);
-        g_map_loaded = 0;
-    }
-    memset(&g_map, 0, sizeof(g_map));
-    if (horse_map_load_tmx(path, &g_map) == HORSE_DATA_OK) {
-        g_map_loaded = 1;
-    }
-    rebuild_raster();
+    g_hwnd = NULL;
+    g_map_tid = 0;
 }
 
 void map_window_toggle(const HorseDataTmxMap *preloaded, const char *tmx_path)
 {
     (void)preloaded;
-    ensure_cs();
-    EnterCriticalSection(&g_cs);
-    if (tmx_path) {
-        load_map_locked(tmx_path);
+    if (tmx_path && tmx_path[0]) {
+        strncpy(g_tmx_path, tmx_path, sizeof(g_tmx_path) - 1);
+        g_tmx_path[sizeof(g_tmx_path) - 1] = '\0';
     }
-    rebuild_raster();
-    LeaveCriticalSection(&g_cs);
-
-    if (!g_hwnd) {
-        return;
-    }
-    if (g_visible) {
-        ShowWindow(g_hwnd, SW_HIDE);
-        g_visible = 0;
+    if (g_map_tid) {
+        PostThreadMessageA(g_map_tid, WM_MAP_TOGGLE, 0, 0);
     } else {
-        ShowWindow(g_hwnd, SW_SHOW);
-        SetForegroundWindow(g_hwnd);
-        PostMessageA(g_hwnd, WM_MAP_REFRESH, 0, 0);
-        g_visible = 1;
+        g_pending_toggle = 1;
     }
 }
 
@@ -237,11 +291,10 @@ void map_window_set_view(const HorseMapView *view)
     } else {
         g_have_view = 0;
     }
-    if (g_visible && g_hwnd) {
-        rebuild_raster();
-        InvalidateRect(g_hwnd, NULL, FALSE);
-    }
     LeaveCriticalSection(&g_cs);
+    if (g_map_tid) {
+        PostThreadMessageA(g_map_tid, WM_MAP_SET_VIEW, 0, 0);
+    }
 }
 
 int map_window_is_visible(void)

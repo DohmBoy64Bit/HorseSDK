@@ -13,17 +13,21 @@
 #include <string.h>
 #include <windows.h>
 
+/* SDL2 keyboard event — verified Game_DispatchSdlEvent @ 0xC0430 (RBX copy of event) */
 #define SDL_EVENT_KEYDOWN 0x300u
+#define SDL_EVENT_KEYUP 0x301u
 #define SDL_SCANCODE_M 39
+#define SDLK_M 109
 
 static HorseModHost g_host;
 static HorseHookSlot g_sdl_slot;
-static HorseHookSlot g_gain_slot;
+static HorseHookSlot g_save_slot;
 static HORSE_FN_Game_DispatchSdlEvent g_orig_sdl;
-static HORSE_FN_GainMoney g_orig_gain;
+static HORSE_FN_Save_Write g_orig_save;
 static void *g_save_ctx;
+static int g_sdl_seen;
 static char g_tmx_path[MAX_PATH];
-static char g_game_dir[MAX_PATH];
+static int g_debug_keys_left = 8;
 
 static void mod_logf(const char *fmt, ...)
 {
@@ -37,6 +41,19 @@ static void mod_logf(const char *fmt, ...)
     }
 }
 
+static int is_m_key(const unsigned char *ev)
+{
+    if (ev[13] != 0) {
+        return 0;
+    }
+    int scancode = *(const int *)(ev + 0x10);
+    int sym = *(const int *)(ev + 0x14);
+    if (scancode == SDL_SCANCODE_M || sym == SDLK_M || sym == 'm' || sym == 'M') {
+        return 1;
+    }
+    return 0;
+}
+
 static void refresh_view(void)
 {
     HorseMapView v;
@@ -45,15 +62,31 @@ static void refresh_view(void)
     }
 }
 
+static void detour_save_write(void *ctx)
+{
+    g_save_ctx = ctx;
+    if (g_orig_save) {
+        g_orig_save(ctx);
+    }
+}
+
 static void detour_sdl(void *ctx, void *sdl_event)
 {
     if (sdl_event != NULL) {
         uint32_t type = *(const uint32_t *)sdl_event;
+        const unsigned char *ev = (const unsigned char *)sdl_event;
+        if (!g_sdl_seen) {
+            g_sdl_seen = 1;
+            mod_logf("minimap: SDL hook active (first ev type=0x%X)", (unsigned)type);
+        }
         if (type == SDL_EVENT_KEYDOWN) {
-            const unsigned char *ev = (const unsigned char *)sdl_event;
-            unsigned char repeat = ev[13];
-            int scancode = *(const int *)(ev + 16);
-            if (!repeat && scancode == SDL_SCANCODE_M) {
+            if (g_debug_keys_left > 0) {
+                g_debug_keys_left--;
+                mod_logf("minimap: KEYDOWN scan=%d sym=%d (M=39/109)",
+                         *(const int *)(ev + 0x10),
+                         *(const int *)(ev + 0x14));
+            }
+            if (is_m_key(ev)) {
                 map_window_toggle(NULL, g_tmx_path);
                 refresh_view();
                 mod_logf("minimap: toggled map (M)");
@@ -65,19 +98,6 @@ static void detour_sdl(void *ctx, void *sdl_event)
     }
 }
 
-static void detour_gain(void *ctx, int amount, char show_ui)
-{
-    if (ctx) {
-        g_save_ctx = ctx;
-    }
-    if (g_orig_gain) {
-        g_orig_gain(ctx, amount, show_ui);
-    }
-    if (map_window_is_visible()) {
-        refresh_view();
-    }
-}
-
 static void resolve_paths(void)
 {
     char exe[MAX_PATH];
@@ -86,8 +106,7 @@ static void resolve_paths(void)
     if (slash) {
         *slash = '\0';
     }
-    strncpy(g_game_dir, exe, sizeof(g_game_dir) - 1);
-    snprintf(g_tmx_path, sizeof(g_tmx_path), "%s\\data\\horsey.tmx", g_game_dir);
+    snprintf(g_tmx_path, sizeof(g_tmx_path), "%s\\data\\horsey.tmx", exe);
 }
 
 HORSE_MOD_API const HorseModInfo *HorseMod_GetInfo(void)
@@ -96,7 +115,7 @@ HORSE_MOD_API const HorseModInfo *HorseMod_GetInfo(void)
         HORSE_MOD_API_VERSION,
         "minimap_mod",
         "Minimap Mod",
-        "0.1.0",
+        "0.1.2",
     };
     return &info;
 }
@@ -113,7 +132,9 @@ HORSE_MOD_API int HorseMod_Init(const HorseModHost *host)
 
     resolve_paths();
     if (GetFileAttributesA(g_tmx_path) == INVALID_FILE_ATTRIBUTES) {
-        mod_logf("minimap: missing %s", g_tmx_path);
+        mod_logf("minimap: WARN missing %s", g_tmx_path);
+    } else {
+        mod_logf("minimap: tmx OK %s", g_tmx_path);
     }
 
     if (!map_window_start()) {
@@ -123,29 +144,38 @@ HORSE_MOD_API int HorseMod_Init(const HorseModHost *host)
 
     horse_hook_slot_init(&g_sdl_slot, g_host.game_base, HORSE_RVA_Game_DispatchSdlEvent, (void *)detour_sdl);
     if (g_host.hook_install(&g_sdl_slot) != HORSE_HOOK_OK) {
-        mod_logf("minimap: Game_DispatchSdlEvent hook failed");
+        mod_logf("minimap: Game_DispatchSdlEvent hook FAILED");
         return -1;
     }
     g_orig_sdl = (HORSE_FN_Game_DispatchSdlEvent)g_sdl_slot.trampoline;
 
-    horse_hook_slot_init(&g_gain_slot, g_host.game_base, HORSE_RVA_GainMoney, (void *)detour_gain);
-    if (g_host.hook_install(&g_gain_slot) == HORSE_HOOK_OK) {
-        g_orig_gain = (HORSE_FN_GainMoney)g_gain_slot.trampoline;
+    horse_hook_slot_init(&g_save_slot, g_host.game_base, HORSE_RVA_Save_Write, (void *)detour_save_write);
+    if (g_host.hook_install(&g_save_slot) == HORSE_HOOK_OK) {
+        g_orig_save = (HORSE_FN_Save_Write)g_save_slot.trampoline;
+        mod_logf("minimap: Save_Write hook OK (player dot ctx)");
+    } else {
+        mod_logf("minimap: Save_Write hook skipped (player dot may lag)");
     }
 
-    mod_logf("minimap: ready — press M for map (Esc close). tmx=%s", g_tmx_path);
-    mod_logf("minimap: player dot uses save ctx+0x39C (best-effort; see MinimapMod.md)");
+    mod_logf("minimap: v0.1.2 - press M in farm view, or type 'map' in loader console");
     return 0;
+}
+
+HORSE_MOD_API void HorseMod_MapToggle(void)
+{
+    map_window_toggle(NULL, g_tmx_path);
+    refresh_view();
+    mod_logf("minimap: MapToggle() from export");
 }
 
 HORSE_MOD_API void HorseMod_Shutdown(void)
 {
     if (g_host.hook_remove) {
+        if (g_save_slot.trampoline) {
+            g_host.hook_remove(&g_save_slot);
+        }
         if (g_sdl_slot.trampoline) {
             g_host.hook_remove(&g_sdl_slot);
-        }
-        if (g_gain_slot.trampoline) {
-            g_host.hook_remove(&g_gain_slot);
         }
     }
     map_window_stop();

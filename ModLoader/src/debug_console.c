@@ -141,7 +141,7 @@ static DWORD WINAPI console_input_thread(LPVOID unused)
             horse_debug_log("hook on X  - e.g. hook on GainMoney");
             horse_debug_log("hook off X - disable hook");
             horse_debug_log("resolve X  - address of catalog function");
-            horse_debug_log("mods / base / clear");
+            horse_debug_log("mods / base / clear / map");
         } else if (_stricmp(line, "hooks") == 0) {
             horse_hook_manager_list();
         } else if (_strnicmp(line, "hook on ", 8) == 0) {
@@ -160,6 +160,20 @@ static DWORD WINAPI console_input_thread(LPVOID unused)
             horse_debug_logf("Loaded mods: %u (see lines above for names)", g_mod_count);
         } else if (_stricmp(line, "base") == 0) {
             horse_debug_logf("game_base = %p", g_game_base);
+        } else if (_stricmp(line, "map") == 0) {
+            HMODULE mm = GetModuleHandleA("minimap_mod.dll");
+            if (mm) {
+                typedef void (*MapToggleFn)(void);
+                MapToggleFn fn = (MapToggleFn)GetProcAddress(mm, "HorseMod_MapToggle");
+                if (fn) {
+                    fn();
+                    horse_debug_log("map: toggled (minimap_mod)");
+                } else {
+                    horse_debug_log("map: HorseMod_MapToggle export missing (rebuild minimap_mod)");
+                }
+            } else {
+                horse_debug_log("map: minimap_mod.dll not loaded");
+            }
         } else if (_stricmp(line, "clear") == 0) {
             HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
             if (out) {

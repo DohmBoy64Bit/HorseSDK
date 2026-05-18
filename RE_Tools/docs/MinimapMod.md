@@ -14,6 +14,7 @@ mods_order=example_mod.dll,minimap_mod.dll
 ```
 
 3. Inject → in-game press **M** to toggle map window. **Esc** closes.
+4. If **M** does nothing (focus on a text field, etc.), type **`map`** in the mod-loader debug console.
 
 ## How it works
 
@@ -21,7 +22,7 @@ mods_order=example_mod.dll,minimap_mod.dll
 |-------|--------|
 | **M key** | Hook `Game_DispatchSdlEvent` @ `0xC0430` — SDL_KEYDOWN scancode **39** ([Game_DispatchSdlEvent.md](Game_DispatchSdlEvent.md)) |
 | **Map image** | `horse_data_tmx_load_file` → rasterize GIDs ([`tmx_map.h`](../../RE_Tools/src/horse_data/include/horse_data/tmx_map.h)) |
-| **Player dot** | Save context `rcx` from `GainMoney` @ `0x10AB80`; vec2 @ **`ctx+0x39C`** ([`SaveContext.h`](SaveContext.h)) |
+| **Player dot** | Save context `rcx` from `Save_Write` @ `0x6DAB0`; vec2 @ **`ctx+0x39C`** ([`SaveContext.h`](SaveContext.h)) |
 | **Draw** | Topmost Win32 window + GDI `StretchDIBits` |
 
 ## Player position (best-effort)
