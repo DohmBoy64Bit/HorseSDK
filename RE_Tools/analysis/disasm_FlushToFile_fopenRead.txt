@@ -1,0 +1,121 @@
+; Horsey.exe+6FD90 FlushToFile_fopenRead
+; capstone head 256 bytes
+
+06FD90: push     rbx
+06FD92: sub      rsp, 0x20
+06FD96: cmp      qword ptr [rcx + 0x18], 0xf
+06FD9B: jbe      0x14006fda0
+06FD9D: mov      rcx, qword ptr [rcx]
+06FDA0: lea      rdx, [rip + 0x1f26a5]
+06FDA7: call     0x140225894
+06FDAC: mov      rbx, rax
+06FDAF: test     rax, rax
+06FDB2: je       0x14006fde3
+06FDB4: mov      r8, qword ptr [rip + 0x2a0655]
+06FDBB: mov      r9, rax
+06FDBE: sub      r8, qword ptr [rip + 0x2a0643]
+06FDC5: mov      edx, 1
+06FDCA: mov      rcx, qword ptr [rip + 0x2a0647]
+06FDD1: call     0x140229340
+06FDD6: mov      rcx, rbx
+06FDD9: add      rsp, 0x20
+06FDDD: pop      rbx
+06FDDE: jmp      0x140225a24
+06FDE3: add      rsp, 0x20
+06FDE7: pop      rbx
+06FDE8: ret      
+06FDE9: int3     
+06FDEA: int3     
+06FDEB: int3     
+06FDEC: int3     
+06FDED: int3     
+06FDEE: int3     
+06FDEF: int3     
+06FDF0: mov      eax, dword ptr [rip + 0x2a061a]
+06FDF6: sub      eax, dword ptr [rip + 0x2a060c]
+06FDFC: ret      
+06FDFD: int3     
+06FDFE: int3     
+06FDFF: int3     
+06FE00: int3     
+06FE01: int3     
+06FE02: int3     
+06FE03: int3     
+06FE04: int3     
+06FE05: int3     
+06FE06: int3     
+06FE07: int3     
+06FE08: int3     
+06FE09: int3     
+06FE0A: int3     
+06FE0B: int3     
+06FE0C: int3     
+06FE0D: int3     
+06FE0E: int3     
+06FE0F: int3     
+06FE10: mov      rax, qword ptr [rip + 0x2a05f9]
+06FE17: mov      dword ptr [rax], ecx
+06FE19: mov      ecx, 4
+06FE1E: jmp      0x140070c70
+06FE23: int3     
+06FE24: int3     
+06FE25: int3     
+06FE26: int3     
+06FE27: int3     
+06FE28: int3     
+06FE29: int3     
+06FE2A: int3     
+06FE2B: int3     
+06FE2C: int3     
+06FE2D: int3     
+06FE2E: int3     
+06FE2F: int3     
+06FE30: mov      rax, qword ptr [rip + 0x2a05d9]
+06FE37: mov      byte ptr [rax], cl
+06FE39: mov      ecx, 1
+06FE3E: jmp      0x140070c70
+06FE43: int3     
+06FE44: int3     
+06FE45: int3     
+06FE46: int3     
+06FE47: int3     
+06FE48: int3     
+06FE49: int3     
+06FE4A: int3     
+06FE4B: int3     
+06FE4C: int3     
+06FE4D: int3     
+06FE4E: int3     
+06FE4F: int3     
+06FE50: mov      rax, qword ptr [rip + 0x2a05b9]
+06FE57: mov      word ptr [rax], cx
+06FE5A: mov      ecx, 2
+06FE5F: jmp      0x140070c70
+06FE64: int3     
+06FE65: int3     
+06FE66: int3     
+06FE67: int3     
+06FE68: int3     
+06FE69: int3     
+06FE6A: int3     
+06FE6B: int3     
+06FE6C: int3     
+06FE6D: int3     
+06FE6E: int3     
+06FE6F: int3     
+06FE70: mov      rax, qword ptr [rip + 0x2a0599]
+06FE77: mov      qword ptr [rax], rcx
+06FE7A: mov      ecx, 8
+06FE7F: jmp      0x140070c70
+06FE84: int3     
+06FE85: int3     
+06FE86: int3     
+06FE87: int3     
+06FE88: int3     
+06FE89: int3     
+06FE8A: int3     
+06FE8B: int3     
+06FE8C: int3     
+06FE8D: int3     
+06FE8E: int3     
+06FE8F: int3     

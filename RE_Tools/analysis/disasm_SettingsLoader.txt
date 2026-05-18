@@ -1,0 +1,45 @@
+; Horsey.exe+711B0 SettingsLoader
+; capstone head 256 bytes
+
+0711B0: mov      qword ptr [rsp + 0x10], rbx
+0711B5: mov      qword ptr [rsp + 0x18], rsi
+0711BA: mov      qword ptr [rsp + 0x20], rdi
+0711BF: push     rbp
+0711C0: push     r12
+0711C2: push     r13
+0711C4: push     r14
+0711C6: push     r15
+0711C8: mov      rbp, rsp
+0711CB: sub      rsp, 0x70
+0711CF: xor      r12d, r12d
+0711D2: mov      byte ptr [rip + 0x2802f3], r12b
+0711D9: mov      byte ptr [rip + 0x2802e0], 1
+0711E0: mov      dword ptr [rip + 0x2802da], 0x64
+0711EA: mov      dword ptr [rip + 0x2802d4], 0x64
+0711F4: movdqa   xmm0, xmmword ptr [rip + 0x1f13d4]
+0711FC: movdqa   xmmword ptr [rip + 0x2802cc], xmm0
+071204: mov      dword ptr [rip + 0x2802d2], 0x10101
+07120E: mov      word ptr [rip + 0x2802cd], 0x101
+071217: mov      r8d, 0xa
+07121D: lea      rdx, [rip + 0x1f122c]
+071224: lea      rcx, [rip + 0x2802e5]
+07122B: call     0x140027f70
+071230: mov      r8d, 7
+071236: lea      rdx, [rip + 0x1eee4b]
+07123D: lea      rcx, [rip + 0x2802ec]
+071244: call     0x140027f70
+071249: mov      dword ptr [rip + 0x2802fd], 0xffffffff
+071253: mov      dword ptr [rip + 0x2802fa], r12d
+07125A: mov      dword ptr [rip + 0x2802f4], 0x100
+071264: mov      dword ptr [rip + 0x280312], 0xffffffff
+07126E: mov      dword ptr [rip + 0x280271], r12d
+071275: mov      word ptr [rip + 0x280307], r12w
+07127D: mov      word ptr [rip + 0x280264], 0x100
+071286: mov      byte ptr [rip + 0x28025f], 1
+07128D: call     0x1400bfb60
+071292: mov      rdi, rax
+071295: mov      r13, qword ptr [rax + 0x10]
+071299: movabs   rcx, 0x7fffffffffffffff
+0712A3: mov      rax, rcx
+0712A6: sub      rax, r13
+0712A9: cmp      rax, 0xc

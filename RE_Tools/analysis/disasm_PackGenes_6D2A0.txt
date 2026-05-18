@@ -1,0 +1,68 @@
+; Horsey.exe+6D2A0 PackGenes_6D2A0
+; capstone head 256 bytes
+
+06D2A0: mov      qword ptr [rsp + 8], rbx
+06D2A5: push     rdi
+06D2A6: sub      rsp, 0x110
+06D2AD: lea      r8, [rsp + 0x20]
+06D2B2: mov      edi, 0x28
+06D2B7: lea      r9, [rsp + 0x21]
+06D2BC: sub      r8, rcx
+06D2BF: lea      r10, [rsp + 0x22]
+06D2C4: sub      r9, rcx
+06D2C7: lea      r11, [rsp + 0x23]
+06D2CC: sub      r10, rcx
+06D2CF: sub      r11, rcx
+06D2D2: lea      rbx, [rsp + 0x24]
+06D2D7: sub      rbx, rcx
+06D2DA: lea      rax, [rcx + 1]
+06D2DE: nop      
+06D2E0: movzx    edx, byte ptr [rax + 0xef]
+06D2E7: movzx    ecx, byte ptr [rax - 1]
+06D2EB: lea      rax, [rax + 6]
+06D2EF: inc      dl
+06D2F1: inc      cl
+06D2F3: shl      dl, 3
+06D2F6: or       dl, cl
+06D2F8: movzx    ecx, byte ptr [rax - 6]
+06D2FC: mov      byte ptr [rax + r8 - 7], dl
+06D301: inc      cl
+06D303: movzx    edx, byte ptr [rax + 0xea]
+06D30A: inc      dl
+06D30C: shl      dl, 3
+06D30F: or       dl, cl
+06D311: movzx    ecx, byte ptr [rax - 5]
+06D315: mov      byte ptr [rax + r8 - 6], dl
+06D31A: inc      cl
+06D31C: movzx    edx, byte ptr [rax + 0xeb]
+06D323: inc      dl
+06D325: shl      dl, 3
+06D328: or       dl, cl
+06D32A: movzx    ecx, byte ptr [rax - 4]
+06D32E: mov      byte ptr [rax + r9 - 6], dl
+06D333: inc      cl
+06D335: movzx    edx, byte ptr [rax + 0xec]
+06D33C: inc      dl
+06D33E: shl      dl, 3
+06D341: or       dl, cl
+06D343: movzx    ecx, byte ptr [rax - 3]
+06D347: mov      byte ptr [rax + r10 - 6], dl
+06D34C: inc      cl
+06D34E: movzx    edx, byte ptr [rax + 0xed]
+06D355: inc      dl
+06D357: shl      dl, 3
+06D35A: or       dl, cl
+06D35C: movzx    ecx, byte ptr [rax - 2]
+06D360: mov      byte ptr [rax + r11 - 6], dl
+06D365: inc      cl
+06D367: movzx    edx, byte ptr [rax + 0xee]
+06D36E: inc      dl
+06D370: shl      dl, 3
+06D373: or       dl, cl
+06D375: mov      byte ptr [rax + rbx - 6], dl
+06D379: sub      rdi, 1
+06D37D: jne      0x14006d2e0
+06D383: mov      edx, 0xf0
+06D388: lea      rcx, [rsp + 0x20]
+06D38D: call     0x140070220
+06D392: mov      rbx, qword ptr [rsp + 0x120]

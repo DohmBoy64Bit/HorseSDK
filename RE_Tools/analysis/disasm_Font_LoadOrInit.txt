@@ -1,0 +1,69 @@
+; Horsey.exe+7F8A0 Font_LoadOrInit
+; capstone head 256 bytes
+
+07F8A0: mov      rax, rsp
+07F8A3: mov      dword ptr [rax + 0x20], r9d
+07F8A7: mov      qword ptr [rax + 0x10], rdx
+07F8AB: mov      qword ptr [rax + 8], rcx
+07F8AF: push     rbp
+07F8B0: push     rbx
+07F8B1: push     rsi
+07F8B2: push     rdi
+07F8B3: push     r12
+07F8B5: push     r13
+07F8B7: push     r14
+07F8B9: push     r15
+07F8BB: lea      rbp, [rax - 0x5f]
+07F8BF: sub      rsp, 0xb8
+07F8C6: movaps   xmmword ptr [rax - 0x58], xmm6
+07F8CA: movaps   xmmword ptr [rax - 0x68], xmm7
+07F8CE: mov      ebx, r8d
+07F8D1: mov      rdi, rdx
+07F8D4: mov      r14, rcx
+07F8D7: call     0x140081ea0
+07F8DC: lea      rcx, [r14 + 0x10]
+07F8E0: xor      edx, edx
+07F8E2: mov      r8d, 0x11800
+07F8E8: call     0x140251850
+07F8ED: mov      dword ptr [r14], ebx
+07F8F0: mov      ecx, ebx
+07F8F2: call     0x1400ca6f0
+07F8F7: movd     xmm6, eax
+07F8FB: cvtdq2ps xmm6, xmm6
+07F8FE: mov      ecx, dword ptr [r14]
+07F901: call     0x1400ca710
+07F906: movd     xmm7, eax
+07F90A: cvtdq2ps xmm7, xmm7
+07F90D: cmp      byte ptr [rip + 0x299143], 0
+07F914: je       0x14007fa2f
+07F91A: xorps    xmm0, xmm0
+07F91D: movups   xmmword ptr [rbp - 0x59], xmm0
+07F921: movdqa   xmm1, xmmword ptr [rip + 0x1dc717]
+07F929: movdqu   xmmword ptr [rbp - 0x49], xmm1
+07F92E: mov      eax, dword ptr [rip + 0x1e36b0]
+07F934: mov      dword ptr [rbp - 0x59], eax
+07F937: movzx    eax, byte ptr [rip + 0x1e36aa]
+07F93E: mov      byte ptr [rbp - 0x55], al
+07F941: mov      byte ptr [rbp - 0x54], 0
+07F945: mov      rdx, rdi
+07F948: cmp      qword ptr [rdi + 0x18], 0xf
+07F94D: jbe      0x14007f952
+07F94F: mov      rdx, qword ptr [rdi]
+07F952: mov      r8, qword ptr [rdi + 0x10]
+07F956: lea      rcx, [rbp - 0x59]
+07F95A: call     0x140027830
+07F95F: movups   xmm0, xmmword ptr [rax]
+07F962: movups   xmmword ptr [rbp - 0x39], xmm0
+07F966: movups   xmm1, xmmword ptr [rax + 0x10]
+07F96A: movups   xmmword ptr [rbp - 0x29], xmm1
+07F96E: xor      ebx, ebx
+07F970: mov      qword ptr [rax + 0x10], rbx
+07F974: mov      edx, 0xf
+07F979: mov      qword ptr [rax + 0x18], rdx
+07F97D: mov      byte ptr [rax], bl
+07F97F: mov      rax, qword ptr [rip + 0x29915a]
+07F986: cmp      rax, qword ptr [rip + 0x29915b]
+07F98D: je       0x14007f9a3
+07F98F: movups   xmmword ptr [rax], xmm0
+07F992: movups   xmmword ptr [rax + 0x10], xmm1
+07F996: mov      byte ptr [rbp - 0x39], bl

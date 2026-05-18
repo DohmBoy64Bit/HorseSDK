@@ -1,0 +1,103 @@
+; Horsey.exe+6FEB0 WriteU8_ReadU8
+; capstone head 256 bytes
+
+06FEB0: mov      rax, qword ptr [rip + 0x2a0559]
+06FEB7: mov      byte ptr [rax], cl
+06FEB9: mov      ecx, 1
+06FEBE: jmp      0x140070c70
+06FEC3: int3     
+06FEC4: int3     
+06FEC5: int3     
+06FEC6: int3     
+06FEC7: int3     
+06FEC8: int3     
+06FEC9: int3     
+06FECA: int3     
+06FECB: int3     
+06FECC: int3     
+06FECD: int3     
+06FECE: int3     
+06FECF: int3     
+06FED0: mov      rax, qword ptr [rip + 0x2a0539]
+06FED7: mov      dword ptr [rax], ecx
+06FED9: mov      ecx, 4
+06FEDE: jmp      0x140070c70
+06FEE3: int3     
+06FEE4: int3     
+06FEE5: int3     
+06FEE6: int3     
+06FEE7: int3     
+06FEE8: int3     
+06FEE9: int3     
+06FEEA: int3     
+06FEEB: int3     
+06FEEC: int3     
+06FEED: int3     
+06FEEE: int3     
+06FEEF: int3     
+06FEF0: mov      rax, qword ptr [rip + 0x2a0519]
+06FEF7: movzx    edx, cl
+06FEFA: mov      ecx, 4
+06FEFF: mov      dword ptr [rax], edx
+06FF01: jmp      0x140070c70
+06FF06: int3     
+06FF07: int3     
+06FF08: int3     
+06FF09: int3     
+06FF0A: int3     
+06FF0B: int3     
+06FF0C: int3     
+06FF0D: int3     
+06FF0E: int3     
+06FF0F: int3     
+06FF10: mov      rax, qword ptr [rip + 0x2a04f9]
+06FF17: mov      ecx, 4
+06FF1C: movss    dword ptr [rax], xmm0
+06FF20: jmp      0x140070c70
+06FF25: int3     
+06FF26: int3     
+06FF27: int3     
+06FF28: int3     
+06FF29: int3     
+06FF2A: int3     
+06FF2B: int3     
+06FF2C: int3     
+06FF2D: int3     
+06FF2E: int3     
+06FF2F: int3     
+06FF30: sub      rsp, 0x28
+06FF34: mov      rax, qword ptr [rip + 0x2a04d5]
+06FF3B: mov      qword ptr [rsp + 0x38], rcx
+06FF40: mov      ecx, 4
+06FF45: movss    xmm0, dword ptr [rsp + 0x38]
+06FF4B: movss    dword ptr [rax], xmm0
+06FF4F: call     0x140070c70
+06FF54: mov      rax, qword ptr [rip + 0x2a04b5]
+06FF5B: mov      ecx, 4
+06FF60: movss    xmm0, dword ptr [rsp + 0x3c]
+06FF66: movss    dword ptr [rax], xmm0
+06FF6A: add      rsp, 0x28
+06FF6E: jmp      0x140070c70
+06FF73: int3     
+06FF74: int3     
+06FF75: int3     
+06FF76: int3     
+06FF77: int3     
+06FF78: int3     
+06FF79: int3     
+06FF7A: int3     
+06FF7B: int3     
+06FF7C: int3     
+06FF7D: int3     
+06FF7E: int3     
+06FF7F: int3     
+06FF80: mov      dword ptr [rsp + 8], ecx
+06FF84: sub      rsp, 0x28
+06FF88: mov      rax, qword ptr [rip + 0x2a0481]
+06FF8F: mov      byte ptr [rax], cl
+06FF91: mov      ecx, 1
+06FF96: call     0x140070c70
+06FF9B: mov      rax, qword ptr [rip + 0x2a046e]
+06FFA2: mov      ecx, 1
+06FFA7: movzx    edx, byte ptr [rsp + 0x31]
+06FFAC: mov      byte ptr [rax], dl

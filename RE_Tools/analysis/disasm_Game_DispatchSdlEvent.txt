@@ -1,0 +1,62 @@
+; Horsey.exe+C0430 Game_DispatchSdlEvent
+; capstone head 256 bytes
+
+0C0430: push     rbx
+0C0432: sub      rsp, 0x20
+0C0436: mov      eax, dword ptr [rdx]
+0C0438: mov      rbx, rdx
+0C043B: cmp      eax, 0x100
+0C0440: jne      0x1400c044f
+0C0442: mov      byte ptr [rip + 0x258607], 1
+0C0449: add      rsp, 0x20
+0C044D: pop      rbx
+0C044E: ret      
+0C044F: cmp      eax, 0x303
+0C0454: jne      0x1400c0477
+0C0456: lea      rcx, [rdx + 0xc]
+0C045A: call     0x140251ce0
+0C045F: mov      r8, rax
+0C0462: lea      rdx, [rbx + 0xc]
+0C0466: lea      rcx, [rip + 0x2319cb]
+0C046D: add      rsp, 0x20
+0C0471: pop      rbx
+0C0472: jmp      0x140027f70
+0C0477: mov      edx, 0x300
+0C047C: cmp      eax, edx
+0C047E: jne      0x1400c052c
+0C0484: cmp      byte ptr [rbx + 0xd], 0
+0C0488: jne      0x1400c076a
+0C048E: movsxd   rax, dword ptr [rbx + 0x14]
+0C0492: movsxd   rcx, dword ptr [rbx + 0x10]
+0C0496: cmp      eax, 0x4000003d
+0C049B: jne      0x1400c04ac
+0C049D: test     word ptr [rbx + 0x18], dx
+0C04A1: je       0x1400c04be
+0C04A3: mov      byte ptr [rip + 0x2585a6], 1
+0C04AA: jmp      0x1400c04be
+0C04AC: cmp      eax, 0xd
+0C04AF: jne      0x1400c04be
+0C04B1: test     word ptr [rbx + 0x18], dx
+0C04B5: je       0x1400c04be
+0C04B7: mov      byte ptr [rip + 0x258594], 1
+0C04BE: test     byte ptr [rbx + 0x18], 0xc0
+0C04C2: je       0x1400c04cb
+0C04C4: mov      byte ptr [rip + 0x2527e5], 1
+0C04CB: test     byte ptr [rbx + 0x18], 3
+0C04CF: je       0x1400c04d8
+0C04D1: mov      byte ptr [rip + 0x2527d9], 1
+0C04D8: lea      rdx, [rip - 0xc04df]
+0C04DF: cmp      eax, 0x7f
+0C04E2: ja       0x1400c04fc
+0C04E4: mov      byte ptr [rax + rdx + 0x312830], 1
+0C04EC: mov      byte ptr [rax + rdx + 0x312930], 1
+0C04F4: mov      byte ptr [rax + rdx + 0x3128b0], 0
+0C04FC: cmp      ecx, 0xff
+0C0502: ja       0x1400c076a
+0C0508: mov      byte ptr [rip + 0x2527a4], cl
+0C050E: mov      byte ptr [rcx + rdx + 0x3129b0], 1
+0C0516: mov      byte ptr [rcx + rdx + 0x312bb0], 1
+0C051E: mov      byte ptr [rcx + rdx + 0x312ab0], 0
+0C0526: add      rsp, 0x20
+0C052A: pop      rbx
+0C052B: ret      

@@ -1,0 +1,77 @@
+; Horsey.exe+6F3C0 ReadOpen
+; capstone head 256 bytes
+
+06F3C0: mov      qword ptr [rsp + 0x18], rbx
+06F3C5: mov      qword ptr [rsp + 0x20], rbp
+06F3CA: push     rdi
+06F3CB: push     r12
+06F3CD: push     r14
+06F3CF: sub      rsp, 0x40
+06F3D3: xor      r12d, r12d
+06F3D6: mov      rbx, r8
+06F3D9: cmp      qword ptr [rdx + 0x18], 0xf
+06F3DE: mov      rbp, rcx
+06F3E1: mov      rdi, rdx
+06F3E4: jbe      0x14006f3e9
+06F3E6: mov      rdi, qword ptr [rdx]
+06F3E9: mov      rcx, qword ptr [rbx + 0x18]
+06F3ED: mov      r8, qword ptr [r8 + 0x10]
+06F3F1: mov      rax, rcx
+06F3F4: mov      r14, qword ptr [rdx + 0x10]
+06F3F8: sub      rax, r8
+06F3FB: cmp      r14, rax
+06F3FE: ja       0x14006f488
+06F404: mov      qword ptr [rsp + 0x60], rsi
+06F409: lea      rax, [r8 + r14]
+06F40D: mov      qword ptr [rbx + 0x10], rax
+06F411: mov      rsi, rbx
+06F414: mov      qword ptr [rsp + 0x68], r15
+06F419: cmp      rcx, 0xf
+06F41D: jbe      0x14006f422
+06F41F: mov      rsi, qword ptr [rbx]
+06F422: lea      rax, [r14 + rdi]
+06F426: cmp      rax, rsi
+06F429: jbe      0x14006f446
+06F42B: lea      rax, [r8 + rsi]
+06F42F: cmp      rdi, rax
+06F432: ja       0x14006f446
+06F434: cmp      rsi, rdi
+06F437: ja       0x14006f43e
+06F439: mov      r15, r12
+06F43C: jmp      0x14006f449
+06F43E: mov      r15, rsi
+06F441: sub      r15, rdi
+06F444: jmp      0x14006f449
+06F446: mov      r15, r14
+06F449: inc      r8
+06F44C: lea      rcx, [rsi + r14]
+06F450: mov      rdx, rsi
+06F453: call     0x1402511b0
+06F458: mov      r8, r15
+06F45B: mov      rdx, rdi
+06F45E: mov      rcx, rsi
+06F461: call     0x1402511b0
+06F466: mov      r8, r14
+06F469: lea      rdx, [r15 + r14]
+06F46D: sub      r8, r15
+06F470: lea      rcx, [rsi + r15]
+06F474: add      rdx, rdi
+06F477: call     0x1402511b0
+06F47C: mov      r15, qword ptr [rsp + 0x68]
+06F481: mov      rsi, qword ptr [rsp + 0x60]
+06F486: jmp      0x14006f4a6
+06F488: mov      qword ptr [rsp + 0x28], r14
+06F48D: xor      r9d, r9d
+06F490: xor      r8d, r8d
+06F493: mov      qword ptr [rsp + 0x20], rdi
+06F498: mov      rdx, r14
+06F49B: mov      rcx, rbx
+06F49E: call     0x14006f4f0
+06F4A3: mov      rbx, rax
+06F4A6: xorps    xmm0, xmm0
+06F4A9: mov      rax, rbp
+06F4AC: movups   xmmword ptr [rbp], xmm0
+06F4B0: mov      qword ptr [rbp + 0x10], r12
+06F4B4: mov      qword ptr [rbp + 0x18], r12
+06F4B8: movups   xmm0, xmmword ptr [rbx]
+06F4BB: movups   xmmword ptr [rbp], xmm0

@@ -1,0 +1,62 @@
+; Horsey.exe+ADB30 GeneticsApplyGate
+; capstone head 256 bytes
+
+0ADB30: mov      qword ptr [rsp + 8], rbx
+0ADB35: mov      qword ptr [rsp + 0x10], rbp
+0ADB3A: mov      qword ptr [rsp + 0x18], rsi
+0ADB3F: push     rdi
+0ADB40: push     r12
+0ADB42: push     r13
+0ADB44: push     r14
+0ADB46: push     r15
+0ADB48: sub      rsp, 0x7b0
+0ADB4F: xor      ebp, ebp
+0ADB51: mov      rsi, rcx
+0ADB54: cmp      dword ptr [rcx + 0x234], ebp
+0ADB5A: jl       0x1400adba9
+0ADB5C: lea      rdi, [rsp + 0x5b0]
+0ADB64: mov      r14d, 2
+0ADB6A: nop      word ptr [rax + rax]
+0ADB70: mov      rbx, rbp
+0ADB73: mov      ecx, 4
+0ADB78: call     0x1400c1900
+0ADB7D: mov      byte ptr [rbx + rdi], al
+0ADB80: inc      rbx
+0ADB83: cmp      rbx, 0xf0
+0ADB8A: jl       0x1400adb73
+0ADB8C: add      rdi, 0xf0
+0ADB93: sub      r14, 1
+0ADB97: jne      0x1400adb70
+0ADB99: lea      rdx, [rsp + 0x5b0]
+0ADBA1: mov      rcx, rsi
+0ADBA4: call     0x1400ae470
+0ADBA9: mov      rcx, qword ptr [rsi + 0x48]
+0ADBAD: movabs   r12, 0xb21642c8590b2165
+0ADBB7: sub      rcx, qword ptr [rsi + 0x40]
+0ADBBB: mov      rax, r12
+0ADBBE: mov      r14, qword ptr [rip + 0x26ac83]
+0ADBC5: movabs   r13, 0x3fffffffffffffff
+0ADBCF: imul     rcx
+0ADBD2: mov      r15, r14
+0ADBD5: lea      rdi, [rcx + rdx]
+0ADBD9: sar      rdi, 7
+0ADBDD: mov      rax, rdi
+0ADBE0: shr      rax, 0x3f
+0ADBE4: add      rdi, rax
+0ADBE7: mov      rax, qword ptr [rip + 0x26ac52]
+0ADBEE: sub      r15, rax
+0ADBF1: sar      r15, 2
+0ADBF5: cmp      rdi, r15
+0ADBF8: jae      0x1400adc03
+0ADBFA: lea      rax, [rax + rdi*4]
+0ADBFE: jmp      0x1400adcc7
+0ADC03: jbe      0x1400adcce
+0ADC09: mov      rcx, qword ptr [rip + 0x26ac40]
+0ADC10: sub      rcx, rax
+0ADC13: sar      rcx, 2
+0ADC17: cmp      rdi, rcx
+0ADC1A: jbe      0x1400adcab
+0ADC20: cmp      rdi, r13
+0ADC23: ja       0x1400ae083
+0ADC29: mov      rdx, rcx
+0ADC2C: mov      rax, r13

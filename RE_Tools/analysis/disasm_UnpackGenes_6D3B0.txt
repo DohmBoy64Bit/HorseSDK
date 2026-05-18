@@ -1,0 +1,80 @@
+; Horsey.exe+6D3B0 UnpackGenes_6D3B0
+; capstone head 256 bytes
+
+06D3B0: push     rbx
+06D3B2: sub      rsp, 0x110
+06D3B9: mov      rbx, rcx
+06D3BC: mov      edx, 0xf0
+06D3C1: lea      rcx, [rsp + 0x20]
+06D3C6: call     0x140070c20
+06D3CB: lea      r8, [rsp + 0x20]
+06D3D0: mov      r9d, 0x78
+06D3D6: sub      r8, rbx
+06D3D9: lea      rax, [rbx + 1]
+06D3DD: nop      dword ptr [rax]
+06D3E0: movzx    edx, byte ptr [r8 + rax - 1]
+06D3E6: lea      rax, [rax + 2]
+06D3EA: movzx    ecx, dl
+06D3ED: shr      dl, 3
+06D3F0: and      dl, 7
+06D3F3: and      cl, 7
+06D3F6: dec      dl
+06D3F8: dec      cl
+06D3FA: mov      byte ptr [rax + 0xed], dl
+06D400: movzx    edx, byte ptr [r8 + rax - 2]
+06D406: mov      byte ptr [rax - 3], cl
+06D409: movzx    ecx, dl
+06D40C: shr      dl, 3
+06D40F: and      cl, 7
+06D412: and      dl, 7
+06D415: dec      cl
+06D417: dec      dl
+06D419: mov      byte ptr [rax - 2], cl
+06D41C: mov      byte ptr [rax + 0xee], dl
+06D422: sub      r9, 1
+06D426: jne      0x14006d3e0
+06D428: add      rsp, 0x110
+06D42F: pop      rbx
+06D430: ret      
+06D431: int3     
+06D432: int3     
+06D433: int3     
+06D434: int3     
+06D435: int3     
+06D436: int3     
+06D437: int3     
+06D438: int3     
+06D439: int3     
+06D43A: int3     
+06D43B: int3     
+06D43C: int3     
+06D43D: int3     
+06D43E: int3     
+06D43F: int3     
+06D440: mov      qword ptr [rsp + 0x10], rbx
+06D445: mov      qword ptr [rsp + 0x18], rbp
+06D44A: push     rsi
+06D44B: push     rdi
+06D44C: push     r14
+06D44E: sub      rsp, 0x40
+06D452: mov      rbx, rcx
+06D455: lea      rdx, [rcx + 0x18]
+06D459: lea      rcx, [rsp + 0x20]
+06D45E: call     0x1400279e0
+06D463: mov      rcx, rax
+06D466: call     0x14006fff0
+06D46B: mov      rcx, qword ptr [rbx + 0x138]
+06D472: mov      edi, 0xffffffff
+06D477: sub      rcx, qword ptr [rbx + 0x130]
+06D47E: sar      rcx, 3
+06D482: call     0x14006fed0
+06D487: mov      r8, qword ptr [rbx + 0x130]
+06D48E: xor      r14d, r14d
+06D491: mov      rax, qword ptr [rbx + 0x138]
+06D498: mov      ebp, r14d
+06D49B: sub      rax, r8
+06D49E: sar      rax, 3
+06D4A2: test     rax, rax
+06D4A5: je       0x14006d4ef
+06D4A7: mov      esi, r14d
+06D4AA: nop      word ptr [rax + rax]

@@ -1,0 +1,64 @@
+; Horsey.exe+6D440 WriteNestedSave_ReadNestedSave
+; capstone head 256 bytes
+
+06D440: mov      qword ptr [rsp + 0x10], rbx
+06D445: mov      qword ptr [rsp + 0x18], rbp
+06D44A: push     rsi
+06D44B: push     rdi
+06D44C: push     r14
+06D44E: sub      rsp, 0x40
+06D452: mov      rbx, rcx
+06D455: lea      rdx, [rcx + 0x18]
+06D459: lea      rcx, [rsp + 0x20]
+06D45E: call     0x1400279e0
+06D463: mov      rcx, rax
+06D466: call     0x14006fff0
+06D46B: mov      rcx, qword ptr [rbx + 0x138]
+06D472: mov      edi, 0xffffffff
+06D477: sub      rcx, qword ptr [rbx + 0x130]
+06D47E: sar      rcx, 3
+06D482: call     0x14006fed0
+06D487: mov      r8, qword ptr [rbx + 0x130]
+06D48E: xor      r14d, r14d
+06D491: mov      rax, qword ptr [rbx + 0x138]
+06D498: mov      ebp, r14d
+06D49B: sub      rax, r8
+06D49E: sar      rax, 3
+06D4A2: test     rax, rax
+06D4A5: je       0x14006d4ef
+06D4A7: mov      esi, r14d
+06D4AA: nop      word ptr [rax + rax]
+06D4B0: mov      rcx, qword ptr [rsi + r8]
+06D4B4: call     0x14006ec40
+06D4B9: mov      r8, qword ptr [rbx + 0x130]
+06D4C0: lea      rsi, [rsi + 8]
+06D4C4: mov      rdx, qword ptr [rbx + 0x138]
+06D4CB: mov      ecx, ebp
+06D4CD: mov      rax, qword ptr [rsi + r8 - 8]
+06D4D2: cmp      qword ptr [rbx + 0x148], rax
+06D4D9: cmovne   ecx, edi
+06D4DC: inc      ebp
+06D4DE: sub      rdx, r8
+06D4E1: movsxd   rax, ebp
+06D4E4: sar      rdx, 3
+06D4E8: mov      edi, ecx
+06D4EA: cmp      rax, rdx
+06D4ED: jb       0x14006d4b0
+06D4EF: mov      ecx, edi
+06D4F1: call     0x14006fe10
+06D4F6: mov      rcx, qword ptr [rbx + 0xc0]
+06D4FD: sub      rcx, qword ptr [rbx + 0xb8]
+06D504: sar      rcx, 3
+06D508: call     0x14006fed0
+06D50D: mov      rcx, qword ptr [rbx + 0xb8]
+06D514: mov      esi, r14d
+06D517: mov      rax, qword ptr [rbx + 0xc0]
+06D51E: sub      rax, rcx
+06D521: sar      rax, 3
+06D525: test     rax, rax
+06D528: je       0x14006d570
+06D52A: mov      rdi, r14
+06D52D: nop      dword ptr [rax]
+06D530: mov      rcx, qword ptr [rdi + rcx]
+06D534: mov      ecx, dword ptr [rcx + 8]
+06D537: call     0x14006fe10

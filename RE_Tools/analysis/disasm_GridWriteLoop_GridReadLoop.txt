@@ -1,0 +1,75 @@
+; Horsey.exe+6DF30 GridWriteLoop_GridReadLoop
+; capstone head 256 bytes
+
+06DF30: mov      rsi, qword ptr [rdi + 0x270]
+06DF37: cmp      dword ptr [rsi + rbx], 6
+06DF3B: jne      0x14006df68
+06DF3D: cmp      byte ptr [rsi + rbx + 0xd], 0
+06DF42: jne      0x14006df68
+06DF44: cmp      byte ptr [rsi + rbx + 0xc], 0
+06DF49: jne      0x14006df68
+06DF4B: mov      eax, dword ptr [rip + 0x2a248f]
+06DF51: cmp      dword ptr [rsi + rbx + 8], eax
+06DF55: jne      0x14006df68
+06DF57: cmp      r14d, 0xff
+06DF5E: jge      0x14006df68
+06DF60: inc      r14d
+06DF63: jmp      0x14006e005
+06DF68: test     r14d, r14d
+06DF6B: jle      0x14006df80
+06DF6D: mov      cl, 0x3f
+06DF6F: call     0x14006feb0
+06DF74: movzx    ecx, r14b
+06DF78: call     0x14006feb0
+06DF7D: mov      r14d, r15d
+06DF80: mov      eax, dword ptr [rsi + rbx]
+06DF83: movzx    edx, al
+06DF86: test     eax, eax
+06DF88: jne      0x14006dfb6
+06DF8A: cmp      byte ptr [rsi + rbx + 0xd], al
+06DF8E: jne      0x14006dfb6
+06DF90: cmp      byte ptr [rsi + rbx + 0xc], al
+06DF94: jne      0x14006dfb6
+06DF96: mov      ecx, dword ptr [rsi + rbx + 8]
+06DF9A: mov      r8d, dword ptr [rip + 0x2a2447]
+06DFA1: cmp      ecx, r8d
+06DFA4: jl       0x14006dfb6
+06DFA6: lea      eax, [r8 + 4]
+06DFAA: cmp      ecx, eax
+06DFAC: jge      0x14006dfb6
+06DFAE: sub      cl, r8b
+06DFB1: add      cl, 0x3b
+06DFB4: jmp      0x14006dffc
+06DFB6: movzx    eax, dl
+06DFB9: or       al, 0x40
+06DFBB: movzx    ecx, al
+06DFBE: movzx    eax, dl
+06DFC1: cmp      byte ptr [rsi + rbx + 0xc], 0
+06DFC6: cmove    ecx, eax
+06DFC9: movzx    edx, cl
+06DFCC: movzx    eax, dl
+06DFCF: or       al, 0x80
+06DFD1: movzx    ecx, al
+06DFD4: cmp      byte ptr [rsi + rbx + 0xd], 0
+06DFD9: cmove    ecx, edx
+06DFDC: call     0x14006feb0
+06DFE1: movzx    ecx, byte ptr [rsi + rbx + 8]
+06DFE6: call     0x14006feb0
+06DFEB: mov      ecx, dword ptr [rsi + rbx]
+06DFEE: call     0x1401167b0
+06DFF3: test     eax, eax
+06DFF5: jle      0x14006e001
+06DFF7: movzx    ecx, byte ptr [rsi + rbx + 4]
+06DFFC: call     0x14006feb0
+06E001: mov      rcx, qword ptr [rbp + 0x67]
+06E005: inc      r12d
+06E008: add      rbx, 0x28
+06E00C: mov      eax, dword ptr [rcx]
+06E00E: imul     eax, dword ptr [r13]
+06E013: cmp      r12d, eax
+06E016: jl       0x14006df30
+06E01C: test     r14d, r14d
+06E01F: jle      0x14006e031
+06E021: mov      cl, 0x3f
+06E023: call     0x14006feb0
+06E028: movzx    ecx, r14b

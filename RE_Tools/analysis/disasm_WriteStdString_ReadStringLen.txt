@@ -1,0 +1,81 @@
+; Horsey.exe+6FFF0 WriteStdString_ReadStringLen
+; capstone head 256 bytes
+
+06FFF0: mov      qword ptr [rsp + 0x18], rbx
+06FFF5: mov      qword ptr [rsp + 8], rcx
+06FFFA: push     rbp
+06FFFB: push     rsi
+06FFFC: push     rdi
+06FFFD: sub      rsp, 0x20
+070001: mov      rdi, rcx
+070004: movsxd   rbx, dword ptr [rcx + 0x10]
+070008: mov      rax, qword ptr [rip + 0x2a0401]
+07000F: mov      dword ptr [rax], ebx
+070011: mov      ecx, 4
+070016: call     0x140070c70
+07001B: mov      rbp, rbx
+07001E: test     ebx, ebx
+070020: jle      0x1400700b8
+070026: xor      ebx, ebx
+070028: mov      rcx, qword ptr [rip + 0x2a03e1]
+07002F: nop      
+070030: mov      rax, rdi
+070033: cmp      qword ptr [rdi + 0x18], 0xf
+070038: jbe      0x14007003d
+07003A: mov      rax, qword ptr [rdi]
+07003D: movzx    eax, byte ptr [rbx + rax]
+070041: mov      byte ptr [rcx], al
+070043: mov      rcx, qword ptr [rip + 0x2a03c6]
+07004A: inc      rcx
+07004D: mov      qword ptr [rip + 0x2a03bc], rcx
+070054: mov      rdx, qword ptr [rip + 0x2a03c5]
+07005B: sub      rdx, qword ptr [rip + 0x2a03b6]
+070062: mov      eax, ecx
+070064: sub      eax, dword ptr [rip + 0x2a039e]
+07006A: movsxd   rsi, eax
+07006D: lea      rax, [rdx - 4]
+070071: cmp      rsi, rax
+070074: jb       0x1400700ac
+070076: mov      byte ptr [rsp + 0x48], 0
+07007B: add      rdx, 0x1000
+070082: lea      r8, [rsp + 0x48]
+070087: lea      rcx, [rip + 0x2a038a]
+07008E: call     0x1400710b0
+070093: mov      rax, qword ptr [rip + 0x2a037e]
+07009A: mov      qword ptr [rip + 0x2a0367], rax
+0700A1: lea      rcx, [rsi + rax]
+0700A5: mov      qword ptr [rip + 0x2a0364], rcx
+0700AC: inc      rbx
+0700AF: cmp      rbx, rbp
+0700B2: jl       0x140070030
+0700B8: mov      rcx, rdi
+0700BB: mov      rbx, qword ptr [rsp + 0x50]
+0700C0: add      rsp, 0x20
+0700C4: pop      rdi
+0700C5: pop      rsi
+0700C6: pop      rbp
+0700C7: jmp      0x140027920
+0700CC: int3     
+0700CD: int3     
+0700CE: int3     
+0700CF: int3     
+0700D0: int3     
+0700D1: int3     
+0700D2: int3     
+0700D3: int3     
+0700D4: int3     
+0700D5: int3     
+0700D6: int3     
+0700D7: int3     
+0700D8: int3     
+0700D9: int3     
+0700DA: int3     
+0700DB: int3     
+0700DC: int3     
+0700DD: int3     
+0700DE: int3     
+0700DF: int3     
+0700E0: mov      qword ptr [rsp + 0x10], rbx
+0700E5: push     rsi
+0700E6: sub      rsp, 0x20
+0700EA: mov      rdx, qword ptr [rcx + 8]

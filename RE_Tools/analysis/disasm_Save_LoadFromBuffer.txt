@@ -1,0 +1,62 @@
+; Horsey.exe+6E643 Save_LoadFromBuffer
+; capstone head 256 bytes
+
+06E643: mov      eax, dword ptr [rbx + r15]
+06E647: cmp      dword ptr [rip + 0x2a1daf], eax
+06E64D: jg       0x14006ebd2
+06E653: mov      eax, dword ptr [rbx + r15]
+06E657: cmp      dword ptr [rip + 0x2a1da7], eax
+06E65D: jg       0x14006eae2
+06E663: mov      eax, dword ptr [rsi + 0x27c]
+06E669: imul     eax, dword ptr [rsi + 0x278]
+06E670: movsxd   rbx, eax
+06E673: mov      qword ptr [rbp + 0x50], rbx
+06E677: mov      eax, 0x28
+06E67C: mul      rbx
+06E67F: mov      r15, 0xffffffffffffffff
+06E686: cmovb    rax, r15
+06E68A: mov      rcx, rax
+06E68D: call     0x14021ec20
+06E692: mov      qword ptr [rbp + 0x50], rax
+06E696: test     rax, rax
+06E699: je       0x14006e6d5
+06E69B: test     rbx, rbx
+06E69E: je       0x14006e6d8
+06E6A0: lea      rcx, [rax + 8]
+06E6A4: nop      dword ptr [rax]
+06E6A8: nop      dword ptr [rax + rax]
+06E6B0: mov      qword ptr [rcx - 8], rdi
+06E6B4: mov      dword ptr [rcx], r15d
+06E6B7: mov      word ptr [rcx + 4], 0
+06E6BD: mov      qword ptr [rcx + 8], rdi
+06E6C1: mov      qword ptr [rcx + 0x10], rdi
+06E6C5: mov      qword ptr [rcx + 0x18], rdi
+06E6C9: lea      rcx, [rcx + 0x28]
+06E6CD: sub      rbx, 1
+06E6D1: jne      0x14006e6b0
+06E6D3: jmp      0x14006e6d8
+06E6D5: mov      rax, rdi
+06E6D8: mov      qword ptr [rsi + 0x270], rax
+06E6DF: mov      r15d, edi
+06E6E2: mov      r12d, edi
+06E6E5: mov      eax, dword ptr [rsi + 0x27c]
+06E6EB: imul     eax, dword ptr [rsi + 0x278]
+06E6F2: test     eax, eax
+06E6F4: jle      0x14006e80b
+06E6FA: mov      rbx, rdi
+06E6FD: nop      dword ptr [rax]
+06E700: mov      r14, qword ptr [rsi + 0x270]
+06E707: test     r15d, r15d
+06E70A: jle      0x14006e727
+06E70C: mov      dword ptr [rbx + r14], 6
+06E714: mov      eax, dword ptr [rip + 0x2a1cd6]
+06E71A: mov      dword ptr [rbx + r14 + 8], eax
+06E71F: dec      r15d
+06E722: jmp      0x14006e7ee
+06E727: lea      rcx, [rbp + 0x50]
+06E72B: call     0x1400705d0
+06E730: movzx    ecx, byte ptr [rbp + 0x50]
+06E734: cmp      cl, 0x3f
+06E737: jne      0x14006e762
+06E739: lea      rcx, [rbp + 0x50]
+06E73D: call     0x1400705d0

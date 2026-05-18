@@ -1,0 +1,62 @@
+; Horsey.exe+6EC40 WriteNestedItem
+; capstone head 256 bytes
+
+06EC40: mov      qword ptr [rsp + 0x10], rbx
+06EC45: mov      qword ptr [rsp + 0x18], rbp
+06EC4A: push     rsi
+06EC4B: push     rdi
+06EC4C: push     r14
+06EC4E: sub      rsp, 0x40
+06EC52: mov      rbp, rcx
+06EC55: call     0x14006fdf0
+06EC5A: lea      rcx, [rbp + 0x2b8]
+06EC61: mov      r14d, eax
+06EC64: call     0x14006d2a0
+06EC69: mov      rcx, qword ptr [rbp + 0x2a8]
+06EC70: call     0x14006fe70
+06EC75: mov      ecx, dword ptr [rbp + 0x1f8]
+06EC7B: call     0x14006fe10
+06EC80: movzx    ecx, word ptr [rbp + 0x220]
+06EC87: call     0x14006fe50
+06EC8C: movzx    ecx, byte ptr [rbp + 0x1c]
+06EC90: call     0x14006fe30
+06EC95: movzx    ecx, byte ptr [rbp + 0x1fc]
+06EC9C: call     0x14006fe30
+06ECA1: movzx    ecx, byte ptr [rbp + 0x21c]
+06ECA8: call     0x14006fe30
+06ECAD: movzx    ecx, byte ptr [rbp + 0x284]
+06ECB4: call     0x14006fe30
+06ECB9: movzx    ecx, byte ptr [rbp + 0x214]
+06ECC0: call     0x14006fe30
+06ECC5: movzx    ecx, byte ptr [rbp + 0x234]
+06ECCC: call     0x14006fe30
+06ECD1: movzx    ecx, byte ptr [rbp + 0x210]
+06ECD8: call     0x14006fe30
+06ECDD: movzx    ecx, byte ptr [rbp + 0x1cc]
+06ECE4: call     0x14006fe30
+06ECE9: movzx    eax, byte ptr [rbp + 0x206]
+06ECF0: neg      al
+06ECF2: movzx    eax, byte ptr [rbp + 0x205]
+06ECF9: sbb      r8b, r8b
+06ECFC: and      r8b, 8
+06ED00: neg      al
+06ED02: movzx    eax, byte ptr [rbp + 0x204]
+06ED09: sbb      cl, cl
+06ED0B: and      cl, 4
+06ED0E: add      r8b, cl
+06ED11: neg      al
+06ED13: movzx    eax, byte ptr [rbp + 0x160]
+06ED1A: sbb      cl, cl
+06ED1C: and      cl, 2
+06ED1F: add      r8b, cl
+06ED22: neg      al
+06ED24: movzx    eax, byte ptr [rbp + 0x23]
+06ED28: sbb      cl, cl
+06ED2A: and      cl, 0x10
+06ED2D: add      cl, r8b
+06ED30: neg      al
+06ED32: movzx    eax, byte ptr [rbp + 0x22]
+06ED36: sbb      dl, dl
+06ED38: and      dl, 0x40
+06ED3B: add      cl, dl
+06ED3D: neg      al

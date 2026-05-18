@@ -1,0 +1,520 @@
+{
+  "hooks": {
+    "GainMoney": "0x10ab80",
+    "SimSpawnDisk": "0x33a20",
+    "BuyItem": "0x787d0",
+    "RaceStateMachine": "0x8f2b0",
+    "RaceGo_site": "0x91274"
+  },
+  "sim_targets_hooked": [
+    "5f900",
+    "60540",
+    "5f78e",
+    "5f7f6",
+    "5f869"
+  ],
+  "summary_counts": {
+    "gain_money": 0,
+    "sim_spawn": 0,
+    "buy_item": 0,
+    "race_fsm": 80,
+    "racego_hits": 0,
+    "sim_calls": 0
+  },
+  "gain_money": [],
+  "sim_spawn": [],
+  "buy_item": [],
+  "race_fsm": [
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    },
+    {
+      "type": "race_fsm",
+      "param_1": "0x295bd62d250",
+      "bt": [
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957"
+      ]
+    }
+  ],
+  "race_fsm_bt_sample": [
+    "0xcfb34",
+    "0x98392",
+    "0x876fa",
+    "0xbead9",
+    "0x21ee12",
+    "0x7ffa1ac9e957"
+  ],
+  "racego_hits": [],
+  "sim_calls": [],
+  "note": "Attach with save loaded; perform shop buy, horse place, race start for hits."
+}

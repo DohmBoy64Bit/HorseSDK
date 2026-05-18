@@ -1,0 +1,67 @@
+; Horsey.exe+874B0 Game_BootstrapWorld
+; capstone head 256 bytes
+
+0874B0: push     rbx
+0874B2: sub      rsp, 0x20
+0874B6: call     0x1400c1850
+0874BB: xor      ebx, ebx
+0874BD: mov      dword ptr [rip + 0x28b7f1], ebx
+0874C3: call     0x1400c3c10
+0874C8: call     0x1400c3a70
+0874CD: call     0x14003ee50
+0874D2: mov      ecx, 0x30
+0874D7: call     0x14021e414
+0874DC: mov      qword ptr [rsp + 0x30], rax
+0874E1: test     rax, rax
+0874E4: je       0x1400874f1
+0874E6: mov      rcx, rax
+0874E9: call     0x140096d20
+0874EE: mov      rbx, rax
+0874F1: mov      qword ptr [rip + 0x28c228], rbx
+0874F8: mov      rcx, rbx
+0874FB: add      rsp, 0x20
+0874FF: pop      rbx
+087500: jmp      0x140097110
+087505: int3     
+087506: int3     
+087507: int3     
+087508: int3     
+087509: int3     
+08750A: int3     
+08750B: int3     
+08750C: int3     
+08750D: int3     
+08750E: int3     
+08750F: int3     
+087510: push     rbx
+087512: sub      rsp, 0x40
+087516: movaps   xmmword ptr [rsp + 0x30], xmm6
+08751B: movaps   xmmword ptr [rsp + 0x20], xmm7
+087520: call     0x14003f290
+087525: cmp      byte ptr [rip + 0x28b7c9], 0
+08752C: xorps    xmm0, xmm0
+08752F: cvtsi2ss xmm0, dword ptr [rip + 0x28b7a9]
+087537: mov      ecx, dword ptr [rip + 0x28b833]
+08753D: lea      eax, [rcx*2 + 0x140]
+087544: xorps    xmm5, xmm5
+087547: xorps    xmm6, xmm6
+08754A: cvtsi2ss xmm6, dword ptr [rip + 0x26a8ce]
+087552: cvtsi2ss xmm5, eax
+087556: xorps    xmm1, xmm1
+087559: xorps    xmm7, xmm7
+08755C: cvtsi2ss xmm1, dword ptr [rip + 0x28b780]
+087564: mulss    xmm0, xmm5
+087568: xorps    xmm2, xmm2
+08756B: cvtsi2ss xmm7, ecx
+08756F: mov      ecx, dword ptr [rip + 0x28b7ff]
+087575: xorps    xmm3, xmm3
+087578: mulss    xmm1, xmm5
+08757C: lea      eax, [rcx*2 + 0xb4]
+087583: cvtsi2ss xmm3, dword ptr [rip + 0x26a899]
+08758B: divss    xmm0, xmm6
+08758F: cvtsi2ss xmm2, eax
+087593: subss    xmm0, xmm7
+087597: xorps    xmm4, xmm4
+08759A: cvtsi2ss xmm4, ecx
+08759E: movss    dword ptr [rip + 0x28b72a], xmm0
+0875A6: xorps    xmm0, xmm0

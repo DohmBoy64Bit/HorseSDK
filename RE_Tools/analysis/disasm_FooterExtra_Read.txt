@@ -1,0 +1,74 @@
+; Horsey.exe+101810 FooterExtra_Read
+; capstone head 256 bytes
+
+101810: push     rbx
+101812: sub      rsp, 0x20
+101816: mov      rbx, rcx
+101819: add      rcx, 0x25c
+101820: call     0x140070320
+101825: lea      rcx, [rbx + 0x261]
+10182C: call     0x140070620
+101831: lea      rcx, [rbx + 0x262]
+101838: call     0x140070620
+10183D: lea      rcx, [rbx + 0x263]
+101844: add      rsp, 0x20
+101848: pop      rbx
+101849: jmp      0x140070620
+10184E: int3     
+10184F: int3     
+101850: push     rbx
+101852: sub      rsp, 0x20
+101856: mov      edx, 1
+10185B: mov      rbx, rcx
+10185E: call     0x1400a30f0
+101863: lea      rax, [rip + 0x169b66]
+10186A: mov      dword ptr [rbx + 0x30], 0x41d00000
+101871: mov      qword ptr [rbx], rax
+101874: xor      eax, eax
+101876: mov      qword ptr [rbx + 0x74], rax
+10187A: mov      qword ptr [rbx + 0x88], rax
+101881: mov      qword ptr [rbx + 0x94], rax
+101888: mov      byte ptr [rbx + 0x9c], al
+10188E: mov      qword ptr [rbx + 0xa4], rax
+101895: mov      dword ptr [rbx + 0xa0], eax
+10189B: mov      word ptr [rbx + 0xac], ax
+1018A2: mov      qword ptr [rbx + 0x7c], rax
+1018A6: mov      rax, rbx
+1018A9: mov      dword ptr [rbx + 0x34], 0x41400000
+1018B0: mov      byte ptr [rbx + 0x70], 0
+1018B4: mov      dword ptr [rbx + 0x84], 0xffffffff
+1018BE: mov      dword ptr [rbx + 0x90], 0xffffffff
+1018C8: add      rsp, 0x20
+1018CC: pop      rbx
+1018CD: ret      
+1018CE: int3     
+1018CF: int3     
+1018D0: int3     
+1018D1: int3     
+1018D2: int3     
+1018D3: int3     
+1018D4: int3     
+1018D5: int3     
+1018D6: int3     
+1018D7: int3     
+1018D8: int3     
+1018D9: int3     
+1018DA: int3     
+1018DB: int3     
+1018DC: int3     
+1018DD: int3     
+1018DE: int3     
+1018DF: int3     
+1018E0: push     rbx
+1018E2: sub      rsp, 0x20
+1018E6: mov      rbx, rcx
+1018E9: lea      rax, [rip + 0x169ae0]
+1018F0: mov      qword ptr [rcx], rax
+1018F3: mov      ecx, dword ptr [rcx + 0x90]
+1018F9: cmp      ecx, -1
+1018FC: je       0x140101903
+1018FE: call     0x140040ee0
+101903: mov      rcx, rbx
+101906: add      rsp, 0x20
+10190A: pop      rbx
+10190B: jmp      0x1400a3210

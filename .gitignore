@@ -27,6 +27,9 @@ Thumbs.db
 .vscode/
 *.swp
 
+# Ghidra local project (analyzeHeadless)
+ghidra_project/
+
 # Frida / local captures (regenerate via scripts)
 # Keep analysis/*.json in repo; ignore huge optional dumps if re-captured locally
 # RE_Tools/analysis/save_buffer_dump.bin

@@ -1,0 +1,67 @@
+; Horsey.exe+6FB90 ReadCheck
+; capstone head 256 bytes
+
+06FB90: mov      qword ptr [rsp + 8], rbx
+06FB95: mov      qword ptr [rsp + 0x10], rbp
+06FB9A: mov      qword ptr [rsp + 0x18], rsi
+06FB9F: push     rdi
+06FBA0: push     r14
+06FBA2: push     r15
+06FBA4: sub      rsp, 0x20
+06FBA8: mov      rax, rdx
+06FBAB: test     cl, cl
+06FBAD: jne      0x14006fcfd
+06FBB3: cmp      qword ptr [rdx + 0x18], 0xf
+06FBB8: jbe      0x14006fbbd
+06FBBA: mov      rax, qword ptr [rdx]
+06FBBD: lea      rdx, [rip + 0x24f3c8]
+06FBC4: mov      rcx, rax
+06FBC7: call     0x140225894
+06FBCC: mov      rbp, rax
+06FBCF: test     rax, rax
+06FBD2: je       0x14006fcf9
+06FBD8: xor      edx, edx
+06FBDA: mov      r8d, 2
+06FBE0: mov      rcx, rax
+06FBE3: call     0x140226280
+06FBE8: mov      rcx, rbp
+06FBEB: call     0x140226948
+06FBF0: mov      rcx, rbp
+06FBF3: movsxd   r15, eax
+06FBF6: call     0x1402294d0
+06FBFB: mov      rsi, qword ptr [rip + 0x2a081e]
+06FC02: mov      rdx, qword ptr [rip + 0x2a080f]
+06FC09: mov      r14, rsi
+06FC0C: sub      r14, rdx
+06FC0F: cmp      r15, r14
+06FC12: jae      0x14006fc24
+06FC14: lea      rcx, [rdx + r15]
+06FC18: mov      qword ptr [rip + 0x2a0801], rcx
+06FC1F: jmp      0x14006fcd2
+06FC24: jbe      0x14006fcd2
+06FC2A: mov      rcx, qword ptr [rip + 0x2a07f7]
+06FC31: sub      rcx, rdx
+06FC34: cmp      r15, rcx
+06FC37: jbe      0x14006fcb4
+06FC39: movabs   rsi, 0x7fffffffffffffff
+06FC43: cmp      r15, rsi
+06FC46: ja       0x14006fd2d
+06FC4C: mov      rdx, rcx
+06FC4F: mov      rax, rsi
+06FC52: shr      rdx, 1
+06FC55: sub      rax, rdx
+06FC58: cmp      rcx, rax
+06FC5B: ja       0x14006fc68
+06FC5D: lea      rsi, [rdx + rcx]
+06FC61: cmp      rsi, r15
+06FC64: cmovb    rsi, r15
+06FC68: mov      rcx, rsi
+06FC6B: call     0x140028600
+06FC70: mov      r8, r15
+06FC73: xor      edx, edx
+06FC75: sub      r8, r14
+06FC78: mov      rbx, rax
+06FC7B: lea      rcx, [r14 + rax]
+06FC7F: call     0x140251850
+06FC84: mov      rdx, qword ptr [rip + 0x2a078d]
+06FC8B: mov      rcx, rbx

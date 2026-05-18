@@ -46,9 +46,5 @@ Total E8 hits (byte scan): **7**
 
 ## Frida
 
-```bat
-python RE_Tools/tools/scripts/frida_gameplay_hooks.py --attach --seconds 120
-```
-
-Start a race in-game; check `racego_hits` and `sim_start_region_calls` in
-`RE_Tools/analysis/gameplay_frida.json`.
+See [Frida_Gameplay.md](Frida_Gameplay.md) — attach, then start a race yourself; check
+`racego_hits` and `sim_calls` in `RE_Tools/analysis/gameplay_frida.json`.

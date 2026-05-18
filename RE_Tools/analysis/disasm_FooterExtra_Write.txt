@@ -1,0 +1,71 @@
+; Horsey.exe+1017C0 FooterExtra_Write
+; capstone head 256 bytes
+
+1017C0: push     rbx
+1017C2: sub      rsp, 0x20
+1017C6: mov      rbx, rcx
+1017C9: mov      ecx, dword ptr [rcx + 0x25c]
+1017CF: call     0x14006fe10
+1017D4: movzx    ecx, byte ptr [rbx + 0x261]
+1017DB: call     0x14006fef0
+1017E0: movzx    ecx, byte ptr [rbx + 0x262]
+1017E7: call     0x14006fef0
+1017EC: movzx    ecx, byte ptr [rbx + 0x263]
+1017F3: add      rsp, 0x20
+1017F7: pop      rbx
+1017F8: jmp      0x14006fef0
+1017FD: int3     
+1017FE: int3     
+1017FF: int3     
+101800: int3     
+101801: int3     
+101802: int3     
+101803: int3     
+101804: int3     
+101805: int3     
+101806: int3     
+101807: int3     
+101808: int3     
+101809: int3     
+10180A: int3     
+10180B: int3     
+10180C: int3     
+10180D: int3     
+10180E: int3     
+10180F: int3     
+101810: push     rbx
+101812: sub      rsp, 0x20
+101816: mov      rbx, rcx
+101819: add      rcx, 0x25c
+101820: call     0x140070320
+101825: lea      rcx, [rbx + 0x261]
+10182C: call     0x140070620
+101831: lea      rcx, [rbx + 0x262]
+101838: call     0x140070620
+10183D: lea      rcx, [rbx + 0x263]
+101844: add      rsp, 0x20
+101848: pop      rbx
+101849: jmp      0x140070620
+10184E: int3     
+10184F: int3     
+101850: push     rbx
+101852: sub      rsp, 0x20
+101856: mov      edx, 1
+10185B: mov      rbx, rcx
+10185E: call     0x1400a30f0
+101863: lea      rax, [rip + 0x169b66]
+10186A: mov      dword ptr [rbx + 0x30], 0x41d00000
+101871: mov      qword ptr [rbx], rax
+101874: xor      eax, eax
+101876: mov      qword ptr [rbx + 0x74], rax
+10187A: mov      qword ptr [rbx + 0x88], rax
+101881: mov      qword ptr [rbx + 0x94], rax
+101888: mov      byte ptr [rbx + 0x9c], al
+10188E: mov      qword ptr [rbx + 0xa4], rax
+101895: mov      dword ptr [rbx + 0xa0], eax
+10189B: mov      word ptr [rbx + 0xac], ax
+1018A2: mov      qword ptr [rbx + 0x7c], rax
+1018A6: mov      rax, rbx
+1018A9: mov      dword ptr [rbx + 0x34], 0x41400000
+1018B0: mov      byte ptr [rbx + 0x70], 0
+1018B4: mov      dword ptr [rbx + 0x84], 0xffffffff

@@ -1,0 +1,76 @@
+; Horsey.exe+102E20 Type1_B8_Read
+; capstone head 256 bytes
+
+102E20: push     rbx
+102E22: sub      rsp, 0x20
+102E26: mov      rbx, rcx
+102E29: call     0x14006d960
+102E2E: lea      rcx, [rbx + 0xa0]
+102E35: call     0x140070320
+102E3A: lea      rcx, [rbx + 0xa4]
+102E41: call     0x140070320
+102E46: lea      rcx, [rbx + 0xa8]
+102E4D: call     0x140070320
+102E52: lea      rcx, [rbx + 0xad]
+102E59: call     0x140070620
+102E5E: lea      rcx, [rbx + 0xac]
+102E65: add      rsp, 0x20
+102E69: pop      rbx
+102E6A: jmp      0x140070620
+102E6F: int3     
+102E70: mov      qword ptr [rsp + 8], rbx
+102E75: push     rdi
+102E76: sub      rsp, 0x20
+102E7A: mov      edi, edx
+102E7C: mov      rbx, rcx
+102E7F: lea      rax, [rip + 0x16854a]
+102E86: mov      qword ptr [rcx], rax
+102E89: mov      ecx, dword ptr [rcx + 0x90]
+102E8F: cmp      ecx, -1
+102E92: je       0x140102e99
+102E94: call     0x140040ee0
+102E99: mov      rcx, rbx
+102E9C: call     0x1400a3210
+102EA1: nop      
+102EA2: test     dil, 1
+102EA6: je       0x140102eb5
+102EA8: mov      edx, 0xb0
+102EAD: mov      rcx, rbx
+102EB0: call     0x14021e450
+102EB5: mov      rax, rbx
+102EB8: mov      rbx, qword ptr [rsp + 0x30]
+102EBD: add      rsp, 0x20
+102EC1: pop      rdi
+102EC2: ret      
+102EC3: int3     
+102EC4: int3     
+102EC5: int3     
+102EC6: int3     
+102EC7: int3     
+102EC8: int3     
+102EC9: int3     
+102ECA: int3     
+102ECB: int3     
+102ECC: int3     
+102ECD: int3     
+102ECE: int3     
+102ECF: int3     
+102ED0: mov      rax, rsp
+102ED3: mov      qword ptr [rax + 0x10], rbx
+102ED7: mov      qword ptr [rax + 0x18], rsi
+102EDB: mov      qword ptr [rax + 0x20], rdi
+102EDF: push     rbp
+102EE0: push     r14
+102EE2: push     r15
+102EE4: lea      rbp, [rax - 0x68]
+102EE8: sub      rsp, 0x150
+102EEF: movaps   xmmword ptr [rax - 0x28], xmm6
+102EF3: movaps   xmmword ptr [rax - 0x38], xmm7
+102EF7: movaps   xmmword ptr [rax - 0x48], xmm8
+102EFC: movaps   xmmword ptr [rax - 0x58], xmm9
+102F01: mov      r15, rdx
+102F04: mov      rbx, rcx
+102F07: movss    xmm1, dword ptr [rcx + 0x39c]
+102F0F: xorps    xmm6, xmm6
+102F12: comiss   xmm1, xmm6
+102F15: jbe      0x1401031cb

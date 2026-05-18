@@ -228,9 +228,17 @@ def main() -> int:
     import frida
 
     ap = argparse.ArgumentParser()
-    ap.add_argument("--seconds", type=float, default=90.0)
-    ap.add_argument("--attach", action="store_true", help="Attach to running Horsey.exe")
+    ap.add_argument("--seconds", type=float, default=120.0)
+    ap.add_argument("--attach", action="store_true", help="Attach to running Horsey.exe (required)")
+    ap.add_argument(
+        "--full-events",
+        action="store_true",
+        help="Include raw send() events in JSON (large file)",
+    )
     args = ap.parse_args()
+    if not args.attach:
+        print("Use --attach: start Horsey, load a save, then run this script.")
+        return 1
     events: list = []
 
     def on_msg(msg, _):
@@ -276,10 +284,14 @@ def main() -> int:
     if not args.attach:
         device.resume(pid)
 
-    print(
-        f"Gameplay Frida pid={pid} attach={args.attach} — buy item, place horse, run race ({args.seconds}s)"
-    )
-    time.sleep(args.seconds)
+    print(f"Attached pid={pid} for {args.seconds}s — trigger in-game now:")
+    print("  shop buy  |  place horse  |  start/run race")
+    print(f"  Output -> {OUT}")
+    t0 = time.time()
+    while time.time() - t0 < args.seconds:
+        time.sleep(5.0)
+        n = len([e for e in events if e.get("type")])
+        print(f"  … {int(time.time() - t0)}s  events={n}", flush=True)
     try:
         summary = script.exports_sync.summary()
     except Exception:
@@ -288,6 +300,21 @@ def main() -> int:
         session.detach()
     except Exception:
         pass
+
+    def rows_of(kind: str) -> list:
+        from_rpc = summary.get(kind, [])
+        if from_rpc:
+            return from_rpc
+        return [e["row"] for e in events if e.get("type") == kind and e.get("row")]
+
+    gain_rows = rows_of("gain_money")
+    spawn_rows = rows_of("sim_spawn")
+    buy_rows = rows_of("buy_item")
+    race_rows = rows_of("race_fsm")
+    racego_rows = rows_of("racego")
+    sim_rows = summary.get("sim_calls", []) or [
+        e["row"] for e in events if e.get("type") in ("sim_region", "sim_target") and e.get("row")
+    ]
 
     report = {
         "hooks": {
@@ -299,22 +326,24 @@ def main() -> int:
         },
         "sim_targets_hooked": targets,
         "summary_counts": {
-            "gain_money": len(summary.get("gain_money", [])),
-            "sim_spawn": len(summary.get("sim_spawn", [])),
-            "buy_item": len(summary.get("buy_item", [])),
-            "race_fsm": len(summary.get("race_fsm", [])),
-            "racego_hits": len(summary.get("racego_hits", [])),
-            "sim_calls": len(summary.get("sim_calls", [])),
+            "gain_money": len(gain_rows),
+            "sim_spawn": len(spawn_rows),
+            "buy_item": len(buy_rows),
+            "race_fsm": len(race_rows),
+            "racego_hits": len(racego_rows),
+            "sim_calls": len(sim_rows),
         },
-        "gain_money": summary.get("gain_money", []),
-        "sim_spawn": summary.get("sim_spawn", []),
-        "buy_item": summary.get("buy_item", []),
-        "race_fsm": summary.get("race_fsm", [])[:40],
-        "racego_hits": summary.get("racego_hits", []),
-        "sim_calls": summary.get("sim_calls", [])[:60],
-        "events": events,
-        "note": "Use --attach; perform shop buy, horse place, race start for hits.",
+        "gain_money": gain_rows[:50],
+        "sim_spawn": spawn_rows[:50],
+        "buy_item": buy_rows[:50],
+        "race_fsm": race_rows[:40],
+        "race_fsm_bt_sample": race_rows[0].get("bt") if race_rows else None,
+        "racego_hits": racego_rows[:30],
+        "sim_calls": sim_rows[:60],
+        "note": "Attach with save loaded; perform shop buy, horse place, race start for hits.",
     }
+    if args.full_events:
+        report["events"] = events
     OUT.write_text(json.dumps(report, indent=2), encoding="utf-8")
     print(f"Wrote {OUT} {report['summary_counts']}")
     return 0

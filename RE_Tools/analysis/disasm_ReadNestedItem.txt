@@ -1,0 +1,60 @@
+; Horsey.exe+6EF80 ReadNestedItem
+; capstone head 256 bytes
+
+06EF80: push     rbx
+06EF82: push     rdi
+06EF83: sub      rsp, 0x58
+06EF87: mov      rdi, rcx
+06EF8A: add      rcx, 0x2b8
+06EF91: call     0x14006d3b0
+06EF96: lea      rcx, [rdi + 0x2a8]
+06EF9D: call     0x1400704f0
+06EFA2: lea      rcx, [rdi + 0x1f8]
+06EFA9: call     0x140070320
+06EFAE: lea      rcx, [rdi + 0x220]
+06EFB5: call     0x140070450
+06EFBA: lea      rcx, [rdi + 0x1c]
+06EFBE: call     0x140070400
+06EFC3: lea      rcx, [rdi + 0x1fc]
+06EFCA: call     0x140070400
+06EFCF: lea      rcx, [rdi + 0x21c]
+06EFD6: call     0x140070400
+06EFDB: lea      rcx, [rdi + 0x284]
+06EFE2: call     0x140070400
+06EFE7: lea      rcx, [rdi + 0x214]
+06EFEE: call     0x140070400
+06EFF3: lea      rcx, [rdi + 0x234]
+06EFFA: call     0x140070400
+06EFFF: lea      rcx, [rdi + 0x210]
+06F006: call     0x140070400
+06F00B: lea      rcx, [rdi + 0x1cc]
+06F012: call     0x140070400
+06F017: lea      rcx, [rsp + 0x70]
+06F01C: call     0x1400705d0
+06F021: movzx    ecx, byte ptr [rsp + 0x70]
+06F026: lea      rdx, [rdi + 0x1d4]
+06F02D: movzx    eax, cl
+06F030: and      al, 1
+06F032: mov      byte ptr [rdi + 0x1a], al
+06F035: movzx    eax, cl
+06F038: shr      al, 1
+06F03A: and      al, 1
+06F03C: mov      byte ptr [rdi + 0x204], al
+06F042: movzx    eax, cl
+06F045: shr      al, 2
+06F048: and      al, 1
+06F04A: mov      byte ptr [rdi + 0x205], al
+06F050: movzx    eax, cl
+06F053: shr      al, 3
+06F056: and      al, 1
+06F058: mov      byte ptr [rdi + 0x206], al
+06F05E: movzx    eax, cl
+06F061: shr      al, 4
+06F064: and      al, 1
+06F066: mov      byte ptr [rdi + 0x160], al
+06F06C: movzx    eax, cl
+06F06F: shr      cl, 6
+06F072: and      cl, 1
+06F075: shr      al, 5
+06F078: mov      byte ptr [rdi + 0x23], cl
+06F07B: and      al, 1

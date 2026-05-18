@@ -1,0 +1,56 @@
+; Horsey.exe+BE0F0 GameMain_InitAndLoop
+; capstone head 256 bytes
+
+0BE0F0: push     rbp
+0BE0F2: lea      rbp, [rsp - 0x1f0]
+0BE0FA: sub      rsp, 0x2f0
+0BE101: mov      ecx, 0x36f88b
+0BE106: call     qword ptr [rip + 0x19cb04]
+0BE10C: test     al, al
+0BE10E: je       0x1400be11b
+0BE110: xor      eax, eax
+0BE112: add      rsp, 0x2f0
+0BE119: pop      rbp
+0BE11A: ret      
+0BE11B: mov      ecx, 0x4020
+0BE120: mov      qword ptr [rsp + 0x310], rdi
+0BE128: call     0x1401248b0
+0BE12D: test     eax, eax
+0BE12F: je       0x1400be149
+0BE131: mov      rdi, qword ptr [rsp + 0x310]
+0BE139: mov      rax, 0xffffffffffffffff
+0BE140: add      rsp, 0x2f0
+0BE147: pop      rbp
+0BE148: ret      
+0BE149: mov      qword ptr [rsp + 0x300], rbx
+0BE151: mov      qword ptr [rsp + 0x308], rsi
+0BE159: mov      qword ptr [rsp + 0x2e8], r12
+0BE161: mov      qword ptr [rsp + 0x2d8], r14
+0BE169: mov      qword ptr [rsp + 0x2d0], r15
+0BE171: call     qword ptr [rip + 0x19bff9]
+0BE177: mov      r9d, 0x104
+0BE17D: lea      r8, [rbp - 0x40]
+0BE181: mov      rcx, rax
+0BE184: xor      edx, edx
+0BE186: call     0x1401196bc
+0BE18B: lea      rcx, [rbp - 0x40]
+0BE18F: call     0x140251ce0
+0BE194: lea      r15, [rip + 0x23443d]
+0BE19B: mov      r8, rax
+0BE19E: mov      rcx, r15
+0BE1A1: lea      rdx, [rbp - 0x40]
+0BE1A5: call     0x140027f70
+0BE1AA: mov      r8, qword ptr [rip + 0x23443f]
+0BE1B1: mov      rsi, r15
+0BE1B4: mov      rdx, qword ptr [rip + 0x23441d]
+0BE1BB: cmp      r8, 0xf
+0BE1BF: mov      rcx, qword ptr [rip + 0x234422]
+0BE1C6: mov      rdi, 0xffffffffffffffff
+0BE1CD: cmova    rsi, rdx
+0BE1D1: cmp      rcx, 1
+0BE1D5: jb       0x1400be224
+0BE1D7: dec      rcx
+0BE1DA: lea      r8, [rip + 0x1a7e57]
+0BE1E1: mov      rbx, rdi
+0BE1E4: mov      r9d, 1
+0BE1EA: cmp      rcx, rbx

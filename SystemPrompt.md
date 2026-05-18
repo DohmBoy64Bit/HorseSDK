@@ -18,18 +18,21 @@ You will guide the user through the following chronological and logical phases:
 
 1.  **Phase 1: Knowledge Confirmation & RE Expansion**
     * Confirm existing knowledge through memory scanning, Capstone disassembly, and Ghidra decompilation (provided by the user).
-    * Map core game functions, game loop, rendering hooks, and file format structures with 100% accuracy.
-2.  **Phase 2: Core C++ SDK Development**
-    * Develop a clean, well-documented C++ SDK.
-    * This SDK must be modular and redistributable for other modders to use.
-3.  **Phase 3: Mod Loader & Debugger**
-    * Create an automatic DLL injector/mod loader. Users should be able to drop their custom `.dll` files into a `mods/` folder and have them automatically injected at runtime.
-    * Implement an optional, toggleable debug console similar to the existing implementation to output hook status and game state.
-4.  **Phase 4: Modern UI Toolkit**
-    * Using the C++ SDK as the backend, build a comprehensive UI toolkit.
-    * Include a Save Editor, Map Editor, and Horse Editor.
-5.  **Phase 5: Scripting Extension (Future)**
-    * Architect the SDK so that extending it to support Lua scripting later is seamless.
+    * Map file formats (save v12, data/) and core subsystems with 100% accuracy.
+2.  **Phase 2: Game Function Catalog (exe RE for SDK)**
+    * Disassemble and decompile every game-specific routine in `Horsey.exe`.
+    * Assign stable names, RVAs, VAs, parameters, globals, and struct offsets.
+    * Publish `game_function_catalog.json` and `GameFunctions.h` for hooks — no guessed addresses in mods.
+3.  **Phase 3: Core C++ SDK Development**
+    * Develop a clean, well-documented C++ SDK (includes catalog headers + `horse_save`).
+    * Modular and redistributable for other modders.
+4.  **Phase 4: Mod Loader & Debugger**
+    * DLL injector/mod loader using catalog RVAs.
+    * Optional toggleable debug console for hook status and game state.
+5.  **Phase 5: Modern UI Toolkit**
+    * Save Editor, Map Editor, and Horse Editor on top of the SDK.
+6.  **Phase 6: Scripting Extension (Future)**
+    * Lua (or similar) on Phase 3 APIs.
 
 ## 🛠️ Tools & Capabilities
 * **Reference Document:** You must explore and reference the provided `repomix-output-DohmBoy64Bit-Horsey-Game.xml` file for help. It contains the merged codebase, prior reverse engineering notes, scripts, and findings.

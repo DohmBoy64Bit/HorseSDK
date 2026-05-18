@@ -1,0 +1,66 @@
+; Horsey.exe+AE470 GeneticsApply
+; capstone head 256 bytes
+
+0AE470: mov      qword ptr [rsp + 0x10], rdx
+0AE475: push     rbp
+0AE476: sub      rsp, 0x50
+0AE47A: movsxd   rax, dword ptr [rcx + 0x234]
+0AE481: mov      rbp, rcx
+0AE484: cmp      eax, 0x13
+0AE487: ja       0x1400ae874
+0AE48D: mov      qword ptr [rsp + 0x48], rsi
+0AE492: lea      r11, [rip + 0x1b6d57]
+0AE499: mov      qword ptr [rsp + 0x40], rdi
+0AE49E: mov      qword ptr [rsp + 0x30], r13
+0AE4A3: mov      r13, rax
+0AE4A6: mov      qword ptr [rsp + 0x28], r14
+0AE4AB: xor      r14d, r14d
+0AE4AE: imul     rax, rax, 0x44
+0AE4B2: mov      qword ptr [rsp + 0x70], rbx
+0AE4B7: mov      r8d, r14d
+0AE4BA: mov      dword ptr [rip + 0x243e53], r14d
+0AE4C1: mov      r10d, r14d
+0AE4C4: mov      r9d, r14d
+0AE4C7: cmp      dword ptr [rax + r11], -1
+0AE4CC: je       0x1400ae526
+0AE4CE: mov      edx, r14d
+0AE4D1: mov      edi, r14d
+0AE4D4: mov      r11d, r14d
+0AE4D7: mov      ebx, r14d
+0AE4DA: nop      word ptr [rax + rax]
+0AE4E0: mov      r10d, r11d
+0AE4E3: mov      r9d, ebx
+0AE4E6: cmp      edx, 0x10
+0AE4E9: jge      0x1400ae518
+0AE4EB: lea      r8d, [rdi + 1]
+0AE4EF: imul     rcx, r13, 0x11
+0AE4F3: movsxd   rax, r8d
+0AE4F6: mov      edx, r8d
+0AE4F9: add      rcx, rax
+0AE4FC: mov      edi, r8d
+0AE4FF: lea      rax, [rip + 0x1b6cea]
+0AE506: mov      r11d, r8d
+0AE509: mov      r10d, r8d
+0AE50C: mov      ebx, r8d
+0AE50F: mov      r9d, r8d
+0AE512: cmp      dword ptr [rax + rcx*4], -1
+0AE516: jne      0x1400ae4e0
+0AE518: mov      dword ptr [rip + 0x243df5], r8d
+0AE51F: lea      r11, [rip + 0x1b6cca]
+0AE526: mov      eax, 0x55555556
+0AE52B: mov      qword ptr [rsp + 0x38], r12
+0AE530: imul     r10d
+0AE533: movabs   r10, 0xb21642c8590b2165
+0AE53D: mov      qword ptr [rsp + 0x20], r15
+0AE542: mov      eax, edx
+0AE544: mov      edi, r14d
+0AE547: shr      eax, 0x1f
+0AE54A: add      edx, eax
+0AE54C: mov      rax, r10
+0AE54F: mov      dword ptr [rip + 0x243dc3], edx
+0AE555: sub      r9d, edx
+0AE558: mov      dword ptr [rip + 0x243dbd], r9d
+0AE55F: mov      rcx, qword ptr [rbp + 0x48]
+0AE563: sub      rcx, qword ptr [rbp + 0x40]
+0AE567: imul     rcx
+0AE56A: add      rdx, rcx

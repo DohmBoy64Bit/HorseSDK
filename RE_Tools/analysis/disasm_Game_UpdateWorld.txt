@@ -1,0 +1,55 @@
+; Horsey.exe+87510 Game_UpdateWorld
+; capstone head 256 bytes
+
+087510: push     rbx
+087512: sub      rsp, 0x40
+087516: movaps   xmmword ptr [rsp + 0x30], xmm6
+08751B: movaps   xmmword ptr [rsp + 0x20], xmm7
+087520: call     0x14003f290
+087525: cmp      byte ptr [rip + 0x28b7c9], 0
+08752C: xorps    xmm0, xmm0
+08752F: cvtsi2ss xmm0, dword ptr [rip + 0x28b7a9]
+087537: mov      ecx, dword ptr [rip + 0x28b833]
+08753D: lea      eax, [rcx*2 + 0x140]
+087544: xorps    xmm5, xmm5
+087547: xorps    xmm6, xmm6
+08754A: cvtsi2ss xmm6, dword ptr [rip + 0x26a8ce]
+087552: cvtsi2ss xmm5, eax
+087556: xorps    xmm1, xmm1
+087559: xorps    xmm7, xmm7
+08755C: cvtsi2ss xmm1, dword ptr [rip + 0x28b780]
+087564: mulss    xmm0, xmm5
+087568: xorps    xmm2, xmm2
+08756B: cvtsi2ss xmm7, ecx
+08756F: mov      ecx, dword ptr [rip + 0x28b7ff]
+087575: xorps    xmm3, xmm3
+087578: mulss    xmm1, xmm5
+08757C: lea      eax, [rcx*2 + 0xb4]
+087583: cvtsi2ss xmm3, dword ptr [rip + 0x26a899]
+08758B: divss    xmm0, xmm6
+08758F: cvtsi2ss xmm2, eax
+087593: subss    xmm0, xmm7
+087597: xorps    xmm4, xmm4
+08759A: cvtsi2ss xmm4, ecx
+08759E: movss    dword ptr [rip + 0x28b72a], xmm0
+0875A6: xorps    xmm0, xmm0
+0875A9: cvtsi2ss xmm0, dword ptr [rip + 0x28b737]
+0875B1: divss    xmm1, xmm6
+0875B5: mulss    xmm0, xmm2
+0875B9: subss    xmm1, xmm7
+0875BD: divss    xmm0, xmm3
+0875C1: movss    dword ptr [rip + 0x28b70b], xmm1
+0875C9: subss    xmm0, xmm4
+0875CD: movss    dword ptr [rip + 0x28b703], xmm0
+0875D5: xorps    xmm0, xmm0
+0875D8: cvtsi2ss xmm0, dword ptr [rip + 0x28b70c]
+0875E0: mulss    xmm0, xmm2
+0875E4: divss    xmm0, xmm3
+0875E8: subss    xmm0, xmm4
+0875EC: movss    dword ptr [rip + 0x28b6e8], xmm0
+0875F4: je       0x1400876e9
+0875FA: call     0x140088510
+0875FF: xorps    xmm0, xmm0
+087602: lea      rcx, [rip + 0x28b3a7]
+087609: xorps    xmm1, xmm1
+08760C: xor      edx, edx

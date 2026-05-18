@@ -1,183 +1,59 @@
-# Settings_Save @ 0x71F60 (Capstone)
-# Span ~0x71F60-0x72276
+; Horsey.exe+71F60 Settings_Save
+; capstone head 256 bytes
 
-0x00071F60: mov      qword ptr [rsp + 0x10], rbx
-0x00071F65: mov      qword ptr [rsp + 0x18], rbp
-0x00071F6A: push     rsi
-0x00071F6B: push     rdi
-0x00071F6C: push     r14
-0x00071F6E: sub      rsp, 0xf0
-0x00071F75: cmp      byte ptr [rip + 0x27f566], 0
-0x00071F7C: je       0x140072246
-0x00071F82: cmp      byte ptr [rip + 0x29e50f], 0
-0x00071F89: je       0x140071fc9
-0x00071F8B: lea      rcx, [rsp + 0x50]
-0x00071F90: call     0x140025e20  ; -> Xml_DocLoad
-0x00071F95: nop      
-0x00071F96: mov      rdx, rax
-0x00071F99: lea      rcx, [rip + 0x29e490]
-0x00071FA0: call     0x140025ec0  ; -> Xml_FindRoot
-0x00071FA5: nop      
-0x00071FA6: lea      rax, [rip + 0x24d603]
-0x00071FAD: mov      qword ptr [rsp + 0x50], rax
-0x00071FB2: lea      rcx, [rsp + 0xc0]
-0x00071FBA: call     0x140027920  ; -> 0x27920
-0x00071FBF: lea      rcx, [rsp + 0x50]
-0x00071FC4: call     0x140024a80  ; -> Xml_CreateDoc
-0x00071FC9: lea      rcx, [rip + 0x29e460]
-0x00071FD0: call     0x140025340  ; -> File_OpenRead
-0x00071FD5: mov      rbx, rax
-0x00071FD8: xor      dil, dil
-0x00071FDB: test     rax, rax
-0x00071FDE: jne      0x140072010
-0x00071FE0: mov      ecx, 0xd8
-0x00071FE5: call     0x14021e414  ; -> 0x21e414
-0x00071FEA: mov      qword ptr [rsp + 0x110], rax
-0x00071FF2: test     rax, rax
-0x00071FF5: je       0x14007200b
-0x00071FF7: lea      rdx, [rip + 0x1f05ba]  ; "settings"
-0x00071FFE: mov      rcx, rax
-0x00072001: call     0x1400254b0  ; -> Settings_GetGlobalPtr
-0x00072006: mov      rbx, rax
-0x00072009: jmp      0x14007200d
-0x0007200B: xor      ebx, ebx
-0x0007200D: mov      dil, 1
-0x00072010: xor      r8d, r8d
-0x00072013: cmp      byte ptr [rip + 0x27f4a6], r8b
-0x0007201A: setne    r8b
-0x0007201E: lea      rdx, [rip + 0x1f045b]  ; "sound"
-0x00072025: mov      rcx, rbx
-0x00072028: call     0x1400258f0  ; -> Xml_SetAttribute
-0x0007202D: mov      r8d, dword ptr [rip + 0x27f490]
-0x00072034: lea      rdx, [rip + 0x1f043d]  ; "volume"
-0x0007203B: mov      rcx, rbx
-0x0007203E: call     0x1400258f0  ; -> Xml_SetAttribute
-0x00072043: mov      r8d, dword ptr [rip + 0x27f47e]
-0x0007204A: lea      rdx, [rip + 0x1eb51b]
-0x00072051: mov      rcx, rbx
-0x00072054: call     0x1400258f0  ; -> Xml_SetAttribute
-0x00072059: xor      r8d, r8d
-0x0007205C: cmp      byte ptr [rip + 0x27f469], r8b
-0x00072063: setne    r8b
-0x00072067: lea      rdx, [rip + 0x1f041a]  ; "fullscreen"
-0x0007206E: mov      rcx, rbx
-0x00072071: call     0x1400258f0  ; -> Xml_SetAttribute
-0x00072076: mov      r8d, dword ptr [rip + 0x27f453]
-0x0007207D: lea      rdx, [rip + 0x1f0410]  ; "winx"
-0x00072084: mov      rcx, rbx
-0x00072087: call     0x1400258f0  ; -> Xml_SetAttribute
-0x0007208C: mov      r8d, dword ptr [rip + 0x27f441]
-0x00072093: lea      rdx, [rip + 0x1f0402]  ; "winy"
-0x0007209A: mov      rcx, rbx
-0x0007209D: call     0x1400258f0  ; -> Xml_SetAttribute
-0x000720A2: mov      r8d, dword ptr [rip + 0x27f42f]
-0x000720A9: lea      rdx, [rip + 0x1f03f4]  ; "winw"
-0x000720B0: mov      rcx, rbx
-0x000720B3: call     0x1400258f0  ; -> Xml_SetAttribute
-0x000720B8: mov      r8d, dword ptr [rip + 0x27f41d]
-0x000720BF: lea      rdx, [rip + 0x1f03e6]  ; "winh"
-0x000720C6: mov      rcx, rbx
-0x000720C9: call     0x1400258f0  ; -> Xml_SetAttribute
-0x000720CE: xor      r8d, r8d
-0x000720D1: cmp      byte ptr [rip + 0x27f409], r8b
-0x000720D8: setne    r8b
-0x000720DC: lea      rdx, [rip + 0x1f03d9]  ; "vsync"
-0x000720E3: mov      rcx, rbx
-0x000720E6: call     0x1400258f0  ; -> Xml_SetAttribute
-0x000720EB: xor      r8d, r8d
-0x000720EE: cmp      byte ptr [rip + 0x27f3f5], r8b
-0x000720F5: setne    r8b
-0x000720F9: lea      rdx, [rip + 0x1f0488]  ; "background_draw"
-0x00072100: mov      rcx, rbx
-0x00072103: call     0x1400258f0  ; -> Xml_SetAttribute
-0x00072108: xor      r8d, r8d
-0x0007210B: cmp      byte ptr [rip + 0x27f3d9], r8b
-0x00072112: setne    r8b
-0x00072116: lea      rdx, [rip + 0x1f047b]  ; "background_sim"
-0x0007211D: mov      rcx, rbx
-0x00072120: call     0x1400258f0  ; -> Xml_SetAttribute
-0x00072125: test     dil, dil
-0x00072128: je       0x140072139
-0x0007212A: mov      rdx, rbx
-0x0007212D: lea      rcx, [rip + 0x29e2fc]
-0x00072134: call     0x140025140  ; -> 0x25140
-0x00072139: call     0x1400bfb60  ; -> File_ReadToBuffer
-0x0007213E: mov      rdi, rax
-0x00072141: mov      rbp, qword ptr [rax + 0x10]
-0x00072145: movabs   rcx, 0x7fffffffffffffff
-0x0007214F: mov      rax, rcx
-0x00072152: sub      rax, rbp
-0x00072155: cmp      rax, 0xc
-0x00072159: jb       0x140072277
-0x0007215F: cmp      qword ptr [rdi + 0x18], 0xf
-0x00072164: jbe      0x140072169
-0x00072166: mov      rdi, qword ptr [rdi]
-0x00072169: xorps    xmm0, xmm0
-0x0007216C: movups   xmmword ptr [rsp + 0x30], xmm0
-0x00072171: xorps    xmm1, xmm1
-0x00072174: movdqu   xmmword ptr [rsp + 0x40], xmm1
-0x0007217A: lea      r14, [rbp + 0xc]
-0x0007217E: mov      ebx, 0xf
-0x00072183: lea      rsi, [rsp + 0x30]
-0x00072188: cmp      r14, rbx
-0x0007218B: jbe      0x1400721bb
-0x0007218D: mov      rbx, r14
-0x00072190: or       rbx, 0xf
-0x00072194: cmp      rbx, rcx
-0x00072197: jbe      0x14007219e
-0x00072199: mov      rbx, rcx
-0x0007219C: jmp      0x1400721aa
-0x0007219E: mov      eax, 0x16
-0x000721A3: cmp      rbx, rax
-0x000721A6: cmovb    rbx, rax
-0x000721AA: lea      rcx, [rbx + 1]
-0x000721AE: call     0x140028600  ; -> operator_new
-0x000721B3: mov      rsi, rax
-0x000721B6: mov      qword ptr [rsp + 0x30], rax
-0x000721BB: mov      qword ptr [rsp + 0x40], r14
-0x000721C0: mov      qword ptr [rsp + 0x48], rbx
-0x000721C5: mov      r8, rbp
-0x000721C8: mov      rdx, rdi
-0x000721CB: mov      rcx, rsi
-0x000721CE: call     0x1402511b0  ; -> memcpy
-0x000721D3: movsd    xmm0, qword ptr [rip + 0x1f0285]  ; "settings.xml"
-0x000721DB: movsd    qword ptr [rsi + rbp], xmm0
-0x000721E0: mov      eax, dword ptr [rip + 0x1f0282]  ; ".xml"
-0x000721E6: mov      dword ptr [rsi + rbp + 8], eax
-0x000721EA: mov      byte ptr [rsi + r14], 0
-0x000721EF: lea      rdx, [rsp + 0x30]
-0x000721F4: cmp      qword ptr [rsp + 0x48], 0xf
-0x000721FA: cmova    rdx, qword ptr [rsp + 0x30]
-0x00072200: lea      rcx, [rip + 0x29e229]
-0x00072207: call     0x1400262e0  ; -> 0x262e0
-0x0007220C: nop      
-0x0007220D: mov      rdx, qword ptr [rsp + 0x48]
-0x00072212: cmp      rdx, 0xf
-0x00072216: jbe      0x140072246
-0x00072218: inc      rdx
-0x0007221B: mov      rcx, qword ptr [rsp + 0x30]
-0x00072220: mov      rax, rcx
-0x00072223: cmp      rdx, 0x1000
-0x0007222A: jb       0x140072241
-0x0007222C: add      rdx, 0x27
-0x00072230: mov      rcx, qword ptr [rcx - 8]
-0x00072234: sub      rax, rcx
-0x00072237: sub      rax, 8
-0x0007223B: cmp      rax, 0x1f
-0x0007223F: ja       0x14007225e
-0x00072241: call     0x14021e450  ; -> 0x21e450
-0x00072246: lea      r11, [rsp + 0xf0]
-0x0007224E: mov      rbx, qword ptr [r11 + 0x28]
-0x00072252: mov      rbp, qword ptr [r11 + 0x30]
-0x00072256: mov      rsp, r11
-0x00072259: pop      r14
-0x0007225B: pop      rdi
-0x0007225C: pop      rsi
-0x0007225D: ret      
-0x0007225E: mov      qword ptr [rsp + 0x20], 0
-0x00072267: xor      r9d, r9d
-0x0007226A: xor      r8d, r8d
-0x0007226D: xor      edx, edx
-0x0007226F: xor      ecx, ecx
-0x00072271: call     0x140224844  ; -> 0x224844
-0x00072276: int3     
+071F60: mov      qword ptr [rsp + 0x10], rbx
+071F65: mov      qword ptr [rsp + 0x18], rbp
+071F6A: push     rsi
+071F6B: push     rdi
+071F6C: push     r14
+071F6E: sub      rsp, 0xf0
+071F75: cmp      byte ptr [rip + 0x27f566], 0
+071F7C: je       0x140072246
+071F82: cmp      byte ptr [rip + 0x29e50f], 0
+071F89: je       0x140071fc9
+071F8B: lea      rcx, [rsp + 0x50]
+071F90: call     0x140025e20
+071F95: nop      
+071F96: mov      rdx, rax
+071F99: lea      rcx, [rip + 0x29e490]
+071FA0: call     0x140025ec0
+071FA5: nop      
+071FA6: lea      rax, [rip + 0x24d603]
+071FAD: mov      qword ptr [rsp + 0x50], rax
+071FB2: lea      rcx, [rsp + 0xc0]
+071FBA: call     0x140027920
+071FBF: lea      rcx, [rsp + 0x50]
+071FC4: call     0x140024a80
+071FC9: lea      rcx, [rip + 0x29e460]
+071FD0: call     0x140025340
+071FD5: mov      rbx, rax
+071FD8: xor      dil, dil
+071FDB: test     rax, rax
+071FDE: jne      0x140072010
+071FE0: mov      ecx, 0xd8
+071FE5: call     0x14021e414
+071FEA: mov      qword ptr [rsp + 0x110], rax
+071FF2: test     rax, rax
+071FF5: je       0x14007200b
+071FF7: lea      rdx, [rip + 0x1f05ba]
+071FFE: mov      rcx, rax
+072001: call     0x1400254b0
+072006: mov      rbx, rax
+072009: jmp      0x14007200d
+07200B: xor      ebx, ebx
+07200D: mov      dil, 1
+072010: xor      r8d, r8d
+072013: cmp      byte ptr [rip + 0x27f4a6], r8b
+07201A: setne    r8b
+07201E: lea      rdx, [rip + 0x1f045b]
+072025: mov      rcx, rbx
+072028: call     0x1400258f0
+07202D: mov      r8d, dword ptr [rip + 0x27f490]
+072034: lea      rdx, [rip + 0x1f043d]
+07203B: mov      rcx, rbx
+07203E: call     0x1400258f0
+072043: mov      r8d, dword ptr [rip + 0x27f47e]
+07204A: lea      rdx, [rip + 0x1eb51b]
+072051: mov      rcx, rbx
+072054: call     0x1400258f0
+072059: xor      r8d, r8d

@@ -1,0 +1,64 @@
+; Horsey.exe+6E043 PairWrite_ReadPairVec
+; capstone head 256 bytes
+
+06E043: call     0x14006fed0
+06E048: mov      esi, r15d
+06E04B: mov      rdx, qword ptr [rdi + 0x420]
+06E052: mov      rax, qword ptr [rdi + 0x428]
+06E059: sub      rax, rdx
+06E05C: sar      rax, 3
+06E060: test     rax, rax
+06E063: je       0x14006e0a3
+06E065: mov      rbx, r15
+06E068: mov      ecx, dword ptr [rdx + rbx]
+06E06B: call     0x14006fe10
+06E070: mov      rcx, qword ptr [rdi + 0x420]
+06E077: mov      ecx, dword ptr [rbx + rcx + 4]
+06E07B: call     0x14006fe10
+06E080: inc      esi
+06E082: lea      rbx, [rbx + 8]
+06E086: mov      rdx, qword ptr [rdi + 0x420]
+06E08D: mov      rcx, qword ptr [rdi + 0x428]
+06E094: sub      rcx, rdx
+06E097: sar      rcx, 3
+06E09B: movsxd   rax, esi
+06E09E: cmp      rax, rcx
+06E0A1: jb       0x14006e068
+06E0A3: mov      rcx, rdi
+06E0A6: call     0x14006d440
+06E0AB: mov      rsi, r15
+06E0AE: nop      
+06E0B0: mov      rax, qword ptr [rdi + 0x438]
+06E0B7: mov      rbx, qword ptr [rsi + rax]
+06E0BB: test     rbx, rbx
+06E0BE: setne    cl
+06E0C1: call     0x14006fef0
+06E0C6: test     rbx, rbx
+06E0C9: je       0x14006e0ef
+06E0CB: mov      rcx, qword ptr [rdi + 0x438]
+06E0D2: mov      rcx, qword ptr [rsi + rcx]
+06E0D6: call     0x14006d440
+06E0DB: mov      rax, qword ptr [rdi + 0x438]
+06E0E2: mov      rcx, qword ptr [rsi + rax]
+06E0E6: mov      rax, qword ptr [rcx]
+06E0E9: call     qword ptr [rax + 0xb0]
+06E0EF: add      rsi, 8
+06E0F3: cmp      rsi, 0x180
+06E0FA: jl       0x14006e0b0
+06E0FC: mov      rcx, qword ptr [rip + 0x2ac55d]
+06E103: call     0x14006d440
+06E108: mov      rcx, qword ptr [rip + 0x2ac551]
+06E10F: mov      rax, qword ptr [rcx]
+06E112: call     qword ptr [rax + 0xb0]
+06E118: lea      rcx, [rbp - 9]
+06E11C: call     0x14006fd90
+06E121: nop      
+06E122: mov      rdx, qword ptr [rbp + 0xf]
+06E126: cmp      rdx, 0xf
+06E12A: jbe      0x14006e159
+06E12C: inc      rdx
+06E12F: mov      rcx, qword ptr [rbp - 9]
+06E133: mov      rax, rcx
+06E136: cmp      rdx, 0x1000
+06E13D: jb       0x14006e154
+06E13F: add      rdx, 0x27

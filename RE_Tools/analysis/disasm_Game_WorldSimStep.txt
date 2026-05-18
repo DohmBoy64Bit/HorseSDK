@@ -1,0 +1,77 @@
+; Horsey.exe+88510 Game_WorldSimStep
+; capstone head 256 bytes
+
+088510: sub      rsp, 0x28
+088514: cmp      byte ptr [rip + 0x29053a], 0
+08851B: jne      0x14008855e
+08851D: cmp      byte ptr [rip + 0x28a419], 0
+088524: jne      0x14008855e
+088526: cmp      byte ptr [rip + 0x28a41e], 0
+08852D: je       0x14008856a
+08852F: lea      rcx, [rip + 0x269922]
+088536: lea      rdx, [rip + 0x26993b]
+08853D: cmp      rcx, rdx
+088540: je       0x14008855e
+088542: cmp      qword ptr [rip + 0x269946], 0xf
+08854A: mov      r8, qword ptr [rip + 0x269937]
+088551: cmova    rdx, qword ptr [rip + 0x26991f]
+088559: call     0x140027f70
+08855E: mov      byte ptr [rip + 0x28a790], 0
+088565: add      rsp, 0x28
+088569: ret      
+08856A: cmp      byte ptr [rip + 0x28a3c7], 0
+088571: je       0x14008858d
+088573: cmp      qword ptr [rip + 0x2698ed], 0
+08857B: jbe      0x14008858d
+08857D: lea      rcx, [rip + 0x2698d4]
+088584: add      rsp, 0x28
+088588: jmp      0x140080b00
+08858D: cmp      qword ptr [rip + 0x2698bb], 0xf
+088595: lea      rdx, [rip + 0x26989c]
+08859C: mov      r8, qword ptr [rip + 0x2698a5]
+0885A3: lea      rcx, [rip + 0x2698ae]
+0885AA: cmova    rdx, qword ptr [rip + 0x269886]
+0885B2: add      rsp, 0x28
+0885B6: jmp      0x140027830
+0885BB: int3     
+0885BC: int3     
+0885BD: int3     
+0885BE: int3     
+0885BF: int3     
+0885C0: mov      rcx, qword ptr [rcx]
+0885C3: test     rcx, rcx
+0885C6: jne      0x140088610
+0885CC: ret      
+0885CD: int3     
+0885CE: int3     
+0885CF: int3     
+0885D0: mov      qword ptr [rsp + 8], rbx
+0885D5: push     rdi
+0885D6: sub      rsp, 0x20
+0885DA: mov      rdi, qword ptr [rcx + 8]
+0885DE: mov      rbx, qword ptr [rcx]
+0885E1: cmp      rbx, rdi
+0885E4: je       0x1400885f7
+0885E6: mov      rcx, rbx
+0885E9: call     0x140030830
+0885EE: add      rbx, 0x18
+0885F2: cmp      rbx, rdi
+0885F5: jne      0x1400885e6
+0885F7: mov      rbx, qword ptr [rsp + 0x30]
+0885FC: add      rsp, 0x20
+088600: pop      rdi
+088601: ret      
+088602: int3     
+088603: int3     
+088604: int3     
+088605: int3     
+088606: int3     
+088607: int3     
+088608: int3     
+088609: int3     
+08860A: int3     
+08860B: int3     
+08860C: int3     
+08860D: int3     
+08860E: int3     
+08860F: int3     

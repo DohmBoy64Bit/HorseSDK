@@ -1,0 +1,77 @@
+; Horsey.exe+102DC0 Type1_B8_Write
+; capstone head 256 bytes
+
+102DC0: push     rbx
+102DC2: sub      rsp, 0x20
+102DC6: mov      rbx, rcx
+102DC9: call     0x14006d8c0
+102DCE: mov      ecx, dword ptr [rbx + 0xa0]
+102DD4: call     0x14006fe10
+102DD9: mov      ecx, dword ptr [rbx + 0xa4]
+102DDF: call     0x14006fe10
+102DE4: mov      ecx, dword ptr [rbx + 0xa8]
+102DEA: call     0x14006fe10
+102DEF: movzx    ecx, byte ptr [rbx + 0xad]
+102DF6: call     0x14006fef0
+102DFB: movzx    ecx, byte ptr [rbx + 0xac]
+102E02: add      rsp, 0x20
+102E06: pop      rbx
+102E07: jmp      0x14006fef0
+102E0C: int3     
+102E0D: int3     
+102E0E: int3     
+102E0F: int3     
+102E10: int3     
+102E11: int3     
+102E12: int3     
+102E13: int3     
+102E14: int3     
+102E15: int3     
+102E16: int3     
+102E17: int3     
+102E18: int3     
+102E19: int3     
+102E1A: int3     
+102E1B: int3     
+102E1C: int3     
+102E1D: int3     
+102E1E: int3     
+102E1F: int3     
+102E20: push     rbx
+102E22: sub      rsp, 0x20
+102E26: mov      rbx, rcx
+102E29: call     0x14006d960
+102E2E: lea      rcx, [rbx + 0xa0]
+102E35: call     0x140070320
+102E3A: lea      rcx, [rbx + 0xa4]
+102E41: call     0x140070320
+102E46: lea      rcx, [rbx + 0xa8]
+102E4D: call     0x140070320
+102E52: lea      rcx, [rbx + 0xad]
+102E59: call     0x140070620
+102E5E: lea      rcx, [rbx + 0xac]
+102E65: add      rsp, 0x20
+102E69: pop      rbx
+102E6A: jmp      0x140070620
+102E6F: int3     
+102E70: mov      qword ptr [rsp + 8], rbx
+102E75: push     rdi
+102E76: sub      rsp, 0x20
+102E7A: mov      edi, edx
+102E7C: mov      rbx, rcx
+102E7F: lea      rax, [rip + 0x16854a]
+102E86: mov      qword ptr [rcx], rax
+102E89: mov      ecx, dword ptr [rcx + 0x90]
+102E8F: cmp      ecx, -1
+102E92: je       0x140102e99
+102E94: call     0x140040ee0
+102E99: mov      rcx, rbx
+102E9C: call     0x1400a3210
+102EA1: nop      
+102EA2: test     dil, 1
+102EA6: je       0x140102eb5
+102EA8: mov      edx, 0xb0
+102EAD: mov      rcx, rbx
+102EB0: call     0x14021e450
+102EB5: mov      rax, rbx
+102EB8: mov      rbx, qword ptr [rsp + 0x30]

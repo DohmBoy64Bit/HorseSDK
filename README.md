@@ -65,6 +65,7 @@ Start here:
 - [`RE_Tools/docs/GameLoop.md`](RE_Tools/docs/GameLoop.md) — main loop @ `0xBE0F0` (Ghidra labels, hooks)
 - [`RE_Tools/docs/Ghidra_User_Tasks.md`](RE_Tools/docs/Ghidra_User_Tasks.md) — optional manual RE (automation-first; paste only if stuck)
 - [`RE_Tools/docs/ReverseEngineeringProgress.md`](RE_Tools/docs/ReverseEngineeringProgress.md) — living RE log (RVAs, checklist)
+- [`RE_Tools/docs/GameFunctionCatalog.md`](RE_Tools/docs/GameFunctionCatalog.md) — Phase 2 exe function catalog (RVAs, hooks, SDK)
 - [`RE_Tools/docs/SaveSemanticsCoverage.md`](RE_Tools/docs/SaveSemanticsCoverage.md) — save v12 section status (9/9 on-disk sections mapped)
 - [`RE_Tools/docs/SOURCES.md`](RE_Tools/docs/SOURCES.md) — verification policy (exe + dump over repomix)
 
@@ -78,11 +79,12 @@ High-level plan from [`SystemPrompt.md`](SystemPrompt.md). Near-term items track
 
 | Phase | Goal | Status |
 |-------|------|--------|
-| **1** | Knowledge confirmation & RE expansion (formats, RVAs, codecs) | **In progress** — save v12 on-disk layout complete; exe/data RE ongoing |
-| **2** | Modular **C++ SDK** (redistributable read/write APIs) | Planned |
-| **3** | **Mod loader** + optional in-game debug console | Planned |
-| **4** | **UI toolkit** — save editor, map editor, horse editor | Planned |
-| **5** | **Scripting** layer (e.g. Lua) on top of the SDK | Future |
+| **1** | Knowledge confirmation & RE expansion (formats, RVAs, codecs) | **Mostly complete** — save v12 on-disk 9/9; loop/save RVAs documented |
+| **2** | **Game function catalog** — disasm, decompile, name, offsets for SDK hooks | **Started** — see [GameFunctionCatalog.md](RE_Tools/docs/GameFunctionCatalog.md) |
+| **3** | Modular **C++ SDK** (redistributable read/write APIs + `GameFunctions.h`) | Planned |
+| **4** | **Mod loader** + optional in-game debug console | Planned |
+| **5** | **UI toolkit** — save editor, map editor, horse editor | Planned |
+| **6** | **Scripting** layer (e.g. Lua) on top of the SDK | Future |
 
 ### Phase 1 — done (representative)
 
@@ -104,39 +106,63 @@ High-level plan from [`SystemPrompt.md`](SystemPrompt.md). Near-term items track
 - [x] **horse_save:** C write API `horse_save_write_path` + `--roundtrip` / `HORSE_SAVE_ROUNDTRIP=1`
 - [x] **Phase 1 CI:** `phase1_ci.py` — PE verify, `save_write_codec.py`, `horse_save` round-trip + structured write
 
-### Phase 1 — save RE (deferred, not blocking loaders)
+### Phase 1 — save semantics (documented)
 
-Pinned in [`SaveFutureWork.md`](RE_Tools/docs/SaveFutureWork.md) — revisit when runtime/editor behavior is needed:
+Hub: [`SaveSemantics.md`](RE_Tools/docs/SaveSemantics.md) · pipeline: `python RE_Tools/tools/scripts/run_save_semantics.py`
 
-| Item | Why deferred |
-|------|----------------|
-| `0xAE470` runtime genetics | Applies alleles **after load**; not serialized in `save1.dat` |
-| Footer `vtable+0xB0` / `+0xB8` | Separate from on-disk gene packs; wire when write path needs it |
-| Full 343× main-nested b8 payloads | Sampled types 0/1/2/tail; per-slot semantics still open |
-| Ctx row field names (`SaveSlot6` / `SaveRow13`) | Offsets known in `SaveContext.h`; labels TBD |
+| Done | Artifact |
+|------|----------|
+| 343× b8 manifest + vcall+0x48 wire | `save_main_nested_b8_manifest.json`, `save_main_nested_vcall48.json` |
+| Type-1 tile index | `save_type1_xref.json` |
+| Footer B0/B8 (7 B) | `save_footer_extra_wire.json`, `horse_save` `HorseSaveFooterExtra` |
+| Ctx write/load | `save_ctx_semantics.json`, `save_ctx_load_semantics.json` |
+| Inventory alignment | `save_inventory_aligned.json` (ptr>8 = misread header) |
+| Cross-save diff | `save_compare.json` (`save1.dat` vs `.prev`) |
 
-### Phase 2 — SDK (planned)
+Still deferred (runtime / labels): [`SaveFutureWork.md`](RE_Tools/docs/SaveFutureWork.md) — `0xAE470` phenotype apply, optional `--frida-genetics`, human-readable ctx row names.
 
-- [ ] Top-level **`SDK/`** (or equivalent) for redistributable C/C++ libraries — promote `horse_save` from `RE_Tools/src/`
+### Phase 2 — game function catalog (exe RE for SDK)
+
+**Hub:** [`GameFunctionCatalog.md`](RE_Tools/docs/GameFunctionCatalog.md)
+
+Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game routine** with RVA, VA, parameters, globals, and struct offsets so mods/SDK never hardcode addresses.
+
+| Step | Command / artifact |
+|------|-------------------|
+| Build JSON + `GameFunctions.h` | `python RE_Tools/tools/scripts/build_game_function_catalog.py` |
+| Capstone head disasm | `python RE_Tools/tools/scripts/disasm_catalog_function.py --all-known` |
+| Decompile paste | `RE_Tools/docs/ghidra_exports/<Name>.c.txt` |
+| Master list | `RE_Tools/analysis/game_function_catalog.json` |
+
+- [x] Schema, workflow doc, seed catalog (~40+ verified RVAs: loop, save I/O, nested, settings, font)
+- [x] Auto-generated [`GameFunctions.h`](RE_Tools/docs/GameFunctions.h) (`HORSE_RVA_*`)
+- [x] **Gameplay strings:** race/shop/spawn (`find_gameplay_functions.py`) → [GameplayFunctions.md](RE_Tools/docs/GameplayFunctions.md)
+- [ ] **Coverage:** grow catalog until all `FUN_140*` in hot paths are named (loop body, render, physics, UI)
+- [ ] Per-function struct offsets in catalog (from disasm, not guesses)
+- [ ] CI: catalog build + RVA spot-check on `Horsey.exe`
+
+### Phase 3 — SDK (planned)
+
+- [ ] Top-level **`SDK/`** — promote `horse_save` + ship `GameFunctions.h` from Phase 2
 - [ ] Stable public headers, CMake package config, versioned ABI policy
-- [ ] Memory-safe wrappers for game pointers (read-only first, then controlled write)
+- [ ] Typed hook helpers: `horse_hook(void *base, uint32_t rva, ...)`
 - [ ] Data file APIs: TMX, genes, atlases — built on verified parsers in `RE_Tools/tools/parsers/`
 
-### Phase 3 — mod loader (planned)
+### Phase 4 — mod loader (planned)
 
 - [ ] DLL injector: drop mods in `mods/`, load at game start
-- [ ] Hook bootstrap using confirmed RVAs (init `0xBE0F0`, frame loop `0xBEAF0`, save `0x6DAB0`)
-- [ ] Optional **debug console** (improve on in-game debug concept; toggleable, logs hooks/state)
+- [ ] Hook bootstrap using **catalog** RVAs (`GameMain_InitAndLoop`, `Save_Write`, …)
+- [ ] Optional **debug console** (toggleable, logs hooks/state)
 
-### Phase 4 — editors (planned)
+### Phase 5 — editors (planned)
 
-- [ ] **Save editor** — UI over SDK + `horse_save` (settings + track gene packs, grid, inventory)
+- [ ] **Save editor** — UI over SDK + `horse_save`
 - [ ] **Map editor** — TMX / tile GID tooling from `horsey.tmx` RE
 - [ ] **Horse editor** — genetics UI once `0xAE470` / phenotype rules are understood
 
-### Phase 5 — scripting (future)
+### Phase 6 — scripting (future)
 
-- [ ] Lua (or similar) bindings designed into Phase 2 APIs
+- [ ] Lua (or similar) bindings designed into Phase 3 APIs
 - [ ] Event hooks (frame, save/load, input) without recompiling core SDK
 
 ### How to pick up work

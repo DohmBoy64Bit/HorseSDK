@@ -1,0 +1,71 @@
+; Horsey.exe+6E2B0 Save_Load
+; capstone head 256 bytes
+
+06E2B0: mov      qword ptr [rsp + 8], rbx
+06E2B5: push     rbp
+06E2B6: push     rsi
+06E2B7: push     rdi
+06E2B8: push     r12
+06E2BA: push     r13
+06E2BC: push     r14
+06E2BE: push     r15
+06E2C0: mov      rbp, rsp
+06E2C3: sub      rsp, 0x70
+06E2C7: mov      rsi, rcx
+06E2CA: mov      r8d, edx
+06E2CD: lea      rdx, [rip + 0x1f415c]
+06E2D4: lea      rcx, [rbp - 0x20]
+06E2D8: call     0x140088000
+06E2DD: mov      rbx, rax
+06E2E0: call     0x1400bfb60
+06E2E5: mov      rdx, rax
+06E2E8: mov      r8, rbx
+06E2EB: lea      rcx, [rbp - 0x40]
+06E2EF: call     0x14006f3c0
+06E2F4: nop      
+06E2F5: mov      rdx, rax
+06E2F8: xor      ecx, ecx
+06E2FA: call     0x14006fb90
+06E2FF: movzx    ebx, al
+06E302: mov      rdx, qword ptr [rbp - 0x28]
+06E306: cmp      rdx, 0xf
+06E30A: jbe      0x14006e340
+06E30C: inc      rdx
+06E30F: mov      r8, qword ptr [rbp - 0x40]
+06E313: mov      rcx, r8
+06E316: cmp      rdx, 0x1000
+06E31D: jb       0x14006e338
+06E31F: add      rdx, 0x27
+06E323: mov      r8, qword ptr [r8 - 8]
+06E327: sub      rcx, r8
+06E32A: sub      rcx, 8
+06E32E: cmp      rcx, 0x1f
+06E332: ja       0x14006eb3d
+06E338: mov      rcx, r8
+06E33B: call     0x14021e450
+06E340: movdqa   xmm0, xmmword ptr [rip + 0x251868]
+06E348: movdqu   xmmword ptr [rbp - 0x30], xmm0
+06E34D: mov      byte ptr [rbp - 0x40], 0
+06E351: mov      rdx, qword ptr [rbp - 8]
+06E355: cmp      rdx, 0xf
+06E359: jbe      0x14006e38c
+06E35B: inc      rdx
+06E35E: mov      rcx, qword ptr [rbp - 0x20]
+06E362: mov      rax, rcx
+06E365: cmp      rdx, 0x1000
+06E36C: jb       0x14006e387
+06E36E: add      rdx, 0x27
+06E372: mov      rcx, qword ptr [rcx - 8]
+06E376: sub      rax, rcx
+06E379: sub      rax, 8
+06E37D: cmp      rax, 0x1f
+06E381: ja       0x14006eb54
+06E387: call     0x14021e450
+06E38C: test     bl, bl
+06E38E: jne      0x14006e397
+06E390: xor      al, al
+06E392: jmp      0x14006eaca
+06E397: call     0x140070540
+06E39C: mov      dword ptr [rip + 0x2b259e], eax
+06E3A2: call     0x1400c3390
+06E3A7: lea      rcx, [rsi + 0x254]

@@ -1,0 +1,84 @@
+; Horsey.exe+6FF10 WriteF32_ReadF32
+; capstone head 256 bytes
+
+06FF10: mov      rax, qword ptr [rip + 0x2a04f9]
+06FF17: mov      ecx, 4
+06FF1C: movss    dword ptr [rax], xmm0
+06FF20: jmp      0x140070c70
+06FF25: int3     
+06FF26: int3     
+06FF27: int3     
+06FF28: int3     
+06FF29: int3     
+06FF2A: int3     
+06FF2B: int3     
+06FF2C: int3     
+06FF2D: int3     
+06FF2E: int3     
+06FF2F: int3     
+06FF30: sub      rsp, 0x28
+06FF34: mov      rax, qword ptr [rip + 0x2a04d5]
+06FF3B: mov      qword ptr [rsp + 0x38], rcx
+06FF40: mov      ecx, 4
+06FF45: movss    xmm0, dword ptr [rsp + 0x38]
+06FF4B: movss    dword ptr [rax], xmm0
+06FF4F: call     0x140070c70
+06FF54: mov      rax, qword ptr [rip + 0x2a04b5]
+06FF5B: mov      ecx, 4
+06FF60: movss    xmm0, dword ptr [rsp + 0x3c]
+06FF66: movss    dword ptr [rax], xmm0
+06FF6A: add      rsp, 0x28
+06FF6E: jmp      0x140070c70
+06FF73: int3     
+06FF74: int3     
+06FF75: int3     
+06FF76: int3     
+06FF77: int3     
+06FF78: int3     
+06FF79: int3     
+06FF7A: int3     
+06FF7B: int3     
+06FF7C: int3     
+06FF7D: int3     
+06FF7E: int3     
+06FF7F: int3     
+06FF80: mov      dword ptr [rsp + 8], ecx
+06FF84: sub      rsp, 0x28
+06FF88: mov      rax, qword ptr [rip + 0x2a0481]
+06FF8F: mov      byte ptr [rax], cl
+06FF91: mov      ecx, 1
+06FF96: call     0x140070c70
+06FF9B: mov      rax, qword ptr [rip + 0x2a046e]
+06FFA2: mov      ecx, 1
+06FFA7: movzx    edx, byte ptr [rsp + 0x31]
+06FFAC: mov      byte ptr [rax], dl
+06FFAE: call     0x140070c70
+06FFB3: mov      rax, qword ptr [rip + 0x2a0456]
+06FFBA: mov      ecx, 1
+06FFBF: movzx    edx, byte ptr [rsp + 0x32]
+06FFC4: mov      byte ptr [rax], dl
+06FFC6: call     0x140070c70
+06FFCB: mov      rax, qword ptr [rip + 0x2a043e]
+06FFD2: mov      ecx, 1
+06FFD7: movzx    edx, byte ptr [rsp + 0x33]
+06FFDC: mov      byte ptr [rax], dl
+06FFDE: add      rsp, 0x28
+06FFE2: jmp      0x140070c70
+06FFE7: int3     
+06FFE8: int3     
+06FFE9: int3     
+06FFEA: int3     
+06FFEB: int3     
+06FFEC: int3     
+06FFED: int3     
+06FFEE: int3     
+06FFEF: int3     
+06FFF0: mov      qword ptr [rsp + 0x18], rbx
+06FFF5: mov      qword ptr [rsp + 8], rcx
+06FFFA: push     rbp
+06FFFB: push     rsi
+06FFFC: push     rdi
+06FFFD: sub      rsp, 0x20
+070001: mov      rdi, rcx
+070004: movsxd   rbx, dword ptr [rcx + 0x10]
+070008: mov      rax, qword ptr [rip + 0x2a0401]

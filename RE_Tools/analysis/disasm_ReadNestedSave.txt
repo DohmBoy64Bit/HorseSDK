@@ -1,0 +1,72 @@
+; Horsey.exe+6D5C0 ReadNestedSave
+; capstone head 256 bytes
+
+06D5C0: push     rbx
+06D5C2: push     rbp
+06D5C3: push     rsi
+06D5C4: push     rdi
+06D5C5: push     r14
+06D5C7: sub      rsp, 0x140
+06D5CE: mov      rbp, rcx
+06D5D1: lea      rdx, [rcx + 0x18]
+06D5D5: lea      rcx, [rsp + 0x30]
+06D5DA: call     0x140070890
+06D5DF: mov      rdx, qword ptr [rsp + 0x48]
+06D5E4: cmp      rdx, 0xf
+06D5E8: jbe      0x14006d61c
+06D5EA: inc      rdx
+06D5ED: mov      rcx, qword ptr [rsp + 0x30]
+06D5F2: mov      rax, rcx
+06D5F5: cmp      rdx, 0x1000
+06D5FC: jb       0x14006d617
+06D5FE: add      rdx, 0x27
+06D602: mov      rcx, qword ptr [rcx - 8]
+06D606: sub      rax, rcx
+06D609: sub      rax, 8
+06D60D: cmp      rax, 0x1f
+06D611: ja       0x14006d892
+06D617: call     0x14021e450
+06D61C: lea      rbx, [rbp + 0x130]
+06D623: call     0x140070540
+06D628: movsxd   rdx, eax
+06D62B: lea      r8, [rsp + 0x170]
+06D633: mov      rcx, rbx
+06D636: call     0x14006f670
+06D63B: xor      esi, esi
+06D63D: mov      rax, qword ptr [rbx + 8]
+06D641: sub      rax, qword ptr [rbx]
+06D644: sar      rax, 3
+06D648: test     rax, rax
+06D64B: je       0x14006d6a2
+06D64D: xor      edi, edi
+06D64F: nop      
+06D650: mov      ecx, 0x498
+06D655: call     0x14021e414
+06D65A: mov      qword ptr [rsp + 0x170], rax
+06D662: test     rax, rax
+06D665: je       0x14006d674
+06D667: mov      rcx, rax
+06D66A: call     0x1400a5740
+06D66F: mov      rcx, rax
+06D672: jmp      0x14006d676
+06D674: xor      ecx, ecx
+06D676: mov      rax, qword ptr [rbx]
+06D679: mov      qword ptr [rdi + rax], rcx
+06D67D: mov      rcx, qword ptr [rbx]
+06D680: mov      rcx, qword ptr [rdi + rcx]
+06D684: call     0x14006ef80
+06D689: inc      esi
+06D68B: add      rdi, 8
+06D68F: mov      rcx, qword ptr [rbx + 8]
+06D693: sub      rcx, qword ptr [rbx]
+06D696: sar      rcx, 3
+06D69A: movsxd   rax, esi
+06D69D: cmp      rax, rcx
+06D6A0: jb       0x14006d650
+06D6A2: call     0x140070540
+06D6A7: cmp      eax, -1
+06D6AA: je       0x14006d6bd
+06D6AC: movsxd   rcx, eax
+06D6AF: mov      rax, qword ptr [rbx]
+06D6B2: mov      rcx, qword ptr [rax + rcx*8]
+06D6B6: mov      qword ptr [rbp + 0x148], rcx

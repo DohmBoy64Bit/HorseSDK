@@ -2,16 +2,23 @@
 
 Hooks verified RVAs from Ghidra / Capstone (`GameFunctions.h`).
 
-## Script
+## Script (you trigger gameplay)
 
 ```bat
 python RE_Tools\tools\scripts\frida_gameplay_hooks.py --attach --seconds 120
 ```
 
-1. Start **Horsey.exe**, load a save.
-2. Run the script with `--attach`.
-3. In-game: **buy** from shop, **place** a horse on the farm, **start and run** a race.
-4. Read `RE_Tools/analysis/gameplay_frida.json`.
+1. Start **Horsey.exe** and **load a save** (stay in the farm / world).
+2. Run the command above — it attaches and waits **120s** (prints a count every 5s).
+3. While it runs, in-game:
+   - **Shop** — buy something (`BuyItem` + often `GainMoney`)
+   - **Farm** — place a horse (`SimSpawnDisk`)
+   - **Race** — start a race through to “go” (`RaceGo_site`, `RaceStateMachine`)
+4. When the timer ends, open `RE_Tools/analysis/gameplay_frida.json`.
+
+`RaceStateMachine` may tick on the main menu too; focus on rows that appear **when you perform the action**.
+
+Optional: `--full-events` to keep every raw event in the JSON.
 
 ## Hooks
 

@@ -40,9 +40,9 @@ typedef struct SaveSlot6 {
 } SaveSlot6;
 
 /** Thirteen rows at ctx+0x2CC (disk 8 B each). Insn 0x6DDA3. */
-typedef struct SaveRow13 {
-    uint32_t field_m34;  /* [rbx-0x34] */
-    uint32_t field_0;    /* [rbx] */
+typedef struct SaveRow13 { /* names: see save_ctx_row_names.json */ /* names: see save_ctx_row_names.json */ /* names: see save_ctx_row_names.json */ /* names: see save_ctx_row_names.json */ /* names: see save_ctx_row_names.json */ /* names: see save_ctx_row_names.json */ /* names: see save_ctx_row_names.json */
+    uint32_t field_m34;  /* [rbx-0x34] staggered; see save_ctx_semantics.json */
+    uint32_t field_0;    /* [rbx]; +0x2CC+N*4 on disk */
 } SaveRow13;
 
 /** In-memory horse record (vector ctx+0x280); disk = 4×u16. Insn 0x6DE30. */
