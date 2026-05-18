@@ -148,15 +148,17 @@ Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game rout
 - [x] Top-level **`SDK/`** — `horse_sdk` + `horse_save` + `horse_data` + generated headers
 - [x] `game_function_types.h`, `game_function_hooks.h` from catalog
 - [x] `sdk_ci.py` (+ `phase1_ci.py --skip-sdk` to opt out)
-- [ ] bmfont / atlas in `horse_data` (genes + TMX done)
+- [x] bmfont / atlas in `horse_data` (genes + TMX + bmfont + TextureAtlas XML)
 
-### Phase 4 — mod loader (skeleton)
+### Phase 4 — mod loader
 
 **Hub:** [`Phase4_ModLoader.md`](RE_Tools/docs/Phase4_ModLoader.md)
 
 - [x] `HorseModLoader.dll` + `horse_inject.exe` + `mods/example_mod`
-- [x] `horse/mod_api.h` host ABI
-- [ ] Debug console, hook UI, MinHook backend
+- [x] Debug console + topmost log overlay + `HorseModLoader.ini`
+- [x] MinHook backend (`ThirdParty/minhook`)
+- [x] `example_mod` hooks `GainMoney` / `SpendMoney`; console `hook on` / `resolve`
+- [ ] In-game ImGui overlay (fullscreen)
 
 ### Phase 5 — editors (planned)
 

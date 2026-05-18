@@ -7,6 +7,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 option(HORSE_SDK_BUILD_EXAMPLES "Build SDK examples" ON)
 option(HORSE_SDK_BUILD_DATA "Build horse_data parsers" ON)
 option(HORSE_SDK_BUILD_SAVE_CLI "Build horse_save_cli tool" ON)
+option(HORSE_USE_MINHOOK "Use MinHook for horse_hook_install" ON)
 
 # Phase 2 catalog header (generated into include/horse/game_functions.h)
 set(HORSE_GAME_FUNCTIONS_H "${CMAKE_CURRENT_SOURCE_DIR}/include/horse/game_functions.h")
@@ -16,10 +17,16 @@ if(NOT EXISTS "${HORSE_GAME_FUNCTIONS_H}")
         "  python RE_Tools/tools/scripts/build_game_function_catalog.py")
 endif()
 
-add_library(horse_sdk STATIC
-    src/module.c
-    src/hook.c
-)
+set(HORSE_SDK_SOURCES src/module.c src/hook.c)
+if(WIN32 AND HORSE_USE_MINHOOK)
+    list(APPEND HORSE_SDK_SOURCES src/hook_minhook.c)
+    add_subdirectory(
+        "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/minhook"
+        "${CMAKE_BINARY_DIR}/minhook"
+    )
+endif()
+
+add_library(horse_sdk STATIC ${HORSE_SDK_SOURCES})
 
 target_include_directories(horse_sdk
     PUBLIC
@@ -49,6 +56,13 @@ endif()
 target_link_libraries(horse_sdk PUBLIC horse_save)
 if(HORSE_SDK_BUILD_DATA)
     target_link_libraries(horse_sdk PUBLIC horse_data)
+endif()
+if(WIN32 AND HORSE_USE_MINHOOK)
+    target_link_libraries(horse_sdk PUBLIC minhook)
+    target_compile_definitions(horse_sdk PUBLIC HORSE_USE_MINHOOK)
+    target_include_directories(horse_sdk PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/../ThirdParty/minhook/include"
+    )
 endif()
 
 add_library(horse::sdk ALIAS horse_sdk)

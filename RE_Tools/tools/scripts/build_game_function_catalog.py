@@ -870,6 +870,47 @@ def _catalog_key_for_name(catalog: dict[str, dict], name: str) -> str | None:
     return None
 
 
+def enrich_io_parameters(catalog: dict[str, dict]) -> None:
+    """Infer save-stream parameters for I/O catalog entries (Horsey.exe write path)."""
+    stream_ctx = [{"reg": "rcx", "type": "void *", "name": "stream"}]
+    write_specs = [
+        ("WriteU32", "uint32_t", "value"),
+        ("WriteU16", "uint16_t", "value"),
+        ("WriteU8", "uint8_t", "value"),
+        ("WriteU64", "uint64_t", "value"),
+        ("WriteF32", "float", "value"),
+        ("WriteVec2F32", "float", "x"),
+        ("WriteU32FromU8", "uint32_t", "value"),
+        ("WriteStdString", "const char *", "str"),
+    ]
+    for entry in catalog.values():
+        if entry.get("parameters"):
+            continue
+        cat = entry.get("category", "")
+        if cat not in ("io", "nested", "save"):
+            continue
+        name = entry["name"]
+        if name == "StreamOpen":
+            entry["parameters"] = list(stream_ctx)
+            continue
+        if name == "WriteFlush" or name == "GridWriteLoop_GridReadLoop":
+            entry["parameters"] = list(stream_ctx)
+            continue
+        for prefix, ctype, pname in write_specs:
+            if name.startswith(prefix):
+                entry["parameters"] = list(stream_ctx) + [
+                    {"reg": "edx", "type": ctype, "name": pname}
+                ]
+                break
+        if name.startswith("Read") and "Read" in name:
+            if name.startswith("ReadU32") or "ReadU32" in name:
+                entry["returns"] = {"reg": "eax", "type": "uint32_t"}
+                entry["parameters"] = list(stream_ctx)
+            elif name.startswith("ReadU8"):
+                entry["returns"] = {"reg": "eax", "type": "uint8_t"}
+                entry["parameters"] = list(stream_ctx)
+
+
 def merge_gameplay(catalog: dict[str, dict]) -> None:
     gp = AN / "gameplay_functions.json"
     if not gp.is_file():
@@ -911,6 +952,7 @@ def main() -> int:
         for e in json.loads(SEED_EXTRA.read_text(encoding="utf-8")).get("functions", []):
             catalog[e["id"]] = e
     merge_pairs(catalog)
+    enrich_io_parameters(catalog)
     if args.gameplay:
         merge_gameplay(catalog)
     functions = sorted(catalog.values(), key=lambda x: (x["category"], x["rva"]))

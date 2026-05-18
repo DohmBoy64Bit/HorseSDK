@@ -17,6 +17,9 @@ add_library(HorseModLoader SHARED
     src/loader_thread.c
     src/mod_host.c
     src/debug_console.c
+    src/loader_config.c
+    src/hook_manager.c
+    src/overlay.c
 )
 
 target_include_directories(HorseModLoader PRIVATE

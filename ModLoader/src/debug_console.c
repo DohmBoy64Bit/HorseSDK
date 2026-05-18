@@ -1,6 +1,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include "debug_console.h"
 
+#include "hook_manager.h"
+#include "overlay.h"
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
@@ -88,6 +91,8 @@ void horse_debug_log(const char *msg)
     OutputDebugStringA(buf);
     OutputDebugStringA("\n");
 
+    horse_overlay_log_line(msg);
+
     LeaveCriticalSection(&g_log_cs);
 }
 
@@ -115,7 +120,7 @@ static DWORD WINAPI console_input_thread(LPVOID unused)
 {
     (void)unused;
     char line[512];
-    horse_debug_log("Console ready. Commands: help | mods | base | clear");
+    horse_debug_log("Console ready. help | hooks | hook on GainMoney | resolve Save_Write");
 
     for (;;) {
         printf("> ");
@@ -131,12 +136,26 @@ static DWORD WINAPI console_input_thread(LPVOID unused)
             continue;
         }
         if (_stricmp(line, "help") == 0 || _stricmp(line, "?") == 0) {
-            horse_debug_log("help  — this list");
-            horse_debug_log("mods  — loaded mod count");
-            horse_debug_log("base  — Horsey.exe module base");
-            horse_debug_log("clear — clear screen");
-            horse_debug_log(
-                "Tip: Sysinternals DebugView also shows [HorseModLoader] lines if you prefer.");
+            horse_debug_log("help       — this list");
+            horse_debug_log("hooks      — list hook catalog");
+            horse_debug_log("hook on X  — e.g. hook on GainMoney");
+            horse_debug_log("hook off X — disable hook");
+            horse_debug_log("resolve X  — address of catalog function");
+            horse_debug_log("mods / base / clear");
+        } else if (_stricmp(line, "hooks") == 0) {
+            horse_hook_manager_list();
+        } else if (_strnicmp(line, "hook on ", 8) == 0) {
+            char err[128];
+            int rc = horse_hook_manager_on(line + 8, err, sizeof(err));
+            horse_debug_logf("hook on: %s (%d)", err, rc);
+        } else if (_strnicmp(line, "hook off ", 9) == 0) {
+            char err[128];
+            int rc = horse_hook_manager_off(line + 9, err, sizeof(err));
+            horse_debug_logf("hook off: %s (%d)", err, rc);
+        } else if (_strnicmp(line, "resolve ", 8) == 0) {
+            char err[128];
+            void *p = horse_hook_manager_resolve(line + 8, err, sizeof(err));
+            horse_debug_logf("resolve %s -> %p (%s)", line + 8, p, err);
         } else if (_stricmp(line, "mods") == 0) {
             horse_debug_logf("Loaded mods: %u (see lines above for names)", g_mod_count);
         } else if (_stricmp(line, "base") == 0) {

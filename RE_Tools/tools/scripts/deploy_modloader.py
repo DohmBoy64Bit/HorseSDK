@@ -55,6 +55,12 @@ def main() -> int:
     mods_dir = game_dir / "mods"
     mods_dir.mkdir(parents=True, exist_ok=True)
 
+    ini_example = ROOT / "ModLoader" / "HorseModLoader.ini.example"
+    ini_dest = game_dir / "HorseModLoader.ini"
+    if ini_example.is_file() and not ini_dest.is_file():
+        shutil.copy2(ini_example, ini_dest)
+        print(f"  -> {ini_dest} (from example)")
+
     for dest_name, src in ARTIFACTS:
         if not src.is_file():
             print(f"Missing build artifact: {src}", file=sys.stderr)

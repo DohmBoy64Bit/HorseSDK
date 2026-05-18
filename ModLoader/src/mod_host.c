@@ -1,10 +1,16 @@
 #include "mod_loader.h"
 
 #include "debug_console.h"
+#include "loader_config.h"
 
 #include <horse/mod_api.h>
 #include <stdio.h>
 #include <string.h>
+
+#if defined(_WIN32)
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#endif
 
 #define MOD_DIR_MAX 512
 #define MOD_MAX 32
@@ -20,6 +26,7 @@ static LoadedMod g_mods[MOD_MAX];
 static uint32_t g_mod_count;
 static HorseModHost g_host;
 static HMODULE g_self;
+static LoaderConfig g_cfg;
 static void mod_log(const char *msg)
 {
     horse_debug_log(msg);
@@ -44,6 +51,10 @@ static void scan_and_load(const char *mods_dir)
             continue;
         }
         if (_stricmp(fd.cFileName, "HorseModLoader.dll") == 0) {
+            continue;
+        }
+        if (!g_cfg.load_example_mod && _stricmp(fd.cFileName, "example_mod.dll") == 0) {
+            horse_debug_logf("Skipping %s (load_example_mod=0)", fd.cFileName);
             continue;
         }
         if (g_mod_count >= MOD_MAX) {
@@ -91,9 +102,14 @@ static void scan_and_load(const char *mods_dir)
     FindClose(h);
 }
 
-void horse_mod_loader_init(HMODULE self)
+void horse_mod_loader_init(HMODULE self, const LoaderConfig *cfg)
 {
     g_self = self;
+    if (cfg) {
+        g_cfg = *cfg;
+    } else {
+        loader_config_set_defaults(&g_cfg);
+    }
     memset(&g_host, 0, sizeof(g_host));
     g_host.api_version = HORSE_MOD_API_VERSION;
     g_host.game_base = horse_module_base(0);

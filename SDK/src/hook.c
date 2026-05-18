@@ -1,12 +1,25 @@
 /**
- * Minimal x64 hook (5-byte rel32 JMP). Windows only for install/remove.
+ * Fallback x64 hook (5-byte rel32 JMP) when HORSE_USE_MINHOOK is off.
  */
 #include "horse/hook.h"
+
+#if defined(_WIN32) && defined(HORSE_USE_MINHOOK)
+/* horse_hook_* implemented in hook_minhook.c */
+#else
 
 #include <limits.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
+
+int horse_hook_system_init(void)
+{
+    return 1;
+}
+
+void horse_hook_system_shutdown(void)
+{
+}
 
 #if defined(_WIN32)
 
@@ -147,4 +160,6 @@ HorseHookStatus horse_hook_remove(HorseHookSlot *slot)
     return HORSE_HOOK_ERR_NOT_INSTALLED;
 }
 
-#endif
+#endif /* _WIN32 */
+
+#endif /* !HORSE_USE_MINHOOK */

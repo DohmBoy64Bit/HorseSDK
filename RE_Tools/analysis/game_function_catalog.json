@@ -256,7 +256,14 @@
       ],
       "pair_read_rva": "0x6e700",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_GridWriteLoop_GridReadLoop.txt"
+      "disasm": "RE_Tools/analysis/disasm_GridWriteLoop_GridReadLoop.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        }
+      ]
     },
     {
       "id": "pairwrite_readpairvec",
@@ -306,7 +313,14 @@
         "frida"
       ],
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_StreamOpen.txt"
+      "disasm": "RE_Tools/analysis/disasm_StreamOpen.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        }
+      ]
     },
     {
       "id": "write_flush",
@@ -321,7 +335,14 @@
         "capstone",
         "frida"
       ],
-      "disasm": "RE_Tools/analysis/disasm_WriteFlush.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteFlush.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        }
+      ]
     },
     {
       "id": "flushtofile_fopenread",
@@ -372,7 +393,19 @@
       ],
       "pair_read_rva": "0x70320",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_WriteU32_ReadU32.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteU32_ReadU32.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        },
+        {
+          "reg": "edx",
+          "type": "uint32_t",
+          "name": "value"
+        }
+      ]
     },
     {
       "id": "writeu8_alt_readu8",
@@ -389,7 +422,19 @@
       ],
       "pair_read_rva": "0x705d0",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_WriteU8_alt_ReadU8.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteU8_alt_ReadU8.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        },
+        {
+          "reg": "edx",
+          "type": "uint8_t",
+          "name": "value"
+        }
+      ]
     },
     {
       "id": "writeu16_readu16",
@@ -406,7 +451,19 @@
       ],
       "pair_read_rva": "0x70450",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_WriteU16_ReadU16.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteU16_ReadU16.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        },
+        {
+          "reg": "edx",
+          "type": "uint16_t",
+          "name": "value"
+        }
+      ]
     },
     {
       "id": "writeu64_readu64",
@@ -423,7 +480,19 @@
       ],
       "pair_read_rva": "0x704f0",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_WriteU64_ReadU64.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteU64_ReadU64.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        },
+        {
+          "reg": "edx",
+          "type": "uint64_t",
+          "name": "value"
+        }
+      ]
     },
     {
       "id": "writeu8_readu8",
@@ -440,7 +509,19 @@
       ],
       "pair_read_rva": "0x705d0",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_WriteU8_ReadU8.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteU8_ReadU8.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        },
+        {
+          "reg": "edx",
+          "type": "uint8_t",
+          "name": "value"
+        }
+      ]
     },
     {
       "id": "writeu32fromu8_readu8asu32",
@@ -457,7 +538,19 @@
       ],
       "pair_read_rva": "0x70620",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_WriteU32FromU8_ReadU8asU32.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteU32FromU8_ReadU8asU32.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        },
+        {
+          "reg": "edx",
+          "type": "uint32_t",
+          "name": "value"
+        }
+      ]
     },
     {
       "id": "writef32_readf32",
@@ -474,7 +567,19 @@
       ],
       "pair_read_rva": "0x70670",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_WriteF32_ReadF32.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteF32_ReadF32.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        },
+        {
+          "reg": "edx",
+          "type": "float",
+          "name": "value"
+        }
+      ]
     },
     {
       "id": "writevec2f32_readf32x2",
@@ -491,7 +596,19 @@
       ],
       "pair_read_rva": "0x70670",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_WriteVec2F32_ReadF32x2.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteVec2F32_ReadF32x2.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        },
+        {
+          "reg": "edx",
+          "type": "float",
+          "name": "x"
+        }
+      ]
     },
     {
       "id": "writestdstring_readstringlen",
@@ -508,7 +625,19 @@
       ],
       "pair_read_rva": "0x70890",
       "doc": "RE_Tools/analysis/save_read_write_pairs.json",
-      "disasm": "RE_Tools/analysis/disasm_WriteStdString_ReadStringLen.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteStdString_ReadStringLen.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        },
+        {
+          "reg": "edx",
+          "type": "const char *",
+          "name": "str"
+        }
+      ]
     },
     {
       "id": "game_main_init_and_loop",
@@ -1169,7 +1298,14 @@
         "frida"
       ],
       "doc": "RE_Tools/docs/SaveGhidraCrossref.md",
-      "disasm": "RE_Tools/analysis/disasm_WriteFlush.txt"
+      "disasm": "RE_Tools/analysis/disasm_WriteFlush.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "stream"
+        }
+      ]
     },
     {
       "id": "settings_loader",

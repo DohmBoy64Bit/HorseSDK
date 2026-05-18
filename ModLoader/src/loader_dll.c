@@ -1,6 +1,8 @@
 #include "mod_loader.h"
 
 #include "debug_console.h"
+#include "hook_manager.h"
+#include "overlay.h"
 
 #include <windows.h>
 
@@ -14,6 +16,8 @@ BOOL WINAPI DllMain(HINSTANCE inst, DWORD reason, LPVOID reserved)
         break;
     case DLL_PROCESS_DETACH:
         horse_mod_loader_shutdown();
+        horse_hook_manager_shutdown();
+        horse_overlay_stop();
         horse_debug_console_close();
         break;
     default:

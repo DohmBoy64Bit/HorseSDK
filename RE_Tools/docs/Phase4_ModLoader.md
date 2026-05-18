@@ -69,9 +69,24 @@ Commands in the loader console: `help`, `mods`, `base`, `clear`.
 
 ---
 
-## Next (Phase 4 proper)
+## Config (`HorseModLoader.ini`)
 
-- [ ] Config file for mod load order / enable flags
-- [ ] In-game overlay console (ImGui) for fullscreen
-- [ ] Install hooks from `g_horse_hook_catalog` with UI toggles
-- [ ] Safer hook backend (MinHook) for functions > 5 bytes / rel32 out of range
+| Key | Default | Meaning |
+|-----|---------|---------|
+| `console` | 1 | AllocConsole on game process |
+| `overlay` | 1 | Topmost log window (fullscreen-friendly) |
+| `load_example_mod` | 1 | Load `mods\example_mod.dll` |
+| `auto_hook_gain` | 0 | Loader hooks GainMoney (use if example_mod off) |
+
+Copy from `ModLoader/HorseModLoader.ini.example` — `deploy_modloader.py` installs it on first deploy.
+
+## Hooks
+
+- **example_mod** installs `GainMoney` + `SpendMoney` on load (MinHook).
+- Console: `hooks`, `hook on GainMoney`, `hook off GainMoney`, `resolve Save_Write`.
+
+## Next
+
+- [ ] ImGui in-game overlay
+- [ ] Mod load order / per-mod enable in INI
+- [ ] More built-in log detours from `g_horse_hook_catalog`

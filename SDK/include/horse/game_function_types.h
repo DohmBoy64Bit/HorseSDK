@@ -42,6 +42,9 @@ typedef void (*HORSE_FN_GeneticsApply)(void * item, void * horse);
 typedef void (*HORSE_FN_GrabHorse)(void * ctx, int tile_or_mode);
 #define HORSE_PTR_GrabHorse(base) ((HORSE_FN_GrabHorse)horse_module_rva((base), HORSE_RVA_GrabHorse))
 
+typedef void (*HORSE_FN_GridWriteLoop_GridReadLoop)(void * stream);
+#define HORSE_PTR_GridWriteLoop_GridReadLoop(base) ((HORSE_FN_GridWriteLoop_GridReadLoop)horse_module_rva((base), HORSE_RVA_GridWriteLoop_GridReadLoop))
+
 typedef void (*HORSE_FN_HorseRaceScore)(void * race_ctx, int horse_index);
 #define HORSE_PTR_HorseRaceScore(base) ((HORSE_FN_HorseRaceScore)horse_module_rva((base), HORSE_RVA_HorseRaceScore))
 
@@ -98,6 +101,42 @@ typedef void (*HORSE_FN_SpawnPlace)(void * ctx);
 
 typedef void (*HORSE_FN_SpendMoney)(void * ctx, int cost);
 #define HORSE_PTR_SpendMoney(base) ((HORSE_FN_SpendMoney)horse_module_rva((base), HORSE_RVA_SpendMoney))
+
+typedef void (*HORSE_FN_StreamOpen)(void * stream);
+#define HORSE_PTR_StreamOpen(base) ((HORSE_FN_StreamOpen)horse_module_rva((base), HORSE_RVA_StreamOpen))
+
+typedef void (*HORSE_FN_WriteF32_ReadF32)(void * stream, float value);
+#define HORSE_PTR_WriteF32_ReadF32(base) ((HORSE_FN_WriteF32_ReadF32)horse_module_rva((base), HORSE_RVA_WriteF32_ReadF32))
+
+typedef void (*HORSE_FN_WriteFlush)(void * stream);
+#define HORSE_PTR_WriteFlush(base) ((HORSE_FN_WriteFlush)horse_module_rva((base), HORSE_RVA_WriteFlush))
+
+typedef void (*HORSE_FN_WriteFlush)(void * stream);
+#define HORSE_PTR_WriteFlush(base) ((HORSE_FN_WriteFlush)horse_module_rva((base), HORSE_RVA_WriteFlush))
+
+typedef void (*HORSE_FN_WriteStdString_ReadStringLen)(void * stream, const char * str);
+#define HORSE_PTR_WriteStdString_ReadStringLen(base) ((HORSE_FN_WriteStdString_ReadStringLen)horse_module_rva((base), HORSE_RVA_WriteStdString_ReadStringLen))
+
+typedef void (*HORSE_FN_WriteU16_ReadU16)(void * stream, uint16_t value);
+#define HORSE_PTR_WriteU16_ReadU16(base) ((HORSE_FN_WriteU16_ReadU16)horse_module_rva((base), HORSE_RVA_WriteU16_ReadU16))
+
+typedef void (*HORSE_FN_WriteU32FromU8_ReadU8asU32)(void * stream, uint32_t value);
+#define HORSE_PTR_WriteU32FromU8_ReadU8asU32(base) ((HORSE_FN_WriteU32FromU8_ReadU8asU32)horse_module_rva((base), HORSE_RVA_WriteU32FromU8_ReadU8asU32))
+
+typedef void (*HORSE_FN_WriteU32_ReadU32)(void * stream, uint32_t value);
+#define HORSE_PTR_WriteU32_ReadU32(base) ((HORSE_FN_WriteU32_ReadU32)horse_module_rva((base), HORSE_RVA_WriteU32_ReadU32))
+
+typedef void (*HORSE_FN_WriteU64_ReadU64)(void * stream, uint64_t value);
+#define HORSE_PTR_WriteU64_ReadU64(base) ((HORSE_FN_WriteU64_ReadU64)horse_module_rva((base), HORSE_RVA_WriteU64_ReadU64))
+
+typedef void (*HORSE_FN_WriteU8_ReadU8)(void * stream, uint8_t value);
+#define HORSE_PTR_WriteU8_ReadU8(base) ((HORSE_FN_WriteU8_ReadU8)horse_module_rva((base), HORSE_RVA_WriteU8_ReadU8))
+
+typedef void (*HORSE_FN_WriteU8_alt_ReadU8)(void * stream, uint8_t value);
+#define HORSE_PTR_WriteU8_alt_ReadU8(base) ((HORSE_FN_WriteU8_alt_ReadU8)horse_module_rva((base), HORSE_RVA_WriteU8_alt_ReadU8))
+
+typedef void (*HORSE_FN_WriteVec2F32_ReadF32x2)(void * stream, float x);
+#define HORSE_PTR_WriteVec2F32_ReadF32x2(base) ((HORSE_FN_WriteVec2F32_ReadF32x2)horse_module_rva((base), HORSE_RVA_WriteVec2F32_ReadF32x2))
 
 #ifdef __cplusplus
 }

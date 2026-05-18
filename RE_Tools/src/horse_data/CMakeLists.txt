@@ -4,6 +4,8 @@ project(horse_data C)
 add_library(horse_data STATIC
     genes_dat.c
     tmx_map.c
+    bmfont_txt.c
+    texture_atlas.c
 )
 
 target_include_directories(horse_data PUBLIC include)

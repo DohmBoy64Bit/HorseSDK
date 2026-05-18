@@ -136,6 +136,14 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - **Frida:** `RaceAdvanceSim` @ `0x8C9E0` logs `[race_ctx+0x450]` as `race_score_450` vs `finish_place` in `gameplay_frida.json`.
 - **Doc:** [RaceMechanics.md](RaceMechanics.md) · [SimStartRace.md](SimStartRace.md).
 
+## [KNOWLEDGE UPDATE] 2026-05-17 (Phase 4 mod platform)
+
+- **MinHook** vendored @ `ThirdParty/minhook`; `horse_hook_install` uses MH_CreateHook.
+- **Loader:** `HorseModLoader.ini`, debug console, topmost overlay, `hook on` / `resolve` commands.
+- **example_mod v0.2:** hooks `GainMoney` + `SpendMoney` with console logging.
+- **horse_data:** `bmfont_txt`, `texture_atlas` C parsers (mirrors Python).
+- **Catalog:** `enrich_io_parameters` → 42 `HORSE_FN_*` typedefs.
+
 ## [KNOWLEDGE UPDATE] 2026-05-17 (Phase 3 complete + Phase 4 skeleton)
 
 - **Typedefs:** `game_function_types.h` (`HORSE_FN_*`, `HORSE_PTR_*`) from catalog `parameters`.

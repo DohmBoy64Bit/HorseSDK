@@ -1,10 +1,8 @@
 /**
  * Hook helpers for Horsey.exe (Phase 3).
  *
- * Install/remove use a minimal x64 detour (5-byte rel32 JMP) when the slot is
- * hookable. Prefer catalog-documented hook sites; mid-instruction RVAs will fail.
- *
- * Phase 4 mod loader may replace this with a shared injector + MinHook.
+ * Install/remove use MinHook when built with HORSE_USE_MINHOOK (default on Windows),
+ * else a minimal 5-byte rel32 JMP. Prefer catalog-documented hook sites.
  */
 #ifndef HORSE_HOOK_H
 #define HORSE_HOOK_H
@@ -40,6 +38,10 @@ typedef struct HorseHookSlot {
     /** Opaque platform state; do not touch. */
     void *platform_data;
 } HorseHookSlot;
+
+/** Call once before hooks (ModLoader calls this at startup). */
+int horse_hook_system_init(void);
+void horse_hook_system_shutdown(void);
 
 /** Initialize target from module base + catalog RVA. */
 void horse_hook_slot_init(HorseHookSlot *slot, const void *module_base, uint32_t rva,
