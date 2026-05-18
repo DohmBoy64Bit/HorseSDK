@@ -29,6 +29,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-modloader", action="store_true")
     ap.add_argument("--skip-data-smoke", action="store_true")
+    ap.add_argument("--skip-deploy", action="store_true", help="Skip deploy_modloader.py to Game/")
     args = ap.parse_args()
 
     steps: list[tuple[str, int]] = []
@@ -110,6 +111,20 @@ def main() -> int:
         )
         loader = MOD_BUILD / "Release" / "HorseModLoader.dll"
         steps.append(("modloader_dll", 0 if loader.is_file() else 1))
+
+        if not args.skip_deploy:
+            steps.append(
+                (
+                    "deploy_modloader",
+                    run(
+                        [
+                            sys.executable,
+                            str(SCRIPTS / "deploy_modloader.py"),
+                            "--no-build",
+                        ]
+                    ),
+                )
+            )
 
     print("\n=== sdk_ci summary ===")
     failed = [n for n, rc in steps if rc != 0]

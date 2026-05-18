@@ -60,6 +60,7 @@ def fn(
     parameters: list[dict] | None = None,
     returns: dict | None = None,
     hook: dict | None = None,
+    void_callable: bool = False,
     verification: list[str] | None = None,
 ) -> dict:
     entry = {
@@ -91,6 +92,8 @@ def fn(
         entry["returns"] = returns
     if hook:
         entry["hook"] = hook
+    if void_callable:
+        entry["void_callable"] = True
     disasm = AN / f"disasm_{name}.txt"
     if disasm.is_file():
         entry["disasm"] = str(disasm.relative_to(ROOT)).replace("\\", "/")
@@ -118,6 +121,10 @@ CURATED: list[dict] = [
         "SDL event switch; sets quit/focus flags",
         doc="RE_Tools/docs/Game_DispatchSdlEvent.md",
         decompile="RE_Tools/docs/ghidra_exports/Game_DispatchSdlEvent.c.txt",
+        parameters=[
+            {"reg": "rcx", "type": "void *", "name": "ctx"},
+            {"reg": "rdx", "type": "void *", "name": "sdl_event"},
+        ],
     ),
     fn(
         "game_update_world",
@@ -127,6 +134,7 @@ CURATED: list[dict] = [
         "Window coords → normalized; may call Game_WorldSimStep",
         doc="RE_Tools/docs/Game_UpdateWorld.md",
         decompile="RE_Tools/docs/ghidra_exports/Game_UpdateWorld.c.txt",
+        parameters=[{"reg": "rcx", "type": "int", "name": "frame_counter"}],
     ),
     fn(
         "game_world_sim_step",
@@ -136,6 +144,7 @@ CURATED: list[dict] = [
         "World sim when window size delta non-zero",
         doc="RE_Tools/docs/Game_WorldSimStep.md",
         status="verified",
+        void_callable=True,
     ),
     fn(
         "game_bootstrap_world",
@@ -145,6 +154,7 @@ CURATED: list[dict] = [
         "InitCore → InitRender → LoadAssets → GameState ctor",
         doc="RE_Tools/docs/Game_BootstrapWorld.md",
         decompile="RE_Tools/docs/ghidra_exports/Game_BootstrapWorld.c.txt",
+        parameters=[{"reg": "rcx", "type": "void *", "name": "ctx"}],
     ),
     fn(
         "clamp_int3",
@@ -193,6 +203,8 @@ CURATED: list[dict] = [
         "save",
         "Deserialize in-memory save blob into ctx",
         doc="RE_Tools/docs/SaveLoadPath.md",
+        parameters=[{"reg": "rcx", "type": "void *", "name": "ctx"}],
+        status="partial",
     ),
     fn(
         "write_flush",
@@ -291,6 +303,7 @@ CURATED: list[dict] = [
         doc="RE_Tools/docs/SettingsLoader.md",
         decompile="RE_Tools/docs/ghidra_exports/SettingsLoader.c.txt",
         callers=["0xBE562"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "ctx"}],
     ),
     fn(
         "settings_save",
@@ -299,6 +312,7 @@ CURATED: list[dict] = [
         "settings",
         "Write settings.xml on quit",
         doc="RE_Tools/docs/Settings_Save.md",
+        void_callable=True,
     ),
     fn(
         "font_load_or_init",
@@ -307,6 +321,12 @@ CURATED: list[dict] = [
         "font",
         "Load .crf font blobs",
         doc="RE_Tools/docs/FontLoad.md",
+        parameters=[
+            {"reg": "rcx", "type": "void *", "name": "ctx"},
+            {"reg": "rdx", "type": "const char *", "name": "path"},
+            {"reg": "r8", "type": "void *", "name": "font_out"},
+            {"reg": "r9", "type": "int", "name": "flags"},
+        ],
     ),
     fn(
         "genetics_apply",
@@ -317,6 +337,10 @@ CURATED: list[dict] = [
         doc="RE_Tools/docs/SaveFutureWork.md",
         status="partial",
         callers=["0xADB30"],
+        parameters=[
+            {"reg": "rcx", "type": "void *", "name": "item"},
+            {"reg": "rdx", "type": "void *", "name": "horse"},
+        ],
     ),
     fn(
         "genetics_apply_gate",
@@ -365,6 +389,7 @@ CURATED: list[dict] = [
         status="partial",
         decompile="RE_Tools/docs/ghidra_exports/SimSpawnDisk.c.txt",
         verification=["ghidra"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "world_ctx"}],
     ),
     fn(
         "spawn_entity",
@@ -374,6 +399,7 @@ CURATED: list[dict] = [
         "Calls SpawnPlace @ 0x32330 (E8 @ 0x30B52); Frida-verified path",
         status="partial",
         verification=["capstone", "frida"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "ctx"}],
     ),
     fn(
         "spawn_place",
@@ -383,6 +409,7 @@ CURATED: list[dict] = [
         "SimSpawnDisk callee; sole E8 target from 0x30B52",
         status="partial",
         verification=["capstone"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "ctx"}],
     ),
     fn(
         "grab_horse",
@@ -392,6 +419,10 @@ CURATED: list[dict] = [
         "Grab/place horse; GrabHorse string @ 0xD9158 in body (not 0xD71DF)",
         status="partial",
         verification=["capstone", "frida"],
+        parameters=[
+            {"reg": "rcx", "type": "void *", "name": "ctx"},
+            {"reg": "rdx", "type": "int", "name": "tile_or_mode"},
+        ],
     ),
     fn(
         "drop_horse_fail",
@@ -430,6 +461,7 @@ CURATED: list[dict] = [
         status="partial",
         decompile="RE_Tools/docs/ghidra_exports/BuyItem.c.txt",
         verification=["ghidra"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "shop_ctx"}],
     ),
     fn(
         "race_state_machine",
@@ -440,6 +472,7 @@ CURATED: list[dict] = [
         status="partial",
         decompile="RE_Tools/docs/ghidra_exports/Race_91148.c.txt",
         verification=["ghidra"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "race_ctx"}],
     ),
     fn(
         "sim_message_dispatch",
@@ -484,6 +517,7 @@ CURATED: list[dict] = [
         status="partial",
         doc="RE_Tools/docs/RaceMechanics.md",
         verification=["ghidra"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "race_ctx"}],
     ),
     fn(
         "race_phase_dispatch",
@@ -494,6 +528,7 @@ CURATED: list[dict] = [
         status="partial",
         doc="RE_Tools/docs/RaceMechanics.md",
         verification=["ghidra"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "race_ctx"}],
     ),
     fn(
         "horse_race_score",
@@ -520,6 +555,7 @@ CURATED: list[dict] = [
         decompile="RE_Tools/docs/ghidra_exports/RaceSimHandler.c.txt",
         doc="RE_Tools/docs/RaceMechanics.md",
         verification=["capstone"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "race_ctx"}],
     ),
     fn(
         "race_sim_object_init",
@@ -530,6 +566,7 @@ CURATED: list[dict] = [
         status="partial",
         doc="RE_Tools/docs/RaceMechanics.md",
         verification=["capstone"],
+        parameters=[{"reg": "rcx", "type": "void *", "name": "race_ctx"}],
     ),
     fn(
         "sim_post_message",
@@ -540,6 +577,10 @@ CURATED: list[dict] = [
         status="partial",
         doc="RE_Tools/docs/RaceMechanics.md",
         verification=["capstone"],
+        parameters=[
+            {"reg": "rcx", "type": "void *", "name": "ctx"},
+            {"reg": "rdx", "type": "const char *", "name": "tag"},
+        ],
     ),
     fn(
         "sim_rand_seed",
@@ -551,6 +592,7 @@ CURATED: list[dict] = [
         decompile="RE_Tools/docs/ghidra_exports/SimRandSeed.c.txt",
         doc="RE_Tools/docs/RaceMechanics.md",
         verification=["capstone"],
+        parameters=[{"reg": "rcx", "type": "float *", "name": "out2"}],
     ),
 ]
 
@@ -708,13 +750,16 @@ def write_types_header(functions: list[dict]) -> None:
     ]
     for f in sorted(functions, key=lambda x: x["name"]):
         params = f.get("parameters")
-        if not params:
-            continue
         macro = re.sub(r"[^A-Za-z0-9_]", "_", f["name"])
-        sorted_params = sorted(params, key=_param_sort_key)
-        arg_list = ", ".join(f"{p['type']} {p['name']}" for p in sorted_params)
-        ret = f.get("returns", {}).get("type", "void")
-        lines.append(f"typedef {ret} (*HORSE_FN_{macro})({arg_list});")
+        if f.get("void_callable"):
+            lines.append(f"typedef void (*HORSE_FN_{macro})(void);")
+        elif not params:
+            continue
+        else:
+            sorted_params = sorted(params, key=_param_sort_key)
+            arg_list = ", ".join(f"{p['type']} {p['name']}" for p in sorted_params)
+            ret = f.get("returns", {}).get("type", "void")
+            lines.append(f"typedef {ret} (*HORSE_FN_{macro})({arg_list});")
         lines.append(
             f"#define HORSE_PTR_{macro}(base) "
             f"((HORSE_FN_{macro})horse_module_rva((base), HORSE_RVA_{macro}))"

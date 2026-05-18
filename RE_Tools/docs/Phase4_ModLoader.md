@@ -41,15 +41,21 @@ void HorseMod_Shutdown(void);
 
 ---
 
-## Build & inject
+## Build & deploy
 
 ```bat
-cmake -S ModLoader -B build/modloader
-cmake --build build/modloader --config Release
-copy build\modloader\Release\HorseModLoader.dll <game dir>
-copy build\modloader\mods\Release\example_mod.dll <game dir>\mods\
-build\modloader\Release\horse_inject.exe
+python RE_Tools\tools\scripts\deploy_modloader.py
 ```
+
+Copies into `Game/` (next to `Horsey.exe`):
+
+- `HorseModLoader.dll`
+- `horse_inject.exe`
+- `mods\example_mod.dll`
+
+Also runs at end of `sdk_ci.py` (unless `--skip-deploy`).
+
+## Inject
 
 Start `Horsey.exe` first. Check DebugView for `[HorseModLoader]` lines.
 

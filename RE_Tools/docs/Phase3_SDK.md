@@ -69,6 +69,6 @@ See [Phase4_ModLoader.md](Phase4_ModLoader.md) — skeleton injector + `HorseMod
 
 ## Next implementation tasks
 
-1. Expand catalog `parameters` for more `HORSE_FN_*` typedefs (render, UI, physics).
-2. `horse_data`: bmfont / texture atlas parsers (Python reference in `RE_Tools/tools/parsers/`).
-3. C++ wrapper headers (optional) over C API.
+1. `horse_data`: bmfont / texture atlas parsers (Python reference in `RE_Tools/tools/parsers/`).
+2. C++ wrapper headers (optional) over C API.
+3. More catalog `parameters` for I/O primitives (save stream writers).
