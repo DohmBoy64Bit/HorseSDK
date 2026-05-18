@@ -195,6 +195,12 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - **CRF VM cluster:** `0xBF200` → `FileWrite_6F3C0` @ `0xBF2C6`; also save path `0x6DB95` — [CrfLoaderVm.md](CrfLoaderVm.md).
 - **CI:** `python RE_Tools/tools/scripts/phase1_ci.py` (add `--skip-frida` for local quick runs).
 
+## [KNOWLEDGE UPDATE] 2026-05-17 (race betting UI / odds RE)
+
+- **Betting payout UI** is stake math @ `ctx+0x2c0` / `0x2c4`, not per-horse `HorseRaceScore` — [RaceBettingOdds.md](RaceBettingOdds.md).
+- **Full scorer on betting:** `CanScoreHorse` @ `0xD6DC0` + `ctx+0x258==0`; PRNG snapshot restore is theoretical only.
+- **Probe:** `frida_race_betting_probe.py` → `analysis/race_betting_probe.json`.
+
 ## [KNOWLEDGE UPDATE] 2026-05-17 (race_predictor_mod)
 
 - **`race_predictor_mod` v0.1.0:** Hooks `HorseRaceScore` @ `0xE2B80`, ranks lanes by `[race_ctx+0x450]` before race; **P** re-print — [RacePredictorMod.md](RacePredictorMod.md).

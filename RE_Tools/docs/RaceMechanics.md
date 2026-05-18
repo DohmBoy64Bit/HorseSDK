@@ -267,3 +267,4 @@ Use `--no-race-sim` to skip if too verbose; `--no-race` to skip FSM only.
 
 - [ ] Static path: `g_settings_seed` → `g_prng_state` (no RIP read of `0x2F1587` yet)
 - [ ] Map vtable index → tag name for all slots @ `0x267368`
+- [x] Betting UI “odds” source — **not** `[ctx+0x450]`; see [RaceBettingOdds.md](RaceBettingOdds.md)

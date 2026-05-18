@@ -1,4 +1,5 @@
 #define HORSE_MOD_BUILD
+#define WIN32_LEAN_AND_MEAN
 
 #include <horse/game_function_types.h>
 #include <horse/game_functions.h>
@@ -8,6 +9,7 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+#include <windows.h>
 
 /* SDL keyboard — Game_DispatchSdlEvent @ 0xC0430 (minimap_mod) */
 #define SDL_EVENT_KEYDOWN 0x300u
@@ -19,17 +21,23 @@ static RacePredictorState g_pred;
 
 static HorseHookSlot g_score_slot;
 static HorseHookSlot g_sim_slot;
+static HorseHookSlot g_fsm_slot;
 static HorseHookSlot g_sdl_slot;
 
 static HORSE_FN_HorseRaceScore g_orig_score;
 static HORSE_FN_RaceAdvanceSim g_orig_sim;
+static HORSE_FN_RaceStateMachine g_orig_fsm;
 static HORSE_FN_Game_DispatchSdlEvent g_orig_sdl;
+static HORSE_FN_ClampInt3 g_clamp3;
+
+static DWORD g_fsm_probe_ms;
+static int g_was_pre_race_screen;
 
 static const HorseModInfo g_info = {
     HORSE_MOD_API_VERSION,
     "race_predictor_mod",
     "Race Predictor",
-    "0.1.0",
+    "0.1.3",
 };
 
 static void mod_logf(const char *fmt, ...)
@@ -70,11 +78,61 @@ static void detour_horse_race_score(void *ctx, int horse_index)
         return;
     }
 
+    score = race_predictor_score_from_ctx450(ctx);
+    if (!race_predictor_score_looks_valid(score)) {
+        return;
+    }
+
     race_predictor_on_ctx(&g_pred, ctx);
-    score = *(const int *)((const unsigned char *)ctx + RACE_CTX_OFF_RACE_POWER);
     race_predictor_record_score(&g_pred, horse_index, score);
     mod_logf("race_predictor: scored lane %d -> %d", horse_index + 1, score);
     race_predictor_try_auto_predict(&g_pred, mod_log_line);
+}
+
+static void detour_race_fsm(void *ctx)
+{
+    DWORD now;
+
+    if (g_orig_fsm) {
+        g_orig_fsm(ctx);
+    }
+    if (ctx == NULL || g_clamp3 == NULL) {
+        return;
+    }
+
+    race_predictor_on_ctx(&g_pred, ctx);
+
+    {
+        int on_pre_race = race_predictor_is_pre_race_screen(ctx);
+
+        if (g_pred.race_started) {
+            g_was_pre_race_screen = 0;
+        } else if (on_pre_race && !g_was_pre_race_screen) {
+            g_pred.auto_printed = 0;
+            g_pred.finish_logged = 0;
+            g_fsm_probe_ms = 0;
+        }
+        g_was_pre_race_screen = on_pre_race;
+
+        if (!on_pre_race) {
+            return;
+        }
+    }
+
+    if (g_pred.auto_printed || g_pred.race_started) {
+        return;
+    }
+
+    now = GetTickCount();
+    if (g_fsm_probe_ms != 0 && (now - g_fsm_probe_ms) < 500U) {
+        return;
+    }
+    g_fsm_probe_ms = now;
+
+    mod_logf("race_predictor: pre-race screen (e0=0x%X phase=0x%X)",
+             *(unsigned int *)((unsigned char *)ctx + RACE_CTX_OFF_UI_STATE),
+             *(unsigned int *)((unsigned char *)ctx + RACE_CTX_OFF_RACE_PHASE));
+    race_predictor_force_score_all(&g_pred, ctx, g_clamp3, mod_logf, mod_log_line);
 }
 
 static void detour_race_advance_sim(void *ctx)
@@ -101,7 +159,13 @@ static void detour_sdl(void *ctx, void *ev)
         const unsigned char *e = (const unsigned char *)ev;
         uint32_t type = *(const uint32_t *)e;
         if (type == SDL_EVENT_KEYDOWN && is_p_key(e)) {
-            race_predictor_print_prediction(&g_pred, mod_log_line);
+            if (g_pred.ctx != NULL && race_predictor_is_pre_race_screen(g_pred.ctx) && g_clamp3) {
+                mod_logf("race_predictor: P - re-estimate on betting screen");
+                g_pred.auto_printed = 0;
+                race_predictor_force_score_all(&g_pred, g_pred.ctx, g_clamp3, mod_logf, mod_log_line);
+            } else {
+                race_predictor_print_prediction(&g_pred, mod_log_line);
+            }
         }
     }
 }
@@ -122,6 +186,14 @@ HORSE_MOD_API int HorseMod_Init(const HorseModHost *host)
 
     g_host = *host;
     race_predictor_reset(&g_pred);
+    g_fsm_probe_ms = 0;
+    g_was_pre_race_screen = 0;
+
+    g_clamp3 = HORSE_PTR_ClampInt3(g_host.game_base);
+    if (g_clamp3 == NULL) {
+        mod_logf("race_predictor: ClampInt3 resolve failed");
+        return -1;
+    }
 
     horse_hook_slot_init(&g_score_slot, g_host.game_base, HORSE_RVA_HorseRaceScore,
                          (void *)detour_horse_race_score);
@@ -132,24 +204,30 @@ HORSE_MOD_API int HorseMod_Init(const HorseModHost *host)
     g_orig_score = (HORSE_FN_HorseRaceScore)g_score_slot.trampoline;
     mod_logf("race_predictor: HorseRaceScore hooked @ 0x%X", (unsigned)HORSE_RVA_HorseRaceScore);
 
+    horse_hook_slot_init(&g_fsm_slot, g_host.game_base, HORSE_RVA_RaceStateMachine,
+                         (void *)detour_race_fsm);
+    if (g_host.hook_install(&g_fsm_slot) == HORSE_HOOK_OK) {
+        g_orig_fsm = (HORSE_FN_RaceStateMachine)g_fsm_slot.trampoline;
+        mod_logf("race_predictor: RaceStateMachine hooked (pre-race estimate)");
+    } else {
+        mod_logf("race_predictor: RaceStateMachine hook FAILED");
+    }
+
     horse_hook_slot_init(&g_sim_slot, g_host.game_base, HORSE_RVA_RaceAdvanceSim,
                          (void *)detour_race_advance_sim);
     if (g_host.hook_install(&g_sim_slot) == HORSE_HOOK_OK) {
         g_orig_sim = (HORSE_FN_RaceAdvanceSim)g_sim_slot.trampoline;
         mod_logf("race_predictor: RaceAdvanceSim hooked (finish check)");
-    } else {
-        mod_logf("race_predictor: RaceAdvanceSim hook skipped");
     }
 
     horse_hook_slot_init(&g_sdl_slot, g_host.game_base, HORSE_RVA_Game_DispatchSdlEvent,
                          (void *)detour_sdl);
     if (g_host.hook_install(&g_sdl_slot) == HORSE_HOOK_OK) {
         g_orig_sdl = (HORSE_FN_Game_DispatchSdlEvent)g_sdl_slot.trampoline;
-        mod_logf("race_predictor: press P on race screen to re-print prediction");
+        mod_logf("race_predictor: press P on betting screen to re-estimate");
     }
 
-    mod_logf("race_predictor: v0.1.0 — pre-race order from HorseRaceScore power @ ctx+0x450");
-    mod_logf("race_predictor: see RE_Tools/docs/RaceMechanics.md (RNG still affects outcome)");
+    mod_logf("race_predictor: v0.1.3 - estimate on bet screen (e0 0x1a/1b), not only race button");
     return 0;
 }
 
@@ -158,6 +236,9 @@ HORSE_MOD_API void HorseMod_Shutdown(void)
     if (g_host.hook_remove) {
         if (g_score_slot.trampoline) {
             g_host.hook_remove(&g_score_slot);
+        }
+        if (g_fsm_slot.trampoline) {
+            g_host.hook_remove(&g_fsm_slot);
         }
         if (g_sim_slot.trampoline) {
             g_host.hook_remove(&g_sim_slot);

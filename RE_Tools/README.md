@@ -39,6 +39,8 @@ Outputs: `RE_Tools/analysis/phase1_verify.txt`, `map_view_probe.json`, etc.
 | `docs/GameLoop.md` | Main loop @ `0xBE0F0` — labels, hooks, pseudocode |
 | `docs/GameFunctionCatalog.md` | Phase 2 — master function list for SDK hooks |
 | `docs/GameFunctions.h` | Auto-generated `HORSE_RVA_*` macros |
+| `docs/RacePredictorMod.md` | `race_predictor_mod` — pre-race lane ranking |
+| `docs/RaceBettingOdds.md` | Betting payout UI vs `HorseRaceScore` / PRNG |
 | `docs/MinimapMod.md` | `minimap_mod` — atlas map, controls, architecture |
 | `docs/MapViewPosition.md` | `g_save_context` @ `0x31A660`, view XY candidates |
 | `docs/ModCapabilities.md` | What mods can do today |
