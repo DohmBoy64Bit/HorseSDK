@@ -42,11 +42,10 @@ static DWORD WINAPI loader_main_thread(LPVOID param)
     horse_hook_manager_init(horse_module_base(0));
 
     if (g_cfg.auto_hook_gain) {
-        char err[128];
-        horse_hook_manager_on("GainMoney", err, sizeof(err));
-        horse_debug_logf("auto_hook GainMoney: %s", err);
-        horse_hook_manager_on("SpendMoney", err, sizeof(err));
-        horse_debug_logf("auto_hook SpendMoney: %s", err);
+        horse_hook_manager_apply_list("GainMoney,SpendMoney");
+    }
+    if (g_cfg.auto_hooks[0]) {
+        horse_hook_manager_apply_list(g_cfg.auto_hooks);
     }
 
     if (g_cfg.console) {

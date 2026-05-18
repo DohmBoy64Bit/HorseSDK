@@ -1380,7 +1380,11 @@
           "type": "void *",
           "name": "shop_ctx"
         }
-      ]
+      ],
+      "hook": {
+        "safe_pre_call": false,
+        "notes": "Shop UI tick; fires often while shop open"
+      }
     },
     {
       "id": "spawn_entity",
@@ -1490,6 +1494,10 @@
           "name": "frame_counter"
         }
       ],
+      "hook": {
+        "safe_pre_call": false,
+        "notes": "Every frame; no built-in detour (too noisy)"
+      },
       "disasm": "RE_Tools/analysis/disasm_Game_UpdateWorld.txt"
     },
     {

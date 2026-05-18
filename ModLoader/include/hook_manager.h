@@ -20,6 +20,9 @@ void *horse_hook_manager_resolve(const char *name, char *errbuf, size_t errbuf_l
 /** Mods call after horse_hook_install to show in `hooks` list. */
 int horse_hook_manager_register(const char *name, HorseHookSlot *slot);
 
+/** Enable hooks from comma-separated catalog names (INI auto_hooks / auto_hook_gain). */
+void horse_hook_manager_apply_list(const char *comma_names);
+
 #ifdef __cplusplus
 }
 #endif

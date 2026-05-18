@@ -12,7 +12,6 @@
 #include <windows.h>
 #endif
 
-#define MOD_DIR_MAX 512
 #define MOD_MAX 32
 
 typedef struct LoadedMod {
@@ -27,6 +26,7 @@ static uint32_t g_mod_count;
 static HorseModHost g_host;
 static HMODULE g_self;
 static LoaderConfig g_cfg;
+
 static void mod_log(const char *msg)
 {
     horse_debug_log(msg);
@@ -35,6 +35,66 @@ static void mod_log(const char *msg)
 static void *host_resolve(uint32_t rva)
 {
     return horse_resolve(rva);
+}
+
+static int try_load_one(const char *full, const char *filename)
+{
+    if (!loader_config_mod_enabled(&g_cfg, filename)) {
+        horse_debug_logf("Skipping %s (disabled in INI)", filename);
+        return 0;
+    }
+    if (g_mod_count >= MOD_MAX) {
+        return 0;
+    }
+
+    HMODULE mod = LoadLibraryA(full);
+    if (mod == NULL) {
+        horse_debug_logf("LoadLibrary failed: %s", filename);
+        return 0;
+    }
+    HorseModGetInfoFn get_info = (HorseModGetInfoFn)GetProcAddress(mod, "HorseMod_GetInfo");
+    HorseModInitFn init_fn = (HorseModInitFn)GetProcAddress(mod, "HorseMod_Init");
+    HorseModShutdownFn shutdown_fn = (HorseModShutdownFn)GetProcAddress(mod, "HorseMod_Shutdown");
+    if (get_info == NULL || init_fn == NULL) {
+        FreeLibrary(mod);
+        return 0;
+    }
+    const HorseModInfo *info = get_info();
+    if (info == NULL || info->api_version != HORSE_MOD_API_VERSION) {
+        FreeLibrary(mod);
+        return 0;
+    }
+
+    LoadedMod *L = &g_mods[g_mod_count];
+    L->dll = mod;
+    L->init = init_fn;
+    L->shutdown = shutdown_fn;
+    strncpy(L->path, full, sizeof(L->path) - 1);
+
+    if (init_fn(&g_host) != 0) {
+        mod_log("HorseMod_Init failed");
+        if (shutdown_fn) {
+            shutdown_fn();
+        }
+        FreeLibrary(mod);
+        memset(L, 0, sizeof(*L));
+        return 0;
+    }
+
+    g_mod_count++;
+    char buf[256];
+    snprintf(buf, sizeof(buf), "Loaded mod: %s", info->name ? info->name : filename);
+    mod_log(buf);
+    return 1;
+}
+
+static void load_mods_ordered(const char *mods_dir)
+{
+    for (int i = 0; i < g_cfg.mod_order_count; i++) {
+        char full[MAX_PATH];
+        snprintf(full, sizeof(full), "%s\\%s", mods_dir, g_cfg.mod_order[i]);
+        try_load_one(full, g_cfg.mod_order[i]);
+    }
 }
 
 static void scan_and_load(const char *mods_dir)
@@ -53,51 +113,9 @@ static void scan_and_load(const char *mods_dir)
         if (_stricmp(fd.cFileName, "HorseModLoader.dll") == 0) {
             continue;
         }
-        if (!g_cfg.load_example_mod && _stricmp(fd.cFileName, "example_mod.dll") == 0) {
-            horse_debug_logf("Skipping %s (load_example_mod=0)", fd.cFileName);
-            continue;
-        }
-        if (g_mod_count >= MOD_MAX) {
-            break;
-        }
         char full[MAX_PATH];
         snprintf(full, sizeof(full), "%s\\%s", mods_dir, fd.cFileName);
-        HMODULE mod = LoadLibraryA(full);
-        if (mod == NULL) {
-            mod_log("LoadLibrary failed");
-            continue;
-        }
-        HorseModGetInfoFn get_info =
-            (HorseModGetInfoFn)GetProcAddress(mod, "HorseMod_GetInfo");
-        HorseModInitFn init_fn = (HorseModInitFn)GetProcAddress(mod, "HorseMod_Init");
-        HorseModShutdownFn shutdown_fn =
-            (HorseModShutdownFn)GetProcAddress(mod, "HorseMod_Shutdown");
-        if (get_info == NULL || init_fn == NULL) {
-            FreeLibrary(mod);
-            continue;
-        }
-        const HorseModInfo *info = get_info();
-        if (info == NULL || info->api_version != HORSE_MOD_API_VERSION) {
-            FreeLibrary(mod);
-            continue;
-        }
-        LoadedMod *L = &g_mods[g_mod_count++];
-        L->dll = mod;
-        L->init = init_fn;
-        L->shutdown = shutdown_fn;
-        strncpy(L->path, full, sizeof(L->path) - 1);
-        if (init_fn(&g_host) != 0) {
-            mod_log("HorseMod_Init failed");
-            if (shutdown_fn) {
-                shutdown_fn();
-            }
-            FreeLibrary(mod);
-            g_mod_count--;
-        } else {
-            char buf[256];
-            snprintf(buf, sizeof(buf), "Loaded mod: %s", info->name ? info->name : "?");
-            mod_log(buf);
-        }
+        try_load_one(full, fd.cFileName);
     } while (FindNextFileA(h, &fd));
     FindClose(h);
 }
@@ -134,7 +152,13 @@ void horse_mod_loader_init(HMODULE self, const LoaderConfig *cfg)
     char mods_dir[MAX_PATH];
     snprintf(mods_dir, sizeof(mods_dir), "%s\\mods", dir);
     horse_debug_logf("Scanning mods: %s", mods_dir);
-    scan_and_load(mods_dir);
+
+    if (g_cfg.mod_order_count > 0) {
+        load_mods_ordered(mods_dir);
+    } else {
+        scan_and_load(mods_dir);
+    }
+
     horse_debug_console_set_game_base(g_host.game_base);
     horse_debug_console_set_mod_count(g_mod_count);
     horse_debug_logf("Done. %u mod(s) loaded.", g_mod_count);

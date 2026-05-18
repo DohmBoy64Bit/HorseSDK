@@ -76,7 +76,10 @@ Commands in the loader console: `help`, `mods`, `base`, `clear`.
 | `console` | 1 | AllocConsole on game process |
 | `overlay` | 0 | Topmost log window (set 1 for fullscreen-friendly duplicate log) |
 | `load_example_mod` | 1 | Load `mods\example_mod.dll` |
-| `auto_hook_gain` | 0 | Loader hooks GainMoney (use if example_mod off) |
+| `auto_hook_gain` | 0 | Legacy: enables GainMoney+SpendMoney loader hooks |
+| `auto_hooks` | (empty) | Comma list, e.g. `Save_Write,Save_Load` |
+| `mods_order` | (empty) | Load only these DLLs, in order (e.g. `example_mod.dll`) |
+| `mod_<stem>` | (default on) | `mod_example_mod=0` disables that mod |
 
 Copy from `ModLoader/HorseModLoader.ini.example` — `deploy_modloader.py` installs it on first deploy.
 
@@ -89,5 +92,8 @@ Copy from `ModLoader/HorseModLoader.ini.example` — `deploy_modloader.py` insta
 ## Next
 
 - [ ] ImGui in-game overlay
-- [ ] Mod load order / per-mod enable in INI
-- [ ] More built-in log detours from `g_horse_hook_catalog`
+- [x] Mod load order / per-mod enable in INI (`mods_order`, `mod_<stem>`)
+- [x] Built-in log detours for full `g_horse_hook_catalog` (money, save, race sim, clamp)
+- [ ] BuyItem / Game_UpdateWorld detours (catalog only; too noisy for defaults)
+
+See [ModCapabilities.md](ModCapabilities.md) · [ModLoaderSmokeTest.md](ModLoaderSmokeTest.md).

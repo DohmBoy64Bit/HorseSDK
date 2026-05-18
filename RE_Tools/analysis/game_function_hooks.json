@@ -14,7 +14,7 @@
       "name": "SpendMoney",
       "rva": "0x10ac60",
       "safe_pre_call": true,
-      "notes": "Shop/race betting debit"
+      "notes": "Shop/race debit; 4-arg per disasm@10AC94"
     },
     {
       "id": "save_write",
@@ -29,6 +29,20 @@
       "rva": "0x6e2b0",
       "safe_pre_call": true,
       "notes": "Pre-call: backup save path"
+    },
+    {
+      "id": "buy_item",
+      "name": "BuyItem",
+      "rva": "0x787d0",
+      "safe_pre_call": false,
+      "notes": "Shop UI tick; fires often while shop open"
+    },
+    {
+      "id": "game_update_world",
+      "name": "Game_UpdateWorld",
+      "rva": "0x87510",
+      "safe_pre_call": false,
+      "notes": "Every frame; no built-in detour (too noisy)"
     },
     {
       "id": "race_advance_sim",

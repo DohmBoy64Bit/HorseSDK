@@ -135,6 +135,7 @@ CURATED: list[dict] = [
         doc="RE_Tools/docs/Game_UpdateWorld.md",
         decompile="RE_Tools/docs/ghidra_exports/Game_UpdateWorld.c.txt",
         parameters=[{"reg": "rcx", "type": "int", "name": "frame_counter"}],
+        hook={"safe_pre_call": False, "notes": "Every frame; no built-in detour (too noisy)"},
     ),
     fn(
         "game_world_sim_step",
@@ -464,6 +465,7 @@ CURATED: list[dict] = [
         decompile="RE_Tools/docs/ghidra_exports/BuyItem.c.txt",
         verification=["ghidra"],
         parameters=[{"reg": "rcx", "type": "void *", "name": "shop_ctx"}],
+        hook={"safe_pre_call": False, "notes": "Shop UI tick; fires often while shop open"},
     ),
     fn(
         "race_state_machine",

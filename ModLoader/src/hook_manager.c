@@ -16,7 +16,7 @@ typedef struct ManagedHook {
     char name[64];
     HorseHookSlot slot;
     int active;
-    int owned; /* manager installed detour */
+    int owned;
 } ManagedHook;
 
 static const void *g_base;
@@ -25,6 +25,10 @@ static int g_hook_count;
 
 static HORSE_FN_GainMoney g_orig_gain;
 static HORSE_FN_SpendMoney g_orig_spend;
+static HORSE_FN_Save_Write g_orig_save_write;
+static HORSE_FN_Save_Load g_orig_save_load;
+static HORSE_FN_RaceAdvanceSim g_orig_race_sim;
+static HORSE_FN_ClampInt3 g_orig_clamp;
 
 static void detour_gain(void *ctx, int amount, char show_ui)
 {
@@ -36,10 +40,45 @@ static void detour_gain(void *ctx, int amount, char show_ui)
 
 static void detour_spend(void *ctx, int cost, char show_ui, char str_variant)
 {
-    horse_debug_logf("[hook] SpendMoney ctx=%p cost=%d ui=%d", ctx, cost, (int)show_ui);
+    horse_debug_logf("[hook] SpendMoney ctx=%p cost=%d ui=%d var=%d", ctx, cost, (int)show_ui,
+                     (int)str_variant);
     if (g_orig_spend) {
         g_orig_spend(ctx, cost, show_ui, str_variant);
     }
+}
+
+static void detour_save_write(void *ctx)
+{
+    horse_debug_logf("[hook] Save_Write ctx=%p", ctx);
+    if (g_orig_save_write) {
+        g_orig_save_write(ctx);
+    }
+}
+
+static void detour_save_load(void *ctx)
+{
+    horse_debug_logf("[hook] Save_Load ctx=%p", ctx);
+    if (g_orig_save_load) {
+        g_orig_save_load(ctx);
+    }
+}
+
+static void detour_race_sim(void *race_ctx)
+{
+    horse_debug_logf("[hook] RaceAdvanceSim ctx=%p", race_ctx);
+    if (g_orig_race_sim) {
+        g_orig_race_sim(race_ctx);
+    }
+}
+
+static int detour_clamp(int value, int lo, int hi)
+{
+    int out = value;
+    if (g_orig_clamp) {
+        out = g_orig_clamp(value, lo, hi);
+    }
+    horse_debug_logf("[hook] ClampInt3 in=%d -> %d [%d..%d]", value, out, lo, hi);
+    return out;
 }
 
 static const HorseHookCatalogEntry *find_catalog(const char *name)
@@ -83,6 +122,63 @@ static ManagedHook *alloc_managed(const char *name)
     return m;
 }
 
+static void clear_orig_for(const char *name)
+{
+    if (_stricmp(name, "GainMoney") == 0) {
+        g_orig_gain = NULL;
+    } else if (_stricmp(name, "SpendMoney") == 0) {
+        g_orig_spend = NULL;
+    } else if (_stricmp(name, "Save_Write") == 0) {
+        g_orig_save_write = NULL;
+    } else if (_stricmp(name, "Save_Load") == 0) {
+        g_orig_save_load = NULL;
+    } else if (_stricmp(name, "RaceAdvanceSim") == 0) {
+        g_orig_race_sim = NULL;
+    } else if (_stricmp(name, "ClampInt3") == 0) {
+        g_orig_clamp = NULL;
+    }
+}
+
+static void set_orig_for(const char *name, void *tramp)
+{
+    if (_stricmp(name, "GainMoney") == 0) {
+        g_orig_gain = (HORSE_FN_GainMoney)tramp;
+    } else if (_stricmp(name, "SpendMoney") == 0) {
+        g_orig_spend = (HORSE_FN_SpendMoney)tramp;
+    } else if (_stricmp(name, "Save_Write") == 0) {
+        g_orig_save_write = (HORSE_FN_Save_Write)tramp;
+    } else if (_stricmp(name, "Save_Load") == 0) {
+        g_orig_save_load = (HORSE_FN_Save_Load)tramp;
+    } else if (_stricmp(name, "RaceAdvanceSim") == 0) {
+        g_orig_race_sim = (HORSE_FN_RaceAdvanceSim)tramp;
+    } else if (_stricmp(name, "ClampInt3") == 0) {
+        g_orig_clamp = (HORSE_FN_ClampInt3)tramp;
+    }
+}
+
+static void *detour_for(const HorseHookCatalogEntry *e)
+{
+    if (_stricmp(e->name, "GainMoney") == 0) {
+        return (void *)detour_gain;
+    }
+    if (_stricmp(e->name, "SpendMoney") == 0) {
+        return (void *)detour_spend;
+    }
+    if (_stricmp(e->name, "Save_Write") == 0) {
+        return (void *)detour_save_write;
+    }
+    if (_stricmp(e->name, "Save_Load") == 0) {
+        return (void *)detour_save_load;
+    }
+    if (_stricmp(e->name, "RaceAdvanceSim") == 0) {
+        return (void *)detour_race_sim;
+    }
+    if (_stricmp(e->name, "ClampInt3") == 0) {
+        return (void *)detour_clamp;
+    }
+    return NULL;
+}
+
 void horse_hook_manager_init(const void *game_base)
 {
     g_base = game_base;
@@ -99,6 +195,10 @@ void horse_hook_manager_shutdown(void)
     g_hook_count = 0;
     g_orig_gain = NULL;
     g_orig_spend = NULL;
+    g_orig_save_write = NULL;
+    g_orig_save_load = NULL;
+    g_orig_race_sim = NULL;
+    g_orig_clamp = NULL;
     horse_hook_system_shutdown();
 }
 
@@ -114,18 +214,14 @@ void horse_hook_manager_list(void)
                          e->safe_pre_call ? "[safe] " : "",
                          (m && m->active) ? "(ON)" : "");
     }
-    horse_debug_log("Console: hook on GainMoney | hook off GainMoney | resolve Save_Write");
+    horse_debug_log("Console: hook on Save_Write | hook off SpendMoney | resolve Save_Write");
 }
 
 static int install_builtin(const HorseHookCatalogEntry *e, ManagedHook *m, char *errbuf,
                            size_t errbuf_len)
 {
-    void *detour = NULL;
-    if (_stricmp(e->name, "GainMoney") == 0) {
-        detour = (void *)detour_gain;
-    } else if (_stricmp(e->name, "SpendMoney") == 0) {
-        detour = (void *)detour_spend;
-    } else {
+    void *detour = detour_for(e);
+    if (detour == NULL) {
         snprintf(errbuf, errbuf_len, "No built-in detour for %s (use a mod)", e->name);
         return -1;
     }
@@ -137,12 +233,7 @@ static int install_builtin(const HorseHookCatalogEntry *e, ManagedHook *m, char 
         return -1;
     }
 
-    if (_stricmp(e->name, "GainMoney") == 0) {
-        g_orig_gain = (HORSE_FN_GainMoney)m->slot.trampoline;
-    } else if (_stricmp(e->name, "SpendMoney") == 0) {
-        g_orig_spend = (HORSE_FN_SpendMoney)m->slot.trampoline;
-    }
-
+    set_orig_for(e->name, m->slot.trampoline);
     m->active = 1;
     m->owned = 1;
     snprintf(errbuf, errbuf_len, "ok");
@@ -187,11 +278,7 @@ int horse_hook_manager_off(const char *name, char *errbuf, size_t errbuf_len)
     HorseHookStatus st = horse_hook_remove(&m->slot);
     m->active = 0;
     m->owned = 0;
-    if (_stricmp(e->name, "GainMoney") == 0) {
-        g_orig_gain = NULL;
-    } else if (_stricmp(e->name, "SpendMoney") == 0) {
-        g_orig_spend = NULL;
-    }
+    clear_orig_for(e->name);
     if (st != HORSE_HOOK_OK) {
         snprintf(errbuf, errbuf_len, "remove failed %d", (int)st);
         return -1;
@@ -226,4 +313,32 @@ int horse_hook_manager_register(const char *name, HorseHookSlot *slot)
     m->active = 1;
     m->owned = 0;
     return 0;
+}
+
+void horse_hook_manager_apply_list(const char *comma_names)
+{
+    char buf[256];
+    if (comma_names == NULL || !comma_names[0]) {
+        return;
+    }
+    strncpy(buf, comma_names, sizeof(buf) - 1);
+    buf[sizeof(buf) - 1] = '\0';
+
+    char *ctx = NULL;
+    char *tok = strtok_s(buf, ",", &ctx);
+    while (tok) {
+        while (*tok == ' ' || *tok == '\t') {
+            tok++;
+        }
+        char *end = tok + strlen(tok);
+        while (end > tok && (end[-1] == ' ' || end[-1] == '\t')) {
+            *--end = '\0';
+        }
+        if (tok[0]) {
+            char err[128];
+            int rc = horse_hook_manager_on(tok, err, sizeof(err));
+            horse_debug_logf("auto_hook %s: %s (%d)", tok, err, rc);
+        }
+        tok = strtok_s(NULL, ",", &ctx);
+    }
 }

@@ -17,6 +17,8 @@ Optional: `--frida-vtable`, `--frida-genetics`
 
 **Pinned status:** documented; static disasm in `save_genetics_runtime.json`. Optional live capture: `frida_genetics_ae470.py` → `save_genetics_frida.json` (`run_save_semantics.py --frida-genetics`). Still **no** C phenotype editor.
 
+**Offline edit path today:** inventory gene packs via `horse_save` / `save_editor.py info|roundtrip` — does not apply live phenotype until load.
+
 ## Footer `vtable+0xB0` / `+0xB8`
 
 | Item | Detail |

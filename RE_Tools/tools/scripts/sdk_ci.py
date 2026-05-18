@@ -37,6 +37,18 @@ def main() -> int:
     steps.append(
         ("catalog", run([sys.executable, str(SCRIPTS / "build_game_function_catalog.py")]))
     )
+    steps.append(
+        (
+            "verify_modloader_static",
+            run([sys.executable, str(SCRIPTS / "verify_modloader_static.py")]),
+        )
+    )
+    steps.append(
+        (
+            "verify_catalog_rvas",
+            run([sys.executable, str(SCRIPTS / "verify_catalog_rvas.py")]),
+        )
+    )
 
     SDK_BUILD.mkdir(parents=True, exist_ok=True)
     steps.append(
@@ -73,6 +85,20 @@ def main() -> int:
     hooks_h = ROOT / "SDK" / "include" / "horse" / "game_function_hooks.h"
     steps.append(("types_header", 0 if types_h.is_file() else 1))
     steps.append(("hooks_header", 0 if hooks_h.is_file() else 1))
+
+    steps.append(
+        (
+            "save_editor_roundtrip",
+            run(
+                [
+                    sys.executable,
+                    str(SCRIPTS / "save_editor.py"),
+                    "roundtrip",
+                    str(ROOT / "RE_Tools" / "analysis" / "save_buffer_dump.bin"),
+                ]
+            ),
+        )
+    )
 
     if not args.skip_data_smoke:
         cli = SDK_BUILD / "horse_data" / "Release" / "horse_data_cli.exe"

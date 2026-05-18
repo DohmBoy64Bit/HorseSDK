@@ -66,6 +66,8 @@ Start here:
 - [`RE_Tools/docs/Ghidra_User_Tasks.md`](RE_Tools/docs/Ghidra_User_Tasks.md) — optional manual RE (automation-first; paste only if stuck)
 - [`RE_Tools/docs/ReverseEngineeringProgress.md`](RE_Tools/docs/ReverseEngineeringProgress.md) — living RE log (RVAs, checklist)
 - [`RE_Tools/docs/GameFunctionCatalog.md`](RE_Tools/docs/GameFunctionCatalog.md) — Phase 2 exe function catalog (RVAs, hooks, SDK)
+- [`RE_Tools/docs/ModCapabilities.md`](RE_Tools/docs/ModCapabilities.md) — what mods the SDK can build today
+- [`RE_Tools/docs/ModLoaderSmokeTest.md`](RE_Tools/docs/ModLoaderSmokeTest.md) — mod loader validation checklist
 - [`RE_Tools/docs/SaveSemanticsCoverage.md`](RE_Tools/docs/SaveSemanticsCoverage.md) — save v12 section status (9/9 on-disk sections mapped)
 - [`RE_Tools/docs/SOURCES.md`](RE_Tools/docs/SOURCES.md) — verification policy (exe + dump over repomix)
 
@@ -81,8 +83,8 @@ High-level plan from [`SystemPrompt.md`](SystemPrompt.md). Near-term items track
 |-------|------|--------|
 | **1** | Knowledge confirmation & RE expansion (formats, RVAs, codecs) | **Mostly complete** — save v12 on-disk 9/9; loop/save RVAs documented |
 | **2** | **Game function catalog** — disasm, decompile, name, offsets for SDK hooks | **Started** — see [GameFunctionCatalog.md](RE_Tools/docs/GameFunctionCatalog.md) |
-| **3** | Modular **C++ SDK** (redistributable read/write APIs + `GameFunctions.h`) | Planned |
-| **4** | **Mod loader** + optional in-game debug console | Planned |
+| **3** | Modular **C SDK** (read/write APIs + generated `game_functions.h`) | **Mostly complete** — see [Phase3_SDK.md](RE_Tools/docs/Phase3_SDK.md) |
+| **4** | **Mod loader** + debug console + hooks | **Skeleton complete** — see [Phase4_ModLoader.md](RE_Tools/docs/Phase4_ModLoader.md), [ModCapabilities.md](RE_Tools/docs/ModCapabilities.md) |
 | **5** | **UI toolkit** — save editor, map editor, horse editor | Planned |
 | **6** | **Scripting** layer (e.g. Lua) on top of the SDK | Future |
 
@@ -138,8 +140,8 @@ Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game rout
 - [x] Auto-generated [`GameFunctions.h`](RE_Tools/docs/GameFunctions.h) (`HORSE_RVA_*`)
 - [x] **Gameplay strings:** race/shop/spawn (`find_gameplay_functions.py`) → [GameplayFunctions.md](RE_Tools/docs/GameplayFunctions.md)
 - [ ] **Coverage:** grow catalog until all `FUN_140*` in hot paths are named (loop body, render, physics, UI)
-- [ ] Per-function struct offsets in catalog (from disasm, not guesses)
-- [ ] CI: catalog build + RVA spot-check on `Horsey.exe`
+- [x] Per-function struct offsets in catalog (seed: economy `ctx+0x308`, race score `race_ctx+0x450`)
+- [x] CI: catalog build + RVA spot-check (`verify_catalog_rvas.py` in `sdk_ci.py`)
 
 ### Phase 3 — SDK
 
@@ -159,10 +161,13 @@ Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game rout
 - [x] MinHook backend (`ThirdParty/minhook`)
 - [x] `example_mod` hooks `GainMoney` / `SpendMoney`; console `hook on` / `resolve`
 - [ ] In-game ImGui overlay (fullscreen)
+- [x] INI `mods_order` / `mod_*` enable + `auto_hooks` for catalog detours
+- [x] Built-in detours: Save_Write, Save_Load (+ money); smoke doc [ModLoaderSmokeTest.md](RE_Tools/docs/ModLoaderSmokeTest.md)
 
 ### Phase 5 — editors (planned)
 
-- [ ] **Save editor** — UI over SDK + `horse_save`
+- [x] **Save editor skeleton** — `save_editor.py` (`info`, `backup`, `roundtrip`)
+- [ ] **Save editor** — full UI over SDK + `horse_save`
 - [ ] **Map editor** — TMX / tile GID tooling from `horsey.tmx` RE
 - [ ] **Horse editor** — genetics UI once `0xAE470` / phenotype rules are understood
 
