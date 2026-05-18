@@ -7,6 +7,9 @@
 extern "C" {
 #endif
 
+/** Runs on a worker thread (opens debug console, then loads mods). */
+void horse_mod_loader_start_async(HMODULE self);
+
 void horse_mod_loader_init(HMODULE self);
 void horse_mod_loader_shutdown(void);
 

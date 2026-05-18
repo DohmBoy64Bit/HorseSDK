@@ -1,5 +1,7 @@
 #include "mod_loader.h"
 
+#include "debug_console.h"
+
 #include <horse/mod_api.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,9 +22,7 @@ static HorseModHost g_host;
 static HMODULE g_self;
 static void mod_log(const char *msg)
 {
-    OutputDebugStringA("[HorseModLoader] ");
-    OutputDebugStringA(msg);
-    OutputDebugStringA("\n");
+    horse_debug_log(msg);
 }
 
 static void *host_resolve(uint32_t rva)
@@ -103,9 +103,11 @@ void horse_mod_loader_init(HMODULE self)
     g_host.log = mod_log;
 
     if (g_host.game_base == NULL) {
-        mod_log("Horsey.exe base not found");
+        mod_log("ERROR: Horsey.exe module base not found");
         return;
     }
+
+    horse_debug_logf("Horsey.exe base: %p", g_host.game_base);
 
     char dir[MAX_PATH];
     GetModuleFileNameA(self, dir, MAX_PATH);
@@ -115,7 +117,11 @@ void horse_mod_loader_init(HMODULE self)
     }
     char mods_dir[MAX_PATH];
     snprintf(mods_dir, sizeof(mods_dir), "%s\\mods", dir);
+    horse_debug_logf("Scanning mods: %s", mods_dir);
     scan_and_load(mods_dir);
+    horse_debug_console_set_game_base(g_host.game_base);
+    horse_debug_console_set_mod_count(g_mod_count);
+    horse_debug_logf("Done. %u mod(s) loaded.", g_mod_count);
 }
 
 void horse_mod_loader_shutdown(void)

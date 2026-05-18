@@ -57,13 +57,21 @@ Also runs at end of `sdk_ci.py` (unless `--skip-deploy`).
 
 ## Inject
 
-Start `Horsey.exe` first. Check DebugView for `[HorseModLoader]` lines.
+1. Start `Horsey.exe` (windowed is easier — fullscreen can hide the second console).
+2. Run `horse_inject.exe` from the `Game\` folder.
+3. **Alt-tab** to a new window titled **"Horsey Mod Loader"** — that console is attached to the game, not PowerShell.
+
+Commands in the loader console: `help`, `mods`, `base`, `clear`.
+
+### DebugView (optional)
+
+[DebugView](https://learn.microsoft.com/en-us/sysinternals/downloads/debugview) is a separate free Sysinternals tool — it is **not** installed with HorseSDK. It shows `OutputDebugString` lines (`[HorseModLoader] ...`) if you prefer logging without a console window. Run DebugView as Administrator, enable **Capture Global Win32**.
 
 ---
 
 ## Next (Phase 4 proper)
 
 - [ ] Config file for mod load order / enable flags
-- [ ] Debug console overlay (ImGui or in-game text)
+- [ ] In-game overlay console (ImGui) for fullscreen
 - [ ] Install hooks from `g_horse_hook_catalog` with UI toggles
 - [ ] Safer hook backend (MinHook) for functions > 5 bytes / rel32 out of range

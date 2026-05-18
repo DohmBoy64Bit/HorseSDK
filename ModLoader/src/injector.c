@@ -94,5 +94,10 @@ int main(int argc, char **argv)
         return 1;
     }
     printf("OK\n");
+    printf("\n");
+    printf("A separate \"Horsey Mod Loader\" console should open on the GAME process.\n");
+    printf("(Not this PowerShell window — alt-tab to Horsey.exe or check the taskbar.)\n");
+    printf("If you do not see it, the game may have blocked AllocConsole; try running Horsey\n");
+    printf("without fullscreen, or check Sysinternals DebugView for [HorseModLoader] lines.\n");
     return 0;
 }

@@ -14,7 +14,9 @@ add_subdirectory("${HORSE_SDK_DIR}" "${CMAKE_BINARY_DIR}/horse_sdk_build")
 
 add_library(HorseModLoader SHARED
     src/loader_dll.c
+    src/loader_thread.c
     src/mod_host.c
+    src/debug_console.c
 )
 
 target_include_directories(HorseModLoader PRIVATE
