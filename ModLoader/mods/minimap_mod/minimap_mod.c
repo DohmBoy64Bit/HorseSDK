@@ -89,7 +89,7 @@ static void detour_sdl(void *ctx, void *sdl_event)
             if (is_m_key(ev)) {
                 map_window_toggle(NULL, g_tmx_path);
                 refresh_view();
-                mod_logf("minimap: toggled map (M)");
+                mod_logf("minimap: map toggle sent (M)");
             }
         }
     }
@@ -115,7 +115,7 @@ HORSE_MOD_API const HorseModInfo *HorseMod_GetInfo(void)
         HORSE_MOD_API_VERSION,
         "minimap_mod",
         "Minimap Mod",
-        "0.1.2",
+        "0.1.3",
     };
     return &info;
 }
@@ -157,7 +157,7 @@ HORSE_MOD_API int HorseMod_Init(const HorseModHost *host)
         mod_logf("minimap: Save_Write hook skipped (player dot may lag)");
     }
 
-    mod_logf("minimap: v0.1.2 - press M in farm view, or type 'map' in loader console");
+    mod_logf("minimap: v0.1.3 - press M in farm view, or type 'map' in loader console");
     return 0;
 }
 

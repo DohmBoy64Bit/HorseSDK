@@ -87,9 +87,10 @@ static void do_toggle_visibility(void)
             load_map_locked(g_tmx_path);
             LeaveCriticalSection(&g_cs);
         }
-        ShowWindow(g_hwnd, SW_SHOWNA);
+        ShowWindow(g_hwnd, SW_SHOW);
+        SetWindowPos(g_hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_SHOWWINDOW);
         SetForegroundWindow(g_hwnd);
-        PostMessageA(g_hwnd, WM_MAP_REFRESH, 0, 0);
+        InvalidateRect(g_hwnd, NULL, TRUE);
         g_visible = 1;
     }
 }
@@ -192,6 +193,12 @@ static DWORD WINAPI map_thread(LPVOID unused)
         wc.hInstance,
         NULL);
 
+    if (g_hwnd && g_tmx_path[0]) {
+        EnterCriticalSection(&g_cs);
+        load_map_locked(g_tmx_path);
+        LeaveCriticalSection(&g_cs);
+    }
+
     if (g_ready_event) {
         SetEvent(g_ready_event);
     }
@@ -206,6 +213,15 @@ static DWORD WINAPI map_thread(LPVOID unused)
             if (msg.message == WM_QUIT) {
                 g_run = 0;
                 break;
+            }
+            /* PostThreadMessage queues have hwnd==NULL; DispatchMessage never reaches wndproc. */
+            if (msg.hwnd == NULL && (msg.message == WM_MAP_TOGGLE || msg.message == WM_MAP_SET_VIEW)) {
+                if (msg.message == WM_MAP_TOGGLE) {
+                    do_toggle_visibility();
+                } else if (g_hwnd) {
+                    PostMessageA(g_hwnd, msg.message, msg.wParam, msg.lParam);
+                }
+                continue;
             }
             TranslateMessage(&msg);
             DispatchMessageA(&msg);
@@ -274,7 +290,9 @@ void map_window_toggle(const HorseDataTmxMap *preloaded, const char *tmx_path)
         strncpy(g_tmx_path, tmx_path, sizeof(g_tmx_path) - 1);
         g_tmx_path[sizeof(g_tmx_path) - 1] = '\0';
     }
-    if (g_map_tid) {
+    if (g_hwnd) {
+        PostMessageA(g_hwnd, WM_MAP_TOGGLE, 0, 0);
+    } else if (g_map_tid) {
         PostThreadMessageA(g_map_tid, WM_MAP_TOGGLE, 0, 0);
     } else {
         g_pending_toggle = 1;
@@ -292,7 +310,9 @@ void map_window_set_view(const HorseMapView *view)
         g_have_view = 0;
     }
     LeaveCriticalSection(&g_cs);
-    if (g_map_tid) {
+    if (g_hwnd) {
+        PostMessageA(g_hwnd, WM_MAP_SET_VIEW, 0, 0);
+    } else if (g_map_tid) {
         PostThreadMessageA(g_map_tid, WM_MAP_SET_VIEW, 0, 0);
     }
 }
