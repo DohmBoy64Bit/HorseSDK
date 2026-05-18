@@ -22,6 +22,7 @@ ARTIFACTS = (
     ("HorseModLoader.dll", MOD_BUILD / "Release" / "HorseModLoader.dll"),
     ("horse_inject.exe", MOD_BUILD / "Release" / "horse_inject.exe"),
     ("example_mod.dll", MOD_BUILD / "mods" / "Release" / "example_mod.dll"),
+    ("minimap_mod.dll", MOD_BUILD / "mods" / "Release" / "minimap_mod.dll"),
 )
 
 
@@ -66,7 +67,11 @@ def main() -> int:
             print(f"Missing build artifact: {src}", file=sys.stderr)
             print("Run without --no-build or build ModLoader first.", file=sys.stderr)
             return 1
-        dest = mods_dir / dest_name if dest_name == "example_mod.dll" else game_dir / dest_name
+        dest = (
+            mods_dir / dest_name
+            if dest_name.endswith("_mod.dll") or dest_name == "example_mod.dll"
+            else game_dir / dest_name
+        )
         try:
             shutil.copy2(src, dest)
         except PermissionError:
@@ -80,7 +85,7 @@ def main() -> int:
     print(f"\nDeployed to {game_dir}")
     print("  HorseModLoader.dll")
     print("  horse_inject.exe")
-    print("  mods\\example_mod.dll")
+    print("  mods\\*.dll (example_mod, minimap_mod, ...)")
     print("\nUsage: start Horsey.exe, then run horse_inject.exe from the Game folder.")
     return 0
 

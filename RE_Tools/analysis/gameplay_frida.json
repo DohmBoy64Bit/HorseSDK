@@ -7,7 +7,7 @@
     "GrabHorse": "0xd6340",
     "DropHorseFail": "0xd3c50",
     "BuyItem": "0x787d0",
-    "RaceStateMachine": "0x8f2b0",
+    "RaceStateMachine": null,
     "RaceAdvanceSim": "0x8c9e0",
     "g_settings_seed": "0x2f1587",
     "g_prng_state": "0x2f2700"
@@ -20,55 +20,84 @@
     "race_76": "RaceStateMachine did fire \u2014 race was captured"
   },
   "summary_counts": {
-    "gain_money": 0,
-    "spend_money": 3,
+    "gain_money": 2,
+    "spend_money": 4,
     "spawn_entity": 0,
     "spawn_place": 0,
     "grab_horse": 0,
     "drop_horse_fail": 0,
     "buy_item": 0,
-    "race_fsm": 346,
-    "race_advance_sim": 2
+    "race_fsm": 0,
+    "race_advance_sim": 3
   },
-  "gain_money": [],
-  "spend_money": [
+  "gain_money": [
     {
-      "type": "spend_money",
-      "cost": 2,
-      "ctx": "0x230fcf44770",
+      "type": "gain_money",
+      "amount": 90,
+      "show_ui": 0,
+      "ctx": "0x15c3cd5e810",
       "before": {
-        "money": 19,
+        "money": 28,
         "timer": 0,
-        "delta": 0
+        "delta": -15
       },
       "after": {
-        "money": 17,
+        "money": 118,
         "timer": 60,
-        "delta": -2
+        "delta": 90
       },
       "bt": [
-        "0x90c5b",
-        "0x7ffa1a6538ef",
-        "0x15911a",
+        "0x92035",
         "0xcfb34",
-        "0x142c10",
-        "0x15911a",
         "0x98392",
-        "0x142921"
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
       ],
       "from_buy": false
     },
     {
-      "type": "spend_money",
-      "cost": 7,
-      "ctx": "0x230fcf44770",
+      "type": "gain_money",
+      "amount": 225,
+      "show_ui": 0,
+      "ctx": "0x15c3cd5e810",
       "before": {
-        "money": 17,
+        "money": 73,
         "timer": 0,
-        "delta": -2
+        "delta": -45
       },
       "after": {
-        "money": 10,
+        "money": 298,
+        "timer": 60,
+        "delta": 225
+      },
+      "bt": [
+        "0x92035",
+        "0xcfb34",
+        "0x98392",
+        "0x876fa",
+        "0xbead9",
+        "0x21ee12",
+        "0x7ffa1ac9e957",
+        "0x7ffa1bca427c"
+      ],
+      "from_buy": false
+    }
+  ],
+  "spend_money": [
+    {
+      "type": "spend_money",
+      "cost": 7,
+      "ctx": "0x15c3cd5e810",
+      "before": {
+        "money": 50,
+        "timer": 0,
+        "delta": 0
+      },
+      "after": {
+        "money": 43,
         "timer": 60,
         "delta": -7
       },
@@ -86,17 +115,69 @@
     },
     {
       "type": "spend_money",
-      "cost": 2,
-      "ctx": "0x230fcf44770",
+      "cost": 15,
+      "ctx": "0x15c3cd5e810",
       "before": {
-        "money": 10,
+        "money": 43,
         "timer": 0,
         "delta": -7
       },
       "after": {
-        "money": 8,
+        "money": 28,
         "timer": 60,
-        "delta": -2
+        "delta": -15
+      },
+      "bt": [
+        "0x90c5b",
+        "0x7ffa1a6538ef",
+        "0x15911a",
+        "0xcfb34",
+        "0x98392",
+        "0x142921",
+        "0x876fa",
+        "0x16d2cd"
+      ],
+      "from_buy": false
+    },
+    {
+      "type": "spend_money",
+      "cost": 45,
+      "ctx": "0x15c3cd5e810",
+      "before": {
+        "money": 118,
+        "timer": 0,
+        "delta": 90
+      },
+      "after": {
+        "money": 73,
+        "timer": 60,
+        "delta": -45
+      },
+      "bt": [
+        "0x90c5b",
+        "0x7ffa1a6538ef",
+        "0x15911a",
+        "0xcfb34",
+        "0x98392",
+        "0x142921",
+        "0x876fa",
+        "0x16d2cd"
+      ],
+      "from_buy": false
+    },
+    {
+      "type": "spend_money",
+      "cost": 45,
+      "ctx": "0x15c3cd5e810",
+      "before": {
+        "money": 298,
+        "timer": 0,
+        "delta": 225
+      },
+      "after": {
+        "money": 253,
+        "timer": 60,
+        "delta": -45
       },
       "bt": [
         "0x90c5b",
@@ -116,569 +197,200 @@
   "grab_horse": [],
   "drop_horse_fail": [],
   "buy_item": [],
-  "race_fsm": [
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0x10aab6",
-        "0x110b36",
-        "0x142934",
-        "0xcfb34",
-        "0x15911a",
-        "0x98392"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x142921",
-        "0x876fa",
-        "0x16d2cd",
-        "0xbead9"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x142921",
-        "0x876fa",
-        "0x16d2cd",
-        "0xbead9"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x142921",
-        "0x876fa",
-        "0x16d2cd",
-        "0xbead9"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x142921",
-        "0x876fa",
-        "0x16d2cd",
-        "0xbead9"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x142921",
-        "0x876fa",
-        "0x16d2cd",
-        "0xbead9"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x142921",
-        "0x876fa",
-        "0x16d2cd",
-        "0xbead9"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x142921",
-        "0x876fa",
-        "0x16d2cd",
-        "0xbead9"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0x10aab6",
-        "0x62b54",
-        "0x16d2cd",
-        "0x12e889",
-        "0xcfb34",
-        "0x98392"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470",
-      "bt": [
-        "0xcfb34",
-        "0x142c10",
-        "0x15911a",
-        "0x98392",
-        "0x142921",
-        "0x876fa"
-      ]
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    },
-    {
-      "type": "race_fsm",
-      "param_1": "0x230fe12c470"
-    }
-  ],
-  "race_fsm_bt_sample": [
-    "0x10aab6",
-    "0x110b36",
-    "0x142934",
-    "0xcfb34",
-    "0x15911a",
-    "0x98392"
-  ],
+  "race_fsm": [],
+  "race_fsm_bt_sample": null,
   "race_advance_sim": [
     {
       "type": "race_advance_sim",
       "tick": 1,
-      "ctx": "0x230fe12c470",
+      "ctx": "0x15c425e3920",
       "state_e0": -1,
       "frame_254": 16,
       "race_flag_258": 0,
       "g_settings_seed": 0,
-      "g_prng_state": "7078753438080490923",
+      "g_prng_state": "9536663895404297014",
       "snapshot": {
         "horses": [
           {
             "i": 0,
-            "finish_place": 1,
-            "progress": 2326,
-            "timer": 0,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "finish_place": 0,
+            "progress": 2362,
+            "timer": 9,
+            "speed_f": 37.000999450683594,
+            "speed_220": 107
           },
           {
             "i": 1,
             "finish_place": -1,
-            "progress": 414,
-            "timer": 3500,
-            "speed_f": 6.682064533233643,
-            "score_450": 50529027,
-            "speed_220": 30
+            "progress": 3183,
+            "timer": 5,
+            "speed_f": 28.287134170532227,
+            "speed_220": 46
           },
           {
             "i": 2,
-            "finish_place": 0,
-            "progress": 1920,
-            "timer": 2,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "finish_place": -1,
+            "progress": 2718,
+            "timer": 232,
+            "speed_f": 21.51548194885254,
+            "speed_220": 28
           },
           {
             "i": 3,
-            "finish_place": 2,
-            "progress": 2778,
-            "timer": 2,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "finish_place": -1,
+            "progress": 898,
+            "timer": 2842,
+            "speed_f": 13.786660194396973,
+            "speed_220": 82
           }
         ],
-        "n_horses": 4
+        "n_horses": 4,
+        "race_score_450": 980
       }
     },
     {
       "type": "race_advance_sim",
       "tick": 2,
-      "ctx": "0x230fe12c470",
+      "ctx": "0x15c425e3920",
       "state_e0": -1,
       "frame_254": 16,
       "race_flag_258": 0,
       "g_settings_seed": 0,
-      "g_prng_state": "7312127720228876479",
+      "g_prng_state": "14049246155758430532",
       "snapshot": {
         "horses": [
           {
             "i": 0,
-            "finish_place": 1,
-            "progress": 2737,
-            "timer": 1,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "finish_place": -1,
+            "progress": 1597,
+            "timer": 2,
+            "speed_f": 25.510072708129883,
+            "speed_220": 72
           },
           {
             "i": 1,
             "finish_place": -1,
-            "progress": 4255,
-            "timer": 367,
-            "speed_f": 23.359556198120117,
-            "score_450": 50529027,
+            "progress": 1597,
+            "timer": 3,
+            "speed_f": 17.178390502929688,
             "speed_220": 30
           },
           {
             "i": 2,
             "finish_place": 0,
-            "progress": 1471,
+            "progress": 1597,
             "timer": 1,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "speed_f": 37.000999450683594,
+            "speed_220": 15
           },
           {
             "i": 3,
             "finish_place": -1,
-            "progress": 2412,
-            "timer": 870,
-            "speed_f": 9.20277214050293,
-            "score_450": 50529027,
+            "progress": 458,
+            "timer": 1319,
+            "speed_f": 2.1882781982421875,
+            "speed_220": 15
+          }
+        ],
+        "n_horses": 4,
+        "race_score_450": 980
+      }
+    },
+    {
+      "type": "race_advance_sim",
+      "tick": 3,
+      "ctx": "0x15c425e3920",
+      "state_e0": -1,
+      "frame_254": 16,
+      "race_flag_258": 0,
+      "g_settings_seed": 0,
+      "g_prng_state": "10395278607245800372",
+      "snapshot": {
+        "horses": [
+          {
+            "i": 0,
+            "finish_place": -1,
+            "progress": 1331,
+            "timer": 2,
+            "speed_f": 23.967254638671875,
+            "speed_220": 30
+          },
+          {
+            "i": 1,
+            "finish_place": -1,
+            "progress": 977,
+            "timer": 170,
+            "speed_f": 2.784564733505249,
+            "speed_220": 24
+          },
+          {
+            "i": 2,
+            "finish_place": -1,
+            "progress": 1331,
+            "timer": 2,
+            "speed_f": 17.55830192565918,
+            "speed_220": 22
+          },
+          {
+            "i": 3,
+            "finish_place": 0,
+            "progress": 1331,
+            "timer": 2,
+            "speed_f": 25.000999450683594,
             "speed_220": 30
           }
         ],
-        "n_horses": 4
+        "n_horses": 4,
+        "race_score_450": 980
       }
     }
   ],
   "race_advance_sim_sample": {
     "type": "race_advance_sim",
-    "tick": 2,
-    "ctx": "0x230fe12c470",
+    "tick": 3,
+    "ctx": "0x15c425e3920",
     "state_e0": -1,
     "frame_254": 16,
     "race_flag_258": 0,
     "g_settings_seed": 0,
-    "g_prng_state": "7312127720228876479",
+    "g_prng_state": "10395278607245800372",
     "snapshot": {
       "horses": [
         {
           "i": 0,
-          "finish_place": 1,
-          "progress": 2737,
-          "timer": 1,
-          "speed_f": 25.000999450683594,
-          "score_450": 50529027,
+          "finish_place": -1,
+          "progress": 1331,
+          "timer": 2,
+          "speed_f": 23.967254638671875,
           "speed_220": 30
         },
         {
           "i": 1,
           "finish_place": -1,
-          "progress": 4255,
-          "timer": 367,
-          "speed_f": 23.359556198120117,
-          "score_450": 50529027,
-          "speed_220": 30
+          "progress": 977,
+          "timer": 170,
+          "speed_f": 2.784564733505249,
+          "speed_220": 24
         },
         {
           "i": 2,
-          "finish_place": 0,
-          "progress": 1471,
-          "timer": 1,
-          "speed_f": 25.000999450683594,
-          "score_450": 50529027,
-          "speed_220": 30
+          "finish_place": -1,
+          "progress": 1331,
+          "timer": 2,
+          "speed_f": 17.55830192565918,
+          "speed_220": 22
         },
         {
           "i": 3,
-          "finish_place": -1,
-          "progress": 2412,
-          "timer": 870,
-          "speed_f": 9.20277214050293,
-          "score_450": 50529027,
+          "finish_place": 0,
+          "progress": 1331,
+          "timer": 2,
+          "speed_f": 25.000999450683594,
           "speed_220": 30
         }
       ],
-      "n_horses": 4
+      "n_horses": 4,
+      "race_score_450": 980
     }
   },
   "note": "race_advance_sim: snapshot.race_score_450 = [race_ctx+0x450] (HorseRaceScore @ 0xE2FBD); finish_place @ slot+0x0C."

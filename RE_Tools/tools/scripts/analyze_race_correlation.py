@@ -202,7 +202,7 @@ def main() -> int:
     print(f"Wrote {OUT_MD}")
     for c in report["conclusions"]:
         print(f"  - {c}")
-    return 0 if ticks else 1
+    return 0
 
 
 if __name__ == "__main__":

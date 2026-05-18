@@ -1,138 +1,172 @@
 {
   "source": "gameplay_frida.json",
-  "tick_count": 2,
-  "horse_readings": 8,
-  "race_score_450_ctx_values": [],
+  "tick_count": 3,
+  "horse_readings": 12,
+  "race_score_450_ctx_values": [
+    980,
+    980,
+    980
+  ],
   "finish_place_mean_progress": {
-    "0": 1695.5,
-    "1": 2531.5,
-    "2": 2778
+    "0": 1763.3333333333333
   },
   "progress_by_place_rank": [
     {
-      "finish_place": 2,
-      "mean_progress": 2778
-    },
-    {
-      "finish_place": 1,
-      "mean_progress": 2531.5
-    },
-    {
       "finish_place": 0,
-      "mean_progress": 1695.5
+      "mean_progress": 1763.3333333333333
     }
   ],
   "ticks_sample": [
     {
       "type": "race_advance_sim",
       "tick": 1,
-      "ctx": "0x230fe12c470",
+      "ctx": "0x15c425e3920",
       "state_e0": -1,
       "frame_254": 16,
       "race_flag_258": 0,
       "g_settings_seed": 0,
-      "g_prng_state": "7078753438080490923",
+      "g_prng_state": "9536663895404297014",
       "snapshot": {
         "horses": [
           {
             "i": 0,
-            "finish_place": 1,
-            "progress": 2326,
-            "timer": 0,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "finish_place": 0,
+            "progress": 2362,
+            "timer": 9,
+            "speed_f": 37.000999450683594,
+            "speed_220": 107
           },
           {
             "i": 1,
             "finish_place": -1,
-            "progress": 414,
-            "timer": 3500,
-            "speed_f": 6.682064533233643,
-            "score_450": 50529027,
-            "speed_220": 30
+            "progress": 3183,
+            "timer": 5,
+            "speed_f": 28.287134170532227,
+            "speed_220": 46
           },
           {
             "i": 2,
-            "finish_place": 0,
-            "progress": 1920,
-            "timer": 2,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "finish_place": -1,
+            "progress": 2718,
+            "timer": 232,
+            "speed_f": 21.51548194885254,
+            "speed_220": 28
           },
           {
             "i": 3,
-            "finish_place": 2,
-            "progress": 2778,
-            "timer": 2,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "finish_place": -1,
+            "progress": 898,
+            "timer": 2842,
+            "speed_f": 13.786660194396973,
+            "speed_220": 82
           }
         ],
-        "n_horses": 4
+        "n_horses": 4,
+        "race_score_450": 980
       }
     },
     {
       "type": "race_advance_sim",
       "tick": 2,
-      "ctx": "0x230fe12c470",
+      "ctx": "0x15c425e3920",
       "state_e0": -1,
       "frame_254": 16,
       "race_flag_258": 0,
       "g_settings_seed": 0,
-      "g_prng_state": "7312127720228876479",
+      "g_prng_state": "14049246155758430532",
       "snapshot": {
         "horses": [
           {
             "i": 0,
-            "finish_place": 1,
-            "progress": 2737,
-            "timer": 1,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "finish_place": -1,
+            "progress": 1597,
+            "timer": 2,
+            "speed_f": 25.510072708129883,
+            "speed_220": 72
           },
           {
             "i": 1,
             "finish_place": -1,
-            "progress": 4255,
-            "timer": 367,
-            "speed_f": 23.359556198120117,
-            "score_450": 50529027,
+            "progress": 1597,
+            "timer": 3,
+            "speed_f": 17.178390502929688,
             "speed_220": 30
           },
           {
             "i": 2,
             "finish_place": 0,
-            "progress": 1471,
+            "progress": 1597,
             "timer": 1,
-            "speed_f": 25.000999450683594,
-            "score_450": 50529027,
-            "speed_220": 30
+            "speed_f": 37.000999450683594,
+            "speed_220": 15
           },
           {
             "i": 3,
             "finish_place": -1,
-            "progress": 2412,
-            "timer": 870,
-            "speed_f": 9.20277214050293,
-            "score_450": 50529027,
+            "progress": 458,
+            "timer": 1319,
+            "speed_f": 2.1882781982421875,
+            "speed_220": 15
+          }
+        ],
+        "n_horses": 4,
+        "race_score_450": 980
+      }
+    },
+    {
+      "type": "race_advance_sim",
+      "tick": 3,
+      "ctx": "0x15c425e3920",
+      "state_e0": -1,
+      "frame_254": 16,
+      "race_flag_258": 0,
+      "g_settings_seed": 0,
+      "g_prng_state": "10395278607245800372",
+      "snapshot": {
+        "horses": [
+          {
+            "i": 0,
+            "finish_place": -1,
+            "progress": 1331,
+            "timer": 2,
+            "speed_f": 23.967254638671875,
+            "speed_220": 30
+          },
+          {
+            "i": 1,
+            "finish_place": -1,
+            "progress": 977,
+            "timer": 170,
+            "speed_f": 2.784564733505249,
+            "speed_220": 24
+          },
+          {
+            "i": 2,
+            "finish_place": -1,
+            "progress": 1331,
+            "timer": 2,
+            "speed_f": 17.55830192565918,
+            "speed_220": 22
+          },
+          {
+            "i": 3,
+            "finish_place": 0,
+            "progress": 1331,
+            "timer": 2,
+            "speed_f": 25.000999450683594,
             "speed_220": 30
           }
         ],
-        "n_horses": 4
+        "n_horses": 4,
+        "race_score_450": 980
       }
     }
   ],
   "conclusions": [
-    "Captured 2 sim tick(s), 8 horse slot reading(s).",
-    "snapshot.race_score_450 missing \u2014 update frida_gameplay_hooks.py and re-capture.",
-    "Per-horse score_450 in JSON is identical garbage \u2014 do NOT read [horse+0x450]; use [race_ctx+0x450] only (see RaceMechanics.md).",
-    "finish_place vs progress (higher progress -> better placement): place=2 avg_progress=2778, place=1 avg_progress=2532, place=0 avg_progress=1696",
-    "OK: highest progress aligns with best (lowest) finish_place index.",
-    "3 slot reading(s) with finish_place=-1 (still racing)."
+    "Captured 3 sim tick(s), 12 horse slot reading(s).",
+    "race_ctx+0x450 (race_score_450): min=980 max=980 (single race power dword per RaceMechanics.md @ 0xE2FBD).",
+    "finish_place vs progress (higher progress -> better placement): place=0 avg_progress=1763",
+    "9 slot reading(s) with finish_place=-1 (still racing)."
   ],
   "input_path": "RE_Tools/analysis/gameplay_frida.json"
 }

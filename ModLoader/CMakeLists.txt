@@ -38,3 +38,4 @@ if(MSVC)
 endif()
 
 add_subdirectory(mods/example_mod)
+add_subdirectory(mods/minimap_mod)

@@ -24,6 +24,7 @@ Each mod exports `HorseMod_GetInfo`, `HorseMod_Init`, `HorseMod_Shutdown`. The h
 ### Proven today
 
 - `example_mod` logs and forwards **GainMoney** (3-arg) and **SpendMoney** (4-arg: `ctx`, `cost`, `show_ui`, `str_variant`).
+- **`minimap_mod`** — **M** toggles map from `data/horsey.tmx`; dot @ save `ctx+0x39C` ([MinimapMod.md](MinimapMod.md)).
 - Wrong detour arity **crashes** (shop buy) — see disasm @ `0x10AC94` / `0x10ACAB`, catalog `SpendMoney` parameters.
 
 ### Realistic in-game mod types now

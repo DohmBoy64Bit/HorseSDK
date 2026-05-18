@@ -9,6 +9,6 @@ auto_hooks=
 ; Legacy: same as auto_hooks=GainMoney,SpendMoney
 auto_hook_gain=0
 ; Explicit load order (optional). If set, only these DLLs are loaded, in order.
-mods_order=example_mod.dll
+mods_order=example_mod.dll,minimap_mod.dll
 ; Per-mod enable (stem without .dll): mod_example_mod=0 disables example_mod
 ; mod_other_mod=1

@@ -160,6 +160,7 @@ Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game rout
 - [x] Debug console + topmost log overlay + `HorseModLoader.ini`
 - [x] MinHook backend (`ThirdParty/minhook`)
 - [x] `example_mod` hooks `GainMoney` / `SpendMoney`; console `hook on` / `resolve`
+- [x] **`minimap_mod`** — M toggles map from `data/horsey.tmx` ([MinimapMod.md](RE_Tools/docs/MinimapMod.md))
 - [ ] ImGui overlay ([ImGuiOverlay.md](RE_Tools/docs/ImGuiOverlay.md) + `setup_imgui.ps1`; hook @ `Game_PostSwapHook`)
 - [x] In-game GDI log overlay (`overlay=2` in INI)
 - [x] INI `mods_order` / `mod_*` enable + `auto_hooks` for catalog detours
