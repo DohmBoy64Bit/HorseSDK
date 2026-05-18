@@ -13,21 +13,23 @@
 #include <string.h>
 #include <windows.h>
 
-/* SDL2 keyboard event — verified Game_DispatchSdlEvent @ 0xC0430 (RBX copy of event) */
+/* SDL2 keyboard event — Game_DispatchSdlEvent @ 0xC0430 */
 #define SDL_EVENT_KEYDOWN 0x300u
-#define SDL_EVENT_KEYUP 0x301u
 #define SDL_SCANCODE_M 39
 #define SDLK_M 109
 
 static HorseModHost g_host;
 static HorseHookSlot g_sdl_slot;
+static HorseHookSlot g_world_slot;
 static HorseHookSlot g_save_slot;
 static HORSE_FN_Game_DispatchSdlEvent g_orig_sdl;
+static HORSE_FN_Game_UpdateWorld g_orig_world;
 static HORSE_FN_Save_Write g_orig_save;
 static void *g_save_ctx;
 static int g_sdl_seen;
+static int g_world_ticks;
 static char g_tmx_path[MAX_PATH];
-static int g_debug_keys_left = 8;
+static int g_debug_keys_left = 4;
 
 static void mod_logf(const char *fmt, ...)
 {
@@ -57,7 +59,7 @@ static int is_m_key(const unsigned char *ev)
 static void refresh_view(void)
 {
     HorseMapView v;
-    if (horse_map_read_view_from_save_ctx(g_save_ctx, &v)) {
+    if (horse_map_read_view(g_host.game_base, g_save_ctx, &v)) {
         map_window_set_view(&v);
     }
 }
@@ -67,6 +69,19 @@ static void detour_save_write(void *ctx)
     g_save_ctx = ctx;
     if (g_orig_save) {
         g_orig_save(ctx);
+    }
+}
+
+static void detour_world(int year_or_frame)
+{
+    g_world_ticks++;
+    if ((g_world_ticks & 3) == 0) {
+        if (map_window_is_visible()) {
+            refresh_view();
+        }
+    }
+    if (g_orig_world) {
+        g_orig_world(year_or_frame);
     }
 }
 
@@ -115,7 +130,7 @@ HORSE_MOD_API const HorseModInfo *HorseMod_GetInfo(void)
         HORSE_MOD_API_VERSION,
         "minimap_mod",
         "Minimap Mod",
-        "0.1.3",
+        "0.2.1",
     };
     return &info;
 }
@@ -149,15 +164,20 @@ HORSE_MOD_API int HorseMod_Init(const HorseModHost *host)
     }
     g_orig_sdl = (HORSE_FN_Game_DispatchSdlEvent)g_sdl_slot.trampoline;
 
+    horse_hook_slot_init(&g_world_slot, g_host.game_base, HORSE_RVA_Game_UpdateWorld, (void *)detour_world);
+    if (g_host.hook_install(&g_world_slot) == HORSE_HOOK_OK) {
+        g_orig_world = (HORSE_FN_Game_UpdateWorld)g_world_slot.trampoline;
+        mod_logf("minimap: Game_UpdateWorld hook OK (live dot @ g_save+0x300/0x394)");
+    } else {
+        mod_logf("minimap: Game_UpdateWorld hook skipped");
+    }
+
     horse_hook_slot_init(&g_save_slot, g_host.game_base, HORSE_RVA_Save_Write, (void *)detour_save_write);
     if (g_host.hook_install(&g_save_slot) == HORSE_HOOK_OK) {
         g_orig_save = (HORSE_FN_Save_Write)g_save_slot.trampoline;
-        mod_logf("minimap: Save_Write hook OK (player dot ctx)");
-    } else {
-        mod_logf("minimap: Save_Write hook skipped (player dot may lag)");
     }
 
-    mod_logf("minimap: v0.1.3 - press M in farm view, or type 'map' in loader console");
+    mod_logf("minimap: v0.2.1 wheel zoom, drag pan, R=fit, arrows pan");
     return 0;
 }
 
@@ -173,6 +193,9 @@ HORSE_MOD_API void HorseMod_Shutdown(void)
     if (g_host.hook_remove) {
         if (g_save_slot.trampoline) {
             g_host.hook_remove(&g_save_slot);
+        }
+        if (g_world_slot.trampoline) {
+            g_host.hook_remove(&g_world_slot);
         }
         if (g_sdl_slot.trampoline) {
             g_host.hook_remove(&g_sdl_slot);

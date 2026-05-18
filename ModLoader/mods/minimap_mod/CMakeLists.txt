@@ -1,6 +1,7 @@
 add_library(minimap_mod SHARED
     minimap_mod.c
     horse_map.c
+    map_atlas.c
     map_raster.c
     map_window.c
 )

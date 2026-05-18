@@ -92,6 +92,18 @@ HorseDataStatus horse_data_tmx_load_file(const char *path, HorseDataTmxMap *out)
     out->tile_width = parse_u32_attr(map_tag, "tilewidth", 0);
     out->tile_height = parse_u32_attr(map_tag, "tileheight", 0);
 
+    const char *ts_scan = text;
+    while (out->tileset_count < HORSE_DATA_TMX_TILESETS_MAX) {
+        const char *ts = strstr(ts_scan, "<tileset");
+        if (ts == NULL) {
+            break;
+        }
+        HorseDataTmxTileset *T = &out->tilesets[out->tileset_count++];
+        T->first_gid = parse_u32_attr(ts, "firstgid", 0);
+        find_attr(ts, "source", T->source, sizeof(T->source));
+        ts_scan = ts + 8;
+    }
+
     const char *scan = text;
     while (out->layer_count < HORSE_DATA_TMX_LAYERS_MAX) {
         const char *layer = strstr(scan, "<layer ");
@@ -166,4 +178,5 @@ void horse_data_tmx_free(HorseDataTmxMap *map)
         map->layers[i].cells = NULL;
     }
     map->layer_count = 0;
+    map->tileset_count = 0;
 }

@@ -14,25 +14,60 @@ mods_order=example_mod.dll,minimap_mod.dll
 ```
 
 3. Inject → in-game press **M** to toggle map window. **Esc** closes.
-4. If **M** does nothing (focus on a text field, etc.), type **`map`** in the mod-loader debug console.
+4. If **M** does nothing, type **`map`** in the mod-loader debug console.
+
+### Map window controls (v0.2.1)
+
+| Input | Action |
+|-------|--------|
+| **Mouse wheel** | Zoom in/out at cursor |
+| **+** / **-** | Zoom at center |
+| **Left-drag** | Pan |
+| **Arrow keys** | Pan |
+| **R** | Reset zoom (fit whole map) |
+| **Esc** | Close window |
 
 ## How it works
 
 | Piece | Source |
 |-------|--------|
-| **M key** | Hook `Game_DispatchSdlEvent` @ `0xC0430` — SDL_KEYDOWN scancode **39** ([Game_DispatchSdlEvent.md](Game_DispatchSdlEvent.md)) |
-| **Map image** | `horse_data_tmx_load_file` → rasterize GIDs ([`tmx_map.h`](../../RE_Tools/src/horse_data/include/horse_data/tmx_map.h)) |
-| **Player dot** | Save context `rcx` from `Save_Write` @ `0x6DAB0`; vec2 @ **`ctx+0x39C`** ([`SaveContext.h`](SaveContext.h)) |
+| **M key** | Hook `Game_DispatchSdlEvent` @ `0xC0430` ([Game_DispatchSdlEvent.md](Game_DispatchSdlEvent.md)) |
+| **Map image** | `horsey.tmx` + `terrain.xml`/`terrain.png` + `locs.xml`/`locs.png` ([`DataFileFormats.md`](DataFileFormats.md)) |
+| **Player dot** | Live: `g_save_context` @ **`0x31A660`** → `[ctx+0x300]+0x28` or `ctx+0x394` — [MapViewPosition.md](MapViewPosition.md) |
 | **Draw** | Topmost Win32 window + GDI `StretchDIBits` |
 
-## Player position (best-effort)
+## Atlas rendering (v0.2.0)
 
-The dot uses **`[save_ctx+0x39C]`** (same layout as `WriteVec2F32` @ `0x6DD61`). This updates when the game touches that context (e.g. after money events). **Live panning may lag** until RE pins the per-frame camera.
+GID → sprite via Tiled `firstgid` + atlas XML order (same as `map_tile_gids.py`):
 
-**RE tool:** `python RE_Tools/tools/scripts/frida_map_view_probe.py --attach --seconds 60` — pan the farm; inspect `map_view_probe.json`.
+- `terrain.tsx` (firstgid **1**) → `terrain.xml` + `terrain.png`
+- `locs.tsx` (firstgid **97**) → `locs.xml` + `locs.png`
+
+Loader: `horse_data_png_load_rgba` (stb_image) in `horse_data`.
+
+## Player position
+
+See **[MapViewPosition.md](MapViewPosition.md)** for pinned RVAs and offsets.
+
+**RE tool:** `python RE_Tools/tools/scripts/frida_map_view_probe.py --attach --seconds 60`
+
+## Current look (v0.2.0, May 2026)
+
+Atlas path is live: `terrain.png` + `locs.png` blitted per GID (`map_atlas.c`). You should see:
+
+- Yellow **Plain** / **CactusLand** terrain, green **GrassLand** patches, blue **Water** / **Pond**
+- Brown/pink **Road** / fence lines on the west side
+- Cream **locs** blocks (stable, shops) and the pink-bordered central plot from `horsey.tmx`
+- Dark dotted **void** outside the island (unpainted raster / low GID background)
+- Top-left **Loc** sprite icon; red **player dot** when `horse_map_read_view` finds valid coords
+
+If the map still looks like solid hash colors, check `Game\data\terrain.png` and `locs.png` exist after deploy.
+
+**Live dot:** blocked on RE — see [MapViewPosition.md](MapViewPosition.md) (Frida probe pinned).
 
 ## Roadmap
 
+- [ ] **Live player dot** — find per-frame XY (Frida scan; `+0x394` static in probe)
 - [ ] Corner minimap (`overlay=2` or child HUD)
-- [ ] Pin live camera globals (Frida + doc offset)
-- [ ] Tile colors from texture atlas instead of GID hash
+- [x] Pin `g_save_context` @ `0x31A660` (global; pan offset TBD)
+- [x] Tile colors from texture atlas

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Probe candidate view/camera floats while you pan the farm.
+Probe minimap view candidates while you pan the farm.
 
   python RE_Tools/tools/scripts/frida_map_view_probe.py --attach --seconds 60
 
@@ -21,37 +21,48 @@ from paths import get_exe_path  # noqa: E402
 
 OUT = ROOT / "RE_Tools" / "analysis" / "map_view_probe.json"
 
-G_GAME_STATE = 0x313720
-SAVE_CTX_VEC2 = 0x39C
+G_SAVE_CONTEXT = 0x31A660
+OFF_HORSE_OBJ = 0x300
+OFF_HORSE_VIEW = 0x28
+OFF_CAM_X = 0x394
+OFF_CAM_Y = 0x398
 
 AGENT = r"""
 'use strict';
-var G_GAME = __G_GAME__;
+var G_SAVE = __G_SAVE__;
 var samples = [];
 var last = 0;
 
-function sample(label, p) {
-  if (p.isNull()) return;
-  try {
-    samples.push({
-      label: label,
-      ptr: p.toString(),
-      f394: p.add(0x394).readFloat(),
-      f398: p.add(0x398).readFloat(),
-      f39c: p.add(0x39C).readFloat(),
-      f3a0: p.add(0x3A0).readFloat()
-    });
-  } catch (e) {}
+function rf(p, off) {
+  try { return p.add(off).readFloat(); } catch (e) { return null; }
+}
+
+function sample() {
+  var base = Process.findModuleByName('Horsey.exe').base;
+  var slot = base.add(G_SAVE);
+  var ctx = ptr(0);
+  try { ctx = slot.readPointer(); } catch (e) { return; }
+  if (ctx.isNull()) return;
+  var horse = ptr(0);
+  try { horse = ctx.add(0x300).readPointer(); } catch (e) {}
+  var row = {
+    t: Date.now(),
+    ctx: ctx.toString(),
+    cam394: rf(ctx, 0x394),
+    cam398: rf(ctx, 0x398),
+    horse_ptr: horse.isNull() ? null : horse.toString(),
+    horse28_x: horse.isNull() ? null : rf(horse, 0x28),
+    horse28_y: horse.isNull() ? null : rf(horse, 0x2c)
+  };
+  samples.push(row);
 }
 
 setInterval(function () {
   var now = Date.now();
-  if (now - last < 500) return;
+  if (now - last < 400) return;
   last = now;
-  var base = Process.findModuleByName('Horsey.exe').base;
-  var gs = base.add(G_GAME).readPointer();
-  sample('g_game_state', gs);
-}, 500);
+  sample();
+}, 400);
 
 rpc.exports.dump = function () { return samples; };
 """
@@ -76,8 +87,9 @@ def main() -> int:
         print("Start Horsey.exe with a save loaded, then re-run.")
         return 1
 
+    src = AGENT.replace("__G_SAVE__", str(G_SAVE_CONTEXT))
     session = device.attach(procs[0].pid)
-    script = session.create_script(AGENT.replace("__G_GAME__", str(G_GAME_STATE)))
+    script = session.create_script(src)
     script.load()
     print(f"Attached pid={procs[0].pid}. Pan the farm for {args.seconds}s...")
     time.sleep(args.seconds)
@@ -86,10 +98,16 @@ def main() -> int:
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     payload = {
-        "g_game_state_rva": hex(G_GAME_STATE),
-        "save_ctx_vec2_off": hex(SAVE_CTX_VEC2),
+        "g_save_context_rva": hex(G_SAVE_CONTEXT),
+        "offsets": {
+            "horse_obj": hex(OFF_HORSE_OBJ),
+            "horse_view": hex(OFF_HORSE_VIEW),
+            "camera_x": hex(OFF_CAM_X),
+            "camera_y": hex(OFF_CAM_Y),
+        },
         "sample_count": len(samples),
-        "samples": samples[-40:],
+        "samples": samples[-60:],
+        "note": "Prefer horse_obj+0x28 when it changes with pan; ctx+0x394 is footer camera.",
     }
     OUT.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     print(f"Wrote {OUT} ({len(samples)} samples)")

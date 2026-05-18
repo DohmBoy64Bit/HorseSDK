@@ -114,6 +114,7 @@ static inline void *horse_rva(const void *module_base, uint32_t rva) {
 
 /* --- globals --- */
 #define HORSE_RVA_g_game_state                     0x00313720u
+#define HORSE_RVA_g_save_context                   0x0031A660u
 
 #ifdef __cplusplus
 }

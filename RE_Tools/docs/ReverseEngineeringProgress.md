@@ -195,6 +195,12 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - **CRF VM cluster:** `0xBF200` → `FileWrite_6F3C0` @ `0xBF2C6`; also save path `0x6DB95` — [CrfLoaderVm.md](CrfLoaderVm.md).
 - **CI:** `python RE_Tools/tools/scripts/phase1_ci.py` (add `--skip-frida` for local quick runs).
 
+## [KNOWLEDGE UPDATE] 2026-05-15 (minimap mod)
+
+- **`minimap_mod` v0.2.0:** Atlas tiles from `terrain.png`/`locs.png` + `horsey.tmx` — [MinimapMod.md](MinimapMod.md).
+- **`g_save_context` @ `0x31A660`:** Frida-confirmed heap save ctx ptr (store @ `0x103B6C`).
+- **Live pan XY:** **Not** `ctx+0x394` (static 18,24) nor `[ctx+0x300]+0x28` (invalid ptr) — pinned open: [MapViewPosition.md](MapViewPosition.md), artifact `analysis/map_view_probe.json`.
+
 ## [KNOWLEDGE UPDATE] 2026-05-15 (game loop + SDL dispatch)
 
 - **`Game_DispatchSdlEvent` @ `0xC0430` (Ghidra):** `ghidra_exports/Game_DispatchSdlEvent.c.txt`, `docs/Game_DispatchSdlEvent.md`.

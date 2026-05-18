@@ -6,6 +6,7 @@ add_library(horse_data STATIC
     tmx_map.c
     bmfont_txt.c
     texture_atlas.c
+    png_rgba.c
 )
 
 target_include_directories(horse_data PUBLIC include)
