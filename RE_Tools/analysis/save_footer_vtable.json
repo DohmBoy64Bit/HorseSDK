@@ -1,0 +1,148 @@
+{
+  "global_footer_ptr_rva": "0x31A660",
+  "note": "DAT_14031a660 is heap-allocated; static vtable pointer is not in .rdata. Use --frida after init or disasm the resolved function at the logged RVA.",
+  "call_sites": {
+    "inventory_panel_write_b0": {
+      "rva": "0x6e0e9",
+      "role": "After WriteNestedSave on ctx panel @ [rdi+0x438]",
+      "disasm": [
+        "  06E0E9: call     qword ptr [rax + 0xb0]",
+        "  06E0EF: add      rsi, 8",
+        "  06E0F3: cmp      rsi, 0x180",
+        "  06E0FA: jl       0x14006e0b0",
+        "  06E0FC: mov      rcx, qword ptr [rip + 0x2ac55d]",
+        "  06E103: call     0x14006d440",
+        "  06E108: mov      rcx, qword ptr [rip + 0x2ac551]",
+        "  06E10F: mov      rax, qword ptr [rcx]",
+        "  06E112: call     qword ptr [rax + 0xb0]",
+        "  06E118: lea      rcx, [rbp - 9]",
+        "  06E11C: call     0x14006fd90",
+        "  06E121: nop      ",
+        "  06E122: mov      rdx, qword ptr [rbp + 0xf]",
+        "  06E126: cmp      rdx, 0xf",
+        "  06E12A: jbe      0x14006e159",
+        "  06E12C: inc      rdx",
+        "  06E12F: mov      rcx, qword ptr [rbp - 9]",
+        "  06E133: mov      rax, rcx",
+        "  06E136: cmp      rdx, 0x1000",
+        "  06E13D: jb       0x14006e154",
+        "  06E13F: add      rdx, 0x27",
+        "  06E143: mov      rcx, qword ptr [rcx - 8]",
+        "  06E147: sub      rax, rcx",
+        "  06E14A: sub      rax, 8"
+      ]
+    },
+    "footer_global_write_b0": {
+      "rva": "0x6e112",
+      "role": "After WriteNestedSave(DAT_14031a660) @ 0x6E103",
+      "disasm": [
+        "  06E112: call     qword ptr [rax + 0xb0]",
+        "  06E118: lea      rcx, [rbp - 9]",
+        "  06E11C: call     0x14006fd90",
+        "  06E121: nop      ",
+        "  06E122: mov      rdx, qword ptr [rbp + 0xf]",
+        "  06E126: cmp      rdx, 0xf",
+        "  06E12A: jbe      0x14006e159",
+        "  06E12C: inc      rdx",
+        "  06E12F: mov      rcx, qword ptr [rbp - 9]",
+        "  06E133: mov      rax, rcx",
+        "  06E136: cmp      rdx, 0x1000",
+        "  06E13D: jb       0x14006e154",
+        "  06E13F: add      rdx, 0x27",
+        "  06E143: mov      rcx, qword ptr [rcx - 8]",
+        "  06E147: sub      rax, rcx",
+        "  06E14A: sub      rax, 8",
+        "  06E14E: cmp      rax, 0x1f",
+        "  06E152: ja       0x14006e17a",
+        "  06E154: call     0x14021e450",
+        "  06E159: lea      r11, [rsp + 0x90]",
+        "  06E161: mov      rbx, qword ptr [r11 + 0x38]",
+        "  06E165: mov      rsi, qword ptr [r11 + 0x40]",
+        "  06E169: mov      rdi, qword ptr [r11 + 0x48]",
+        "  06E16D: mov      rsp, r11"
+      ]
+    },
+    "footer_global_read_b8": {
+      "rva": "0x6ea08",
+      "role": "After ReadNestedSave(DAT_14031a660) @ 0x6E9F9",
+      "disasm": [
+        "  06EA08: call     qword ptr [rax + 0xb8]",
+        "  06EA0E: mov      rcx, rsi",
+        "  06EA11: call     0x14010a3d0",
+        "  06EA16: mov      rax, qword ptr [rsi + 0x300]",
+        "  06EA1D: cmp      byte ptr [rax + 0xac], 0",
+        "  06EA24: je       0x14006eab1",
+        "  06EA2A: mov      rax, qword ptr [rsi + 0x438]",
+        "  06EA31: mov      rbx, qword ptr [rax + 0x80]",
+        "  06EA38: test     rbx, rbx",
+        "  06EA3B: je       0x14006eab1",
+        "  06EA3D: movss    xmm1, dword ptr [rbx + 0x10]",
+        "  06EA42: addss    xmm1, dword ptr [rip + 0x1eeda6]",
+        "  06EA4A: movss    xmm0, dword ptr [rbx + 0xc]",
+        "  06EA4F: addss    xmm0, dword ptr [rip + 0x1ec901]",
+        "  06EA57: movss    dword ptr [rsi + 0x394], xmm0",
+        "  06EA5F: movss    dword ptr [rsi + 0x398], xmm1",
+        "  06EA67: mov      rax, qword ptr [rbx]",
+        "  06EA6A: mov      rcx, rbx",
+        "  06EA6D: call     qword ptr [rax + 0x18]",
+        "  06EA70: test     al, al",
+        "  06EA72: je       0x14006ea83",
+        "  06EA74: mov      dword ptr [rsi + 0x25c], 0x10",
+        "  06EA7E: mov      rdx, rbx",
+        "  06EA81: jmp      0x14006eabc"
+      ]
+    }
+  },
+  "all_read_b8_call_sites": [],
+  "write_nested_refs": {
+    "write": "0x6D440",
+    "read": "0x6D5C0"
+  },
+  "runtime": null,
+  "b0_handler": {
+    "rva": "0x1017C0",
+    "fn": "FooterExtra_Write",
+    "wire": [
+      "WriteU32 [obj+0x25C] @ 0x6FE10",
+      "WriteU8  [obj+0x261..0x263] @ 0x6FEF0"
+    ],
+    "disasm": [
+      "  1017C0: push     rbx",
+      "  1017C2: sub      rsp, 0x20",
+      "  1017C6: mov      rbx, rcx",
+      "  1017C9: mov      ecx, dword ptr [rcx + 0x25c]",
+      "  1017CF: call     0x14006fe10",
+      "  1017D4: movzx    ecx, byte ptr [rbx + 0x261]",
+      "  1017DB: call     0x14006fef0",
+      "  1017E0: movzx    ecx, byte ptr [rbx + 0x262]",
+      "  1017E7: call     0x14006fef0",
+      "  1017EC: movzx    ecx, byte ptr [rbx + 0x263]",
+      "  1017F3: add      rsp, 0x20",
+      "  1017F7: pop      rbx"
+    ],
+    "verified": "Frida @ 0x6E112 \u2192 Horsey.exe+0x1017C0"
+  },
+  "b8_handler": {
+    "rva": "0x101810",
+    "fn": "FooterExtra_Read",
+    "wire": [
+      "ReadU32  [obj+0x25C] @ 0x70320",
+      "ReadU8\u00d73 [obj+0x261..0x263] @ 0x70620"
+    ],
+    "disasm": [
+      "  101810: push     rbx",
+      "  101812: sub      rsp, 0x20",
+      "  101816: mov      rbx, rcx",
+      "  101819: add      rcx, 0x25c",
+      "  101820: call     0x140070320",
+      "  101825: lea      rcx, [rbx + 0x261]",
+      "  10182C: call     0x140070620",
+      "  101831: lea      rcx, [rbx + 0x262]",
+      "  101838: call     0x140070620",
+      "  10183D: lea      rcx, [rbx + 0x263]",
+      "  101844: add      rsp, 0x20",
+      "  101848: pop      rbx"
+    ],
+    "verified": "Frida @ 0x6EA08 \u2192 Horsey.exe+0x101810"
+  }
+}

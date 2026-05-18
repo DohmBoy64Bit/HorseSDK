@@ -1,0 +1,163 @@
+{
+  "save_load_entry": "0x6E2B0",
+  "ctx_register": "rsi",
+  "slot_read_loop": {
+    "rva": "0x6E470",
+    "count": 6,
+    "pattern": "ReadU8/+5, ReadU32/+0, ReadU8/+4; rbx+=8",
+    "disasm": [
+      "06E470: lea rcx, [rbx + 5]",
+      "06E474: call 0x140070620",
+      "06E479: mov rcx, rbx",
+      "06E47C: call 0x140070320",
+      "06E481: lea rcx, [rbx + 4]",
+      "06E485: call 0x140070620",
+      "06E48A: add rbx, 8",
+      "06E48E: sub rdi, 1",
+      "06E492: jne 0x14006e470",
+      "06E494: lea rbx, [rsi + 0x2cc]",
+      "06E49B: mov edi, 0xd"
+    ]
+  },
+  "row_read_loop": {
+    "rva": "0x6E4A0",
+    "count": 13,
+    "pattern": "ReadU32 [rbx-0x34], ReadU32 [rbx]; rbx+=4",
+    "disasm": [
+      "06E4A0: lea rcx, [rbx - 0x34]",
+      "06E4A4: call 0x140070320",
+      "06E4A9: mov rcx, rbx",
+      "06E4AC: call 0x140070320",
+      "06E4B1: add rbx, 4",
+      "06E4B5: sub rdi, 1",
+      "06E4B9: jne 0x14006e4a0",
+      "06E4BB: lea rbx, [rsi + 0x280]",
+      "06E4C2: mov rax, qword ptr [rbx]"
+    ]
+  },
+  "post_footer_load_uses": {
+    "0x6EA57": "movss [rsi+0x394] \u2014 camera/world vec from loaded footer panel",
+    "0x6EA74": "mov [rsi+0x25c], 0x10 \u2014 runtime default after footer read (not disk u32)",
+    "0x6EA16": "uses [rsi+0x300] active UI/world object ptr"
+  },
+  "rows13_disk": [
+    {
+      "index": 0,
+      "field_m34_u32": 4294967041,
+      "ctx_m34": "0x298",
+      "field_0_u32": 4294967295,
+      "ctx_0": "0x2cc",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "sentinel_padding"
+    },
+    {
+      "index": 1,
+      "field_m34_u32": 255,
+      "ctx_m34": "0x29c",
+      "field_0_u32": 0,
+      "ctx_0": "0x2d0",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "byte_ff_prefix"
+    },
+    {
+      "index": 2,
+      "field_m34_u32": 0,
+      "ctx_m34": "0x2a0",
+      "field_0_u32": 65792,
+      "ctx_0": "0x2d4",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "opaque"
+    },
+    {
+      "index": 3,
+      "field_m34_u32": 4278255616,
+      "ctx_m34": "0x2a4",
+      "field_0_u32": 4294967295,
+      "ctx_0": "0x2d8",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "opaque"
+    },
+    {
+      "index": 4,
+      "field_m34_u32": 16777215,
+      "ctx_m34": "0x2a8",
+      "field_0_u32": 0,
+      "ctx_0": "0x2dc",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "rgb_mask"
+    },
+    {
+      "index": 5,
+      "field_m34_u32": 100663296,
+      "ctx_m34": "0x2ac",
+      "field_0_u32": 1090519040,
+      "ctx_0": "0x2e0",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "opaque"
+    },
+    {
+      "index": 6,
+      "field_m34_u32": 1851878770,
+      "ctx_m34": "0x2b0",
+      "field_0_u32": 131183,
+      "ctx_0": "0x2e4",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "opaque"
+    },
+    {
+      "index": 7,
+      "field_m34_u32": 4278321152,
+      "ctx_m34": "0x2b4",
+      "field_0_u32": 4294967295,
+      "ctx_0": "0x2e8",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "opaque"
+    },
+    {
+      "index": 8,
+      "field_m34_u32": 16777215,
+      "ctx_m34": "0x2b8",
+      "field_0_u32": 0,
+      "ctx_0": "0x2ec",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "rgb_mask"
+    },
+    {
+      "index": 9,
+      "field_m34_u32": 268435456,
+      "ctx_m34": "0x2bc",
+      "field_0_u32": 1107296256,
+      "ctx_0": "0x2f0",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "opaque"
+    },
+    {
+      "index": 10,
+      "field_m34_u32": 1702192993,
+      "ctx_m34": "0x2c0",
+      "field_0_u32": 543519860,
+      "ctx_0": "0x2f4",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "opaque"
+    },
+    {
+      "index": 11,
+      "field_m34_u32": 1768382797,
+      "ctx_m34": "0x2c4",
+      "field_0_u32": 6649201,
+      "ctx_0": "0x2f8",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "opaque"
+    },
+    {
+      "index": 12,
+      "field_m34_u32": 2,
+      "ctx_m34": "0x2c8",
+      "field_0_u32": 4294967042,
+      "ctx_0": "0x2fc",
+      "load_read": "ReadU32 @ [rbx-0x34] then [rbx] (0x6E4A0)",
+      "disk_role": "opaque"
+    }
+  ],
+  "note": "Rows are read back on load before grid/nested; gameplay may only use subset (footer path touches 0x394/0x398)."
+}

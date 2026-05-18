@@ -1,0 +1,85 @@
+{
+  "verified_on": "E:\\games\\HorseSDK\\Game\\Horsey.exe",
+  "tmx": {
+    "file": "E:\\games\\HorseSDK\\Game\\data\\horsey.tmx",
+    "width": 400,
+    "height": 225
+  },
+  "type1_b8": {
+    "file_offset_a0": 57062,
+    "u32": 7936,
+    "hex": "0x1f00"
+  },
+  "grid_index": {
+    "linear": 7936,
+    "row": 19,
+    "col": 336,
+    "formula": "row = index // 400; col = index % 400",
+    "in_bounds": true
+  },
+  "exe_refs": {
+    "serialize_write": "Horsey.exe+0x102DC0 \u2014 WriteU32 [obj+0xA0]",
+    "serialize_read": "Horsey.exe+0x102E20 \u2014 ReadU32 [obj+0xA0]",
+    "component_ctor": "Horsey.exe+0x101850 \u2014 type tag 1, alloc 0xB0",
+    "b8_dispatch_write": "Horsey.exe+0x6D530 \u2014 vtable+0x48",
+    "b8_dispatch_read": "Horsey.exe+0x6D6F5 \u2014 type==1 \u2192 ctor 0x101850"
+  },
+  "correlation": {
+    "main_nested_name": "unknown",
+    "merge_index": 4294967295,
+    "role": "Primary placed-world entity anchor tile (slot 0 type-1 record)",
+    "type2_coord8_note": "Other b8 slots use coord8 tile keys (comma-separated ASCII)"
+  },
+  "sample_type2_coords": [
+    {
+      "coord8_hex": "00392c392c392c39",
+      "ascii": "\u00009,9,9,9",
+      "grid_cell_type_id": 23
+    },
+    {
+      "coord8_hex": "00002c36392c3639",
+      "ascii": "\u0000\u0000,69,69",
+      "grid_cell_type_id": 3
+    },
+    {
+      "coord8_hex": "00392c392c392c39",
+      "ascii": "\u00009,9,9,9",
+      "grid_cell_type_id": 23
+    },
+    {
+      "coord8_hex": "00002c392c392c39",
+      "ascii": "\u0000\u0000,9,9,9",
+      "grid_cell_type_id": 0
+    },
+    {
+      "coord8_hex": "002c392c392c392c",
+      "ascii": "\u0000,9,9,9,",
+      "grid_cell_type_id": 23
+    },
+    {
+      "coord8_hex": "0000392c392c392c",
+      "ascii": "\u0000\u00009,9,9,",
+      "grid_cell_type_id": 20
+    },
+    {
+      "coord8_hex": "00392c392c392c39",
+      "ascii": "\u00009,9,9,9",
+      "grid_cell_type_id": 23
+    },
+    {
+      "coord8_hex": "0000392c392c392c",
+      "ascii": "\u0000\u00009,9,9,",
+      "grid_cell_type_id": 22
+    },
+    {
+      "coord8_hex": "002c392c392c392c",
+      "ascii": "\u0000,9,9,9,",
+      "grid_cell_type_id": 23
+    },
+    {
+      "coord8_hex": "00002c392c392c39",
+      "ascii": "\u0000\u0000,9,9,9",
+      "grid_cell_type_id": 21
+    }
+  ]
+}

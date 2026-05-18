@@ -137,6 +137,18 @@ python RE_Tools\tools\scripts\analyze_gamemain_functions.py
 
 ---
 
+## Gameplay export (scripted)
+
+| | |
+|--|--|
+| **Script** | `RE_Tools/ghidra_scripts/ExportGameplayDecompile.java` |
+| **Batch** | `RE_Tools/ghidra_scripts/run_export_gameplay.bat` |
+| **Output** | `GainMoney.c.txt`, `SimSpawnDisk.c.txt`, `BuyItem.c.txt`, `RaceCluster.c.txt` |
+
+RVAs: `0x10AB80`, `0x342F0`, `0x78B00`, race cluster `0x90E00`–`0x92000`.
+
+---
+
 ## Checklist
 
 - [ ] Task A — labels on `GameMain` + loop sites

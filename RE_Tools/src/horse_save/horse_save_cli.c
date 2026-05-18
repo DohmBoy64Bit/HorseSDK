@@ -76,14 +76,18 @@ int main(int argc, char **argv) {
     if (ft) {
         printf(
             "  footer track=%s world=(%.1f,%.1f) camera=(%.1f,%.1f) "
-            "gene_set=%d gene_trk=%d\n",
+            "gene_set=%d gene_trk=%d extra25c=%u b261..263=%u,%u,%u\n",
             ft->track_display_name[0] ? ft->track_display_name : "(none)",
             (double)ft->world_vec2[0],
             (double)ft->world_vec2[1],
             (double)ft->camera_vec2[0],
             (double)ft->camera_vec2[1],
             ft->has_gene_settings,
-            ft->has_gene_track);
+            ft->has_gene_track,
+            ft->has_footer_extra ? ft->extra.dword_25c : 0u,
+            ft->has_footer_extra ? ft->extra.byte_261 : 0u,
+            ft->has_footer_extra ? ft->extra.byte_262 : 0u,
+            ft->has_footer_extra ? ft->extra.byte_263 : 0u);
     }
 
     const HorseSaveMainNested *mn = horse_save_get_main_nested(&sf);

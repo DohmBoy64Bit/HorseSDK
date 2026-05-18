@@ -1,0 +1,2765 @@
+{
+  "name": "unknown",
+  "header_count": 343,
+  "blob_bytes": 1079,
+  "entries": 7,
+  "type1_records": 1,
+  "type2_blocks": 5,
+  "type2_inners": 20,
+  "type0_tail_bytes": 198,
+  "on_disk_slots": 219,
+  "implicit_eof_slots": 124,
+  "disasm": {
+    "read_loop": "0x6D6F5",
+    "type0_pack": "0x6D8C0",
+    "type0_unpack": "0x6D960",
+    "type2_ctor": "0x0A30F0"
+  },
+  "slot_histogram": {
+    "type1": 1,
+    "type2_inner": 20,
+    "type0_packed": 198,
+    "implicit_eof": 124
+  },
+  "slots": [
+    {
+      "kind": "type1",
+      "wire_bytes": 57,
+      "disasm": "0x102E20 / vtable+0x48",
+      "note": null,
+      "slot": 0
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 0,
+      "grid_cell_type_id": 23,
+      "cell_flag_c": 6,
+      "coord8_hex": "00392c392c392c39",
+      "link_u32": 578,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 1
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 1,
+      "grid_cell_type_id": 3,
+      "cell_flag_c": 10,
+      "coord8_hex": "00002c36392c3639",
+      "link_u32": 147968,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 2
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 2,
+      "grid_cell_type_id": 10,
+      "cell_flag_c": 0,
+      "coord8_hex": "000000392c392c39",
+      "link_u32": 37879808,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 3
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 3,
+      "grid_cell_type_id": 0,
+      "cell_flag_c": 0,
+      "coord8_hex": "000000002c36392c",
+      "link_u32": 1107296256,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 4
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 0,
+      "grid_cell_type_id": 23,
+      "cell_flag_c": 5,
+      "coord8_hex": "00392c392c392c39",
+      "link_u32": 578,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 5
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 1,
+      "grid_cell_type_id": 0,
+      "cell_flag_c": 10,
+      "coord8_hex": "00002c392c392c39",
+      "link_u32": 147968,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 6
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 2,
+      "grid_cell_type_id": 10,
+      "cell_flag_c": 0,
+      "coord8_hex": "0000002c392c392c",
+      "link_u32": 37879808,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 7
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 3,
+      "grid_cell_type_id": 0,
+      "cell_flag_c": 0,
+      "coord8_hex": "00000000392c392c",
+      "link_u32": 1107296256,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 8
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 0,
+      "grid_cell_type_id": 23,
+      "cell_flag_c": 14,
+      "coord8_hex": "002c392c392c392c",
+      "link_u32": 578,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 9
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 1,
+      "grid_cell_type_id": 20,
+      "cell_flag_c": 10,
+      "coord8_hex": "0000392c392c392c",
+      "link_u32": 147968,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 10
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 2,
+      "grid_cell_type_id": 10,
+      "cell_flag_c": 0,
+      "coord8_hex": "0000002c392c392c",
+      "link_u32": 37879808,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 11
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 3,
+      "grid_cell_type_id": 0,
+      "cell_flag_c": 0,
+      "coord8_hex": "00000000392c392c",
+      "link_u32": 1107296256,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 12
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 0,
+      "grid_cell_type_id": 23,
+      "cell_flag_c": 31,
+      "coord8_hex": "00392c392c392c39",
+      "link_u32": 578,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 13
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 1,
+      "grid_cell_type_id": 22,
+      "cell_flag_c": 10,
+      "coord8_hex": "0000392c392c392c",
+      "link_u32": 147968,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 14
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 2,
+      "grid_cell_type_id": 10,
+      "cell_flag_c": 0,
+      "coord8_hex": "000000392c36392c",
+      "link_u32": 37879808,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 15
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 3,
+      "grid_cell_type_id": 0,
+      "cell_flag_c": 0,
+      "coord8_hex": "00000000392c392c",
+      "link_u32": 1107296256,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 16
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 0,
+      "grid_cell_type_id": 23,
+      "cell_flag_c": 29,
+      "coord8_hex": "002c392c392c392c",
+      "link_u32": 578,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 17
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 1,
+      "grid_cell_type_id": 21,
+      "cell_flag_c": 10,
+      "coord8_hex": "00002c392c392c39",
+      "link_u32": 16896,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 18
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 2,
+      "grid_cell_type_id": 10,
+      "cell_flag_c": 0,
+      "coord8_hex": "000000f04b23bec2",
+      "link_u32": 155279902,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 19
+    },
+    {
+      "kind": "type2_inner",
+      "block_inner": 3,
+      "grid_cell_type_id": 19,
+      "cell_flag_c": 33,
+      "coord8_hex": "09090912090a0909",
+      "link_u32": 168891147,
+      "disasm": "0x0A30F0 component, 164 B block",
+      "slot": 20
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 21
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 22
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 23
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 24
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 25
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 26
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 27
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 28
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 29
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 30
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 11,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 31
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 32
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 33
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 34
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 35
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 36
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 37
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 28,
+      "dword_38": 3,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 38
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 39
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 40
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 25,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 41
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 42
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 43
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 44
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 45
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 46
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 47
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 48
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 49
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 11,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 50
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 51
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 52
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 53
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 54
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 55
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 56
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 11,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 57
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 58
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 59
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 60
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 61
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 62
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 63
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 64
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 65
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 66
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 11,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 67
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 68
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 69
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 70
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 71
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 72
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 73
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 74
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 75
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 76
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 77
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 78
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 79
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 80
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 81
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 82
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 83
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 84
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 85
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 86
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 87
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 88
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 89
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 90
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 91
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 92
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 93
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 94
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 95
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 96
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 97
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 98
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 99
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 100
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 101
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 26,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 102
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 103
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 12,
+      "dword_38": 3,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 104
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 105
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 106
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 107
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 108
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 109
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 110
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 111
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 112
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 113
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 114
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 115
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 116
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 117
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 118
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 119
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 120
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 121
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 122
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 34,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 123
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 35,
+      "dword_38": 2,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 124
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 125
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 126
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 19,
+      "dword_38": 2,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 127
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 128
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 129
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 20,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 130
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 131
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 132
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 133
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 134
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 135
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 26,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 136
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 35,
+      "dword_38": 2,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 137
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 138
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 139
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 140
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 141
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 142
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 143
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 144
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 145
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 146
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 147
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 148
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 149
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 150
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 151
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 152
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 153
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 36,
+      "dword_38": 3,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 154
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 155
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 156
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 157
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 158
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 159
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 160
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 161
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 162
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 163
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 164
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 165
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 166
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 167
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 168
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 169
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 170
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 171
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 172
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 173
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 174
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 175
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 176
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 177
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 178
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 179
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 180
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 181
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 182
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 183
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 27,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 184
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 185
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 17,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 186
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 187
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 188
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 189
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 11,
+      "dword_38": 2,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 190
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 191
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 192
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 193
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 194
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 195
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 196
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 18,
+      "dword_38": 1,
+      "flag_10": 0,
+      "flag_11": 1,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 197
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 198
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 199
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 200
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 201
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 202
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 203
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 204
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 205
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 206
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 207
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 208
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 209
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 12,
+      "dword_38": 3,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 210
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 211
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 33,
+      "dword_38": 0,
+      "flag_10": 0,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 212
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 213
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 214
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 215
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 216
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 217
+    },
+    {
+      "kind": "type0_packed",
+      "packed": 9,
+      "dword_38": 0,
+      "flag_10": 1,
+      "flag_11": 0,
+      "disasm": "0x6D8C0 / 0x6FEB0",
+      "slot": 218
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 219
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 220
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 221
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 222
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 223
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 224
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 225
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 226
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 227
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 228
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 229
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 230
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 231
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 232
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 233
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 234
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 235
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 236
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 237
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 238
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 239
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 240
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 241
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 242
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 243
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 244
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 245
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 246
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 247
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 248
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 249
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 250
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 251
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 252
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 253
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 254
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 255
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 256
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 257
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 258
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 259
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 260
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 261
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 262
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 263
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 264
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 265
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 266
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 267
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 268
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 269
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 270
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 271
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 272
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 273
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 274
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 275
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 276
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 277
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 278
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 279
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 280
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 281
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 282
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 283
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 284
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 285
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 286
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 287
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 288
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 289
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 290
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 291
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 292
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 293
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 294
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 295
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 296
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 297
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 298
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 299
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 300
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 301
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 302
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 303
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 304
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 305
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 306
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 307
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 308
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 309
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 310
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 311
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 312
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 313
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 314
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 315
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 316
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 317
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 318
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 319
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 320
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 321
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 322
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 323
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 324
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 325
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 326
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 327
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 328
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 329
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 330
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 331
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 332
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 333
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 334
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 335
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 336
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 337
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 338
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 339
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 340
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 341
+    },
+    {
+      "kind": "implicit_eof",
+      "on_disk": false,
+      "disasm": "ReadU32 @ 0x70540 returns 0 at EOF \u2014 slot skipped in file",
+      "slot": 342
+    }
+  ],
+  "exe_refs": {
+    "write_nested": "0x6D440",
+    "read_nested": "0x6D5C0",
+    "b8_write_vcall": "0x6D530 vtable+0x48",
+    "b8_read_vcall": "0x6D6F5 vtable+0x50"
+  }
+}

@@ -32,7 +32,8 @@ Mirrors write; b8 read uses type dispatch (`0`, `1`, `3`, other) then vcall **`+
 - Caller **`0x6E0A6`**, sample name **`unknown`**, **1134 B**
 - b8 count **343**; blob **1079 B** + **32 B** tail (vec2 + flag)
 - b8 wire (`nested_b8_codec.py`, `probe_main_nested_b8.py`):
-  - **Type 1** @ `0xDEE2`: `u32(1)` + ~57 B (`0x6D960` / `0x102E20`)
+  - **Type 1** @ `0xDEE2`: `u32(1)` + 57 B — **15 B active** (`packed` + 3×`u32` + 2×`u8` @ obj `+0xA0..+0xAC`) — `0x102DC0`/`0x102E20` — [save_type1_b8.json](../analysis/save_type1_b8.json)
+  - **Implicit EOF (124 slots):** `ReadU32` returns 0 @ `0x6D6F5` → default `operator_new(0xC8)` in memory, no file bytes — [SaveSemantics.md](SaveSemantics.md)
   - **Type 2 blocks**: **164 B** = `u32(2)` + **4×40 B** inner props
   - **Tail**: one **type-0 packed u8** per byte (`0x6D8C0`); 198 B in sample
   - Header **343** = in-memory slots; **on_disk** ≈ 219 + **implicit_eof** ≈ 124 @ `ReadU32` `0x70540`

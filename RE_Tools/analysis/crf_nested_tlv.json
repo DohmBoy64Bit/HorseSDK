@@ -1,0 +1,386 @@
+{
+  "semantics": {
+    "envelope": "u16 body_len + u8 tag (0xF8..0xFF); 3 bytes on wire per header",
+    "0xF8": "8-byte glyph metrics \u2192 runtime glyph stride 0x118 @ Horsey.exe+0x7FC90",
+    "0xF9": "group; body_len=0 empty, else nested TLV blob (often after 4-byte prologue)",
+    "0xFA": "5-byte pair/metric patch (typical body_len=5)",
+    "0xFB": "5-byte metric patch (same width as FA)",
+    "0xFC": "advance override (body_len 1\u20135)",
+    "0xFD": "1-byte patch (rare)",
+    "0xFE": "3-byte kerning triple \u2192 glyph+0x28 @ Horsey.exe+0x7FD60 ([value][glyph][extra])",
+    "0xFF_file": "file sub-record (distinct from draw width-class 0xFF @ Horsey.exe+0x80E17)",
+    "prologue": "4 bytes before first nested TLV in long F9/F8 payloads (parent glyph id + seed)",
+    "exe_note": "Loader reads stream: section2 8-byte runs first @ +0x7FBB0, then section1 3-byte headers @ +0x7FC31; kern applies FE-shaped triples @ +0x7FD60"
+  },
+  "tag_counts": {
+    "0xfa": 10,
+    "0xf8": 4,
+    "0xf9": 4,
+    "0xfe": 3,
+    "0xfb": 52,
+    "0xff": 1
+  },
+  "body_len_histogram": {
+    "0xfb_5": 36,
+    "0xfa_5": 10,
+    "0xfb_7": 10,
+    "0xfb_6": 6,
+    "0xf8_8": 4,
+    "0xf9_5": 3,
+    "0xfe_3": 3,
+    "0xf9_8": 1,
+    "0xff_3": 1
+  },
+  "examples": {
+    "0xfa": [
+      {
+        "file": "capy_bold.crf",
+        "off": 13,
+        "u16": 5,
+        "tag": "0xfa",
+        "body_len": 5,
+        "body_hex": "0886105708",
+        "pair5": {
+          "b0": 8,
+          "b1": 134,
+          "b2": 16,
+          "b3": 87,
+          "b4": 8
+        }
+      },
+      {
+        "file": "habit_narrow_bold.crf",
+        "off": 13,
+        "u16": 5,
+        "tag": "0xfa",
+        "body_len": 5,
+        "body_hex": "062c215903",
+        "pair5": {
+          "b0": 6,
+          "b1": 44,
+          "b2": 33,
+          "b3": 89,
+          "b4": 3
+        }
+      }
+    ],
+    "0xf8": [
+      {
+        "file": "capy_bold.crf",
+        "off": 21,
+        "u16": 8,
+        "tag": "0xf8",
+        "body_len": 8,
+        "body_hex": "09874469050400f8",
+        "glyph8": {
+          "index": 9,
+          "bytes": [
+            135,
+            68,
+            105,
+            5,
+            4,
+            0,
+            248
+          ]
+        }
+      },
+      {
+        "file": "quip.crf",
+        "off": 21,
+        "u16": 8,
+        "tag": "0xf8",
+        "body_len": 8,
+        "body_hex": "0887404f040400f9",
+        "glyph8": {
+          "index": 8,
+          "bytes": [
+            135,
+            64,
+            79,
+            4,
+            4,
+            0,
+            249
+          ]
+        }
+      }
+    ],
+    "0xf9": [
+      {
+        "file": "habit_narrow_bold.crf",
+        "off": 5,
+        "u16": 5,
+        "tag": "0xf9",
+        "body_len": 5,
+        "body_hex": "062b457105",
+        "role": "nested_group"
+      },
+      {
+        "file": "habit_narrow_bold.crf",
+        "off": 21,
+        "u16": 8,
+        "tag": "0xf9",
+        "body_len": 8,
+        "body_hex": "08874715050400f9",
+        "role": "nested_group"
+      }
+    ],
+    "0xfe": [
+      {
+        "file": "habit_narrow_bold.crf",
+        "off": 21,
+        "u16": 3,
+        "tag": "0xfe",
+        "body_len": 3,
+        "body_hex": "042d40",
+        "kern3": {
+          "value": 4,
+          "glyph": 45,
+          "extra": 64
+        }
+      },
+      {
+        "file": "snuggle.crf",
+        "off": 21,
+        "u16": 3,
+        "tag": "0xfe",
+        "body_len": 3,
+        "body_hex": "042d24",
+        "kern3": {
+          "value": 4,
+          "glyph": 45,
+          "extra": 36
+        }
+      }
+    ],
+    "0xfb": [
+      {
+        "file": "habit_narrow_bold.crf",
+        "off": 5,
+        "u16": 5,
+        "tag": "0xfb",
+        "body_len": 5,
+        "body_hex": "033b4a0c03",
+        "pair5": {
+          "b0": 3,
+          "b1": 59,
+          "b2": 74,
+          "b3": 12,
+          "b4": 3
+        }
+      },
+      {
+        "file": "habit_narrow_bold.crf",
+        "off": 13,
+        "u16": 6,
+        "tag": "0xfb",
+        "body_len": 6,
+        "body_hex": "043c10790405"
+      }
+    ],
+    "0xff": [
+      {
+        "file": "quip.crf",
+        "off": 21,
+        "u16": 3,
+        "tag": "0xff",
+        "body_len": 3,
+        "body_hex": "032d20",
+        "ext_run": [
+          3,
+          45,
+          32
+        ]
+      }
+    ]
+  },
+  "fonts": [
+    {
+      "file": "capy_bold.crf",
+      "section1_len": 2432,
+      "section2_len": 6340,
+      "section2_glyphs_8": 792,
+      "records": 21,
+      "long_f9_sample": {
+        "prefix_u16": 7,
+        "tag": "0xf9",
+        "record_len": 88,
+        "prologue_hex": "",
+        "tlv_start": 0,
+        "tlv_nodes": 0,
+        "tlv_consumed": 0,
+        "payload_remainder": 85,
+        "nodes": []
+      }
+    },
+    {
+      "file": "habit_mono.crf",
+      "section1_len": 0,
+      "section2_len": 1412,
+      "section2_glyphs_8": 176,
+      "records": 0,
+      "long_f9_sample": null
+    },
+    {
+      "file": "habit_narrow_bold.crf",
+      "section1_len": 2225,
+      "section2_len": 5926,
+      "section2_glyphs_8": 740,
+      "records": 73,
+      "long_f9_sample": {
+        "prefix_u16": 7,
+        "tag": "0xf9",
+        "record_len": 48,
+        "prologue_hex": "063a4d0002",
+        "tlv_start": 5,
+        "tlv_nodes": 2,
+        "tlv_consumed": 22,
+        "payload_remainder": 18,
+        "nodes": [
+          {
+            "off": 5,
+            "u16": 5,
+            "tag": "0xfb",
+            "body_len": 5,
+            "body_hex": "033b4a0c03",
+            "pair5": {
+              "b0": 3,
+              "b1": 59,
+              "b2": 74,
+              "b3": 12,
+              "b4": 3
+            }
+          },
+          {
+            "off": 13,
+            "u16": 6,
+            "tag": "0xfb",
+            "body_len": 6,
+            "body_hex": "043c10790405"
+          }
+        ]
+      }
+    },
+    {
+      "file": "quip.crf",
+      "section1_len": 5840,
+      "section2_len": 13092,
+      "section2_glyphs_8": 1636,
+      "records": 72,
+      "long_f9_sample": {
+        "prefix_u16": 7,
+        "tag": "0xf9",
+        "record_len": 48,
+        "prologue_hex": "063a293b01",
+        "tlv_start": 5,
+        "tlv_nodes": 2,
+        "tlv_consumed": 23,
+        "payload_remainder": 17,
+        "nodes": [
+          {
+            "off": 5,
+            "u16": 5,
+            "tag": "0xfb",
+            "body_len": 5,
+            "body_hex": "023b4a1002",
+            "pair5": {
+              "b0": 2,
+              "b1": 59,
+              "b2": 74,
+              "b3": 16,
+              "b4": 2
+            }
+          },
+          {
+            "off": 13,
+            "u16": 7,
+            "tag": "0xfb",
+            "body_len": 7,
+            "body_hex": "033c3f49060500"
+          }
+        ]
+      }
+    },
+    {
+      "file": "snuggle.crf",
+      "section1_len": 2623,
+      "section2_len": 6658,
+      "section2_glyphs_8": 832,
+      "records": 70,
+      "long_f9_sample": {
+        "prefix_u16": 7,
+        "tag": "0xf9",
+        "record_len": 48,
+        "prologue_hex": "073a464202",
+        "tlv_start": 5,
+        "tlv_nodes": 2,
+        "tlv_consumed": 22,
+        "payload_remainder": 18,
+        "nodes": [
+          {
+            "off": 5,
+            "u16": 5,
+            "tag": "0xfb",
+            "body_len": 5,
+            "body_hex": "033b434803",
+            "pair5": {
+              "b0": 3,
+              "b1": 59,
+              "b2": 67,
+              "b3": 72,
+              "b4": 3
+            }
+          },
+          {
+            "off": 13,
+            "u16": 6,
+            "tag": "0xfb",
+            "body_len": 6,
+            "body_hex": "043c40590405"
+          }
+        ]
+      }
+    },
+    {
+      "file": "virtue_narrow_bold.crf",
+      "section1_len": 2831,
+      "section2_len": 7138,
+      "section2_glyphs_8": 892,
+      "records": 75,
+      "long_f9_sample": {
+        "prefix_u16": 7,
+        "tag": "0xf9",
+        "record_len": 48,
+        "prologue_hex": "063a145c02",
+        "tlv_start": 5,
+        "tlv_nodes": 2,
+        "tlv_consumed": 22,
+        "payload_remainder": 18,
+        "nodes": [
+          {
+            "off": 5,
+            "u16": 5,
+            "tag": "0xfb",
+            "body_len": 5,
+            "body_hex": "033b384003",
+            "pair5": {
+              "b0": 3,
+              "b1": 59,
+              "b2": 56,
+              "b3": 64,
+              "b4": 3
+            }
+          },
+          {
+            "off": 13,
+            "u16": 6,
+            "tag": "0xfb",
+            "body_len": 6,
+            "body_hex": "043c12790405"
+          }
+        ]
+      }
+    }
+  ]
+}

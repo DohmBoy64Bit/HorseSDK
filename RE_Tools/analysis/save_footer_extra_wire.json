@@ -1,0 +1,20 @@
+{
+  "footer_file_offset": 203545,
+  "extra_rel_in_footer": 833,
+  "extra_file_offset": 204378,
+  "bytes_hex": "01000000000000",
+  "decoded": {
+    "dword_25c": 1,
+    "byte_261": 0,
+    "byte_262": 0,
+    "byte_263": 0
+  },
+  "exe": {
+    "write": "Horsey.exe+0x1017C0",
+    "read": "Horsey.exe+0x101810",
+    "call_after": "Horsey.exe+0x6E112 vtable+0xB0"
+  },
+  "load_runtime": {
+    "note": "After load, game sets [ctx+0x25C]=0x10 @ 0x6EA74 \u2014 session default, may differ from disk u32=1"
+  }
+}

@@ -1,0 +1,898 @@
+{
+  "exe": "E:\\games\\HorseSDK\\Game\\Horsey.exe",
+  "image_base": "0x140000000",
+  "method": "Capstone-filtered RIP xrefs + pinned prologue scan",
+  "repomix_crossref": "Horsey Game repomix documents same string names (Betting, SimStartRace, BuyItem, \u2026)",
+  "summary": {
+    "strings_scanned": 23,
+    "code_xrefs": 51,
+    "functions": 31,
+    "pinned_verified": 1,
+    "by_category": {
+      "economy": 1,
+      "spawn": 2,
+      "horse": 5,
+      "shop": 6,
+      "race": 14,
+      "breeding": 3
+    }
+  },
+  "functions": [
+    {
+      "name": "GainMoney",
+      "rva": "0x10AB80",
+      "category": "economy",
+      "summary": "void GainMoney(ctx, amount, flag): [ctx+0x308]+=edx; refresh [ctx+0x30c]=0x3c",
+      "struct_offsets": {
+        "ctx+0x308": "money",
+        "ctx+0x30c": "money_display_timer",
+        "ctx+0x310": "last_delta"
+      },
+      "strings": [
+        "GainMoney"
+      ],
+      "callers": [
+        "0x2FDAF",
+        "0x3A10A",
+        "0x605F4",
+        "0x60B5D"
+      ],
+      "status": "verified",
+      "va": "0x14010ab80",
+      "decompile": "RE_Tools/docs/ghidra_exports/GainMoney.c.txt",
+      "verification": [
+        "capstone",
+        "string_xref",
+        "ghidra"
+      ]
+    },
+    {
+      "name": "SimSpawnDisk",
+      "rva": "0x33A20",
+      "string_xref_rva": "0x342F0",
+      "category": "spawn",
+      "summary": "FUN_140033a20 spawn FSM; 'SimSpawnDisk' string @ 0x342F0 inside body (Ghidra)",
+      "strings": [
+        "SimSpawnDisk"
+      ],
+      "status": "partial",
+      "va": "0x140033a20",
+      "decompile": "RE_Tools/docs/ghidra_exports/SimSpawnDisk.c.txt",
+      "verification": [
+        "capstone",
+        "string_xref",
+        "ghidra"
+      ],
+      "callers": []
+    },
+    {
+      "name": "ProcessHorse",
+      "rva": "0xA23F0",
+      "category": "horse",
+      "summary": "Horse tick / gene display; switch table refs 'ProcessHorse' @ 0xA24D8",
+      "strings": [
+        "ProcessHorse"
+      ],
+      "status": "partial",
+      "va": "0x1400a23f0",
+      "verification": [
+        "capstone",
+        "string_xref"
+      ],
+      "callers": []
+    },
+    {
+      "name": "BuyItem",
+      "rva": "0x787D0",
+      "string_xref_rva": "0x78B00",
+      "category": "shop",
+      "summary": "FUN_1400787d0 shop buy/dialog; 'BuyItem' string @ ~0x78B00 (Ghidra)",
+      "strings": [
+        "BuyItem"
+      ],
+      "status": "partial",
+      "va": "0x1400787d0",
+      "decompile": "RE_Tools/docs/ghidra_exports/BuyItem.c.txt",
+      "verification": [
+        "capstone",
+        "string_xref",
+        "ghidra"
+      ],
+      "callers": []
+    },
+    {
+      "name": "RaceStateMachine",
+      "rva": "0x8F2B0",
+      "category": "race",
+      "summary": "Race UI FSM; RaceGo/WonRace/OnYourMark xrefs in 0x90E00-0x92000 (Ghidra)",
+      "strings": [
+        "RaceGo",
+        "WonRace",
+        "OnYourMark",
+        "CrossFinishLine"
+      ],
+      "status": "partial",
+      "va": "0x14008f2b0",
+      "decompile": "RE_Tools/docs/ghidra_exports/Race_91148.c.txt",
+      "verification": [
+        "ghidra"
+      ],
+      "callers": []
+    },
+    {
+      "rva": "0x2cfe0",
+      "va": "0x14002cfe0",
+      "name_guess": "Betting",
+      "category": "race",
+      "summary": "Betting UI mode",
+      "strings": [
+        "Betting"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x2dae7",
+      "va": "0x14002dae7",
+      "name_guess": "RaceGetSet_dispatch",
+      "category": "race",
+      "summary": "Race get-set phase",
+      "strings": [
+        "RaceGetSet",
+        "RaceGo",
+        "CrossFinishLine",
+        "WonRace",
+        "Racing"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x32fa3",
+      "va": "0x140032fa3",
+      "name_guess": "SimStartRace",
+      "category": "race",
+      "summary": "Start simulated race",
+      "strings": [
+        "SimStartRace"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x334e5",
+      "va": "0x1400334e5",
+      "name_guess": "SimHorseFinished",
+      "category": "race",
+      "summary": "Sim race horse finished",
+      "strings": [
+        "SimHorseFinished"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x34302",
+      "va": "0x140034302",
+      "name_guess": "SimSpawnDisk",
+      "category": "spawn",
+      "summary": "Spawn entity on world tile",
+      "strings": [
+        "SimSpawnDisk"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x56892",
+      "va": "0x140056892",
+      "name_guess": "StatusFoal",
+      "category": "breeding",
+      "summary": "Foal status",
+      "strings": [
+        "StatusFoal"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x58b61",
+      "va": "0x140058b61",
+      "name_guess": "BuyItem",
+      "category": "shop",
+      "summary": "Buy item from shop",
+      "strings": [
+        "BuyItem"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x5f068",
+      "va": "0x14005f068",
+      "name_guess": "SimHorseFinished",
+      "category": "race",
+      "summary": "Sim race horse finished",
+      "strings": [
+        "SimHorseFinished"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x5f372",
+      "va": "0x14005f372",
+      "name_guess": "SimStartRace",
+      "category": "race",
+      "summary": "Start simulated race",
+      "strings": [
+        "SimStartRace"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x76149",
+      "va": "0x140076149",
+      "name_guess": "LerpHorse",
+      "category": "horse",
+      "summary": "Lerp horse position",
+      "strings": [
+        "LerpHorse"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x785a0",
+      "va": "0x1400785a0",
+      "name_guess": "Shopkeep",
+      "category": "shop",
+      "summary": "Shopkeeper",
+      "strings": [
+        "Shopkeep"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x78b69",
+      "va": "0x140078b69",
+      "name_guess": "BuyItem",
+      "category": "shop",
+      "summary": "Buy item from shop",
+      "strings": [
+        "BuyItem"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x7ac8e",
+      "va": "0x14007ac8e",
+      "name_guess": "HorseMart",
+      "category": "shop",
+      "summary": "Horse mart",
+      "strings": [
+        "HorseMart"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x8a62f",
+      "va": "0x14008a62f",
+      "name_guess": "OnYourMark",
+      "category": "race",
+      "summary": "Race countdown phase",
+      "strings": [
+        "OnYourMark"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x8f523",
+      "va": "0x14008f523",
+      "name_guess": "OnYourMark",
+      "category": "race",
+      "summary": "Race countdown phase",
+      "strings": [
+        "OnYourMark"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x8fce4",
+      "va": "0x14008fce4",
+      "name_guess": "Betting",
+      "category": "race",
+      "summary": "Betting UI mode",
+      "strings": [
+        "Betting"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x908bd",
+      "va": "0x1400908bd",
+      "name_guess": "BetMore_dispatch",
+      "category": "race",
+      "summary": "Increase bet",
+      "strings": [
+        "BetMore",
+        "BetMax"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x90e1b",
+      "va": "0x140090e1b",
+      "name_guess": "RaceGetSet_dispatch",
+      "category": "race",
+      "summary": "Race get-set phase",
+      "strings": [
+        "RaceGetSet",
+        "RaceGo",
+        "Betting"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x912f9",
+      "va": "0x1400912f9",
+      "name_guess": "CrossFinishLine_dispatch",
+      "category": "race",
+      "summary": "Cross finish line",
+      "strings": [
+        "CrossFinishLine",
+        "Racing"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x9177b",
+      "va": "0x14009177b",
+      "name_guess": "WonRace",
+      "category": "race",
+      "summary": "Race won",
+      "strings": [
+        "WonRace"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x91dde",
+      "va": "0x140091dde",
+      "name_guess": "WonRace",
+      "category": "race",
+      "summary": "Race won",
+      "strings": [
+        "WonRace"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0xa23c9",
+      "va": "0x1400a23c9",
+      "name_guess": "ProcessHorse",
+      "category": "horse",
+      "summary": "Process / update horse instance",
+      "strings": [
+        "ProcessHorse"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0xd3c50",
+      "va": "0x1400d3c50",
+      "name_guess": "DropHorseFail",
+      "category": "horse",
+      "summary": "Drop horse failed",
+      "strings": [
+        "DropHorseFail"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0xd9158",
+      "va": "0x1400d9158",
+      "name_guess": "GrabHorse_dispatch",
+      "category": "horse",
+      "summary": "Grab / pick up horse",
+      "strings": [
+        "GrabHorse",
+        "DropHorseFail"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0xdbc1f",
+      "va": "0x1400dbc1f",
+      "name_guess": "StatusFoal",
+      "category": "breeding",
+      "summary": "Foal status",
+      "strings": [
+        "StatusFoal"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0xe90ea",
+      "va": "0x1400e90ea",
+      "name_guess": "Studs",
+      "category": "breeding",
+      "summary": "Studding service UI",
+      "strings": [
+        "Studs"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    },
+    {
+      "rva": "0x10ac60",
+      "va": "0x14010ac60",
+      "name_guess": "BuyItem_dispatch",
+      "category": "shop",
+      "summary": "Buy item from shop",
+      "strings": [
+        "BuyItem",
+        "LoseMoney"
+      ],
+      "status": "partial",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ]
+    }
+  ],
+  "string_xrefs": [
+    {
+      "string": "SimStartRace",
+      "string_rva": "0x25bb70",
+      "xref_rva": "0x33120",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x228a49]",
+      "function_rva": "0x32fa3"
+    },
+    {
+      "string": "SimStartRace",
+      "string_rva": "0x25bb70",
+      "xref_rva": "0x5f37a",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x1fc7ef]",
+      "function_rva": "0x5f372"
+    },
+    {
+      "string": "SimHorseFinished",
+      "string_rva": "0x25bb90",
+      "xref_rva": "0x334ef",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x22869a]",
+      "function_rva": "0x334e5"
+    },
+    {
+      "string": "SimHorseFinished",
+      "string_rva": "0x25bb90",
+      "xref_rva": "0x5f079",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x1fcb10]",
+      "function_rva": "0x5f068"
+    },
+    {
+      "string": "OnYourMark",
+      "string_rva": "0x263cf0",
+      "xref_rva": "0x8a68e",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x1d965b]",
+      "function_rva": "0x8a62f"
+    },
+    {
+      "string": "OnYourMark",
+      "string_rva": "0x263cf0",
+      "xref_rva": "0x8f978",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x1d4371]",
+      "function_rva": "0x8f523"
+    },
+    {
+      "string": "RaceGetSet",
+      "string_rva": "0x25b250",
+      "xref_rva": "0x2dbd6",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x22d673]",
+      "function_rva": "0x2dae7"
+    },
+    {
+      "string": "RaceGetSet",
+      "string_rva": "0x25b250",
+      "xref_rva": "0x90fb3",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x1ca296]",
+      "function_rva": "0x90e1b"
+    },
+    {
+      "string": "RaceGo",
+      "string_rva": "0x25b25c",
+      "xref_rva": "0x2ddac",
+      "xref": "mov eax, dword ptr [rip + 0x22d4aa]",
+      "function_rva": "0x2dae7"
+    },
+    {
+      "string": "RaceGo",
+      "string_rva": "0x25b25c",
+      "xref_rva": "0x91274",
+      "xref": "mov eax, dword ptr [rip + 0x1c9fe2]",
+      "function_rva": "0x90e1b"
+    },
+    {
+      "string": "CrossFinishLine",
+      "string_rva": "0x25b270",
+      "xref_rva": "0x2e062",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x22d207]",
+      "function_rva": "0x2dae7"
+    },
+    {
+      "string": "CrossFinishLine",
+      "string_rva": "0x25b270",
+      "xref_rva": "0x91601",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x1c9c68]",
+      "function_rva": "0x912f9"
+    },
+    {
+      "string": "WonRace",
+      "string_rva": "0x25b280",
+      "xref_rva": "0x2e11b",
+      "xref": "mov rax, qword ptr [rip + 0x22d15e]",
+      "function_rva": "0x2dae7"
+    },
+    {
+      "string": "WonRace",
+      "string_rva": "0x25b280",
+      "xref_rva": "0x2e11c",
+      "xref": "mov eax, dword ptr [rip + 0x22d15e]",
+      "function_rva": "0x2dae7"
+    },
+    {
+      "string": "WonRace",
+      "string_rva": "0x25b280",
+      "xref_rva": "0x9181e",
+      "xref": "mov rax, qword ptr [rip + 0x1c9a5b]",
+      "function_rva": "0x9177b"
+    },
+    {
+      "string": "WonRace",
+      "string_rva": "0x25b280",
+      "xref_rva": "0x9181f",
+      "xref": "mov eax, dword ptr [rip + 0x1c9a5b]",
+      "function_rva": "0x9177b"
+    },
+    {
+      "string": "WonRace",
+      "string_rva": "0x25b280",
+      "xref_rva": "0x91f40",
+      "xref": "mov rax, qword ptr [rip + 0x1c9339]",
+      "function_rva": "0x91dde"
+    },
+    {
+      "string": "WonRace",
+      "string_rva": "0x25b280",
+      "xref_rva": "0x91f41",
+      "xref": "mov eax, dword ptr [rip + 0x1c9339]",
+      "function_rva": "0x91dde"
+    },
+    {
+      "string": "Racing",
+      "string_rva": "0x25b264",
+      "xref_rva": "0x2dee4",
+      "xref": "mov eax, dword ptr [rip + 0x22d37a]",
+      "function_rva": "0x2dae7"
+    },
+    {
+      "string": "Racing",
+      "string_rva": "0x25b264",
+      "xref_rva": "0x9134e",
+      "xref": "mov eax, dword ptr [rip + 0x1c9f10]",
+      "function_rva": "0x912f9"
+    },
+    {
+      "string": "Betting",
+      "string_rva": "0x25b230",
+      "xref_rva": "0x2d0f6",
+      "xref": "mov rax, qword ptr [rip + 0x22e133]",
+      "function_rva": "0x2cfe0"
+    },
+    {
+      "string": "Betting",
+      "string_rva": "0x25b230",
+      "xref_rva": "0x2d0f7",
+      "xref": "mov eax, dword ptr [rip + 0x22e133]",
+      "function_rva": "0x2cfe0"
+    },
+    {
+      "string": "Betting",
+      "string_rva": "0x25b230",
+      "xref_rva": "0x8fcfb",
+      "xref": "mov rax, qword ptr [rip + 0x1cb52e]",
+      "function_rva": "0x8fce4"
+    },
+    {
+      "string": "Betting",
+      "string_rva": "0x25b230",
+      "xref_rva": "0x8fcfc",
+      "xref": "mov eax, dword ptr [rip + 0x1cb52e]",
+      "function_rva": "0x8fce4"
+    },
+    {
+      "string": "Betting",
+      "string_rva": "0x25b230",
+      "xref_rva": "0x90e32",
+      "xref": "mov rax, qword ptr [rip + 0x1ca3f7]",
+      "function_rva": "0x90e1b"
+    },
+    {
+      "string": "Betting",
+      "string_rva": "0x25b230",
+      "xref_rva": "0x90e33",
+      "xref": "mov eax, dword ptr [rip + 0x1ca3f7]",
+      "function_rva": "0x90e1b"
+    },
+    {
+      "string": "BetMore",
+      "string_rva": "0x2641c0",
+      "xref_rva": "0x90b00",
+      "xref": "mov rax, qword ptr [rip + 0x1d36b9]",
+      "function_rva": "0x908bd"
+    },
+    {
+      "string": "BetMore",
+      "string_rva": "0x2641c0",
+      "xref_rva": "0x90b01",
+      "xref": "mov eax, dword ptr [rip + 0x1d36b9]",
+      "function_rva": "0x908bd"
+    },
+    {
+      "string": "BetMax",
+      "string_rva": "0x2641b8",
+      "xref_rva": "0x90b79",
+      "xref": "mov eax, dword ptr [rip + 0x1d3638]",
+      "function_rva": "0x908bd"
+    },
+    {
+      "string": "BetMax",
+      "string_rva": "0x2641b8",
+      "xref_rva": "0x90b7a",
+      "xref": "mov eax, dword ptr [rip + 0x1d3638]",
+      "function_rva": "0x908bd"
+    },
+    {
+      "string": "SimSpawnDisk",
+      "string_rva": "0x25bd78",
+      "xref_rva": "0x344b4",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x2278bd]",
+      "function_rva": "0x34302"
+    },
+    {
+      "string": "ProcessHorse",
+      "string_rva": "0x265070",
+      "xref_rva": "0xa24d9",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x1c2b90]",
+      "function_rva": "0xa23c9"
+    },
+    {
+      "string": "GrabHorse",
+      "string_rva": "0x266c90",
+      "xref_rva": "0xd9271",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x18da18]",
+      "function_rva": "0xd9158"
+    },
+    {
+      "string": "LerpHorse",
+      "string_rva": "0x262830",
+      "xref_rva": "0x7622a",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x1ec5ff]",
+      "function_rva": "0x76149"
+    },
+    {
+      "string": "DropHorseFail",
+      "string_rva": "0x266a50",
+      "xref_rva": "0xd3cfa",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x192d4f]",
+      "function_rva": "0xd3c50"
+    },
+    {
+      "string": "DropHorseFail",
+      "string_rva": "0x266a50",
+      "xref_rva": "0xd9762",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x18d2e7]",
+      "function_rva": "0xd9158"
+    },
+    {
+      "string": "StatusFoal",
+      "string_rva": "0x25d760",
+      "xref_rva": "0x568da",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x206e7f]",
+      "function_rva": "0x56892"
+    },
+    {
+      "string": "StatusFoal",
+      "string_rva": "0x25d760",
+      "xref_rva": "0xdbc51",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x181b08]",
+      "function_rva": "0xdbc1f"
+    },
+    {
+      "string": "Studs",
+      "string_rva": "0x267e14",
+      "xref_rva": "0xe92a2",
+      "xref": "mov eax, dword ptr [rip + 0x17eb6c]",
+      "function_rva": "0xe90ea"
+    },
+    {
+      "string": "BuyItem",
+      "string_rva": "0x25da40",
+      "xref_rva": "0x58c07",
+      "xref": "mov rax, qword ptr [rip + 0x204e32]",
+      "function_rva": "0x58b61"
+    },
+    {
+      "string": "BuyItem",
+      "string_rva": "0x25da40",
+      "xref_rva": "0x58c08",
+      "xref": "mov eax, dword ptr [rip + 0x204e32]",
+      "function_rva": "0x58b61"
+    },
+    {
+      "string": "BuyItem",
+      "string_rva": "0x25da40",
+      "xref_rva": "0x78c53",
+      "xref": "mov rax, qword ptr [rip + 0x1e4de6]",
+      "function_rva": "0x78b69"
+    },
+    {
+      "string": "BuyItem",
+      "string_rva": "0x25da40",
+      "xref_rva": "0x78c54",
+      "xref": "mov eax, dword ptr [rip + 0x1e4de6]",
+      "function_rva": "0x78b69"
+    },
+    {
+      "string": "BuyItem",
+      "string_rva": "0x25da40",
+      "xref_rva": "0x10ac9d",
+      "xref": "lea rax, [rip + 0x152d9c]",
+      "function_rva": "0x10ac60"
+    },
+    {
+      "string": "BuyItem",
+      "string_rva": "0x25da40",
+      "xref_rva": "0x10ac9e",
+      "xref": "lea eax, [rip + 0x152d9c]",
+      "function_rva": "0x10ac60"
+    },
+    {
+      "string": "GainMoney",
+      "string_rva": "0x26ba90",
+      "xref_rva": "0x10abba",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x160ecf]",
+      "function_rva": "0x10ab80"
+    },
+    {
+      "string": "LoseMoney",
+      "string_rva": "0x26baa0",
+      "xref_rva": "0x10aca4",
+      "xref": "lea rbx, [rip + 0x160df5]",
+      "function_rva": "0x10ac60"
+    },
+    {
+      "string": "LoseMoney",
+      "string_rva": "0x26baa0",
+      "xref_rva": "0x10aca5",
+      "xref": "lea ebx, [rip + 0x160df5]",
+      "function_rva": "0x10ac60"
+    },
+    {
+      "string": "HorseMart",
+      "string_rva": "0x262d00",
+      "xref_rva": "0x7acc2",
+      "xref": "movups xmm0, xmmword ptr [rip + 0x1e8037]",
+      "function_rva": "0x7ac8e"
+    },
+    {
+      "string": "Shopkeep",
+      "string_rva": "0x2629a8",
+      "xref_rva": "0x785a7",
+      "xref": "lea rdx, [rip + 0x1ea3fa]",
+      "function_rva": "0x785a0"
+    },
+    {
+      "string": "Shopkeep",
+      "string_rva": "0x2629a8",
+      "xref_rva": "0x785a8",
+      "xref": "lea edx, [rip + 0x1ea3fa]",
+      "function_rva": "0x785a0"
+    }
+  ],
+  "sdk_note": "Merge into game_function_catalog.json via build_game_function_catalog.py --gameplay"
+}

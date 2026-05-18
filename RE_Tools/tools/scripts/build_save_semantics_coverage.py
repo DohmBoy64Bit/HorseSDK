@@ -26,6 +26,8 @@ def main() -> int:
     dump_size = (AN / "save_buffer_dump.bin").stat().st_size if (AN / "save_buffer_dump.bin").is_file() else 0
     ctx = load("save_context_block.json")
     main_n = load("save_main_nested_layout.json")
+    vcall48 = load("save_main_nested_vcall48.json")
+    inv_align = load("save_inventory_aligned.json")
     inv = load("save_inventory_summary.json")
     footer = load("save_footer_layout.json")
     footer_genes = load("save_footer_gene_packs.json")
@@ -73,16 +75,25 @@ def main() -> int:
         {
             "id": "nested_main",
             "bytes": 0xE339 - 0xDECB,
-            "status": "mapped" if main_n else "partial",
-            "detail": f"name={main_n.get('name')!r}; b8={main_n.get('d440_header', {}).get('b8_vector_count')}; "
-            f"trace {main_n.get('coverage', {}).get('pct_traced', 0)}%",
-            "gap_note": "vcall+0x48 variable blobs in trace gaps",
+            "status": "complete"
+            if vcall48 and vcall48.get("coverage", {}).get("status") == "complete"
+            else ("mapped" if main_n else "partial"),
+            "detail": (
+                f"name={main_n.get('name')!r}; b8={main_n.get('d440_header', {}).get('b8_vector_count')}; "
+                f"slots={len(vcall48.get('slots', [])) if vcall48 else '?'}"
+            ),
+            "gap_note": "compact trace gaps are type0 tail u8 bulk",
         },
         {
             "id": "inventory",
             "bytes": 0x31B19 - 0xE339,
-            "status": "complete" if inv else "partial",
-            "detail": f"{inv.get('count', 413)}×352 B; gene pack decoded (0x6D3B0)",
+            "status": "complete"
+            if inv_align and inv_align.get("coverage", {}).get("status") == "complete"
+            else ("complete" if inv else "partial"),
+            "detail": (
+                f"{inv.get('count', 413)}×352 B; gene pack @+0x51; "
+                f"aligned {inv_align.get('already_compact_ok') if inv_align else '?'}"
+            ),
             "ptr_zero": inv.get("ptr_zero_slots") if inv else None,
         },
         {
@@ -90,9 +101,9 @@ def main() -> int:
             "bytes": dump_size - 0x31B19,
             "status": "complete" if footer and footer.get("coverage", {}).get("pct", 0) >= 50 else "partial",
             "detail": (
-                "track name + 2×0xF0 gene packs @ 0x31B41/0x31CE6 (0x6D2A0)"
+                "track name + 2×0xF0 gene packs @ 0x31B41/0x31CE6 + 7 B FooterExtra @ rel 833"
                 if footer_genes
-                else "Old Abandoned Track + globals"
+                else "Old Abandoned Track + globals + save_footer_extra_wire.json"
             ),
             "pct": footer.get("coverage", {}).get("pct") if footer else 0,
         },
@@ -110,8 +121,7 @@ def main() -> int:
             "runtime_genetics": "save_genetics_runtime.json",
             "deferred": "SaveFutureWork.md",
             "remaining_gaps": [
-                "main nested vcall+0x48 per-component byte layout (variable)",
-                "inventory slots with ptr_item_count>8 need per-slot trace (nonstandard header)",
+                "inventory slots with ptr_item_count>0 need WriteNestedItem @ 0x6EC40 field trace (optional)",
             ],
         },
     }

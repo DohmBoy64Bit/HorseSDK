@@ -87,6 +87,14 @@ typedef struct HorseSaveGridSummary {
     uint32_t type6_cells;
 } HorseSaveGridSummary;
 
+/** FooterExtra_Write @ 0x1017C0 — 7 B tail in footer blob (rel 833). */
+typedef struct HorseSaveFooterExtra {
+    uint32_t dword_25c;
+    uint8_t byte_261;
+    uint8_t byte_262;
+    uint8_t byte_263;
+} HorseSaveFooterExtra;
+
 /** Global footer @ 0x31B19 — DAT_14031a660 @ Save_Write 0x6E103. */
 typedef struct HorseSaveFooter {
     uint32_t file_offset;
@@ -98,8 +106,10 @@ typedef struct HorseSaveFooter {
     uint32_t gene_track_offset;
     HorseSaveGeneTracks gene_settings;
     HorseSaveGeneTracks gene_track;
+    HorseSaveFooterExtra extra;
     int has_gene_settings;
     int has_gene_track;
+    int has_footer_extra;
 } HorseSaveFooter;
 
 typedef struct HorseSaveFile {

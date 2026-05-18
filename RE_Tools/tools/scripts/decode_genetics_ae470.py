@@ -68,10 +68,17 @@ def main() -> int:
         },
         "ae470_summary": {
             "entry": "0xAE470(rcx=item, rdx=scratch_0x2E0)",
+            "gate": "0xADB30 calls AE470 only when [item+0x234] >= 0",
             "uses_table": "rip+0x1B6CEA — maps gene indices to byte offsets in scratch",
             "writes": "byte ptr [table_index + scratch] via 0x9FC40",
             "component_loop": "iterates [item+0x40] vector; requires [entry+8]==3",
             "note": "Scratch filled with RNG @ 0xC1900 in ADB30 path — runtime phenotype glue, not save file bytes",
+        },
+        "b8_implicit_eof": {
+            "read_loop": "0x6D6F5",
+            "eof": "ReadU32 @ 0x70540 returns 0",
+            "default": "operator_new(0xC8) + ctor @ 0x7AE20 — in-memory slot without wire bytes",
+            "manifest": "save_main_nested_b8_manifest.json",
         },
         "save_file_relation": (
             "On-disk gene pack @ inventory +0x51 decodes to g0..g3 indices per genes.xml. "

@@ -128,6 +128,22 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 
 ---
 
+## [KNOWLEDGE UPDATE] 2026-05-17 (Phase 2 — game function catalog)
+
+- **New phase:** disasm + decompile + name all `Horsey.exe` game routines for SDK — [GameFunctionCatalog.md](GameFunctionCatalog.md).
+- **Artifacts:** `game_function_catalog.json`, `GameFunctions.h`, `build_game_function_catalog.py`, `disasm_catalog_function.py`.
+- **Seeded:** loop, save/load, nested I/O, settings, font, genetics, globals (`g_game_state`, quit flags).
+
+## [KNOWLEDGE UPDATE] 2026-05-17 (save semantics)
+
+- **343× b8:** 219 on-disk + **124 implicit** (EOF `ReadU32`→0 @ `0x6D6F5`, default `0xC8` component) — `save_main_nested_b8_manifest.json`.
+- **vcall+0x48 wire:** per-slot handlers type0/1/2 — `save_main_nested_vcall48.json` (nested_main **complete**).
+- **Type-1 b8:** 15-byte wire @ `0x102DC0`; tile index `0x1F00` → (19,336) on 400-wide grid — `save_type1_xref.json`.
+- **Footer B0/B8:** `0x1017C0` / `0x101810` — 7 B @ footer rel 833 — `save_footer_extra_wire.json`.
+- **Inventory:** ptr>8 = misaligned header; 372 compact + 1 opaque @ slot 361 — `save_inventory_aligned.json`.
+- **Cross-save:** `save_compare.json` (dump vs `save1.dat.prev`).
+- **Pipeline:** `run_save_semantics.py` · hub [SaveSemantics.md](SaveSemantics.md).
+
 ## [KNOWLEDGE UPDATE] 2026-05-15 (deeper RE — font / clamp / crf)
 
 - **`0xC12D0` renamed `ClampInt3`:** `int clamp(ecx, edx, r8d)` — Frida `rcx=0x64` was **`r8d=100`** cap @ `SettingsLoader` `0x714D2`.

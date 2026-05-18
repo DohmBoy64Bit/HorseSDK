@@ -1,0 +1,9 @@
+# Ghidra export: Race UI cluster
+# RVA range: 0x90e00 .. 0x92000
+# Image base 0x140000000
+# Functions in range: 0
+# Generated: 2026-05-18
+# Strings in cluster: RaceGo, WonRace, CrossFinishLine, OnYourMark, ...
+
+/* No functions found — run Auto Analyze, then re-run script. */
+/* Or create functions manually at 0x91148, 0x9177B, etc. */

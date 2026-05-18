@@ -15,6 +15,9 @@
 #define FOOTER_OFF_TRACK_LEN 359u
 #define FOOTER_GENE_SETTINGS_OFF 0x31B41u
 #define FOOTER_GENE_TRACK_OFF 0x31CE6u
+/* FooterExtra_Write @ 0x1017C0 — rel 833 in 841 B blob (decode_footer_extra_wire.py) */
+#define FOOTER_OFF_EXTRA 833u
+#define FOOTER_EXTRA_BYTES 7u
 
 static HorseSaveStatus read_std_string(
     HorseSaveStream *s,
@@ -308,6 +311,15 @@ HorseSaveStatus horse_save_parse_footer(HorseSaveFile *sf) {
         if (horse_save_gene_unpack(packed, &sf->footer.gene_track) == HORSE_SAVE_OK) {
             sf->footer.has_gene_track = 1;
         }
+    }
+
+    if (FOOTER_OFF_EXTRA + FOOTER_EXTRA_BYTES <= FOOTER_BYTES) {
+        const uint8_t *ex = blob + FOOTER_OFF_EXTRA;
+        memcpy(&sf->footer.extra.dword_25c, ex, 4);
+        sf->footer.extra.byte_261 = ex[4];
+        sf->footer.extra.byte_262 = ex[5];
+        sf->footer.extra.byte_263 = ex[6];
+        sf->footer.has_footer_extra = 1;
     }
 
     sf->has_footer = 1;

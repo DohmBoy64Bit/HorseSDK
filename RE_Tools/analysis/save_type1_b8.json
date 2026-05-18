@@ -1,0 +1,36 @@
+{
+  "file_offset": 57062,
+  "hex": "0a001f0000000000000000000030b27d3fe71209be00604745006068450000d041000040410000000000000000000000000000000000000000",
+  "decoded": {
+    "wire_bytes": 57,
+    "active_bytes": 15,
+    "tail_zero_pad": 42,
+    "packed_u8": 10,
+    "packed_flags": {
+      "packed": 10,
+      "dword_38": 1,
+      "flag_10": 1,
+      "flag_11": 0
+    },
+    "object_offsets": {
+      "+0xA0_u32": 7936,
+      "+0xA4_u32": 0,
+      "+0xA8_u32": 0,
+      "+0xAD_u8": 48,
+      "+0xAC_u8": 178
+    },
+    "interpretation": {
+      "+0xA0": "linear_tile_index (7936 = row 19 col 336 on 400-wide horsey.tmx)",
+      "+0xA4": "secondary dword (0 in sample)",
+      "+0xA8": "tertiary dword (0 in sample)",
+      "+0xAD": "byte flag A",
+      "+0xAC": "byte flag B",
+      "packed": "shared type-0 bitfield header (dword_38, flag_10, flag_11)"
+    },
+    "disasm": {
+      "write": "0x102DC0",
+      "read": "0x102E20",
+      "ctor_alloc": "0x101850 (0xB0 bytes) when type tag==1 @ 0x6D75D"
+    }
+  }
+}

@@ -1,0 +1,288 @@
+{
+  "verified_on": "save_buffer_dump.bin + Horsey.exe Save_Write 0x6DAB0",
+  "row_layout": {
+    "write_loop": "0x6DDB0",
+    "pattern": "for N in 0..12: WriteU32([rdi+0x298+N*4]); WriteU32([rdi+0x2CC+N*4]); rbx+=4",
+    "note": "13 staggered u32 pairs (52 B on disk), not 13\u00d78 B struct array"
+  },
+  "slot_layout": {
+    "write_loop": "0x6DD80",
+    "pattern": "6\u00d7 (WriteU8/+5, WriteU32/+0, WriteU8/+4); 12 B disk / 8 B mem"
+  },
+  "read_side": "No direct [ctx+0x298] loads in .text \u2014 values consumed indirectly after load",
+  "rows13": [
+    {
+      "index": 0,
+      "ctx_off_m34": "0x298",
+      "field_m34_u32": 4294967041,
+      "file_off_m34": 140,
+      "ctx_off_0": "0x2cc",
+      "field_0_u32": 4294967295,
+      "file_off_0": 144,
+      "role": "sentinel_pair"
+    },
+    {
+      "index": 1,
+      "ctx_off_m34": "0x29c",
+      "field_m34_u32": 255,
+      "file_off_m34": 148,
+      "ctx_off_0": "0x2d0",
+      "field_0_u32": 0,
+      "file_off_0": 152,
+      "role": "byte_flag_row"
+    },
+    {
+      "index": 2,
+      "ctx_off_m34": "0x2a0",
+      "field_m34_u32": 0,
+      "file_off_m34": 156,
+      "ctx_off_0": "0x2d4",
+      "field_0_u32": 65792,
+      "file_off_0": 160,
+      "role": "opaque_u32_pair"
+    },
+    {
+      "index": 3,
+      "ctx_off_m34": "0x2a4",
+      "field_m34_u32": 4278255616,
+      "file_off_m34": 164,
+      "ctx_off_0": "0x2d8",
+      "field_0_u32": 4294967295,
+      "file_off_0": 168,
+      "role": "opaque_u32_pair"
+    },
+    {
+      "index": 4,
+      "ctx_off_m34": "0x2a8",
+      "field_m34_u32": 16777215,
+      "file_off_m34": 172,
+      "ctx_off_0": "0x2dc",
+      "field_0_u32": 0,
+      "file_off_0": 176,
+      "role": "color_mask"
+    },
+    {
+      "index": 5,
+      "ctx_off_m34": "0x2ac",
+      "field_m34_u32": 100663296,
+      "file_off_m34": 180,
+      "ctx_off_0": "0x2e0",
+      "field_0_u32": 1090519040,
+      "file_off_0": 184,
+      "role": "opaque_u32_pair"
+    },
+    {
+      "index": 6,
+      "ctx_off_m34": "0x2b0",
+      "field_m34_u32": 1851878770,
+      "file_off_m34": 188,
+      "ctx_off_0": "0x2e4",
+      "field_0_u32": 131183,
+      "file_off_0": 192,
+      "role": "opaque_u32_pair"
+    },
+    {
+      "index": 7,
+      "ctx_off_m34": "0x2b4",
+      "field_m34_u32": 4278321152,
+      "file_off_m34": 196,
+      "ctx_off_0": "0x2e8",
+      "field_0_u32": 4294967295,
+      "file_off_0": 200,
+      "role": "opaque_u32_pair"
+    },
+    {
+      "index": 8,
+      "ctx_off_m34": "0x2b8",
+      "field_m34_u32": 16777215,
+      "file_off_m34": 204,
+      "ctx_off_0": "0x2ec",
+      "field_0_u32": 0,
+      "file_off_0": 208,
+      "role": "color_mask"
+    },
+    {
+      "index": 9,
+      "ctx_off_m34": "0x2bc",
+      "field_m34_u32": 268435456,
+      "file_off_m34": 212,
+      "ctx_off_0": "0x2f0",
+      "field_0_u32": 1107296256,
+      "file_off_0": 216,
+      "role": "opaque_u32_pair"
+    },
+    {
+      "index": 10,
+      "ctx_off_m34": "0x2c0",
+      "field_m34_u32": 1702192993,
+      "file_off_m34": 220,
+      "ctx_off_0": "0x2f4",
+      "field_0_u32": 543519860,
+      "file_off_0": 224,
+      "role": "opaque_u32_pair"
+    },
+    {
+      "index": 11,
+      "ctx_off_m34": "0x2c4",
+      "field_m34_u32": 1768382797,
+      "file_off_m34": 228,
+      "ctx_off_0": "0x2f8",
+      "field_0_u32": 6649201,
+      "file_off_0": 232,
+      "role": "opaque_u32_pair"
+    },
+    {
+      "index": 12,
+      "ctx_off_m34": "0x2c8",
+      "field_m34_u32": 2,
+      "file_off_m34": 236,
+      "ctx_off_0": "0x2fc",
+      "field_0_u32": 4294967042,
+      "file_off_0": 240,
+      "role": "opaque_u32_pair"
+    }
+  ],
+  "slots6": [
+    {
+      "index": 0,
+      "ctx_base": "0x31c",
+      "byte5_on_disk": 0,
+      "dword0": 0,
+      "byte4_on_disk": 22,
+      "role": "u8_as_u32 (value 22 @ byte+4 \u2014 matches grid type id sample)"
+    },
+    {
+      "index": 1,
+      "ctx_base": "0x324",
+      "byte5_on_disk": 1718579016,
+      "dword0": 1849761913,
+      "byte4_on_disk": 1750343780,
+      "role": "opaque_slot"
+    },
+    {
+      "index": 2,
+      "ctx_base": "0x32c",
+      "byte5_on_disk": 1816272997,
+      "dword0": 1768322927,
+      "byte4_on_disk": 16803955,
+      "role": "opaque_slot"
+    },
+    {
+      "index": 3,
+      "ctx_base": "0x334",
+      "byte5_on_disk": 16777216,
+      "dword0": 4294967295,
+      "byte4_on_disk": 4294967295,
+      "role": "opaque_slot"
+    },
+    {
+      "index": 4,
+      "ctx_base": "0x33c",
+      "byte5_on_disk": 0,
+      "dword0": 0,
+      "byte4_on_disk": 7,
+      "role": "zeroed_slot"
+    },
+    {
+      "index": 5,
+      "ctx_base": "0x344",
+      "byte5_on_disk": 1953523022,
+      "dword0": 6647413,
+      "byte4_on_disk": 1,
+      "role": "opaque_slot"
+    }
+  ],
+  "save_write_anchors": [
+    {
+      "rva": "0x6dd71",
+      "name": "SaveSlot6_write_loop",
+      "disasm": [
+        "06DD71: lea rbx, [rdi + 0x31c]",
+        "06DD78: mov esi, 6",
+        "06DD7D: nop dword ptr [rax]",
+        "06DD80: movzx ecx, byte ptr [rbx + 5]",
+        "06DD84: call 0x14006fef0",
+        "06DD89: mov ecx, dword ptr [rbx]"
+      ]
+    },
+    {
+      "rva": "0x6dda3",
+      "name": "SaveRow13_write_loop",
+      "disasm": [
+        "06DDA3: lea rbx, [rdi + 0x2cc]",
+        "06DDAA: mov esi, 0xd",
+        "06DDAF: nop ",
+        "06DDB0: mov ecx, dword ptr [rbx - 0x34]",
+        "06DDB3: call 0x14006fe10",
+        "06DDB8: mov ecx, dword ptr [rbx]"
+      ]
+    },
+    {
+      "rva": "0x6dceb",
+      "name": "field_114_float",
+      "disasm": [
+        "06DCEB: movss xmm0, dword ptr [rdi + 0x114]",
+        "06DCF3: call 0x14006ff10",
+        "06DCF8: mov ecx, dword ptr [rdi + 0x318]",
+        "06DCFE: call 0x14006fe10",
+        "06DD03: mov ecx, dword ptr [rdi + 0x308]"
+      ]
+    },
+    {
+      "rva": "0x6dcca",
+      "name": "field_254",
+      "disasm": [
+        "06DCCA: mov ecx, dword ptr [rdi + 0x254]",
+        "06DCD0: call 0x14006fe10",
+        "06DCD5: mov ecx, dword ptr [rdi + 0x314]",
+        "06DCDB: call 0x14006fe10",
+        "06DCE0: mov ecx, dword ptr [rdi + 0x268]"
+      ]
+    },
+    {
+      "rva": "0x6dce0",
+      "name": "field_268",
+      "disasm": [
+        "06DCE0: mov ecx, dword ptr [rdi + 0x268]",
+        "06DCE6: call 0x14006fe10",
+        "06DCEB: movss xmm0, dword ptr [rdi + 0x114]",
+        "06DCF3: call 0x14006ff10",
+        "06DCF8: mov ecx, dword ptr [rdi + 0x318]"
+      ]
+    },
+    {
+      "rva": "0x6dd09",
+      "name": "field_308_name_fourcc",
+      "disasm": [
+        "06DD09: call 0x14006fe10",
+        "06DD0E: mov ecx, dword ptr [rdi + 0x440]",
+        "06DD14: call 0x14006fe10",
+        "06DD19: movzx ecx, byte ptr [rdi + 0x414]",
+        "06DD20: call 0x14006fef0"
+      ]
+    },
+    {
+      "rva": "0x6dd14",
+      "name": "field_440_flags",
+      "disasm": [
+        "06DD14: call 0x14006fe10",
+        "06DD19: movzx ecx, byte ptr [rdi + 0x414]",
+        "06DD20: call 0x14006fef0",
+        "06DD25: movzx ecx, byte ptr [rdi + 0x415]",
+        "06DD2C: call 0x14006fef0"
+      ]
+    },
+    {
+      "rva": "0x6dd61",
+      "name": "field_39C_vec2",
+      "disasm": [
+        "06DD61: call 0x14006ff30",
+        "06DD66: mov ecx, dword ptr [rdi + 0x410]",
+        "06DD6C: call 0x14006fe10",
+        "06DD71: lea rbx, [rdi + 0x31c]",
+        "06DD78: mov esi, 6",
+        "06DD7D: nop dword ptr [rax]"
+      ]
+    }
+  ]
+}

@@ -7,7 +7,8 @@
 | RVA | Role |
 |-----|------|
 | `0x6E103` | `WriteNestedSave` on global object **`DAT_14031a660`** |
-| `0x6E112` | `vtable+0xB0` extra serializer (bytes not separately traced) |
+| `0x6E112` | `vtable+0xB0` → **`FooterExtra_Write` @ `0x1017C0`** — `WriteU32` @ `+0x25C` + 3×`WriteU8` @ `+0x261..0x263` |
+| `0x6EA08` | `vtable+0xB8` → **`FooterExtra_Read` @ `0x101810`** — mirror read |
 | `0x6E11C` | `FUN_14006fd90` — flush stream |
 
 Inside **`WriteNestedSave`** when `[nested+0x150] != 0`:
@@ -30,6 +31,7 @@ Read mirror: `ReadNestedSave` @ **`0x6D7F5`** reads **0xF0** + unpack @ **`0x6D8
 | `0x31C48` | … | traced | Track panel (`Old Abandoned Track`, coords…) |
 | **`0x31CE6`** | **240** | **gene pack** | **`footer_gene_track`** — after `"unknown"` + `u32 1` |
 | `0x31DED` | … | traced | Epilogue floats + flags |
+| **footer+833** | **7** | **FooterExtra** | `u32` @ nested `+0x25C` + `u8`×3 @ `+0x261..0x263` — sample `01 00 00 00 00 00 00` |
 
 The former **“opaque 240 B blob”** is **not** unknown binary — it unpacks with **`inventory_pack_codec.unpack_6d3b0`** to **240×2** diploid gene indices (`0..3` → `genes.xml`).
 
@@ -54,4 +56,4 @@ The former **“opaque 240 B blob”** is **not** unknown binary — it unpacks 
 
 ## C loader
 
-`horse_save_parse_footer()` — track name, vec2s, and both **0xF0** gene packs via `horse_save_gene_unpack()`.
+`horse_save_parse_footer()` — track name, vec2s, both **0xF0** gene packs via `horse_save_gene_unpack()`, and **`HorseSaveFooterExtra`** @ blob rel **833** (`FOOTER_OFF_EXTRA`).

@@ -1,0 +1,104 @@
+{
+  "exe": "E:\\games\\HorseSDK\\Game\\Horsey.exe",
+  "image_base": "0x140000000",
+  "regions": [
+    {
+      "name": "sim_spawn_dispatch",
+      "lo": "0x33000",
+      "hi": "0x35000"
+    },
+    {
+      "name": "sim_mid_dispatch",
+      "lo": "0x5f000",
+      "hi": "0x61000"
+    }
+  ],
+  "pinned_entries": {
+    "GainMoney": "0x10ab80",
+    "SimSpawnDisk": "0x33a20",
+    "RaceStateMachine": "0x8f2b0"
+  },
+  "string_xrefs": [
+    {
+      "name": "SimStartRace",
+      "site_rva": "0x32fa3",
+      "entry_guess": "0x3166b"
+    },
+    {
+      "name": "SimStartRace",
+      "site_rva": "0x5f372",
+      "entry_guess": "0x5e0c2"
+    },
+    {
+      "name": "SimSpawnDisk",
+      "site_rva": "0x342f0",
+      "entry_guess": "0x32330"
+    }
+  ],
+  "summary": {
+    "e8_hits": 7,
+    "unique_targets": 5,
+    "unique_callers": 4
+  },
+  "by_target": {
+    "0x5f78e": [
+      {
+        "call_rva": "0x5f77a",
+        "target_rva": "0x5f78e",
+        "region": "sim_mid_dispatch",
+        "caller_entry_guess": "0x5e0c2"
+      }
+    ],
+    "0x5f7f6": [
+      {
+        "call_rva": "0x5f7e2",
+        "target_rva": "0x5f7f6",
+        "region": "sim_mid_dispatch",
+        "caller_entry_guess": "0x5e0c2"
+      }
+    ],
+    "0x5f869": [
+      {
+        "call_rva": "0x5f855",
+        "target_rva": "0x5f869",
+        "region": "sim_mid_dispatch",
+        "caller_entry_guess": "0x5e0c2"
+      }
+    ],
+    "0x5f900": [
+      {
+        "call_rva": "0x103fc3",
+        "target_rva": "0x5f900",
+        "region": "sim_mid_dispatch",
+        "caller_entry_guess": "0x102dc2"
+      },
+      {
+        "call_rva": "0x1050d5",
+        "target_rva": "0x5f900",
+        "region": "sim_mid_dispatch",
+        "caller_entry_guess": "0x103244"
+      }
+    ],
+    "0x60540": [
+      {
+        "call_rva": "0x5ff07",
+        "target_rva": "0x60540",
+        "region": "sim_mid_dispatch",
+        "caller_entry_guess": "0x5e0c2"
+      },
+      {
+        "call_rva": "0x6db6b",
+        "target_rva": "0x60540",
+        "region": "sim_mid_dispatch",
+        "caller_entry_guess": "0x6c912"
+      }
+    ]
+  },
+  "top_callers": {
+    "0x5e0c2": 4,
+    "0x6c912": 1,
+    "0x102dc2": 1,
+    "0x103244": 1
+  },
+  "note": "Prefer E8 targets with many callers or callers from Game_WorldSimStep / race FSM for SimStartRace body."
+}

@@ -1,5 +1,8 @@
 {
   "ok": true,
+  "attach": false,
+  "seconds": 50.0,
   "hits": [],
+  "unique": 0,
   "events": []
 }

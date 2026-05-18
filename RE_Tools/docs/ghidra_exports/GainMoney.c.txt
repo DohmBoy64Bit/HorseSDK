@@ -1,0 +1,98 @@
+# Ghidra export: GainMoney
+# Requested RVA: 0x10ab80
+# Function entry: 14010ab80 (GainMoney)
+# Body: [[14010ab80, 14010ac4c]]
+# Image base: 0x140000000
+# Program: Horsey.exe
+# Note: void GainMoney(ctx, amount, flag): [ctx+0x308]+=edx; [ctx+0x30c]=0x3c
+
+/* --- Decompiler --- */
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void GainMoney(longlong param_1,int param_2,char param_3)
+
+{
+  longlong local_28;
+  ulonglong uStack_20;
+  undefined8 local_18;
+  ulonglong uStack_10;
+  
+  *(int *)(param_1 + 0x310) = param_2;
+  *(int *)(param_1 + 0x308) = *(int *)(param_1 + 0x308) + param_2;
+  *(undefined4 *)(param_1 + 0x30c) = 0x3c;
+  if (param_3 == '\0') {
+    local_18 = _DAT_14025c060;
+    uStack_10 = _UNK_14025c068;
+    local_28._0_1_ = s_GainMoney_14026ba90[0];
+    local_28._1_1_ = s_GainMoney_14026ba90[1];
+    local_28._2_1_ = s_GainMoney_14026ba90[2];
+    local_28._3_1_ = s_GainMoney_14026ba90[3];
+    local_28._4_1_ = s_GainMoney_14026ba90[4];
+    local_28._5_1_ = s_GainMoney_14026ba90[5];
+    local_28._6_1_ = s_GainMoney_14026ba90[6];
+    local_28._7_1_ = s_GainMoney_14026ba90[7];
+    uStack_20 = (ulonglong)(byte)s_GainMoney_14026ba90[8];
+    FUN_140040ce0(&local_28,0x3c,0,DAT_1402bfb54,0);
+    if (0xf < uStack_10) {
+      if (0xfff < uStack_10 + 1) {
+        if (0x1f < (local_28 - *(longlong *)(local_28 + -8)) - 8U) {
+                    /* WARNING: Subroutine does not return */
+          _invoke_watson((wchar_t *)0x0,(wchar_t *)0x0,(wchar_t *)0x0,0,0);
+        }
+      }
+      thunk_FUN_140241610();
+    }
+  }
+  return;
+}
+
+
+
+/* --- Disassembly (head) --- */
+14010ab80: SUB RSP,0x58
+14010ab84: MOV dword ptr [RCX + 0x310],EDX
+14010ab8a: ADD dword ptr [RCX + 0x308],EDX
+14010ab90: MOV dword ptr [RCX + 0x30c],0x3c
+14010ab9a: TEST R8B,R8B
+14010ab9d: JNZ 0x14010ac30
+14010aba3: XORPS XMM0,XMM0
+14010aba6: MOVUPS xmmword ptr [RSP + 0x30],XMM0
+14010abab: MOVDQA XMM1,xmmword ptr [0x14025c060]
+14010abb3: MOVDQU xmmword ptr [RSP + 0x40],XMM1
+14010abb9: MOVSD XMM0,qword ptr [0x14026ba90]
+14010abc1: MOVSD qword ptr [RSP + 0x30],XMM0
+14010abc7: MOVZX EAX,byte ptr [0x14026ba98]
+14010abce: MOV byte ptr [RSP + 0x38],AL
+14010abd2: MOV byte ptr [RSP + 0x39],R8B
+14010abd7: MOV byte ptr [RSP + 0x20],R8B
+14010abdc: MOVSS XMM3,dword ptr [0x1402bfb54]
+14010abe4: XOR R8D,R8D
+14010abe7: MOV EDX,0x3c
+14010abec: LEA RCX,[RSP + 0x30]
+14010abf1: CALL 0x140040ce0
+14010abf6: NOP
+14010abf7: MOV RDX,qword ptr [RSP + 0x48]
+14010abfc: CMP RDX,0xf
+14010ac00: JBE 0x14010ac30
+14010ac02: INC RDX
+14010ac05: MOV RCX,qword ptr [RSP + 0x30]
+14010ac0a: MOV RAX,RCX
+14010ac0d: CMP RDX,0x1000
+14010ac14: JC 0x14010ac2b
+14010ac16: ADD RDX,0x27
+14010ac1a: MOV RCX,qword ptr [RCX + -0x8]
+14010ac1e: SUB RAX,RCX
+14010ac21: SUB RAX,0x8
+14010ac25: CMP RAX,0x1f
+14010ac29: JA 0x14010ac35
+14010ac2b: CALL 0x14021e450
+14010ac30: ADD RSP,0x58
+14010ac34: RET
+14010ac35: MOV qword ptr [RSP + 0x20],0x0
+14010ac3e: XOR R9D,R9D
+14010ac41: XOR R8D,R8D
+14010ac44: XOR EDX,EDX
+14010ac46: XOR ECX,ECX
+14010ac48: CALL 0x140224844
+

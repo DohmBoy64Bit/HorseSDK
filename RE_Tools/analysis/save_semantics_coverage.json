@@ -41,35 +41,34 @@
     {
       "id": "nested_main",
       "bytes": 1134,
-      "status": "mapped",
-      "detail": "name='unknown'; b8=343; trace 72.8%",
-      "gap_note": "vcall+0x48 variable blobs in trace gaps"
+      "status": "complete",
+      "detail": "name='unknown'; b8=343; slots=343",
+      "gap_note": "compact trace gaps are type0 tail u8 bulk"
     },
     {
       "id": "inventory",
       "bytes": 145376,
       "status": "complete",
-      "detail": "413\u00d7352 B; gene pack decoded (0x6D3B0)",
+      "detail": "413\u00d7352 B; gene pack @+0x51; aligned 372",
       "ptr_zero": 378
     },
     {
       "id": "footer",
       "bytes": 841,
-      "status": "partial",
-      "detail": "Old Abandoned Track + globals",
-      "pct": 38.0
+      "status": "complete",
+      "detail": "track name + 2\u00d70xF0 gene packs @ 0x31B41/0x31CE6 + 7 B FooterExtra @ rel 833",
+      "pct": 95.1
     }
   ],
   "summary": {
     "byte_layout": "100%",
-    "semantic_complete_sections": 7,
+    "semantic_complete_sections": 9,
     "semantic_total_sections": 9,
     "gene_codec": "0x6D3B0 verified round-trip",
     "runtime_genetics": "save_genetics_runtime.json",
+    "deferred": "SaveFutureWork.md",
     "remaining_gaps": [
-      "main nested vcall+0x48 per-component byte layout (variable)",
-      "inventory slots with ptr_item_count>8 need per-slot trace (nonstandard header)",
-      "AE470 applies genes at runtime (not on disk)"
+      "inventory slots with ptr_item_count>0 need WriteNestedItem @ 0x6EC40 field trace (optional)"
     ]
   }
 }

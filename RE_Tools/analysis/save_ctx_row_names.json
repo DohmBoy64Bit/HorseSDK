@@ -1,0 +1,247 @@
+{
+  "semantics": {
+    "SaveRow13": {
+      "write_loop": "0x6DDB0 \u2014 13\u00d7 (WriteU32 [rbx-0x34], WriteU32 [rbx]); rbx += 4",
+      "layout": "staggered u32 pair: field_m34 @ ctx+0x298+N*4, field_0 @ ctx+0x2CC+N*4",
+      "sample_save1": "all zeros in save_buffer_dump.bin"
+    },
+    "SaveSlot6": {
+      "write_loop": "0x6DD80 \u2014 6\u00d7 (u8@+5, u32@+0, u8@+4); rbx += 8",
+      "layout": "8 B mem / 12 B disk per slot",
+      "sample_save1": "all zeros"
+    }
+  },
+  "rows13": [
+    {
+      "index": 0,
+      "field_m34_u32": 4294967041,
+      "file_off_m34": 140,
+      "name_guess": "row_world_time_or_seed",
+      "field_0_u32": 4294967295,
+      "file_off_0": 144
+    },
+    {
+      "index": 1,
+      "field_m34_u32": 255,
+      "file_off_m34": 148,
+      "name_guess": "row_camera_or_view",
+      "field_0_u32": 0,
+      "file_off_0": 152
+    },
+    {
+      "index": 2,
+      "field_m34_u32": 0,
+      "file_off_m34": 156,
+      "name_guess": "row_game_flags_a",
+      "field_0_u32": 65792,
+      "file_off_0": 160
+    },
+    {
+      "index": 3,
+      "field_m34_u32": 4278255616,
+      "file_off_m34": 164,
+      "name_guess": "row_game_flags_b",
+      "field_0_u32": 4294967295,
+      "file_off_0": 168
+    },
+    {
+      "index": 4,
+      "field_m34_u32": 16777215,
+      "file_off_m34": 172,
+      "name_guess": "row_horse_stat_a",
+      "field_0_u32": 0,
+      "file_off_0": 176
+    },
+    {
+      "index": 5,
+      "field_m34_u32": 100663296,
+      "file_off_m34": 180,
+      "name_guess": "row_horse_stat_b",
+      "field_0_u32": 1090519040,
+      "file_off_0": 184
+    },
+    {
+      "index": 6,
+      "field_m34_u32": 1851878770,
+      "file_off_m34": 188,
+      "name_guess": "row_inventory_meta",
+      "field_0_u32": 131183,
+      "file_off_0": 192
+    },
+    {
+      "index": 7,
+      "field_m34_u32": 4278321152,
+      "file_off_m34": 196,
+      "name_guess": "row_quest_or_progress",
+      "field_0_u32": 4294967295,
+      "file_off_0": 200
+    },
+    {
+      "index": 8,
+      "field_m34_u32": 16777215,
+      "file_off_m34": 204,
+      "name_guess": "row_audio_or_env",
+      "field_0_u32": 0,
+      "file_off_0": 208
+    },
+    {
+      "index": 9,
+      "field_m34_u32": 268435456,
+      "file_off_m34": 212,
+      "name_guess": "row_ui_state",
+      "field_0_u32": 1107296256,
+      "file_off_0": 216
+    },
+    {
+      "index": 10,
+      "field_m34_u32": 1702192993,
+      "file_off_m34": 220,
+      "name_guess": "row_unused_10",
+      "field_0_u32": 543519860,
+      "file_off_0": 224
+    },
+    {
+      "index": 11,
+      "field_m34_u32": 1768382797,
+      "file_off_m34": 228,
+      "name_guess": "row_unused_11",
+      "field_0_u32": 6649201,
+      "file_off_0": 232
+    },
+    {
+      "index": 12,
+      "field_m34_u32": 2,
+      "file_off_m34": 236,
+      "name_guess": "row_unused_12",
+      "field_0_u32": 4294967042,
+      "file_off_0": 240
+    }
+  ],
+  "slots6": [
+    {
+      "index": 0,
+      "name_guess": "slot_horse_care_a",
+      "byte_from_u8": 22,
+      "file_off_byte": 76,
+      "dword0": 0,
+      "file_off_dword0": 72
+    },
+    {
+      "index": 1,
+      "name_guess": "slot_horse_care_b",
+      "byte_from_u8": 1750343780,
+      "file_off_byte": 88,
+      "dword0": 1849761913,
+      "file_off_dword0": 84
+    },
+    {
+      "index": 2,
+      "name_guess": "slot_breeding_flag",
+      "byte_from_u8": 16803955,
+      "file_off_byte": 100,
+      "dword0": 1768322927,
+      "file_off_dword0": 96
+    },
+    {
+      "index": 3,
+      "name_guess": "slot_training",
+      "byte_from_u8": 4294967295,
+      "file_off_byte": 112,
+      "dword0": 4294967295,
+      "file_off_dword0": 108
+    },
+    {
+      "index": 4,
+      "name_guess": "slot_equipment",
+      "byte_from_u8": 7,
+      "file_off_byte": 124,
+      "dword0": 0,
+      "file_off_dword0": 120
+    },
+    {
+      "index": 5,
+      "name_guess": "slot_misc",
+      "byte_from_u8": 1,
+      "file_off_byte": 136,
+      "dword0": 6647413,
+      "file_off_dword0": 132
+    }
+  ],
+  "exe_xrefs_sample": {
+    "ctx+0x2A0": [
+      "0309A3: mov qword ptr [rdi + 0x2a0], rbp",
+      "033000: mov rax, qword ptr [rdi + 0x2a0]",
+      "03301C: mov rax, qword ptr [rdi + 0x2a0]",
+      "033039: mov rax, qword ptr [rdi + 0x2a0]",
+      "033056: mov rax, qword ptr [rdi + 0x2a0]",
+      "0330B6: mov rdx, qword ptr [rdi + 0x2a0]",
+      "0330EC: mov rdx, qword ptr [rdi + 0x2a0]",
+      "033220: mov rax, qword ptr [rdi + 0x2a0]"
+    ],
+    "ctx+0x2A8": [
+      "0309AA: mov qword ptr [rdi + 0x2a8], rbp",
+      "0330BD: mov rax, qword ptr [rdi + 0x2a8]",
+      "0330F3: mov rcx, qword ptr [rdi + 0x2a8]"
+    ],
+    "ctx+0x2B0": [
+      "0309B1: mov qword ptr [rdi + 0x2b0], rbp",
+      "037A38: mov qword ptr [rdi + 0x2b0], r15",
+      "03A2B4: mov rbx, qword ptr [rdi + 0x2b0]",
+      "03A2D8: mov rax, qword ptr [rdi + 0x2b0]",
+      "03B21B: mov rbx, qword ptr [rdi + 0x2b0]"
+    ],
+    "ctx+0x298": [
+      "033621: mov dword ptr [rdi + 0x298], r15d",
+      "03369D: add dword ptr [rdi + 0x298], ecx",
+      "0336BB: mov r11d, dword ptr [rdi + 0x298]",
+      "0336D8: mov dword ptr [rdi + 0x298], eax",
+      "033713: mov edx, dword ptr [rdi + 0x298]",
+      "035C4E: mov eax, dword ptr [rdi + 0x298]",
+      "03A26F: mov rdx, qword ptr [rdi + 0x298]",
+      "03A287: mov qword ptr [rdi + 0x298], r13"
+    ],
+    "ctx+0x294": [
+      "035BB6: imul eax, dword ptr [rdi + 0x294], 0x64"
+    ],
+    "ctx+0x290": [
+      "035BBE: idiv dword ptr [rdi + 0x290]",
+      "037A31: mov qword ptr [rdi + 0x290], r15",
+      "037B09: mov rcx, qword ptr [rdi + 0x290]",
+      "037BA6: mov rdx, qword ptr [rdi + 0x290]",
+      "037BF4: mov qword ptr [rdi + 0x290], rax"
+    ],
+    "ctx+0x2B8": [
+      "037A3F: mov qword ptr [rdi + 0x2b8], r15",
+      "03A2AD: mov rsi, qword ptr [rdi + 0x2b8]",
+      "03A2DF: cmp rax, qword ptr [rdi + 0x2b8]",
+      "03A2E8: mov qword ptr [rdi + 0x2b8], rax",
+      "03B214: mov rsi, qword ptr [rdi + 0x2b8]"
+    ],
+    "ctx+0x2C0": [
+      "037A46: mov qword ptr [rdi + 0x2c0], r15"
+    ],
+    "ctx+0x2F0": [
+      "037A4D: lea rcx, [rdi + 0x2f0]",
+      "039EF3: lea r13, [rdi + 0x2f0]",
+      "03A64B: lea rcx, [rdi + 0x2f0]",
+      "03BC7D: lea rcx, [rdi + 0x2f0]",
+      "03C019: lea rcx, [rdi + 0x2f0]"
+    ],
+    "ctx+0x2C8": [
+      "03B15B: mov rcx, qword ptr [rdi + 0x2c8]"
+    ],
+    "ctx+0x2D8": [
+      "03B1F4: cmp rbx, qword ptr [rdi + 0x2d8]",
+      "03B29D: mov rcx, qword ptr [rdi + 0x2d8]"
+    ],
+    "ctx+0x2D0": [
+      "03B28B: mov rcx, qword ptr [rdi + 0x2d0]",
+      "03B329: lea rbx, [rdi + 0x2d0]",
+      "03B461: mov rcx, qword ptr [rdi + 0x2d0]"
+    ]
+  },
+  "disasm_refs": {
+    "rows": "0x6DDB0",
+    "slots": "0x6DD80"
+  }
+}

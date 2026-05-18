@@ -122,6 +122,34 @@ def parse_type0_tail(blob: bytes) -> list[dict[str, Any]]:
     return [{"type_id": 0, **unpack_type0_packed(b)} for b in blob]
 
 
+def decode_type1_payload(payload: bytes) -> dict:
+    """
+    Type-1 component wire @ 0x102DC0 (15 active bytes + zero pad in sample).
+
+    Layout: packed_u8 | u32@+0xA0 | u32@+0xA4 | u32@+0xA8 | u8@+0xAD | u8@+0xAC
+    """
+    if len(payload) < 15:
+        return {"error": "short", "len": len(payload)}
+    import struct
+
+    out = unpack_type0_packed(payload[0])
+    u_a0, u_a4, u_a8 = struct.unpack_from("<III", payload, 1)
+    out.update(
+        {
+            "wire_bytes": len(payload),
+            "active_bytes": 15,
+            "+0xA0_u32": u_a0,
+            "+0xA4_u32": u_a4,
+            "+0xA8_u32": u_a8,
+            "+0xAD_u8": payload[13],
+            "+0xAC_u8": payload[14],
+            "disasm_write": "0x102DC0",
+            "disasm_read": "0x102E20",
+        }
+    )
+    return out
+
+
 def _type1_payload_end(blob: bytes) -> int:
     for pos in range(4, min(len(blob), 256)):
         if pos + TYPE2_BLOCK_BYTES <= len(blob) and struct.unpack_from("<I", blob, pos)[0] == 2:
@@ -142,7 +170,7 @@ def parse_b8_blob(blob: bytes, count: int) -> list[B8Entry]:
                 B8Entry(
                     type_id=1,
                     payload=payload,
-                    decoded={"wire_bytes": len(payload), "note": "type-1 @ 0x102E20"},
+                    decoded=decode_type1_payload(payload),
                 )
             )
             stream.seek(end)

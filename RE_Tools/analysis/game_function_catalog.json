@@ -1,0 +1,1156 @@
+{
+  "image_base": "0x140000000",
+  "exe": "Game/Horsey.exe",
+  "schema_doc": "RE_Tools/docs/GameFunctionCatalog.md",
+  "summary": {
+    "total": 68,
+    "verified_count": 45,
+    "partial_count": 23,
+    "stub_count": 0,
+    "by_category": {
+      "breeding": 2,
+      "economy": 1,
+      "font": 1,
+      "genetics": 2,
+      "horse": 4,
+      "io": 17,
+      "loop": 3,
+      "nested": 6,
+      "other": 1,
+      "race": 10,
+      "save": 11,
+      "settings": 2,
+      "shop": 4,
+      "spawn": 1,
+      "world": 3
+    }
+  },
+  "functions": [
+    {
+      "id": "statusfoal",
+      "name": "StatusFoal",
+      "rva": "0x56892",
+      "va": "0x140056892",
+      "category": "breeding",
+      "status": "partial",
+      "summary": "Foal status",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "studs",
+      "name": "Studs",
+      "rva": "0xe90ea",
+      "va": "0x1400e90ea",
+      "category": "breeding",
+      "status": "partial",
+      "summary": "Studding service UI",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "gain_money",
+      "name": "GainMoney",
+      "rva": "0x10ab80",
+      "va": "0x14010ab80",
+      "category": "economy",
+      "status": "verified",
+      "summary": "void GainMoney(ctx, int amount, char show_ui): [ctx+0x308]+=amount; [ctx+0x30c]=0x3c",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "ghidra"
+      ],
+      "decompile": "RE_Tools/docs/ghidra_exports/GainMoney.c.txt",
+      "struct_offsets": {
+        "ctx+0x308": "money",
+        "ctx+0x30c": "money_ui_timer",
+        "ctx+0x310": "last_delta"
+      },
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "ctx"
+        },
+        {
+          "reg": "edx",
+          "type": "int",
+          "name": "amount"
+        },
+        {
+          "reg": "r8",
+          "type": "char",
+          "name": "show_ui"
+        }
+      ]
+    },
+    {
+      "id": "font_load_or_init",
+      "name": "Font_LoadOrInit",
+      "rva": "0x7f8a0",
+      "va": "0x14007f8a0",
+      "category": "font",
+      "status": "verified",
+      "summary": "Load .crf font blobs",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/FontLoad.md",
+      "disasm": "RE_Tools/analysis/disasm_Font_LoadOrInit.txt"
+    },
+    {
+      "id": "genetics_apply_gate",
+      "name": "GeneticsApplyGate",
+      "rva": "0xadb30",
+      "va": "0x1400adb30",
+      "category": "genetics",
+      "status": "partial",
+      "summary": "Gate: call GeneticsApply when [item+0x234] >= 0",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "disasm": "RE_Tools/analysis/disasm_GeneticsApplyGate.txt"
+    },
+    {
+      "id": "genetics_apply",
+      "name": "GeneticsApply",
+      "rva": "0xae470",
+      "va": "0x1400ae470",
+      "category": "genetics",
+      "status": "partial",
+      "summary": "Apply unpacked gene pack to horse parts (runtime only)",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SaveFutureWork.md",
+      "callers": [
+        "0xadb30"
+      ],
+      "disasm": "RE_Tools/analysis/disasm_GeneticsApply.txt"
+    },
+    {
+      "id": "lerphorse",
+      "name": "LerpHorse",
+      "rva": "0x76149",
+      "va": "0x140076149",
+      "category": "horse",
+      "status": "partial",
+      "summary": "Lerp horse position",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "processhorse",
+      "name": "ProcessHorse",
+      "rva": "0xa23f0",
+      "va": "0x1400a23f0",
+      "category": "horse",
+      "status": "partial",
+      "summary": "Horse tick / gene display; switch table refs 'ProcessHorse' @ 0xA24D8",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "string_xref"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "drophorsefail",
+      "name": "DropHorseFail",
+      "rva": "0xd3c50",
+      "va": "0x1400d3c50",
+      "category": "horse",
+      "status": "partial",
+      "summary": "Drop horse failed",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "grabhorse_dispatch",
+      "name": "GrabHorse",
+      "rva": "0xd9158",
+      "va": "0x1400d9158",
+      "category": "horse",
+      "status": "partial",
+      "summary": "Grab / pick up horse",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "writenestedsave_readnestedsave",
+      "name": "WriteNestedSave_ReadNestedSave",
+      "rva": "0x6d440",
+      "va": "0x14006d440",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=-2",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x6d5c0",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteNestedSave_ReadNestedSave.txt"
+    },
+    {
+      "id": "gridwriteloop_gridreadloop",
+      "name": "GridWriteLoop_GridReadLoop",
+      "rva": "0x6df30",
+      "va": "0x14006df30",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=-2",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x6e700",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_GridWriteLoop_GridReadLoop.txt"
+    },
+    {
+      "id": "pairwrite_readpairvec",
+      "name": "PairWrite_ReadPairVec",
+      "rva": "0x6e043",
+      "va": "0x14006e043",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=-2",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x6e838",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_PairWrite_ReadPairVec.txt"
+    },
+    {
+      "id": "writenesteditem_readnesteditem",
+      "name": "WriteNestedItem_ReadNestedItem",
+      "rva": "0x6ec40",
+      "va": "0x14006ec40",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=-2",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x6ef80",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteNestedItem_ReadNestedItem.txt"
+    },
+    {
+      "id": "streamopen",
+      "name": "StreamOpen",
+      "rva": "0x6fd40",
+      "va": "0x14006fd40",
+      "category": "io",
+      "status": "verified",
+      "summary": "Write only; load uses file -> read cursor globals",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_StreamOpen.txt"
+    },
+    {
+      "id": "write_flush",
+      "name": "WriteFlush",
+      "rva": "0x6fd90",
+      "va": "0x14006fd90",
+      "category": "io",
+      "status": "verified",
+      "summary": "Flush serialize heap buffer to file on disk",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "disasm": "RE_Tools/analysis/disasm_WriteFlush.txt"
+    },
+    {
+      "id": "flushtofile_fopenread",
+      "name": "FlushToFile_fopenRead",
+      "rva": "0x6fd90",
+      "va": "0x14006fd90",
+      "category": "io",
+      "status": "verified",
+      "summary": "6FD90 writes file; load path sets read cursor from loaded buffer",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x229340",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_FlushToFile_fopenRead.txt"
+    },
+    {
+      "id": "streamavail_readu32peek",
+      "name": "StreamAvail_ReadU32Peek",
+      "rva": "0x6fdf0",
+      "va": "0x14006fdf0",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=4",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x70540",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_StreamAvail_ReadU32Peek.txt"
+    },
+    {
+      "id": "writeu32_readu32",
+      "name": "WriteU32_ReadU32",
+      "rva": "0x6fe10",
+      "va": "0x14006fe10",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=4",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x70320",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteU32_ReadU32.txt"
+    },
+    {
+      "id": "writeu8_alt_readu8",
+      "name": "WriteU8_alt_ReadU8",
+      "rva": "0x6fe30",
+      "va": "0x14006fe30",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=1",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x705d0",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteU8_alt_ReadU8.txt"
+    },
+    {
+      "id": "writeu16_readu16",
+      "name": "WriteU16_ReadU16",
+      "rva": "0x6fe50",
+      "va": "0x14006fe50",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=2",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x70450",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteU16_ReadU16.txt"
+    },
+    {
+      "id": "writeu64_readu64",
+      "name": "WriteU64_ReadU64",
+      "rva": "0x6fe70",
+      "va": "0x14006fe70",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=8",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x704f0",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteU64_ReadU64.txt"
+    },
+    {
+      "id": "writeu8_readu8",
+      "name": "WriteU8_ReadU8",
+      "rva": "0x6feb0",
+      "va": "0x14006feb0",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=1",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x705d0",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteU8_ReadU8.txt"
+    },
+    {
+      "id": "writeu32fromu8_readu8asu32",
+      "name": "WriteU32FromU8_ReadU8asU32",
+      "rva": "0x6fef0",
+      "va": "0x14006fef0",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=4",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x70620",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteU32FromU8_ReadU8asU32.txt"
+    },
+    {
+      "id": "writef32_readf32",
+      "name": "WriteF32_ReadF32",
+      "rva": "0x6ff10",
+      "va": "0x14006ff10",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=4",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x70670",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteF32_ReadF32.txt"
+    },
+    {
+      "id": "writevec2f32_readf32x2",
+      "name": "WriteVec2F32_ReadF32x2",
+      "rva": "0x6ff30",
+      "va": "0x14006ff30",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=8",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x70670",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteVec2F32_ReadF32x2.txt"
+    },
+    {
+      "id": "writestdstring_readstringlen",
+      "name": "WriteStdString_ReadStringLen",
+      "rva": "0x6fff0",
+      "va": "0x14006fff0",
+      "category": "io",
+      "status": "verified",
+      "summary": "Save stream primitive size=-1",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x70890",
+      "doc": "RE_Tools/analysis/save_read_write_pairs.json",
+      "disasm": "RE_Tools/analysis/disasm_WriteStdString_ReadStringLen.txt"
+    },
+    {
+      "id": "game_main_init_and_loop",
+      "name": "GameMain_InitAndLoop",
+      "rva": "0xbe0f0",
+      "va": "0x1400be0f0",
+      "category": "loop",
+      "status": "verified",
+      "summary": "SDL init, settings, bootstrap, per-frame loop until quit; calls Save_Write on exit",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida",
+        "ghidra"
+      ],
+      "doc": "RE_Tools/docs/GameLoop.md",
+      "decompile": "RE_Tools/docs/ghidra_exports/GameMain_InitAndLoop.c.txt",
+      "callers": [
+        "0x21ee0d"
+      ],
+      "disasm": "RE_Tools/analysis/disasm_GameMain_InitAndLoop.txt"
+    },
+    {
+      "id": "game_dispatch_sdl_event",
+      "name": "Game_DispatchSdlEvent",
+      "rva": "0xc0430",
+      "va": "0x1400c0430",
+      "category": "loop",
+      "status": "verified",
+      "summary": "SDL event switch; sets quit/focus flags",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/Game_DispatchSdlEvent.md",
+      "decompile": "RE_Tools/docs/ghidra_exports/Game_DispatchSdlEvent.c.txt",
+      "disasm": "RE_Tools/analysis/disasm_Game_DispatchSdlEvent.txt"
+    },
+    {
+      "id": "clamp_int3",
+      "name": "ClampInt3",
+      "rva": "0xc12d0",
+      "va": "0x1400c12d0",
+      "category": "loop",
+      "status": "verified",
+      "summary": "int clamp(ecx, edx, r8d) \u2014 misnamed Game_SimStep in early notes",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/ClampInt3.md",
+      "disasm": "RE_Tools/analysis/disasm_ClampInt3.txt"
+    },
+    {
+      "id": "type1_b8_write",
+      "name": "Type1_B8_Write",
+      "rva": "0x102dc0",
+      "va": "0x140102dc0",
+      "category": "nested",
+      "status": "verified",
+      "summary": "vtable+0x48 type-1 component wire (+0xA0..+0xAC)",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x102e20",
+      "doc": "RE_Tools/docs/SaveSemantics.md",
+      "disasm": "RE_Tools/analysis/disasm_Type1_B8_Write.txt"
+    },
+    {
+      "id": "type1_b8_read",
+      "name": "Type1_B8_Read",
+      "rva": "0x102e20",
+      "va": "0x140102e20",
+      "category": "nested",
+      "status": "verified",
+      "summary": "Read type-1 component wire",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "disasm": "RE_Tools/analysis/disasm_Type1_B8_Read.txt"
+    },
+    {
+      "id": "write_nested_save",
+      "name": "WriteNestedSave",
+      "rva": "0x6d440",
+      "va": "0x14006d440",
+      "category": "nested",
+      "status": "verified",
+      "summary": "Write nested object: name, ptr/merge/b8 header, b8 blob, tail",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x6d5c0",
+      "doc": "RE_Tools/docs/SaveNestedFormat.md",
+      "disasm": "RE_Tools/analysis/disasm_WriteNestedSave.txt"
+    },
+    {
+      "id": "read_nested_save",
+      "name": "ReadNestedSave",
+      "rva": "0x6d5c0",
+      "va": "0x14006d5c0",
+      "category": "nested",
+      "status": "verified",
+      "summary": "Read nested object (pair of WriteNestedSave)",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SaveNestedFormat.md",
+      "disasm": "RE_Tools/analysis/disasm_ReadNestedSave.txt"
+    },
+    {
+      "id": "write_nested_item",
+      "name": "WriteNestedItem",
+      "rva": "0x6ec40",
+      "va": "0x14006ec40",
+      "category": "nested",
+      "status": "verified",
+      "summary": "Write inline nested item when ptr_item_count > 0",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x6ef80",
+      "disasm": "RE_Tools/analysis/disasm_WriteNestedItem.txt"
+    },
+    {
+      "id": "read_nested_item",
+      "name": "ReadNestedItem",
+      "rva": "0x6ef80",
+      "va": "0x14006ef80",
+      "category": "nested",
+      "status": "verified",
+      "summary": "Read inline nested item",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "disasm": "RE_Tools/analysis/disasm_ReadNestedItem.txt"
+    },
+    {
+      "id": "g_game_state",
+      "name": "g_game_state",
+      "rva": "0x313720",
+      "va": "0x140313720",
+      "category": "other",
+      "status": "verified",
+      "summary": "Global pointer to main game state (DATA)",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/g_game_state.md"
+    },
+    {
+      "id": "betting",
+      "name": "Betting",
+      "rva": "0x2cfe0",
+      "va": "0x14002cfe0",
+      "category": "race",
+      "status": "partial",
+      "summary": "Betting UI mode",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "racegetset_dispatch",
+      "name": "RaceGetSet",
+      "rva": "0x2dae7",
+      "va": "0x14002dae7",
+      "category": "race",
+      "status": "partial",
+      "summary": "Race get-set phase",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "simstartrace",
+      "name": "SimStartRace",
+      "rva": "0x32fa3",
+      "va": "0x140032fa3",
+      "category": "race",
+      "status": "partial",
+      "summary": "Start simulated race",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "simhorsefinished",
+      "name": "SimHorseFinished",
+      "rva": "0x334e5",
+      "va": "0x1400334e5",
+      "category": "race",
+      "status": "partial",
+      "summary": "Sim race horse finished",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "sim_message_dispatch",
+      "name": "SimMessageDispatch",
+      "rva": "0x5e0c2",
+      "va": "0x14005e0c2",
+      "category": "race",
+      "status": "partial",
+      "summary": "Sim tag dispatch hub; SimStartRace string @ 0x5F372; E8 into 0x5F000 region",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "e8_scan"
+      ],
+      "doc": "RE_Tools/docs/SimStartRace.md"
+    },
+    {
+      "id": "onyourmark",
+      "name": "OnYourMark",
+      "rva": "0x8a62f",
+      "va": "0x14008a62f",
+      "category": "race",
+      "status": "partial",
+      "summary": "Race countdown phase",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "race_state_machine",
+      "name": "RaceStateMachine",
+      "rva": "0x8f2b0",
+      "va": "0x14008f2b0",
+      "category": "race",
+      "status": "partial",
+      "summary": "Race UI FSM; xrefs RaceGo/WonRace/OnYourMark @ 0x90E00-0x92000",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "ghidra"
+      ],
+      "decompile": "RE_Tools/docs/ghidra_exports/Race_91148.c.txt"
+    },
+    {
+      "id": "betmore_dispatch",
+      "name": "BetMore",
+      "rva": "0x908bd",
+      "va": "0x1400908bd",
+      "category": "race",
+      "status": "partial",
+      "summary": "Increase bet",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "crossfinishline_dispatch",
+      "name": "CrossFinishLine",
+      "rva": "0x912f9",
+      "va": "0x1400912f9",
+      "category": "race",
+      "status": "partial",
+      "summary": "Cross finish line",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "wonrace",
+      "name": "WonRace",
+      "rva": "0x9177b",
+      "va": "0x14009177b",
+      "category": "race",
+      "status": "partial",
+      "summary": "Race won",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "footer_extra_write",
+      "name": "FooterExtra_Write",
+      "rva": "0x1017c0",
+      "va": "0x1401017c0",
+      "category": "save",
+      "status": "verified",
+      "summary": "vtable+0xB0: u32 @ +0x25C + 3\u00d7u8 @ +0x261..0x263",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "pair_read_rva": "0x101810",
+      "doc": "RE_Tools/docs/SaveFooterFormat.md",
+      "disasm": "RE_Tools/analysis/disasm_FooterExtra_Write.txt"
+    },
+    {
+      "id": "footer_extra_read",
+      "name": "FooterExtra_Read",
+      "rva": "0x101810",
+      "va": "0x140101810",
+      "category": "save",
+      "status": "verified",
+      "summary": "vtable+0xB8 read footer extra bytes",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "disasm": "RE_Tools/analysis/disasm_FooterExtra_Read.txt"
+    },
+    {
+      "id": "pack_genes",
+      "name": "PackGenes_6D2A0",
+      "rva": "0x6d2a0",
+      "va": "0x14006d2a0",
+      "category": "save",
+      "status": "verified",
+      "summary": "Pack 0x1E0 diploid bytes \u2192 0xF0 wire gene pack",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SaveInventoryRecord.h",
+      "disasm": "RE_Tools/analysis/disasm_PackGenes_6D2A0.txt"
+    },
+    {
+      "id": "unpack_genes",
+      "name": "UnpackGenes_6D3B0",
+      "rva": "0x6d3b0",
+      "va": "0x14006d3b0",
+      "category": "save",
+      "status": "verified",
+      "summary": "Unpack 0xF0 wire \u2192 track A/B allele indices",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SaveInventoryRecord.h",
+      "disasm": "RE_Tools/analysis/disasm_UnpackGenes_6D3B0.txt"
+    },
+    {
+      "id": "save_write",
+      "name": "Save_Write",
+      "rva": "0x6dab0",
+      "va": "0x14006dab0",
+      "category": "save",
+      "status": "verified",
+      "summary": "Serialize game ctx to heap buffer; flush to save%d.dat",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida",
+        "ghidra"
+      ],
+      "doc": "RE_Tools/docs/Save_Write.md",
+      "decompile": "RE_Tools/docs/ghidra_exports/Save_Write.c.txt",
+      "callers": [
+        "0x98680",
+        "0x10a2c2",
+        "0x10a822"
+      ],
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "ctx"
+        }
+      ],
+      "disasm": "RE_Tools/analysis/disasm_Save_Write.txt"
+    },
+    {
+      "id": "save_load",
+      "name": "Save_Load",
+      "rva": "0x6e2b0",
+      "va": "0x14006e2b0",
+      "category": "save",
+      "status": "verified",
+      "summary": "Load save file into ctx (mirror of Save_Write)",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "ghidra"
+      ],
+      "doc": "RE_Tools/docs/SaveLoadPath.md",
+      "disasm": "RE_Tools/analysis/disasm_Save_Load.txt"
+    },
+    {
+      "id": "save_load_from_buffer",
+      "name": "Save_LoadFromBuffer",
+      "rva": "0x6e643",
+      "va": "0x14006e643",
+      "category": "save",
+      "status": "verified",
+      "summary": "Deserialize in-memory save blob into ctx",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SaveLoadPath.md",
+      "disasm": "RE_Tools/analysis/disasm_Save_LoadFromBuffer.txt"
+    },
+    {
+      "id": "save_loadfrombuffer",
+      "name": "Save_LoadFromBuffer",
+      "rva": "0x6e643",
+      "va": "0x14006e643",
+      "category": "save",
+      "status": "verified",
+      "summary": "buffer parser; grid loop 0x6E700",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SaveGhidraCrossref.md",
+      "disasm": "RE_Tools/analysis/disasm_Save_LoadFromBuffer.txt"
+    },
+    {
+      "id": "readopen",
+      "name": "ReadOpen",
+      "rva": "0x6f3c0",
+      "va": "0x14006f3c0",
+      "category": "save",
+      "status": "verified",
+      "summary": "ReadOpen",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SaveGhidraCrossref.md",
+      "disasm": "RE_Tools/analysis/disasm_ReadOpen.txt"
+    },
+    {
+      "id": "readcheck",
+      "name": "ReadCheck",
+      "rva": "0x6fb90",
+      "va": "0x14006fb90",
+      "category": "save",
+      "status": "verified",
+      "summary": "ReadCheck",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SaveGhidraCrossref.md",
+      "disasm": "RE_Tools/analysis/disasm_ReadCheck.txt"
+    },
+    {
+      "id": "writeflush",
+      "name": "WriteFlush",
+      "rva": "0x6fd90",
+      "va": "0x14006fd90",
+      "category": "save",
+      "status": "verified",
+      "summary": "WriteFlush",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SaveGhidraCrossref.md",
+      "disasm": "RE_Tools/analysis/disasm_WriteFlush.txt"
+    },
+    {
+      "id": "settings_loader",
+      "name": "SettingsLoader",
+      "rva": "0x711b0",
+      "va": "0x1400711b0",
+      "category": "settings",
+      "status": "verified",
+      "summary": "Parse settings.xml + horsey.tmx path",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/SettingsLoader.md",
+      "decompile": "RE_Tools/docs/ghidra_exports/SettingsLoader.c.txt",
+      "callers": [
+        "0xbe562"
+      ],
+      "disasm": "RE_Tools/analysis/disasm_SettingsLoader.txt"
+    },
+    {
+      "id": "settings_save",
+      "name": "Settings_Save",
+      "rva": "0x71f60",
+      "va": "0x140071f60",
+      "category": "settings",
+      "status": "verified",
+      "summary": "Write settings.xml on quit",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/Settings_Save.md",
+      "disasm": "RE_Tools/analysis/disasm_Settings_Save.txt"
+    },
+    {
+      "id": "buyitem_dispatch",
+      "name": "BuyItem",
+      "rva": "0x10ac60",
+      "va": "0x14010ac60",
+      "category": "shop",
+      "status": "partial",
+      "summary": "Buy item from shop",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "shopkeep",
+      "name": "Shopkeep",
+      "rva": "0x785a0",
+      "va": "0x1400785a0",
+      "category": "shop",
+      "status": "partial",
+      "summary": "Shopkeeper",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "buy_item",
+      "name": "BuyItem",
+      "rva": "0x787d0",
+      "va": "0x1400787d0",
+      "category": "shop",
+      "status": "partial",
+      "summary": "Shop buy / dialog dispatch; string 'BuyItem' @ ~0x78B00",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "ghidra"
+      ],
+      "decompile": "RE_Tools/docs/ghidra_exports/BuyItem.c.txt"
+    },
+    {
+      "id": "horsemart",
+      "name": "HorseMart",
+      "rva": "0x7ac8e",
+      "va": "0x14007ac8e",
+      "category": "shop",
+      "status": "partial",
+      "summary": "Horse mart",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "string_xref",
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameplayFunctions.md"
+    },
+    {
+      "id": "sim_spawn_disk",
+      "name": "SimSpawnDisk",
+      "rva": "0x33a20",
+      "va": "0x140033a20",
+      "category": "spawn",
+      "status": "partial",
+      "summary": "Large spawn handler; string 'SimSpawnDisk' @ 0x342F0 inside body",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "ghidra"
+      ],
+      "decompile": "RE_Tools/docs/ghidra_exports/SimSpawnDisk.c.txt"
+    },
+    {
+      "id": "game_bootstrap_world",
+      "name": "Game_BootstrapWorld",
+      "rva": "0x874b0",
+      "va": "0x1400874b0",
+      "category": "world",
+      "status": "verified",
+      "summary": "InitCore \u2192 InitRender \u2192 LoadAssets \u2192 GameState ctor",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/Game_BootstrapWorld.md",
+      "decompile": "RE_Tools/docs/ghidra_exports/Game_BootstrapWorld.c.txt",
+      "disasm": "RE_Tools/analysis/disasm_Game_BootstrapWorld.txt"
+    },
+    {
+      "id": "game_update_world",
+      "name": "Game_UpdateWorld",
+      "rva": "0x87510",
+      "va": "0x140087510",
+      "category": "world",
+      "status": "verified",
+      "summary": "Window coords \u2192 normalized; may call Game_WorldSimStep",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/Game_UpdateWorld.md",
+      "decompile": "RE_Tools/docs/ghidra_exports/Game_UpdateWorld.c.txt",
+      "disasm": "RE_Tools/analysis/disasm_Game_UpdateWorld.txt"
+    },
+    {
+      "id": "game_world_sim_step",
+      "name": "Game_WorldSimStep",
+      "rva": "0x88510",
+      "va": "0x140088510",
+      "category": "world",
+      "status": "verified",
+      "summary": "World sim when window size delta non-zero",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "frida"
+      ],
+      "doc": "RE_Tools/docs/Game_WorldSimStep.md",
+      "disasm": "RE_Tools/analysis/disasm_Game_WorldSimStep.txt"
+    }
+  ]
+}
