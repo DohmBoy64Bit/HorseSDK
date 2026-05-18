@@ -195,11 +195,13 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - **CRF VM cluster:** `0xBF200` → `FileWrite_6F3C0` @ `0xBF2C6`; also save path `0x6DB95` — [CrfLoaderVm.md](CrfLoaderVm.md).
 - **CI:** `python RE_Tools/tools/scripts/phase1_ci.py` (add `--skip-frida` for local quick runs).
 
-## [KNOWLEDGE UPDATE] 2026-05-17 (race betting UI / odds RE)
+## [KNOWLEDGE UPDATE] 2026-05-17 (race betting UI / odds RE — pinned)
 
 - **Betting payout UI** is stake math @ `ctx+0x2c0` / `0x2c4`, not per-horse `HorseRaceScore` — [RaceBettingOdds.md](RaceBettingOdds.md).
-- **Full scorer on betting:** `CanScoreHorse` @ `0xD6DC0` + `ctx+0x258==0`; PRNG snapshot restore is theoretical only.
-- **Probe:** `frida_race_betting_probe.py` → `analysis/race_betting_probe.json`.
+- **Full scorer on betting:** `CanScoreHorse` @ `0xD6DC0` → `0xB2110`: `[horse+0x148]` non-null and `[sub+0x1c] < 4`; plus `ctx+0x258==0`.
+- **Bet presets dumped:** `dump_race_bet_presets.py` → `analysis/race_bet_presets.json` (idx 0: `2c8=1,2c4=20`; idx 1: `5/100`).
+- **Lane highlight:** `FUN_1400b3ce0` @ `0xB3CE0` toggles `horse+0x1c` / `+0x205` only — no `horse+0x220`.
+- **Frida probe fixed:** `Process.findModuleByName('Horsey.exe').base` — hardcoded `0x140000000` missed under ASLR (0 samples). Live capture: 103 hits @ `e0==-1`, `phase==6`, `2c4/2c8==100/5` — **pinned:** re-capture on BetMore `0x1a` / pick screens — [RaceBettingOdds.md](RaceBettingOdds.md) § Pinned.
 
 ## [KNOWLEDGE UPDATE] 2026-05-17 (race_predictor_mod)
 

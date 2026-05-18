@@ -1,0 +1,89 @@
+--- CanScoreHorse
+; CanScoreHorse @ D6DC0
+D6DC0: sub rsp, 0x28
+D6DC4: mov rcx, qword ptr [rcx + 0x148]
+D6DCB: test rcx, rcx
+D6DCE: je 0x1400d6de0
+D6DD0: call 0x1400b2110
+D6DD5: test al, al
+D6DD7: je 0x1400d6de0
+D6DD9: mov al, 1
+D6DDB: add rsp, 0x28
+D6DDF: ret 
+D6DE0: xor al, al
+D6DE2: add rsp, 0x28
+D6DE6: ret 
+
+--- CanScoreHorse_sub_B2110
+; CanScoreHorse_sub_B2110 @ B2110
+B2110: cmp dword ptr [rcx + 0x1c], 4
+B2114: setl al
+B2117: ret 
+B2118: int3 
+B2119: int3 
+B211A: int3 
+B211B: int3 
+B211C: int3 
+B211D: int3 
+B211E: int3 
+B211F: int3 
+B2120: mov eax, dword ptr [rcx + 0x1fc]
+B2126: test eax, eax
+B2128: jg 0x1400b212f
+B212A: test r8b, r8b
+B212D: je 0x1400b2156
+B212F: cmp eax, dword ptr [rcx + 0x200]
+B2135: jge 0x1400b2156
+B2137: cmp byte ptr [rcx + 0x205], 0
+B213E: jne 0x1400b2156
+B2140: cmp byte ptr [rcx + 0x206], 0
+B2147: jne 0x1400b2156
+B2149: test dl, dl
+B214B: jne 0x1400b2153
+B214D: cmp dword ptr [rcx + 0x1c], 4
+B2151: jge 0x1400b2156
+B2153: mov al, 1
+B2155: ret 
+
+--- Race_lane_highlight_B3CE0
+; Race_lane_highlight_B3CE0 @ B3CE0
+B3CE0: mov eax, dword ptr [rcx + 0x1c]
+B3CE3: cmp eax, 6
+B3CE6: je 0x1400b3cfd
+B3CE8: mov word ptr [rcx + 0x205], 0x100
+B3CF1: cmp eax, 1
+B3CF4: jne 0x1400b3cfd
+B3CF6: xor edx, edx
+B3CF8: jmp 0x1400b3a50
+B3CFD: ret 
+B3CFE: int3 
+B3CFF: int3 
+B3D00: int3 
+B3D01: int3 
+B3D02: int3 
+B3D03: int3 
+B3D04: int3 
+B3D05: int3 
+B3D06: int3 
+B3D07: int3 
+B3D08: int3 
+B3D09: int3 
+B3D0A: int3 
+B3D0B: int3 
+B3D0C: int3 
+B3D0D: int3 
+B3D0E: int3 
+B3D0F: int3 
+B3D10: mov qword ptr [rsp + 8], rbx
+B3D15: mov qword ptr [rsp + 0x18], rbp
+B3D1A: mov qword ptr [rsp + 0x20], rsi
+B3D1F: push rdi
+B3D20: push r14
+B3D22: push r15
+B3D24: sub rsp, 0x50
+B3D28: movzx r15d, r8b
+B3D2C: mov rbp, rdx
+B3D2F: mov rsi, rcx
+B3D32: xor bl, bl
+B3D34: mov eax, dword ptr [rdx + 0xc]
+

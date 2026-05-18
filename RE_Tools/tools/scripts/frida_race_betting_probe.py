@@ -82,6 +82,13 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--attach", action="store_true")
     ap.add_argument("--seconds", type=int, default=45)
+    ap.add_argument(
+        "--wait-process",
+        type=int,
+        default=0,
+        metavar="SEC",
+        help="Retry attach until Horsey.exe appears (0=fail immediately)",
+    )
     args = ap.parse_args()
 
     try:
@@ -96,25 +103,34 @@ def main() -> int:
         return 1
 
     if args.attach:
+        import frida
+
         device = frida.get_local_device()
-        session = device.attach("Horsey.exe")
+        deadline = time.time() + args.wait_process if args.wait_process else time.time()
+        session = None
+        while session is None:
+            try:
+                session = device.attach("Horsey.exe")
+            except frida.ProcessNotFoundError:
+                if time.time() >= deadline:
+                    print(
+                        "Horsey.exe not running. Start the game, go to race/betting UI, re-run.",
+                        file=sys.stderr,
+                    )
+                    return 1
+                print("Waiting for Horsey.exe...")
+                time.sleep(2)
     else:
         print("Use --attach with Horsey running on betting screen", file=sys.stderr)
         return 1
 
-    base = 0x140000000
-    script_src = (
-        AGENT.replace("var RACE_FSM = 0x8F2B0;", f"var base = ptr('0x{base:x}');\nvar RACE_FSM = 0x{RACE_FSM:x};")
-        .replace("0x8F2B0", hex(0x8F2B0))
-    )
-    script_src = script_src.replace("G_PRNG_BASE", hex(base + 0x2F2700))
-
-    # fix template - build properly
     script_src = f"""
 'use strict';
-var base = ptr('0x{base:x}');
+var mod = Process.findModuleByName('Horsey.exe');
+if (!mod) throw new Error('Horsey.exe module not found');
+var base = mod.base;
 var RACE_FSM = 0x8F2B0;
-var G_PRNG = ptr('0x{base + 0x2F2700:x}');
+var G_PRNG = base.add(0x2F2700);
 var samples = [];
 var lastMs = 0;
 
@@ -163,27 +179,40 @@ Interceptor.attach(base.add(RACE_FSM), {{
   }}
 }});
 
-recv('dump', function () {{
-  send({{ type: 'done', samples: samples }});
+send({{ type: 'ready', base: base.toString(), fsm: base.add(RACE_FSM).toString() }});
+
+recv('dump', function (_msg) {{
+  send({{ type: 'done', samples: samples, hook_hits: samples.length }});
 }});
 """
 
-    done = []
+    done: list[dict] = []
+    ready: list[dict] = []
 
     def on_message(message, _data):
-        if message.get("type") == "send" and message.get("payload", {}).get("type") == "done":
-            done.append(message["payload"])
+        if message.get("type") != "send":
+            return
+        pl = message.get("payload") or {}
+        if pl.get("type") == "done":
+            done.append(pl)
+        elif pl.get("type") == "ready":
+            ready.append(pl)
 
     script = session.create_script(script_src)
     script.on("message", on_message)
     script.load()
-    print(f"Attached. On betting screen for {args.seconds}s...")
+    time.sleep(0.3)
+    if ready:
+        print(f"Hook @ {ready[0].get('fsm')} (base {ready[0].get('base')})")
+    print(f"Attached. Stay on race/betting UI for {args.seconds}s...")
     time.sleep(args.seconds)
     script.post({"type": "dump"})
-    time.sleep(1)
+    time.sleep(1.5)
     session.detach()
 
-    payload = done[0] if done else {"samples": []}
+    payload = done[0] if done else {"samples": [], "dump_received": False}
+    if ready:
+        payload["module_base"] = ready[0].get("base")
     payload["note"] = "RaceStateMachine samples; see RE_Tools/docs/RaceBettingOdds.md"
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2), encoding="utf-8")

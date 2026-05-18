@@ -1,0 +1,36 @@
+; CanScoreHorse @ 0xD6DC0 — Horsey.exe (Capstone)
+; Game: HorseRaceScore @ 0xE2BFB calls this before scoring.
+
+D6DC0: sub rsp, 0x28
+D6DC4: mov rcx, qword ptr [rcx + 0x148]   ; sub-object from horse
+D6DCB: test rcx, rcx
+D6DCE: je fail
+D6DD0: call 0x1400B2110                    ; type gate (see below)
+D6DD5: test al, al
+D6DD7: je fail
+D6DD9: mov al, 1
+D6DDF: ret
+fail:
+D6DE0: xor al, al
+D6DE6: ret
+
+; FUN_1400B2110 — only path used from CanScoreHorse (7 bytes)
+B2110: cmp dword ptr [rcx + 0x1c], 4
+B2114: setl al                         ; true iff sub-object type < 4
+B2117: ret
+
+; FUN_1400B3CE0 @ 0xB3CE0 — lane horse highlight (Race_91148 @ 0x1171)
+; Called when ctx+0x250==0xb, ctx+0x254==0x10, ctx+0x2f0!=0, ctx+0x2a5!=0:
+;   horse = ctx->horses[ctx+0x2ac]
+B3CE0: mov eax, dword ptr [rcx + 0x1c]  ; horse sim state
+B3CE3: cmp eax, 6
+B3CE6: je done
+B3CE8: mov word ptr [rcx + 0x205], 0x100
+B3CF1: cmp eax, 1
+B3CF4: jne done
+B3CF6: xor edx, edx
+B3CF8: jmp 0x1400B3A50                  ; set horse+0x1c = 0 (idle/highlight)
+done:
+B3CFD: ret
+
+; Does NOT read horse+0x220 (speed). Speed is RaceAdvanceSim @ 0x8C9E0 only.

@@ -1,0 +1,42 @@
+{
+  "source": "Horsey.exe",
+  "table_rva": "0x263b9c",
+  "payout_constants": {
+    "DAT_14025b31c": 0.25,
+    "DAT_1402bfb48": 0.75
+  },
+  "rows": [
+    {
+      "index": 0,
+      "ctx_2c8": 1,
+      "ctx_2c4": 20,
+      "third_dword": 100,
+      "note": "ctx+0x2c4 from ba0+idx*0xC; ctx+0x2c8 from b9c+idx*0xC"
+    },
+    {
+      "index": 1,
+      "ctx_2c8": 5,
+      "ctx_2c4": 100,
+      "third_dword": 1000,
+      "note": "ctx+0x2c4 from ba0+idx*0xC; ctx+0x2c8 from b9c+idx*0xC"
+    },
+    {
+      "index": 2,
+      "ctx_2c8": 25,
+      "ctx_2c4": 500,
+      "third_dword": 5000,
+      "note": "ctx+0x2c4 from ba0+idx*0xC; ctx+0x2c8 from b9c+idx*0xC"
+    },
+    {
+      "index": 3,
+      "ctx_2c8": 100,
+      "ctx_2c4": 10000,
+      "third_dword": 2053778025,
+      "note": "ctx+0x2c4 from ba0+idx*0xC; ctx+0x2c8 from b9c+idx*0xC"
+    }
+  ],
+  "idx_mapping": {
+    "0": "ctx+0x268 == 1 (standard)",
+    "1": "ctx+0x268 != 1 (alternate / exotic)"
+  }
+}

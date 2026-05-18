@@ -25,7 +25,7 @@ Each mod exports `HorseMod_GetInfo`, `HorseMod_Init`, `HorseMod_Shutdown`. The h
 
 - `example_mod` logs and forwards **GainMoney** (3-arg) and **SpendMoney** (4-arg: `ctx`, `cost`, `show_ui`, `str_variant`).
 - **`minimap_mod` v0.2.1** — **M** / console **`map`**; static atlas from `horsey.tmx` + terrain/locs PNGs; zoom/pan; SDK `horse_map_*` for view/dot ([MinimapMod.md](MinimapMod.md)).
-- **`race_predictor_mod` v0.1.1** — pre-race lane ranking from `HorseRaceScore` → `[ctx+0x450]`; betting UI probe; **P** re-print ([RacePredictorMod.md](RacePredictorMod.md)).
+- **`race_predictor_mod` v0.1.3** — pre-race estimate (`nice*years`) on betting screen; live `[ctx+0x450]` when scorer runs; **P** re-print ([RacePredictorMod.md](RacePredictorMod.md), [RaceBettingOdds.md](RaceBettingOdds.md)).
 - Wrong detour arity **crashes** (shop buy) — see disasm @ `0x10AC94` / `0x10ACAB`, catalog `SpendMoney` parameters.
 
 ### Realistic in-game mod types now

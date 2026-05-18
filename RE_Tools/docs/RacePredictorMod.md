@@ -25,6 +25,8 @@ mods_order=example_mod.dll,race_predictor_mod.dll
 
 3. Inject → go to **race / betting** screen → wait for score lines in the loader console.
 
+**RE / probe:** [RaceBettingOdds.md](RaceBettingOdds.md) (static RE done; Frida capture pinned for `e0==0x1a` BetMore).
+
 **Betting vs race scoring:** On the betting screen, `HorseRaceScore` usually **early-outs** (`[ctx+0x258]==0`, `CanScoreHorse` @ `0xD6DC0`) so `[ctx+0x450]` is garbage. **v0.1.3** estimates as soon as the **pre-race screen** is up — UI `ctx+0xe0` **0x1a** (BetMore/BetMax) or **0x1b** before the **0x18** state that runs `SpendMoney` on the race button ([Race_91148.c.txt](ghidra_exports/Race_91148.c.txt) @ `0x912`). Estimate: `nice * years (+5)` from disasm @ `0xE2C29`–`0xE2F77` via `ClampInt3` @ `0xC12D0`. Labels show `(est)`.
 
 4. **Auto:** when ≥2 lanes are scored, prediction prints once (usually within ~1s on betting screen).
