@@ -48,7 +48,8 @@ Each function object:
 | `callers` | no | List of RVAs |
 | `callees` | no | List of RVAs |
 | `pair_read_rva` | no | Save I/O read twin |
-| `hook` | no | `{ "safe_pre_call": true, "notes": "..." }` |
+| `hook` | no | `{ "safe_pre_call": true, "notes": "..." }` → `game_function_hooks.json` |
+| `returns` | no | `{ "reg": "eax", "type": "int" }` for typedef generator |
 | `doc` | no | Relative path under `RE_Tools/docs/` |
 | `decompile` | no | `ghidra_exports/*.c.txt` |
 | `disasm` | no | `analysis/disasm_*.txt` |
@@ -127,7 +128,7 @@ Strings also name: `Betting`, `BetMore`, `HorseMart`, `GrabHorse`, `Studs`, …
 
 ## SDK consumption (Phase 3+)
 
-Mods and `SDK/` link against **`GameFunctions.h`**:
+Mods and **`SDK/`** link against **`horse/game_functions.h`** (same content as **`GameFunctions.h`**):
 
 ```c
 #include "horse/GameFunctions.h"

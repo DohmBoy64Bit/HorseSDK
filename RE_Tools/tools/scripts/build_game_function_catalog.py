@@ -23,6 +23,13 @@ AN = ROOT / "RE_Tools" / "analysis"
 DOC = ROOT / "RE_Tools" / "docs"
 OUT_JSON = AN / "game_function_catalog.json"
 OUT_H = DOC / "GameFunctions.h"
+OUT_H_SDK = ROOT / "SDK" / "include" / "horse" / "game_functions.h"
+OUT_TYPES_SDK = ROOT / "SDK" / "include" / "horse" / "game_function_types.h"
+OUT_HOOKS_SDK = ROOT / "SDK" / "include" / "horse" / "game_function_hooks.h"
+OUT_HOOKS_JSON = AN / "game_function_hooks.json"
+
+REG_ORDER = ("rcx", "rdx", "r8", "r9")
+REG_ALIASES = {"ecx": "rcx", "edx": "rdx", "r8d": "r8", "r9d": "r9"}
 PAIRS = AN / "save_read_write_pairs.json"
 SEED_EXTRA = AN / "catalog_seed.json"
 IMAGE_BASE = 0x140000000
@@ -51,6 +58,8 @@ def fn(
     globals_: list[dict] | None = None,
     struct_offsets: dict[str, str] | None = None,
     parameters: list[dict] | None = None,
+    returns: dict | None = None,
+    hook: dict | None = None,
     verification: list[str] | None = None,
 ) -> dict:
     entry = {
@@ -78,6 +87,10 @@ def fn(
         entry["struct_offsets"] = struct_offsets
     if parameters:
         entry["parameters"] = parameters
+    if returns:
+        entry["returns"] = returns
+    if hook:
+        entry["hook"] = hook
     disasm = AN / f"disasm_{name}.txt"
     if disasm.is_file():
         entry["disasm"] = str(disasm.relative_to(ROOT)).replace("\\", "/")
@@ -140,6 +153,13 @@ CURATED: list[dict] = [
         "loop",
         "int clamp(ecx, edx, r8d) — misnamed Game_SimStep in early notes",
         doc="RE_Tools/docs/ClampInt3.md",
+        parameters=[
+            {"reg": "ecx", "type": "int", "name": "value"},
+            {"reg": "edx", "type": "int", "name": "lo"},
+            {"reg": "r8", "type": "int", "name": "hi"},
+        ],
+        returns={"reg": "eax", "type": "int"},
+        hook={"safe_pre_call": True, "notes": "Pure clamp; safe to wrap"},
     ),
     fn(
         "save_write",
@@ -151,6 +171,7 @@ CURATED: list[dict] = [
         decompile="RE_Tools/docs/ghidra_exports/Save_Write.c.txt",
         callers=["0x98680", "0x10A2C2", "0x10A822"],
         parameters=[{"reg": "rcx", "type": "void *", "name": "ctx"}],
+        hook={"safe_pre_call": True, "notes": "Pre-call: log ctx; avoid re-entrancy"},
         verification=["capstone", "frida", "ghidra"],
     ),
     fn(
@@ -161,6 +182,8 @@ CURATED: list[dict] = [
         "Load save file into ctx (mirror of Save_Write)",
         doc="RE_Tools/docs/SaveLoadPath.md",
         pair_read_rva=None,
+        parameters=[{"reg": "rcx", "type": "void *", "name": "ctx"}],
+        hook={"safe_pre_call": True, "notes": "Pre-call: backup save path"},
         verification=["capstone", "ghidra"],
     ),
     fn(
@@ -330,6 +353,7 @@ CURATED: list[dict] = [
             "ctx+0x30c": "money_ui_timer",
             "ctx+0x310": "last_delta",
         },
+        hook={"safe_pre_call": True, "notes": "UI feedback on credit"},
         verification=["capstone", "ghidra"],
     ),
     fn(
@@ -391,6 +415,11 @@ CURATED: list[dict] = [
             "ctx+0x30c": "money_ui_timer",
             "ctx+0x310": "last_delta",
         },
+        parameters=[
+            {"reg": "rcx", "type": "void *", "name": "ctx"},
+            {"reg": "edx", "type": "int", "name": "cost"},
+        ],
+        hook={"safe_pre_call": True, "notes": "Shop/race betting debit"},
     ),
     fn(
         "buy_item",
@@ -430,6 +459,8 @@ CURATED: list[dict] = [
         "PRNG: state @ 0x3128D8; returns edx % ecx; range overload @ 0xC1940",
         status="partial",
         doc="RE_Tools/docs/RaceMechanics.md",
+        parameters=[{"reg": "ecx", "type": "int", "name": "modulus"}],
+        returns={"reg": "eax", "type": "int"},
         verification=["capstone"],
     ),
     fn(
@@ -440,6 +471,8 @@ CURATED: list[dict] = [
         "Per-frame race sim: 0x70-byte slots @ ctx+0x280, updates horse+0x220 speed",
         status="partial",
         doc="RE_Tools/docs/RaceMechanics.md",
+        parameters=[{"reg": "rcx", "type": "void *", "name": "race_ctx"}],
+        hook={"safe_pre_call": True, "notes": "Hot path; throttle logging"},
         verification=["capstone", "ghidra"],
     ),
     fn(
@@ -471,6 +504,10 @@ CURATED: list[dict] = [
         status="partial",
         decompile="RE_Tools/docs/ghidra_exports/HorseRaceScore.c.txt",
         doc="RE_Tools/docs/RaceMechanics.md",
+        parameters=[
+            {"reg": "rcx", "type": "void *", "name": "race_ctx"},
+            {"reg": "edx", "type": "int", "name": "horse_index"},
+        ],
         verification=["capstone"],
     ),
     fn(
@@ -635,7 +672,136 @@ def write_header(functions: list[dict]) -> None:
             "",
         ]
     )
-    OUT_H.write_text("\n".join(lines), encoding="utf-8")
+    text = "\n".join(lines)
+    OUT_H.write_text(text, encoding="utf-8")
+    OUT_H_SDK.parent.mkdir(parents=True, exist_ok=True)
+    OUT_H_SDK.write_text(text, encoding="utf-8")
+
+
+def _norm_reg(reg: str) -> str:
+    return REG_ALIASES.get(reg.lower(), reg.lower())
+
+
+def _param_sort_key(param: dict) -> int:
+    try:
+        return REG_ORDER.index(_norm_reg(param["reg"]))
+    except ValueError:
+        return 99
+
+
+def write_types_header(functions: list[dict]) -> None:
+    lines = [
+        "/**",
+        " * Typed function pointers (microsoft x64) from catalog parameters.",
+        " * Regenerate: python RE_Tools/tools/scripts/build_game_function_catalog.py",
+        " */",
+        "#ifndef HORSE_GAME_FUNCTION_TYPES_H",
+        "#define HORSE_GAME_FUNCTION_TYPES_H",
+        "",
+        '#include "horse/game_functions.h"',
+        '#include "horse/module.h"',
+        "",
+        "#ifdef __cplusplus",
+        'extern "C" {',
+        "#endif",
+        "",
+    ]
+    for f in sorted(functions, key=lambda x: x["name"]):
+        params = f.get("parameters")
+        if not params:
+            continue
+        macro = re.sub(r"[^A-Za-z0-9_]", "_", f["name"])
+        sorted_params = sorted(params, key=_param_sort_key)
+        arg_list = ", ".join(f"{p['type']} {p['name']}" for p in sorted_params)
+        ret = f.get("returns", {}).get("type", "void")
+        lines.append(f"typedef {ret} (*HORSE_FN_{macro})({arg_list});")
+        lines.append(
+            f"#define HORSE_PTR_{macro}(base) "
+            f"((HORSE_FN_{macro})horse_module_rva((base), HORSE_RVA_{macro}))"
+        )
+        lines.append("")
+    lines.extend(
+        [
+            "#ifdef __cplusplus",
+            "}",
+            "#endif",
+            "",
+            "#endif /* HORSE_GAME_FUNCTION_TYPES_H */",
+            "",
+        ]
+    )
+    OUT_TYPES_SDK.parent.mkdir(parents=True, exist_ok=True)
+    OUT_TYPES_SDK.write_text("\n".join(lines), encoding="utf-8")
+
+
+def write_hooks_artifacts(functions: list[dict]) -> None:
+    hooked = [f for f in functions if f.get("hook")]
+    hooks_json = {
+        "schema": "horse_hook_catalog_v1",
+        "image_base": hex(IMAGE_BASE),
+        "hooks": [
+            {
+                "id": f["id"],
+                "name": f["name"],
+                "rva": f["rva"],
+                "safe_pre_call": bool(f["hook"].get("safe_pre_call")),
+                "notes": f["hook"].get("notes", ""),
+            }
+            for f in sorted(hooked, key=lambda x: x["rva"])
+        ],
+    }
+    OUT_HOOKS_JSON.write_text(json.dumps(hooks_json, indent=2), encoding="utf-8")
+
+    lines = [
+        "/**",
+        " * Hook catalog for mod loader (Phase 4).",
+        " * Regenerate: python RE_Tools/tools/scripts/build_game_function_catalog.py",
+        " */",
+        "#ifndef HORSE_GAME_FUNCTION_HOOKS_H",
+        "#define HORSE_GAME_FUNCTION_HOOKS_H",
+        "",
+        '#include "horse/game_functions.h"',
+        "#include <stddef.h>",
+        "#include <stdint.h>",
+        "",
+        "#ifdef __cplusplus",
+        'extern "C" {',
+        "#endif",
+        "",
+        "typedef struct HorseHookCatalogEntry {",
+        "    const char *id;",
+        "    const char *name;",
+        "    uint32_t rva;",
+        "    uint8_t safe_pre_call;",
+        "    const char *notes;",
+        "} HorseHookCatalogEntry;",
+        "",
+        "static const HorseHookCatalogEntry g_horse_hook_catalog[] = {",
+    ]
+    for f in hooks_json["hooks"]:
+        notes = f["notes"].replace("\\", "\\\\").replace('"', '\\"')
+        rva = rva_int(f["rva"])
+        lines.append(
+            f'    {{ "{f["id"]}", "{f["name"]}", 0x{rva:08X}u, '
+            f'{1 if f["safe_pre_call"] else 0}, "{notes}" }},'
+        )
+    lines.extend(
+        [
+            "};",
+            "",
+            "#define HORSE_HOOK_CATALOG_COUNT "
+            f"(sizeof(g_horse_hook_catalog) / sizeof(g_horse_hook_catalog[0]))",
+            "",
+            "#ifdef __cplusplus",
+            "}",
+            "#endif",
+            "",
+            "#endif /* HORSE_GAME_FUNCTION_HOOKS_H */",
+            "",
+        ]
+    )
+    OUT_HOOKS_SDK.parent.mkdir(parents=True, exist_ok=True)
+    OUT_HOOKS_SDK.write_text("\n".join(lines), encoding="utf-8")
 
 
 def _prefer_catalog_entry(a: dict, b: dict) -> bool:
@@ -722,8 +888,14 @@ def main() -> int:
         report["summary"]["by_category"][c] = report["summary"]["by_category"].get(c, 0) + 1
     OUT_JSON.write_text(json.dumps(report, indent=2), encoding="utf-8")
     write_header(functions)
+    write_types_header(functions)
+    write_hooks_artifacts(functions)
     print(f"Wrote {OUT_JSON} functions={len(functions)} verified={verified}")
     print(f"Wrote {OUT_H}")
+    print(f"Wrote {OUT_H_SDK}")
+    print(f"Wrote {OUT_TYPES_SDK}")
+    print(f"Wrote {OUT_HOOKS_SDK}")
+    print(f"Wrote {OUT_HOOKS_JSON}")
     return 0
 
 

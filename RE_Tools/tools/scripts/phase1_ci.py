@@ -32,6 +32,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-frida", action="store_true")
     ap.add_argument("--skip-horse-save", action="store_true")
+    ap.add_argument("--skip-sdk", action="store_true")
     args = ap.parse_args()
 
     steps: list[tuple[str, int]] = []
@@ -74,6 +75,9 @@ def main() -> int:
     if not args.skip_frida:
         for name in ["frida_game_sim_step.py", "frida_font_trace.py"]:
             steps.append((name, run([sys.executable, str(SCRIPTS / name), "--seconds", "10"])))
+
+    if not args.skip_sdk:
+        steps.append(("sdk_ci", run([sys.executable, str(SCRIPTS / "sdk_ci.py")])))
 
     print("\n=== phase1_ci summary ===")
     failed = [n for n, rc in steps if rc != 0]

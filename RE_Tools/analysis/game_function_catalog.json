@@ -60,7 +60,11 @@
           "type": "char",
           "name": "show_ui"
         }
-      ]
+      ],
+      "hook": {
+        "safe_pre_call": true,
+        "notes": "UI feedback on credit"
+      }
     },
     {
       "id": "spend_money",
@@ -79,6 +83,22 @@
         "ctx+0x308": "money",
         "ctx+0x30c": "money_ui_timer",
         "ctx+0x310": "last_delta"
+      },
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "ctx"
+        },
+        {
+          "reg": "edx",
+          "type": "int",
+          "name": "cost"
+        }
+      ],
+      "hook": {
+        "safe_pre_call": true,
+        "notes": "Shop/race betting debit"
       }
     },
     {
@@ -496,6 +516,31 @@
         "frida"
       ],
       "doc": "RE_Tools/docs/ClampInt3.md",
+      "parameters": [
+        {
+          "reg": "ecx",
+          "type": "int",
+          "name": "value"
+        },
+        {
+          "reg": "edx",
+          "type": "int",
+          "name": "lo"
+        },
+        {
+          "reg": "r8",
+          "type": "int",
+          "name": "hi"
+        }
+      ],
+      "returns": {
+        "reg": "eax",
+        "type": "int"
+      },
+      "hook": {
+        "safe_pre_call": true,
+        "notes": "Pure clamp; safe to wrap"
+      },
       "disasm": "RE_Tools/analysis/disasm_ClampInt3.txt"
     },
     {
@@ -680,7 +725,18 @@
         "capstone",
         "ghidra"
       ],
-      "doc": "RE_Tools/docs/RaceMechanics.md"
+      "doc": "RE_Tools/docs/RaceMechanics.md",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "race_ctx"
+        }
+      ],
+      "hook": {
+        "safe_pre_call": true,
+        "notes": "Hot path; throttle logging"
+      }
     },
     {
       "id": "race_update_horses",
@@ -722,7 +778,18 @@
       "verification": [
         "capstone"
       ],
-      "doc": "RE_Tools/docs/RaceMechanics.md"
+      "doc": "RE_Tools/docs/RaceMechanics.md",
+      "parameters": [
+        {
+          "reg": "ecx",
+          "type": "int",
+          "name": "modulus"
+        }
+      ],
+      "returns": {
+        "reg": "eax",
+        "type": "int"
+      }
     },
     {
       "id": "sim_rand_seed",
@@ -766,7 +833,19 @@
         "capstone"
       ],
       "doc": "RE_Tools/docs/RaceMechanics.md",
-      "decompile": "RE_Tools/docs/ghidra_exports/HorseRaceScore.c.txt"
+      "decompile": "RE_Tools/docs/ghidra_exports/HorseRaceScore.c.txt",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "race_ctx"
+        },
+        {
+          "reg": "edx",
+          "type": "int",
+          "name": "horse_index"
+        }
+      ]
     },
     {
       "id": "footer_extra_write",
@@ -860,6 +939,10 @@
           "name": "ctx"
         }
       ],
+      "hook": {
+        "safe_pre_call": true,
+        "notes": "Pre-call: log ctx; avoid re-entrancy"
+      },
       "disasm": "RE_Tools/analysis/disasm_Save_Write.txt"
     },
     {
@@ -876,6 +959,17 @@
         "ghidra"
       ],
       "doc": "RE_Tools/docs/SaveLoadPath.md",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "ctx"
+        }
+      ],
+      "hook": {
+        "safe_pre_call": true,
+        "notes": "Pre-call: backup save path"
+      },
       "disasm": "RE_Tools/analysis/disasm_Save_Load.txt"
     },
     {

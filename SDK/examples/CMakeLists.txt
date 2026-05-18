@@ -1,0 +1,2 @@
+add_executable(horse_resolve_example resolve_rvas.c)
+target_link_libraries(horse_resolve_example PRIVATE horse_sdk)

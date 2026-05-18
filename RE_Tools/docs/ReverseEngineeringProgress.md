@@ -136,6 +136,21 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - **Frida:** `RaceAdvanceSim` @ `0x8C9E0` logs `[race_ctx+0x450]` as `race_score_450` vs `finish_place` in `gameplay_frida.json`.
 - **Doc:** [RaceMechanics.md](RaceMechanics.md) · [SimStartRace.md](SimStartRace.md).
 
+## [KNOWLEDGE UPDATE] 2026-05-17 (Phase 3 complete + Phase 4 skeleton)
+
+- **Typedefs:** `game_function_types.h` (`HORSE_FN_*`, `HORSE_PTR_*`) from catalog `parameters`.
+- **Hooks JSON:** `game_function_hooks.json` + `game_function_hooks.h` (`g_horse_hook_catalog`).
+- **horse_data:** C parsers for `genes.dat` + `horsey.tmx` (`RE_Tools/src/horse_data/`).
+- **CI:** `sdk_ci.py` (catalog, SDK build, data smoke, modloader build).
+- **Mod loader:** `ModLoader/HorseModLoader.dll`, `horse_inject.exe`, `mods/example_mod` — [Phase4_ModLoader.md](Phase4_ModLoader.md).
+
+## [KNOWLEDGE UPDATE] 2026-05-17 (Phase 3 — SDK scaffold)
+
+- **`SDK/`** CMake project: `horse_sdk` (`module.c`, `hook.c`), links **`horse_save`**, installs headers.
+- **Generated:** `SDK/include/horse/game_functions.h` via `build_game_function_catalog.py` (dual-write with `GameFunctions.h`).
+- **API:** `horse_module_base`, `horse_resolve`, `horse_hook_install` / `horse_hook_remove` (Windows x64 5-byte JMP).
+- **Doc:** [Phase3_SDK.md](Phase3_SDK.md) · race RE **pinned** in [RaceMechanics.md](RaceMechanics.md).
+
 ## [KNOWLEDGE UPDATE] 2026-05-17 (Phase 2 — game function catalog)
 
 - **New phase:** disasm + decompile + name all `Horsey.exe` game routines for SDK — [GameFunctionCatalog.md](GameFunctionCatalog.md).

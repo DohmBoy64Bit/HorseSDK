@@ -1,0 +1,48 @@
+{
+  "schema": "horse_hook_catalog_v1",
+  "image_base": "0x140000000",
+  "hooks": [
+    {
+      "id": "gain_money",
+      "name": "GainMoney",
+      "rva": "0x10ab80",
+      "safe_pre_call": true,
+      "notes": "UI feedback on credit"
+    },
+    {
+      "id": "spend_money",
+      "name": "SpendMoney",
+      "rva": "0x10ac60",
+      "safe_pre_call": true,
+      "notes": "Shop/race betting debit"
+    },
+    {
+      "id": "save_write",
+      "name": "Save_Write",
+      "rva": "0x6dab0",
+      "safe_pre_call": true,
+      "notes": "Pre-call: log ctx; avoid re-entrancy"
+    },
+    {
+      "id": "save_load",
+      "name": "Save_Load",
+      "rva": "0x6e2b0",
+      "safe_pre_call": true,
+      "notes": "Pre-call: backup save path"
+    },
+    {
+      "id": "race_advance_sim",
+      "name": "RaceAdvanceSim",
+      "rva": "0x8c9e0",
+      "safe_pre_call": true,
+      "notes": "Hot path; throttle logging"
+    },
+    {
+      "id": "clamp_int3",
+      "name": "ClampInt3",
+      "rva": "0xc12d0",
+      "safe_pre_call": true,
+      "notes": "Pure clamp; safe to wrap"
+    }
+  ]
+}

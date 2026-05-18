@@ -141,18 +141,22 @@ Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game rout
 - [ ] Per-function struct offsets in catalog (from disasm, not guesses)
 - [ ] CI: catalog build + RVA spot-check on `Horsey.exe`
 
-### Phase 3 — SDK (planned)
+### Phase 3 — SDK
 
-- [ ] Top-level **`SDK/`** — promote `horse_save` + ship `GameFunctions.h` from Phase 2
-- [ ] Stable public headers, CMake package config, versioned ABI policy
-- [ ] Typed hook helpers: `horse_hook(void *base, uint32_t rva, ...)`
-- [ ] Data file APIs: TMX, genes, atlases — built on verified parsers in `RE_Tools/tools/parsers/`
+**Hub:** [`Phase3_SDK.md`](RE_Tools/docs/Phase3_SDK.md) · build from [`SDK/README.md`](SDK/README.md)
 
-### Phase 4 — mod loader (planned)
+- [x] Top-level **`SDK/`** — `horse_sdk` + `horse_save` + `horse_data` + generated headers
+- [x] `game_function_types.h`, `game_function_hooks.h` from catalog
+- [x] `sdk_ci.py` (+ `phase1_ci.py --skip-sdk` to opt out)
+- [ ] bmfont / atlas in `horse_data` (genes + TMX done)
 
-- [ ] DLL injector: drop mods in `mods/`, load at game start
-- [ ] Hook bootstrap using **catalog** RVAs (`GameMain_InitAndLoop`, `Save_Write`, …)
-- [ ] Optional **debug console** (toggleable, logs hooks/state)
+### Phase 4 — mod loader (skeleton)
+
+**Hub:** [`Phase4_ModLoader.md`](RE_Tools/docs/Phase4_ModLoader.md)
+
+- [x] `HorseModLoader.dll` + `horse_inject.exe` + `mods/example_mod`
+- [x] `horse/mod_api.h` host ABI
+- [ ] Debug console, hook UI, MinHook backend
 
 ### Phase 5 — editors (planned)
 
