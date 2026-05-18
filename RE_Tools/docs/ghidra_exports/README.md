@@ -19,4 +19,6 @@ RE_Tools\ghidra_scripts\run_export_gameplay.bat
 
 Or in Ghidra GUI: **Script Manager** → `ExportGameplayDecompile.java` — see [ghidra_scripts/README.md](../../ghidra_scripts/README.md).
 
-Expected files: `GainMoney.c.txt`, `SimSpawnDisk.c.txt`, `BuyItem.c.txt`, `RaceCluster.c.txt`.
+Expected files: `GainMoney.c.txt`, `SimSpawnDisk.c.txt`, `BuyItem.c.txt`, `Race_91148.c.txt` (`RaceStateMachine`), `RaceAdvanceSim.c.txt`, `RaceUpdateHorses.c.txt`, `SimRandMod.c.txt`.
+
+Race outcomes: [RaceMechanics.md](../RaceMechanics.md).

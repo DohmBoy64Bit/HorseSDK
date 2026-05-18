@@ -62,10 +62,21 @@ Verified in `Game/Horsey.exe` inside this function’s RIP refs:
 | `escquits` | Escape quits |
 | `autosave` / `autoload` | `0x2F1550` timer (-1 or 1000) |
 | `ship`, `test`, `map`, `loc`, `labpop`, `money`, `horses`, `inv`, `tut` | Gameplay / UI toggles via `0x072280` |
+| **`seed`** | **`g_settings_seed`** @ **`0x2F1587`** — `Settings_ApplyValue` @ **`0x71BCE`** |
+| **`log_races`** | Enables race score debug `printf` @ `0xE3021` (see [RaceMechanics.md](RaceMechanics.md)) |
 
 Parser helper: **`Settings_ParseXmlKey` @ `0x72280`** (15× in function).  
 String intern/copy: **`FUN_140027e50`**.  
 Apply numeric/bool: **`FUN_140025750`**, **`FUN_1400256f0`**.
+
+### Seed and PRNG
+
+| Global | RVA | Role |
+|--------|-----|------|
+| `g_settings_seed` | `0x2F1587` | Written when XML key `seed` is parsed |
+| `g_prng_state` | `0x2F2700` | `SimRandMod` @ `0xC1900` state qword |
+
+Static RIP **read** of `g_settings_seed` not found; PRNG reseed uses `SimRandSeedFromFloat` @ `0xC2080`. Details: [RaceMechanics.md](RaceMechanics.md), [ghidra_exports/SimRandSeed.c.txt](ghidra_exports/SimRandSeed.c.txt).
 
 ---
 

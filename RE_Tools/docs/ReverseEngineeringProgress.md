@@ -128,6 +128,14 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 
 ---
 
+## [KNOWLEDGE UPDATE] 2026-05-15 (race mechanics — deep)
+
+- **HorseRaceScore** entry **`0xE2B80`** (vtable `0x267368[0]`); export [HorseRaceScore.c.txt](ghidra_exports/HorseRaceScore.c.txt).
+- **SimStartRace** handler **`RaceSimHandler` @ `0x5F020`**, post @ `0x5F365`; **`0x5F900`** is ctor only.
+- **Seed:** `settings.xml` → **`g_settings_seed` @ `0x2F1587`** @ `0x71BCE`; PRNG **`g_prng_state` @ `0x2F2700`** via **`SimRandMod` @ `0xC1900`**.
+- **Frida:** `RaceAdvanceSim` @ `0x8C9E0` logs `[race_ctx+0x450]` as `race_score_450` vs `finish_place` in `gameplay_frida.json`.
+- **Doc:** [RaceMechanics.md](RaceMechanics.md) · [SimStartRace.md](SimStartRace.md).
+
 ## [KNOWLEDGE UPDATE] 2026-05-17 (Phase 2 — game function catalog)
 
 - **New phase:** disasm + decompile + name all `Horsey.exe` game routines for SDK — [GameFunctionCatalog.md](GameFunctionCatalog.md).

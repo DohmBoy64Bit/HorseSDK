@@ -1,0 +1,231 @@
+; Horsey.exe+C1900 SimRandMod
+; capstone 640 bytes from entry
+
+0C1900: mov      rdx, qword ptr [rip + 0x230df9]
+0C1907: shl      rdx, 0xd
+0C190B: xor      rdx, qword ptr [rip + 0x230dee]
+0C1912: mov      r8, rdx
+0C1915: movsxd   rcx, ecx
+0C1918: shr      r8, 7
+0C191C: xor      r8, rdx
+0C191F: xor      edx, edx
+0C1921: mov      rax, r8
+0C1924: shl      rax, 0x11
+0C1928: xor      rax, r8
+0C192B: mov      qword ptr [rip + 0x230dce], rax
+0C1932: div      rcx
+0C1935: mov      eax, edx
+0C1937: ret      
+0C1938: int3     
+0C1939: int3     
+0C193A: int3     
+0C193B: int3     
+0C193C: int3     
+0C193D: int3     
+0C193E: int3     
+0C193F: int3     
+0C1940: mov      r8, qword ptr [rip + 0x230db9]
+0C1947: sub      edx, ecx
+0C1949: inc      edx
+0C194B: shl      r8, 0xd
+0C194F: xor      r8, qword ptr [rip + 0x230daa]
+0C1956: mov      r10d, ecx
+0C1959: movsxd   rcx, edx
+0C195C: mov      r9, r8
+0C195F: shr      r9, 7
+0C1963: xor      edx, edx
+0C1965: xor      r9, r8
+0C1968: mov      rax, r9
+0C196B: shl      rax, 0x11
+0C196F: xor      rax, r9
+0C1972: mov      qword ptr [rip + 0x230d87], rax
+0C1979: div      rcx
+0C197C: lea      eax, [r10 + rdx]
+0C1980: ret      
+0C1981: int3     
+0C1982: int3     
+0C1983: int3     
+0C1984: int3     
+0C1985: int3     
+0C1986: int3     
+0C1987: int3     
+0C1988: int3     
+0C1989: int3     
+0C198A: int3     
+0C198B: int3     
+0C198C: int3     
+0C198D: int3     
+0C198E: int3     
+0C198F: int3     
+0C1990: mov      rdx, qword ptr [rip + 0x230d69]
+0C1997: shl      rdx, 0xd
+0C199B: xor      rdx, qword ptr [rip + 0x230d5e]
+0C19A2: mov      rax, rdx
+0C19A5: shr      rax, 7
+0C19A9: xor      rax, rdx
+0C19AC: mov      r8, rax
+0C19AF: shl      r8, 0x11
+0C19B3: xor      r8, rax
+0C19B6: movabs   rax, 0x47ae147ae147ae15
+0C19C0: mul      r8
+0C19C3: mov      rax, r8
+0C19C6: mov      qword ptr [rip + 0x230d33], r8
+0C19CD: sub      rax, rdx
+0C19D0: shr      rax, 1
+0C19D3: add      rax, rdx
+0C19D6: shr      rax, 6
+0C19DA: imul     eax, eax, 0x64
+0C19DD: sub      r8d, eax
+0C19E0: cmp      r8d, ecx
+0C19E3: setl     al
+0C19E6: ret      
+0C19E7: int3     
+0C19E8: int3     
+0C19E9: int3     
+0C19EA: int3     
+0C19EB: int3     
+0C19EC: int3     
+0C19ED: int3     
+0C19EE: int3     
+0C19EF: int3     
+0C19F0: test     ecx, ecx
+0C19F2: jle      0x1400c1a30
+0C19F4: mov      rdx, qword ptr [rip + 0x230d05]
+0C19FB: shl      rdx, 0xd
+0C19FF: xor      rdx, qword ptr [rip + 0x230cfa]
+0C1A06: mov      r8, rdx
+0C1A09: movsxd   rcx, ecx
+0C1A0C: shr      r8, 7
+0C1A10: xor      r8, rdx
+0C1A13: xor      edx, edx
+0C1A15: mov      rax, r8
+0C1A18: shl      rax, 0x11
+0C1A1C: xor      rax, r8
+0C1A1F: mov      qword ptr [rip + 0x230cda], rax
+0C1A26: div      rcx
+0C1A29: test     edx, edx
+0C1A2B: jne      0x1400c1a30
+0C1A2D: mov      al, 1
+0C1A2F: ret      
+0C1A30: xor      al, al
+0C1A32: ret      
+0C1A33: int3     
+0C1A34: int3     
+0C1A35: int3     
+0C1A36: int3     
+0C1A37: int3     
+0C1A38: int3     
+0C1A39: int3     
+0C1A3A: int3     
+0C1A3B: int3     
+0C1A3C: int3     
+0C1A3D: int3     
+0C1A3E: int3     
+0C1A3F: int3     
+0C1A40: mov      rcx, qword ptr [rip + 0x230cb9]
+0C1A47: shl      rcx, 0xd
+0C1A4B: xor      rcx, qword ptr [rip + 0x230cae]
+0C1A52: mov      rdx, rcx
+0C1A55: shr      rdx, 7
+0C1A59: xor      rdx, rcx
+0C1A5C: mov      rax, rdx
+0C1A5F: shl      rax, 0x11
+0C1A63: xor      rax, rdx
+0C1A66: mov      qword ptr [rip + 0x230c93], rax
+0C1A6D: not      al
+0C1A6F: and      al, 1
+0C1A71: ret      
+0C1A72: int3     
+0C1A73: int3     
+0C1A74: int3     
+0C1A75: int3     
+0C1A76: int3     
+0C1A77: int3     
+0C1A78: int3     
+0C1A79: int3     
+0C1A7A: int3     
+0C1A7B: int3     
+0C1A7C: int3     
+0C1A7D: int3     
+0C1A7E: int3     
+0C1A7F: int3     
+0C1A80: mov      r8, qword ptr [rip + 0x230c79]
+0C1A87: shl      r8, 0xd
+0C1A8B: xor      r8, qword ptr [rip + 0x230c6e]
+0C1A92: mov      r9, r8
+0C1A95: shr      r9, 7
+0C1A99: xor      r9, r8
+0C1A9C: mov      rax, r9
+0C1A9F: shl      rax, 0x11
+0C1AA3: xor      rax, r9
+0C1AA6: test     al, 1
+0C1AA8: mov      qword ptr [rip + 0x230c51], rax
+0C1AAF: cmove    edx, ecx
+0C1AB2: mov      eax, edx
+0C1AB4: ret      
+0C1AB5: int3     
+0C1AB6: int3     
+0C1AB7: int3     
+0C1AB8: int3     
+0C1AB9: int3     
+0C1ABA: int3     
+0C1ABB: int3     
+0C1ABC: int3     
+0C1ABD: int3     
+0C1ABE: int3     
+0C1ABF: int3     
+0C1AC0: mov      r9, qword ptr [rip + 0x230c39]
+0C1AC7: mov      r10d, ecx
+0C1ACA: shl      r9, 0xd
+0C1ACE: mov      r11d, edx
+0C1AD1: xor      r9, qword ptr [rip + 0x230c28]
+0C1AD8: mov      rax, r9
+0C1ADB: shr      rax, 7
+0C1ADF: xor      rax, r9
+0C1AE2: mov      rcx, rax
+0C1AE5: shl      rcx, 0x11
+0C1AE9: xor      rcx, rax
+0C1AEC: movabs   rax, 0xaaaaaaaaaaaaaaab
+0C1AF6: mul      rcx
+0C1AF9: mov      qword ptr [rip + 0x230c00], rcx
+0C1B00: shr      rdx, 1
+0C1B03: lea      eax, [rdx + rdx*2]
+0C1B06: sub      ecx, eax
+0C1B08: jne      0x1400c1b0e
+0C1B0A: mov      eax, r10d
+0C1B0D: ret      
+0C1B0E: cmp      ecx, 1
+0C1B11: cmove    r8d, r11d
+0C1B15: mov      eax, r8d
+0C1B18: ret      
+0C1B19: int3     
+0C1B1A: int3     
+0C1B1B: int3     
+0C1B1C: int3     
+0C1B1D: int3     
+0C1B1E: int3     
+0C1B1F: int3     
+0C1B20: mov      qword ptr [rsp + 8], rbx
+0C1B25: mov      qword ptr [rsp + 0x10], rsi
+0C1B2A: mov      qword ptr [rsp + 0x18], rdi
+0C1B2F: mov      r10, qword ptr [rip + 0x230bca]
+0C1B36: mov      esi, edx
+0C1B38: mov      edx, dword ptr [rsp + 0x38]
+0C1B3C: mov      ebx, ecx
+0C1B3E: mov      edi, dword ptr [rsp + 0x40]
+0C1B42: shl      r10, 0xd
+0C1B46: xor      r10, qword ptr [rip + 0x230bb3]
+0C1B4D: mov      r11, r10
+0C1B50: shr      r11, 7
+0C1B54: xor      r11, r10
+0C1B57: lea      r10d, [rcx + r8]
+0C1B5B: mov      r8d, dword ptr [rsp + 0x28]
+0C1B60: mov      rax, r11
+0C1B63: shl      rax, 0x11
+0C1B67: add      r8d, r10d
+0C1B6A: add      edx, r8d
+0C1B6D: xor      rax, r11
+0C1B70: movsxd   rcx, edx
+0C1B73: xor      edx, edx
+0C1B75: mov      qword ptr [rip + 0x230b84], rax
+0C1B7C: div      rcx

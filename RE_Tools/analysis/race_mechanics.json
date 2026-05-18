@@ -1,0 +1,218 @@
+{
+  "source": "Game/Horsey.exe",
+  "image_base": "0x140000000",
+  "race_score_format": {
+    "string_rva": "0x2674e0",
+    "text": "%s = (%d rand + %d nice + %d record) * %d years + %d deco   gdist=%.3f",
+    "xrefs": [
+      {
+        "xref_rva": "0xe3021",
+        "function_entry": "0xe03a0"
+      },
+      {
+        "xref_rva": "0xe3022",
+        "function_entry": "0xe03a0"
+      }
+    ],
+    "function_entry": "0xE2B80",
+    "vtable_rva": "0x267368",
+    "vtable_slot0": "0xE2B80",
+    "formula_store_rva": "0xE2FBD",
+    "ctx_race_score_offset": "0x450",
+    "pseudocode": "score = (record + nice + rand) * years + deco; optional +5; store [ctx+0x450]"
+  },
+  "sim_start_race_handler": {
+    "entry": "0x5F020",
+    "name": "RaceSimHandler",
+    "sim_start_post_rva": "0x5F365",
+    "race_active_flag": "ctx+0x258",
+    "ui_state_eq_7": "ctx+0xE0"
+  },
+  "race_sim_object_init": {
+    "entry": "0x5F900",
+    "note": "ctor only, not SimStartRace handler"
+  },
+  "settings_seed": {
+    "key_string_rva": "0x26254C",
+    "parse_rva": "0x71BCE",
+    "global_rva": "0x2F1587",
+    "name": "g_settings_seed"
+  },
+  "prng": {
+    "global_rva": "0x2F2700",
+    "sim_rand_mod": "0xC1900",
+    "sim_rand_seed": "0xC2080"
+  },
+  "lerp_horse": {
+    "tag_rva": "0x262830",
+    "xrefs": [
+      {
+        "xref_rva": "0x7622a",
+        "function_entry": "0x73254"
+      }
+    ],
+    "function_entry_guess": "0x73254"
+  },
+  "sim_start_race": {
+    "tag_rva": "0x25bb70",
+    "xrefs": [
+      {
+        "xref_rva": "0x33120",
+        "function_entry": "0x30492"
+      },
+      {
+        "xref_rva": "0x5f37a",
+        "function_entry": "0x5c400"
+      }
+    ]
+  },
+  "pinned_functions": [
+    {
+      "name": "RaceStateMachine",
+      "rva": "0x8f2b0"
+    },
+    {
+      "name": "RaceAdvanceSim",
+      "rva": "0x8c9e0"
+    },
+    {
+      "name": "RaceUpdateHorses",
+      "rva": "0x8cc10"
+    },
+    {
+      "name": "RacePhaseDispatch",
+      "rva": "0x8a7f0"
+    },
+    {
+      "name": "RaceInitLayout",
+      "rva": "0x8a850"
+    },
+    {
+      "name": "SimMessageDispatch",
+      "rva": "0x5e0c2"
+    },
+    {
+      "name": "SimRandMod",
+      "rva": "0xc1900"
+    },
+    {
+      "name": "GainMoney",
+      "rva": "0x10ab80"
+    },
+    {
+      "name": "SpendMoney",
+      "rva": "0x10ac60"
+    }
+  ],
+  "sim_rand_mod_callers_sample": [
+    {
+      "call_rva": "0x2d14a",
+      "caller_entry": "0x2a15d"
+    },
+    {
+      "call_rva": "0x2d319",
+      "caller_entry": "0x2a860"
+    },
+    {
+      "call_rva": "0x2d37a",
+      "caller_entry": "0x2a860"
+    },
+    {
+      "call_rva": "0x2d465",
+      "caller_entry": "0x2a860"
+    },
+    {
+      "call_rva": "0x2d5b0",
+      "caller_entry": "0x2a860"
+    },
+    {
+      "call_rva": "0x2d63e",
+      "caller_entry": "0x2a860"
+    },
+    {
+      "call_rva": "0x2d6b0",
+      "caller_entry": "0x2a860"
+    },
+    {
+      "call_rva": "0x2dcb5",
+      "caller_entry": "0x2ade0"
+    },
+    {
+      "call_rva": "0x2de34",
+      "caller_entry": "0x2af50"
+    },
+    {
+      "call_rva": "0x2de4e",
+      "caller_entry": "0x2af50"
+    },
+    {
+      "call_rva": "0x3015e",
+      "caller_entry": "0x2d190"
+    },
+    {
+      "call_rva": "0x30190",
+      "caller_entry": "0x2d190"
+    },
+    {
+      "call_rva": "0x319ad",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31ce5",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31cfa",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31d2c",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31d41",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31d55",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31d6a",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31d7e",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31d93",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31da7",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x31dbc",
+      "caller_entry": "0x2eee0"
+    },
+    {
+      "call_rva": "0x326e5",
+      "caller_entry": "0x2f9d0"
+    }
+  ],
+  "disasm_files": [
+    "RE_Tools/analysis/disasm_race_RaceStateMachine.txt",
+    "RE_Tools/analysis/disasm_race_RaceAdvanceSim.txt",
+    "RE_Tools/analysis/disasm_race_RaceUpdateHorses.txt",
+    "RE_Tools/analysis/disasm_race_RacePhaseDispatch.txt",
+    "RE_Tools/analysis/disasm_race_RaceInitLayout.txt",
+    "RE_Tools/analysis/disasm_race_SimMessageDispatch.txt",
+    "RE_Tools/analysis/disasm_race_SimRandMod.txt",
+    "RE_Tools/analysis/disasm_race_GainMoney.txt",
+    "RE_Tools/analysis/disasm_race_SpendMoney.txt",
+    "RE_Tools/analysis/disasm_race_HorseRaceScore.txt",
+    "RE_Tools/analysis/disasm_race_LerpHorse.txt"
+  ]
+}

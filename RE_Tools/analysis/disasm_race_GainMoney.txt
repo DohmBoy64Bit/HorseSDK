@@ -1,0 +1,165 @@
+; Horsey.exe+10AB80 GainMoney
+; capstone 640 bytes from entry
+
+10AB80: sub      rsp, 0x58
+10AB84: mov      dword ptr [rcx + 0x310], edx
+10AB8A: add      dword ptr [rcx + 0x308], edx
+10AB90: mov      dword ptr [rcx + 0x30c], 0x3c
+10AB9A: test     r8b, r8b
+10AB9D: jne      0x14010ac30
+10ABA3: xorps    xmm0, xmm0
+10ABA6: movups   xmmword ptr [rsp + 0x30], xmm0
+10ABAB: movdqa   xmm1, xmmword ptr [rip + 0x1514ad]
+10ABB3: movdqu   xmmword ptr [rsp + 0x40], xmm1
+10ABB9: movsd    xmm0, qword ptr [rip + 0x160ecf]
+10ABC1: movsd    qword ptr [rsp + 0x30], xmm0
+10ABC7: movzx    eax, byte ptr [rip + 0x160eca]
+10ABCE: mov      byte ptr [rsp + 0x38], al
+10ABD2: mov      byte ptr [rsp + 0x39], r8b
+10ABD7: mov      byte ptr [rsp + 0x20], r8b
+10ABDC: movss    xmm3, dword ptr [rip + 0x1b4f70]
+10ABE4: xor      r8d, r8d
+10ABE7: mov      edx, 0x3c
+10ABEC: lea      rcx, [rsp + 0x30]
+10ABF1: call     0x140040ce0
+10ABF6: nop      
+10ABF7: mov      rdx, qword ptr [rsp + 0x48]
+10ABFC: cmp      rdx, 0xf
+10AC00: jbe      0x14010ac30
+10AC02: inc      rdx
+10AC05: mov      rcx, qword ptr [rsp + 0x30]
+10AC0A: mov      rax, rcx
+10AC0D: cmp      rdx, 0x1000
+10AC14: jb       0x14010ac2b
+10AC16: add      rdx, 0x27
+10AC1A: mov      rcx, qword ptr [rcx - 8]
+10AC1E: sub      rax, rcx
+10AC21: sub      rax, 8
+10AC25: cmp      rax, 0x1f
+10AC29: ja       0x14010ac35
+10AC2B: call     0x14021e450
+10AC30: add      rsp, 0x58
+10AC34: ret      
+10AC35: mov      qword ptr [rsp + 0x20], 0
+10AC3E: xor      r9d, r9d
+10AC41: xor      r8d, r8d
+10AC44: xor      edx, edx
+10AC46: xor      ecx, ecx
+10AC48: call     0x140224844
+10AC4D: int3     
+10AC4E: int3     
+10AC4F: int3     
+10AC50: int3     
+10AC51: int3     
+10AC52: int3     
+10AC53: int3     
+10AC54: int3     
+10AC55: int3     
+10AC56: int3     
+10AC57: int3     
+10AC58: int3     
+10AC59: int3     
+10AC5A: int3     
+10AC5B: int3     
+10AC5C: int3     
+10AC5D: int3     
+10AC5E: int3     
+10AC5F: int3     
+10AC60: push     rbx
+10AC62: sub      rsp, 0x50
+10AC66: mov      r10d, dword ptr [rcx + 0x308]
+10AC6D: cmp      r10d, edx
+10AC70: jl       0x14010ad41
+10AC76: mov      eax, edx
+10AC78: neg      eax
+10AC7A: mov      dword ptr [rcx + 0x310], eax
+10AC80: sub      r10d, edx
+10AC83: mov      dword ptr [rcx + 0x308], r10d
+10AC8A: mov      dword ptr [rcx + 0x30c], 0x3c
+10AC94: test     r8b, r8b
+10AC97: jne      0x14010ad39
+10AC9D: lea      rax, [rip + 0x152d9c]
+10ACA4: lea      rbx, [rip + 0x160df5]
+10ACAB: test     r9b, r9b
+10ACAE: cmovne   rbx, rax
+10ACB2: xorps    xmm0, xmm0
+10ACB5: movups   xmmword ptr [rsp + 0x30], xmm0
+10ACBA: xorps    xmm1, xmm1
+10ACBD: movdqu   xmmword ptr [rsp + 0x40], xmm1
+10ACC3: mov      rcx, rbx
+10ACC6: call     0x140251ce0
+10ACCB: mov      r8, rax
+10ACCE: mov      rdx, rbx
+10ACD1: lea      rcx, [rsp + 0x30]
+10ACD6: call     0x140027e50
+10ACDB: nop      
+10ACDC: mov      byte ptr [rsp + 0x20], 0
+10ACE1: movss    xmm3, dword ptr [rip + 0x1b4e6b]
+10ACE9: xor      r8d, r8d
+10ACEC: mov      edx, 0x3c
+10ACF1: lea      rcx, [rsp + 0x30]
+10ACF6: call     0x140040ce0
+10ACFB: nop      
+10ACFC: mov      rdx, qword ptr [rsp + 0x48]
+10AD01: cmp      rdx, 0xf
+10AD05: jbe      0x14010ad39
+10AD07: inc      rdx
+10AD0A: mov      rcx, qword ptr [rsp + 0x30]
+10AD0F: mov      rax, rcx
+10AD12: cmp      rdx, 0x1000
+10AD19: jb       0x14010ad34
+10AD1B: add      rdx, 0x27
+10AD1F: mov      rcx, qword ptr [rcx - 8]
+10AD23: sub      rax, rcx
+10AD26: sub      rax, 8
+10AD2A: cmp      rax, 0x1f
+10AD2E: ja       0x14010adfa
+10AD34: call     0x14021e450
+10AD39: mov      al, 1
+10AD3B: add      rsp, 0x50
+10AD3F: pop      rbx
+10AD40: ret      
+10AD41: xorps    xmm0, xmm0
+10AD44: movups   xmmword ptr [rsp + 0x30], xmm0
+10AD49: movdqa   xmm1, xmmword ptr [rip + 0x15133f]
+10AD51: movdqu   xmmword ptr [rsp + 0x40], xmm1
+10AD57: movsd    xmm0, qword ptr [rip + 0x15bfd9]
+10AD5F: movsd    qword ptr [rsp + 0x30], xmm0
+10AD65: mov      eax, dword ptr [rip + 0x15bfd5]
+10AD6B: mov      dword ptr [rsp + 0x38], eax
+10AD6F: movzx    eax, word ptr [rip + 0x15bfce]
+10AD76: mov      word ptr [rsp + 0x3c], ax
+10AD7B: mov      byte ptr [rsp + 0x3e], 0
+10AD80: mov      byte ptr [rsp + 0x20], 0
+10AD85: movss    xmm3, dword ptr [rip + 0x1b4dc7]
+10AD8D: xor      r8d, r8d
+10AD90: mov      edx, 0x64
+10AD95: lea      rcx, [rsp + 0x30]
+10AD9A: call     0x140040ce0
+10AD9F: nop      
+10ADA0: mov      rdx, qword ptr [rsp + 0x48]
+10ADA5: cmp      rdx, 0xf
+10ADA9: jbe      0x14010add9
+10ADAB: inc      rdx
+10ADAE: mov      rcx, qword ptr [rsp + 0x30]
+10ADB3: mov      rax, rcx
+10ADB6: cmp      rdx, 0x1000
+10ADBD: jb       0x14010add4
+10ADBF: add      rdx, 0x27
+10ADC3: mov      rcx, qword ptr [rcx - 8]
+10ADC7: sub      rax, rcx
+10ADCA: sub      rax, 8
+10ADCE: cmp      rax, 0x1f
+10ADD2: ja       0x14010ade1
+10ADD4: call     0x14021e450
+10ADD9: xor      al, al
+10ADDB: add      rsp, 0x50
+10ADDF: pop      rbx
+10ADE0: ret      
+10ADE1: mov      qword ptr [rsp + 0x20], 0
+10ADEA: xor      r9d, r9d
+10ADED: xor      r8d, r8d
+10ADF0: xor      edx, edx
+10ADF2: xor      ecx, ecx
+10ADF4: call     0x140224844
+10ADF9: int3     

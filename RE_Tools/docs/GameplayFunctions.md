@@ -15,7 +15,18 @@ Decompile (Ghidra): `RE_Tools/ghidra_scripts/run_export_gameplay.bat` or `Export
 | [BuyItem.c.txt](ghidra_exports/BuyItem.c.txt) | **`0x787D0`** | Shop buy/dialog dispatch |
 | [Race_91148.c.txt](ghidra_exports/Race_91148.c.txt) | **`0x8F2B0`** | Race state machine (~12 KB); `RaceGo` xref @ `0x91148` |
 
+See **[RaceMechanics.md](RaceMechanics.md)** for score formula (`0x2674E0`), `RaceAdvanceSim` @ `0x8C9E0`, and sim vs betting.
+
 `RaceCluster.c.txt` had **0 functions** because no function **starts** in `0x90E00`–`0x92000` — race logic lives inside **`RaceStateMachine`** @ `0x8F2B0`.
+
+### Race simulation (not pre-scripted winner)
+
+See **[RaceMechanics.md](RaceMechanics.md)** for full detail. Verified on `Horsey.exe`:
+
+- **Score formula** (debug string @ `0x2674E0`, computed @ `0xE2FAC`):  
+  `(rand + nice + record) * years + deco` plus genetic distance logging.
+- **Sim:** `RaceAdvanceSim` @ `0x8C9E0` advances **0x70**-byte per-horse race slots; `SimRandMod` @ `0xC1900` for RNG.
+- **Tags:** `SimStartRace` / `LerpHorse` / `SimHorseFinished` are **message names** loaded into sim dispatch (`0x5E0C2`), not standalone entry points.
 
 ### Why we missed race logic at first
 

@@ -1,520 +1,685 @@
 {
   "hooks": {
     "GainMoney": "0x10ab80",
-    "SimSpawnDisk": "0x33a20",
+    "SpendMoney": "0x10ac60",
+    "SpawnEntity": "0x30492",
+    "SpawnPlace": "0x32330",
+    "GrabHorse": "0xd6340",
+    "DropHorseFail": "0xd3c50",
     "BuyItem": "0x787d0",
     "RaceStateMachine": "0x8f2b0",
-    "RaceGo_site": "0x91274"
+    "RaceAdvanceSim": "0x8c9e0",
+    "g_settings_seed": "0x2f1587",
+    "g_prng_state": "0x2f2700"
   },
-  "sim_targets_hooked": [
-    "5f900",
-    "60540",
-    "5f78e",
-    "5f7f6",
-    "5f869"
-  ],
+  "why_old_log_missed": {
+    "sim_spawn_0": "0x33A20 has no E8 callers; use 0x32330 + GrabHorse@0xD71DF",
+    "gain_on_buy": "shops debit via SpendMoney@0x10AC60 not GainMoney",
+    "sim_dispatch_0": "SimStartRace is tag data, not SimMessageDispatch entry",
+    "buy_1475": "BuyItem ticks every frame while shop UI open",
+    "race_76": "RaceStateMachine did fire \u2014 race was captured"
+  },
   "summary_counts": {
     "gain_money": 0,
-    "sim_spawn": 0,
+    "spend_money": 3,
+    "spawn_entity": 0,
+    "spawn_place": 0,
+    "grab_horse": 0,
+    "drop_horse_fail": 0,
     "buy_item": 0,
-    "race_fsm": 80,
-    "racego_hits": 0,
-    "sim_calls": 0
+    "race_fsm": 346,
+    "race_advance_sim": 2
   },
   "gain_money": [],
-  "sim_spawn": [],
+  "spend_money": [
+    {
+      "type": "spend_money",
+      "cost": 2,
+      "ctx": "0x230fcf44770",
+      "before": {
+        "money": 19,
+        "timer": 0,
+        "delta": 0
+      },
+      "after": {
+        "money": 17,
+        "timer": 60,
+        "delta": -2
+      },
+      "bt": [
+        "0x90c5b",
+        "0x7ffa1a6538ef",
+        "0x15911a",
+        "0xcfb34",
+        "0x142c10",
+        "0x15911a",
+        "0x98392",
+        "0x142921"
+      ],
+      "from_buy": false
+    },
+    {
+      "type": "spend_money",
+      "cost": 7,
+      "ctx": "0x230fcf44770",
+      "before": {
+        "money": 17,
+        "timer": 0,
+        "delta": -2
+      },
+      "after": {
+        "money": 10,
+        "timer": 60,
+        "delta": -7
+      },
+      "bt": [
+        "0x90c5b",
+        "0x7ffa1a6538ef",
+        "0x15911a",
+        "0xcfb34",
+        "0x98392",
+        "0x142921",
+        "0x876fa",
+        "0x16d2cd"
+      ],
+      "from_buy": false
+    },
+    {
+      "type": "spend_money",
+      "cost": 2,
+      "ctx": "0x230fcf44770",
+      "before": {
+        "money": 10,
+        "timer": 0,
+        "delta": -7
+      },
+      "after": {
+        "money": 8,
+        "timer": 60,
+        "delta": -2
+      },
+      "bt": [
+        "0x90c5b",
+        "0x7ffa1a6538ef",
+        "0x15911a",
+        "0xcfb34",
+        "0x98392",
+        "0x142921",
+        "0x876fa",
+        "0x16d2cd"
+      ],
+      "from_buy": false
+    }
+  ],
+  "spawn_entity": [],
+  "spawn_place": [],
+  "grab_horse": [],
+  "drop_horse_fail": [],
   "buy_item": [],
   "race_fsm": [
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
+        "0x10aab6",
+        "0x110b36",
+        "0x142934",
         "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x15911a",
+        "0x98392"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
         "0x98392",
+        "0x142921",
         "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x16d2cd",
+        "0xbead9"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
         "0x98392",
+        "0x142921",
         "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x16d2cd",
+        "0xbead9"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
         "0x98392",
+        "0x142921",
         "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x16d2cd",
+        "0xbead9"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
         "0x98392",
+        "0x142921",
         "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x16d2cd",
+        "0xbead9"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
         "0x98392",
+        "0x142921",
         "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x16d2cd",
+        "0xbead9"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
         "0x98392",
+        "0x142921",
         "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x16d2cd",
+        "0xbead9"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
         "0x98392",
+        "0x142921",
         "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x16d2cd",
+        "0xbead9"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
+        "0x10aab6",
+        "0x62b54",
+        "0x16d2cd",
+        "0x12e889",
         "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x98392"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
+      "param_1": "0x230fe12c470",
       "bt": [
         "0xcfb34",
+        "0x142c10",
+        "0x15911a",
         "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
+        "0x142921",
+        "0x876fa"
       ]
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     },
     {
       "type": "race_fsm",
-      "param_1": "0x295bd62d250",
-      "bt": [
-        "0xcfb34",
-        "0x98392",
-        "0x876fa",
-        "0xbead9",
-        "0x21ee12",
-        "0x7ffa1ac9e957"
-      ]
+      "param_1": "0x230fe12c470"
     }
   ],
   "race_fsm_bt_sample": [
+    "0x10aab6",
+    "0x110b36",
+    "0x142934",
     "0xcfb34",
-    "0x98392",
-    "0x876fa",
-    "0xbead9",
-    "0x21ee12",
-    "0x7ffa1ac9e957"
+    "0x15911a",
+    "0x98392"
   ],
-  "racego_hits": [],
-  "sim_calls": [],
-  "note": "Attach with save loaded; perform shop buy, horse place, race start for hits."
+  "race_advance_sim": [
+    {
+      "type": "race_advance_sim",
+      "tick": 1,
+      "ctx": "0x230fe12c470",
+      "state_e0": -1,
+      "frame_254": 16,
+      "race_flag_258": 0,
+      "g_settings_seed": 0,
+      "g_prng_state": "7078753438080490923",
+      "snapshot": {
+        "horses": [
+          {
+            "i": 0,
+            "finish_place": 1,
+            "progress": 2326,
+            "timer": 0,
+            "speed_f": 25.000999450683594,
+            "score_450": 50529027,
+            "speed_220": 30
+          },
+          {
+            "i": 1,
+            "finish_place": -1,
+            "progress": 414,
+            "timer": 3500,
+            "speed_f": 6.682064533233643,
+            "score_450": 50529027,
+            "speed_220": 30
+          },
+          {
+            "i": 2,
+            "finish_place": 0,
+            "progress": 1920,
+            "timer": 2,
+            "speed_f": 25.000999450683594,
+            "score_450": 50529027,
+            "speed_220": 30
+          },
+          {
+            "i": 3,
+            "finish_place": 2,
+            "progress": 2778,
+            "timer": 2,
+            "speed_f": 25.000999450683594,
+            "score_450": 50529027,
+            "speed_220": 30
+          }
+        ],
+        "n_horses": 4
+      }
+    },
+    {
+      "type": "race_advance_sim",
+      "tick": 2,
+      "ctx": "0x230fe12c470",
+      "state_e0": -1,
+      "frame_254": 16,
+      "race_flag_258": 0,
+      "g_settings_seed": 0,
+      "g_prng_state": "7312127720228876479",
+      "snapshot": {
+        "horses": [
+          {
+            "i": 0,
+            "finish_place": 1,
+            "progress": 2737,
+            "timer": 1,
+            "speed_f": 25.000999450683594,
+            "score_450": 50529027,
+            "speed_220": 30
+          },
+          {
+            "i": 1,
+            "finish_place": -1,
+            "progress": 4255,
+            "timer": 367,
+            "speed_f": 23.359556198120117,
+            "score_450": 50529027,
+            "speed_220": 30
+          },
+          {
+            "i": 2,
+            "finish_place": 0,
+            "progress": 1471,
+            "timer": 1,
+            "speed_f": 25.000999450683594,
+            "score_450": 50529027,
+            "speed_220": 30
+          },
+          {
+            "i": 3,
+            "finish_place": -1,
+            "progress": 2412,
+            "timer": 870,
+            "speed_f": 9.20277214050293,
+            "score_450": 50529027,
+            "speed_220": 30
+          }
+        ],
+        "n_horses": 4
+      }
+    }
+  ],
+  "race_advance_sim_sample": {
+    "type": "race_advance_sim",
+    "tick": 2,
+    "ctx": "0x230fe12c470",
+    "state_e0": -1,
+    "frame_254": 16,
+    "race_flag_258": 0,
+    "g_settings_seed": 0,
+    "g_prng_state": "7312127720228876479",
+    "snapshot": {
+      "horses": [
+        {
+          "i": 0,
+          "finish_place": 1,
+          "progress": 2737,
+          "timer": 1,
+          "speed_f": 25.000999450683594,
+          "score_450": 50529027,
+          "speed_220": 30
+        },
+        {
+          "i": 1,
+          "finish_place": -1,
+          "progress": 4255,
+          "timer": 367,
+          "speed_f": 23.359556198120117,
+          "score_450": 50529027,
+          "speed_220": 30
+        },
+        {
+          "i": 2,
+          "finish_place": 0,
+          "progress": 1471,
+          "timer": 1,
+          "speed_f": 25.000999450683594,
+          "score_450": 50529027,
+          "speed_220": 30
+        },
+        {
+          "i": 3,
+          "finish_place": -1,
+          "progress": 2412,
+          "timer": 870,
+          "speed_f": 9.20277214050293,
+          "score_450": 50529027,
+          "speed_220": 30
+        }
+      ],
+      "n_horses": 4
+    }
+  },
+  "note": "race_advance_sim: snapshot.race_score_450 = [race_ctx+0x450] (HorseRaceScore @ 0xE2FBD); finish_place @ slot+0x0C."
 }

@@ -16,7 +16,7 @@
 | [GameFunctions.h](GameFunctions.h) | C/C++ `HORSE_RVA_*` + hook typedefs for SDK/mods |
 | [ghidra_exports/](ghidra_exports/) | Optional Ghidra decompiler paste per function |
 | `RE_Tools/analysis/disasm_<name>.txt` | Capstone head disasm (from `disasm_catalog_function.py`) |
-| Per-domain docs | e.g. [GameLoop.md](GameLoop.md), [Save_Write.md](Save_Write.md) |
+| Per-domain docs | e.g. [GameLoop.md](GameLoop.md), [Save_Write.md](Save_Write.md), [RaceMechanics.md](RaceMechanics.md) |
 
 **Regenerate catalog:**
 

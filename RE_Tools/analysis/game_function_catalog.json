@@ -3,59 +3,28 @@
   "exe": "Game/Horsey.exe",
   "schema_doc": "RE_Tools/docs/GameFunctionCatalog.md",
   "summary": {
-    "total": 68,
-    "verified_count": 45,
-    "partial_count": 23,
+    "total": 65,
+    "verified_count": 46,
+    "partial_count": 19,
     "stub_count": 0,
     "by_category": {
-      "breeding": 2,
-      "economy": 1,
+      "economy": 2,
       "font": 1,
       "genetics": 2,
-      "horse": 4,
+      "horse": 2,
       "io": 17,
       "loop": 3,
       "nested": 6,
       "other": 1,
-      "race": 10,
+      "race": 11,
       "save": 11,
       "settings": 2,
-      "shop": 4,
-      "spawn": 1,
+      "shop": 1,
+      "spawn": 3,
       "world": 3
     }
   },
   "functions": [
-    {
-      "id": "statusfoal",
-      "name": "StatusFoal",
-      "rva": "0x56892",
-      "va": "0x140056892",
-      "category": "breeding",
-      "status": "partial",
-      "summary": "Foal status",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
-    {
-      "id": "studs",
-      "name": "Studs",
-      "rva": "0xe90ea",
-      "va": "0x1400e90ea",
-      "category": "breeding",
-      "status": "partial",
-      "summary": "Studding service UI",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
     {
       "id": "gain_money",
       "name": "GainMoney",
@@ -92,6 +61,25 @@
           "name": "show_ui"
         }
       ]
+    },
+    {
+      "id": "spend_money",
+      "name": "SpendMoney",
+      "rva": "0x10ac60",
+      "va": "0x14010ac60",
+      "category": "economy",
+      "status": "verified",
+      "summary": "Debit [ctx+0x308]; shop (BuyItem) + race betting",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "ghidra",
+        "frida"
+      ],
+      "struct_offsets": {
+        "ctx+0x308": "money",
+        "ctx+0x30c": "money_ui_timer",
+        "ctx+0x310": "last_delta"
+      }
     },
     {
       "id": "font_load_or_init",
@@ -144,64 +132,31 @@
       "disasm": "RE_Tools/analysis/disasm_GeneticsApply.txt"
     },
     {
-      "id": "lerphorse",
-      "name": "LerpHorse",
-      "rva": "0x76149",
-      "va": "0x140076149",
-      "category": "horse",
-      "status": "partial",
-      "summary": "Lerp horse position",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
-    {
-      "id": "processhorse",
-      "name": "ProcessHorse",
-      "rva": "0xa23f0",
-      "va": "0x1400a23f0",
-      "category": "horse",
-      "status": "partial",
-      "summary": "Horse tick / gene display; switch table refs 'ProcessHorse' @ 0xA24D8",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "capstone",
-        "string_xref"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
-    {
-      "id": "drophorsefail",
+      "id": "drop_horse_fail",
       "name": "DropHorseFail",
       "rva": "0xd3c50",
       "va": "0x1400d3c50",
       "category": "horse",
       "status": "partial",
-      "summary": "Drop horse failed",
+      "summary": "Failed horse drop on invalid tile",
       "calling_convention": "microsoft_x64",
       "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
+        "string_xref"
+      ]
     },
     {
-      "id": "grabhorse_dispatch",
+      "id": "grab_horse",
       "name": "GrabHorse",
-      "rva": "0xd9158",
-      "va": "0x1400d9158",
+      "rva": "0xd6340",
+      "va": "0x1400d6340",
       "category": "horse",
       "status": "partial",
-      "summary": "Grab / pick up horse",
+      "summary": "Grab/place horse; GrabHorse string @ 0xD9158 in body (not 0xD71DF)",
       "calling_convention": "microsoft_x64",
       "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
+        "capstone",
+        "frida"
+      ]
     },
     {
       "id": "writenestedsave_readnestedsave",
@@ -655,66 +610,6 @@
       "doc": "RE_Tools/docs/g_game_state.md"
     },
     {
-      "id": "betting",
-      "name": "Betting",
-      "rva": "0x2cfe0",
-      "va": "0x14002cfe0",
-      "category": "race",
-      "status": "partial",
-      "summary": "Betting UI mode",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
-    {
-      "id": "racegetset_dispatch",
-      "name": "RaceGetSet",
-      "rva": "0x2dae7",
-      "va": "0x14002dae7",
-      "category": "race",
-      "status": "partial",
-      "summary": "Race get-set phase",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
-    {
-      "id": "simstartrace",
-      "name": "SimStartRace",
-      "rva": "0x32fa3",
-      "va": "0x140032fa3",
-      "category": "race",
-      "status": "partial",
-      "summary": "Start simulated race",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
-    {
-      "id": "simhorsefinished",
-      "name": "SimHorseFinished",
-      "rva": "0x334e5",
-      "va": "0x1400334e5",
-      "category": "race",
-      "status": "partial",
-      "summary": "Sim race horse finished",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
-    {
       "id": "sim_message_dispatch",
       "name": "SimMessageDispatch",
       "rva": "0x5e0c2",
@@ -730,19 +625,76 @@
       "doc": "RE_Tools/docs/SimStartRace.md"
     },
     {
-      "id": "onyourmark",
-      "name": "OnYourMark",
-      "rva": "0x8a62f",
-      "va": "0x14008a62f",
+      "id": "race_sim_handler",
+      "name": "RaceSimHandler",
+      "rva": "0x5f020",
+      "va": "0x14005f020",
       "category": "race",
       "status": "partial",
-      "summary": "Race countdown phase",
+      "summary": "SimStartRace post @ 0x5F365 when [ctx+0xE0]==7; sets [ctx+0x258]=1",
       "calling_convention": "microsoft_x64",
       "verification": [
-        "string_xref",
         "capstone"
       ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
+      "doc": "RE_Tools/docs/RaceMechanics.md",
+      "decompile": "RE_Tools/docs/ghidra_exports/RaceSimHandler.c.txt"
+    },
+    {
+      "id": "race_sim_object_init",
+      "name": "RaceSimObject_Init",
+      "rva": "0x5f900",
+      "va": "0x14005f900",
+      "category": "race",
+      "status": "partial",
+      "summary": "Race sim object ctor (arrays @ +0x278); not the SimStartRace message handler",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/RaceMechanics.md"
+    },
+    {
+      "id": "race_phase_dispatch",
+      "name": "RacePhaseDispatch",
+      "rva": "0x8a7f0",
+      "va": "0x14008a7f0",
+      "category": "race",
+      "status": "partial",
+      "summary": "Race phase transitions (OnYourMark / Racing / finish)",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "ghidra"
+      ],
+      "doc": "RE_Tools/docs/RaceMechanics.md"
+    },
+    {
+      "id": "race_advance_sim",
+      "name": "RaceAdvanceSim",
+      "rva": "0x8c9e0",
+      "va": "0x14008c9e0",
+      "category": "race",
+      "status": "partial",
+      "summary": "Per-frame race sim: 0x70-byte slots @ ctx+0x280, updates horse+0x220 speed",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone",
+        "ghidra"
+      ],
+      "doc": "RE_Tools/docs/RaceMechanics.md"
+    },
+    {
+      "id": "race_update_horses",
+      "name": "RaceUpdateHorses",
+      "rva": "0x8cc10",
+      "va": "0x14008cc10",
+      "category": "race",
+      "status": "partial",
+      "summary": "Called from RaceStateMachine each tick with RaceAdvanceSim",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "ghidra"
+      ],
+      "doc": "RE_Tools/docs/RaceMechanics.md"
     },
     {
       "id": "race_state_machine",
@@ -759,49 +711,62 @@
       "decompile": "RE_Tools/docs/ghidra_exports/Race_91148.c.txt"
     },
     {
-      "id": "betmore_dispatch",
-      "name": "BetMore",
-      "rva": "0x908bd",
-      "va": "0x1400908bd",
+      "id": "sim_rand_mod",
+      "name": "SimRandMod",
+      "rva": "0xc1900",
+      "va": "0x1400c1900",
       "category": "race",
       "status": "partial",
-      "summary": "Increase bet",
+      "summary": "PRNG: state @ 0x3128D8; returns edx % ecx; range overload @ 0xC1940",
       "calling_convention": "microsoft_x64",
       "verification": [
-        "string_xref",
         "capstone"
       ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
+      "doc": "RE_Tools/docs/RaceMechanics.md"
     },
     {
-      "id": "crossfinishline_dispatch",
-      "name": "CrossFinishLine",
-      "rva": "0x912f9",
-      "va": "0x1400912f9",
+      "id": "sim_rand_seed",
+      "name": "SimRandSeedFromFloat",
+      "rva": "0xc2080",
+      "va": "0x1400c2080",
       "category": "race",
       "status": "partial",
-      "summary": "Cross finish line",
+      "summary": "Seed g_prng_state @ 0x2F2700 from float vector",
       "calling_convention": "microsoft_x64",
       "verification": [
-        "string_xref",
         "capstone"
       ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
+      "doc": "RE_Tools/docs/RaceMechanics.md",
+      "decompile": "RE_Tools/docs/ghidra_exports/SimRandSeed.c.txt"
     },
     {
-      "id": "wonrace",
-      "name": "WonRace",
-      "rva": "0x9177b",
-      "va": "0x14009177b",
+      "id": "sim_post_message",
+      "name": "SimPostMessage",
+      "rva": "0xd6df0",
+      "va": "0x1400d6df0",
       "category": "race",
       "status": "partial",
-      "summary": "Race won",
+      "summary": "Post sim tag message; strcmp dispatch (Rabbit, Graffe, ...)",
       "calling_convention": "microsoft_x64",
       "verification": [
-        "string_xref",
         "capstone"
       ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
+      "doc": "RE_Tools/docs/RaceMechanics.md"
+    },
+    {
+      "id": "horse_race_score",
+      "name": "HorseRaceScore",
+      "rva": "0xe2b80",
+      "va": "0x1400e2b80",
+      "category": "race",
+      "status": "partial",
+      "summary": "void HorseRaceScore(ctx, horse_idx): (rand+nice+record)*years+deco -> [ctx+0x450]; vtable@0x267368[0]",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/RaceMechanics.md",
+      "decompile": "RE_Tools/docs/ghidra_exports/HorseRaceScore.c.txt"
     },
     {
       "id": "footer_extra_write",
@@ -1030,36 +995,6 @@
       "disasm": "RE_Tools/analysis/disasm_Settings_Save.txt"
     },
     {
-      "id": "buyitem_dispatch",
-      "name": "BuyItem",
-      "rva": "0x10ac60",
-      "va": "0x14010ac60",
-      "category": "shop",
-      "status": "partial",
-      "summary": "Buy item from shop",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
-    {
-      "id": "shopkeep",
-      "name": "Shopkeep",
-      "rva": "0x785a0",
-      "va": "0x1400785a0",
-      "category": "shop",
-      "status": "partial",
-      "summary": "Shopkeeper",
-      "calling_convention": "microsoft_x64",
-      "verification": [
-        "string_xref",
-        "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
-    },
-    {
       "id": "buy_item",
       "name": "BuyItem",
       "rva": "0x787d0",
@@ -1074,19 +1009,31 @@
       "decompile": "RE_Tools/docs/ghidra_exports/BuyItem.c.txt"
     },
     {
-      "id": "horsemart",
-      "name": "HorseMart",
-      "rva": "0x7ac8e",
-      "va": "0x14007ac8e",
-      "category": "shop",
+      "id": "spawn_entity",
+      "name": "SpawnEntity",
+      "rva": "0x30492",
+      "va": "0x140030492",
+      "category": "spawn",
       "status": "partial",
-      "summary": "Horse mart",
+      "summary": "Calls SpawnPlace @ 0x32330 (E8 @ 0x30B52); Frida-verified path",
       "calling_convention": "microsoft_x64",
       "verification": [
-        "string_xref",
+        "capstone",
+        "frida"
+      ]
+    },
+    {
+      "id": "spawn_place",
+      "name": "SpawnPlace",
+      "rva": "0x32330",
+      "va": "0x140032330",
+      "category": "spawn",
+      "status": "partial",
+      "summary": "SimSpawnDisk callee; sole E8 target from 0x30B52",
+      "calling_convention": "microsoft_x64",
+      "verification": [
         "capstone"
-      ],
-      "doc": "RE_Tools/docs/GameplayFunctions.md"
+      ]
     },
     {
       "id": "sim_spawn_disk",

@@ -1,0 +1,142 @@
+; Horsey.exe+8F2B0 RaceStateMachine
+; capstone 640 bytes from entry
+
+08F2B0: mov      rax, rsp
+08F2B3: mov      qword ptr [rax + 0x18], rbx
+08F2B7: push     rbp
+08F2B8: push     rsi
+08F2B9: push     rdi
+08F2BA: push     r12
+08F2BC: push     r13
+08F2BE: push     r14
+08F2C0: push     r15
+08F2C2: lea      rbp, [rax - 0x58]
+08F2C6: sub      rsp, 0x120
+08F2CD: movaps   xmmword ptr [rax - 0x48], xmm6
+08F2D1: movaps   xmmword ptr [rax - 0x58], xmm7
+08F2D5: movaps   xmmword ptr [rax - 0x68], xmm8
+08F2DA: movaps   xmmword ptr [rax - 0x78], xmm9
+08F2DF: movaps   xmmword ptr [rax - 0x88], xmm10
+08F2E7: movaps   xmmword ptr [rax - 0x98], xmm11
+08F2EF: movaps   xmmword ptr [rax - 0xa8], xmm12
+08F2F7: movaps   xmmword ptr [rax - 0xb8], xmm13
+08F2FF: movaps   xmmword ptr [rax - 0xc8], xmm14
+08F307: movaps   xmmword ptr [rax - 0xd8], xmm15
+08F30F: mov      rdi, rcx
+08F312: cmp      byte ptr [rip + 0x262242], 0
+08F319: je       0x14008f339
+08F31B: cmp      byte ptr [rip + 0x28367c], 0
+08F322: je       0x14008f339
+08F324: call     0x14008c9e0
+08F329: mov      rcx, rdi
+08F32C: call     0x14008cc10
+08F331: mov      rcx, rdi
+08F334: call     0x14008a850
+08F339: xor      esi, esi
+08F33B: mov      dword ptr [rdi + 0x124], esi
+08F341: inc      dword ptr [rdi + 0x254]
+08F347: cmp      byte ptr [rdi + 0x258], sil
+08F34E: jne      0x14008f374
+08F350: movss    xmm0, dword ptr [rdi + 0x10c]
+08F358: movd     xmm1, dword ptr [rip + 0x1d4400]
+08F360: cvtdq2ps xmm1, xmm1
+08F363: divss    xmm1, dword ptr [rdi + 0x114]
+08F36B: addss    xmm1, xmm0
+08F36F: call     0x140041140
+08F374: mov      rcx, qword ptr [rdi + 0x328]
+08F37B: call     0x1400cf010
+08F380: mov      eax, dword ptr [rdi + 0x320]
+08F386: test     eax, eax
+08F388: jle      0x14008f392
+08F38A: dec      eax
+08F38C: mov      dword ptr [rdi + 0x320], eax
+08F392: mov      rcx, rdi
+08F395: call     0x1400d0400
+08F39A: mov      edx, dword ptr [rdi + 0xd8]
+08F3A0: mov      dword ptr [rip + 0x262cd6], edx
+08F3A6: mov      eax, dword ptr [rdi + 0x3d4]
+08F3AC: cmp      eax, 9
+08F3AF: jge      0x14008f40a
+08F3B1: add      eax, -3
+08F3B4: test     eax, 0xfffffffb
+08F3B9: je       0x14008f40a
+08F3BB: cmp      dword ptr [rdi + 0x3d0], esi
+08F3C1: jg       0x14008f3cc
+08F3C3: cmp      qword ptr [rdi + 0x3c0], rsi
+08F3CA: je       0x14008f40a
+08F3CC: mov      ecx, dword ptr [rdi + 0xe0]
+08F3D2: cmp      ecx, 0x18
+08F3D5: je       0x14008f3e9
+08F3D7: cmp      ecx, 0x19
+08F3DA: je       0x14008f3e9
+08F3DC: lea      eax, [rdx - 0x18]
+08F3DF: cmp      eax, 1
+08F3E2: ja       0x14008f42d
+08F3E4: cmp      ecx, -1
+08F3E7: je       0x14008f3f3
+08F3E9: mov      dword ptr [rdi + 0x1fc], 3
+08F3F3: mov      qword ptr [rdi + 0xd8], 0xffffffffffffffff
+08F3FE: mov      dword ptr [rdi + 0xe0], 0xffffffff
+08F408: jmp      0x14008f42d
+08F40A: xor      edx, edx
+08F40C: mov      r8d, 0x18
+08F412: mov      rcx, rdi
+08F415: call     0x1400d02f0
+08F41A: mov      edx, 1
+08F41F: mov      r8d, 0x19
+08F425: mov      rcx, rdi
+08F428: call     0x1400d02f0
+08F42D: mov      edx, 3
+08F432: mov      r8d, 0x1a
+08F438: mov      rcx, rdi
+08F43B: call     0x1400d02f0
+08F440: mov      edx, 2
+08F445: mov      r8d, 0x1b
+08F44B: mov      rcx, rdi
+08F44E: call     0x1400d02f0
+08F453: cmp      byte ptr [rdi + 0x259], sil
+08F45A: je       0x14008f48c
+08F45C: cmp      dword ptr [rdi + 0x250], 8
+08F463: jne      0x14008f48c
+08F465: cmp      dword ptr [rdi + 0x254], 0xb4
+08F46F: jle      0x14008f48c
+08F471: cmp      byte ptr [rip + 0x283458], sil
+08F478: jne      0x14008f482
+08F47A: cmp      dword ptr [rip + 0x283848], esi
+08F480: je       0x14008f48c
+08F482: mov      dword ptr [rdi + 0xe0], 0x1b
+08F48C: cmp      dword ptr [rdi + 0xe0], 0x1a
+08F493: jne      0x14008f49f
+08F495: mov      dword ptr [rdi + 0xe0], 0xffffffff
+08F49F: mov      r12d, 5
+08F4A5: cmp      dword ptr [rdi + 0xdc], 0x1a
+08F4AC: jne      0x14008f4e9
+08F4AE: mov      r8d, dword ptr [rdi + 0x2cc]
+08F4B5: test     r8d, r8d
+08F4B8: je       0x14008f4da
+08F4BA: cmp      r8d, 0x1e
+08F4BE: jl       0x14008f4e4
+08F4C0: mov      ecx, 0xa
+08F4C5: cmp      r8d, 0x12c
+08F4CC: cmovge   ecx, r12d
+08F4D0: mov      eax, r8d
+08F4D3: cdq      
+08F4D4: idiv     ecx
+08F4D6: test     edx, edx
+08F4D8: jne      0x14008f4e4
+08F4DA: mov      dword ptr [rdi + 0xe0], 0x1a
+08F4E4: inc      r8d
+08F4E7: jmp      0x14008f4ec
+08F4E9: mov      r8d, esi
+08F4EC: mov      dword ptr [rdi + 0x2cc], r8d
+08F4F3: cmp      dword ptr [rdi + 0x1f8], esi
+08F4F9: jne      0x14008f551
+08F4FB: lea      rdx, [rdi + 0x3b0]
+08F502: cmp      qword ptr [rdx + 0x10], rsi
+08F506: je       0x14008f551
+08F508: mov      dword ptr [rdi + 0x1f8], 1
+08F512: lea      rax, [rsp + 0x58]
+08F517: mov      qword ptr [rbp + 0x60], rax
+08F51B: xorps    xmm0, xmm0
+08F51E: movups   xmmword ptr [rsp + 0x58], xmm0
+08F523: mov      qword ptr [rsp + 0x68], rsi

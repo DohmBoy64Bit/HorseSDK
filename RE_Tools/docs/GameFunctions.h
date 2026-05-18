@@ -29,36 +29,32 @@ static inline void *horse_rva(const void *module_base, uint32_t rva) {
 
 /* --- economy --- */
 #define HORSE_RVA_GainMoney                        0x0010AB80u
+#define HORSE_RVA_SpendMoney                       0x0010AC60u
 
 /* --- spawn --- */
 #define HORSE_RVA_SimSpawnDisk                     0x00033A20u
+#define HORSE_RVA_SpawnEntity                      0x00030492u
+#define HORSE_RVA_SpawnPlace                       0x00032330u
 
 /* --- shop --- */
 #define HORSE_RVA_BuyItem                          0x000787D0u
-#define HORSE_RVA_HorseMart                        0x0007AC8Eu
-#define HORSE_RVA_Shopkeep                         0x000785A0u
 
 /* --- race --- */
-#define HORSE_RVA_BetMore                          0x000908BDu
-#define HORSE_RVA_Betting                          0x0002CFE0u
-#define HORSE_RVA_CrossFinishLine                  0x000912F9u
-#define HORSE_RVA_OnYourMark                       0x0008A62Fu
-#define HORSE_RVA_RaceGetSet                       0x0002DAE7u
+#define HORSE_RVA_HorseRaceScore                   0x000E2B80u
+#define HORSE_RVA_RaceAdvanceSim                   0x0008C9E0u
+#define HORSE_RVA_RacePhaseDispatch                0x0008A7F0u
+#define HORSE_RVA_RaceSimHandler                   0x0005F020u
+#define HORSE_RVA_RaceSimObject_Init               0x0005F900u
 #define HORSE_RVA_RaceStateMachine                 0x0008F2B0u
-#define HORSE_RVA_SimHorseFinished                 0x000334E5u
+#define HORSE_RVA_RaceUpdateHorses                 0x0008CC10u
 #define HORSE_RVA_SimMessageDispatch               0x0005E0C2u
-#define HORSE_RVA_SimStartRace                     0x00032FA3u
-#define HORSE_RVA_WonRace                          0x0009177Bu
+#define HORSE_RVA_SimPostMessage                   0x000D6DF0u
+#define HORSE_RVA_SimRandMod                       0x000C1900u
+#define HORSE_RVA_SimRandSeedFromFloat             0x000C2080u
 
 /* --- horse --- */
 #define HORSE_RVA_DropHorseFail                    0x000D3C50u
-#define HORSE_RVA_GrabHorse                        0x000D9158u
-#define HORSE_RVA_LerpHorse                        0x00076149u
-#define HORSE_RVA_ProcessHorse                     0x000A23F0u
-
-/* --- breeding --- */
-#define HORSE_RVA_StatusFoal                       0x00056892u
-#define HORSE_RVA_Studs                            0x000E90EAu
+#define HORSE_RVA_GrabHorse                        0x000D6340u
 
 /* --- save --- */
 #define HORSE_RVA_FooterExtra_Read                 0x00101810u

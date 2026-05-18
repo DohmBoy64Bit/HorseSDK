@@ -1,0 +1,27 @@
+# Ghidra export: SimRandSeedFromFloat / SimRandMod
+# Entries: SimRandMod @ 0xC1900, SimRandSeedFromFloat @ 0xC2080
+# Image base: 0x140000000
+#
+# Global PRNG state: g_prng_state @ 0x2F2700 (qword, xor-shift like SimRandMod)
+
+/* int SimRandMod(int modulo)  // ecx = modulus @ 0xC1900 */
+{
+  ulonglong state = g_prng_state;      /* [rip+0x230df9] -> 0x2F2700 */
+  state ^= state << 0xd;
+  state ^= state >> 7;
+  state ^= state << 0x11;
+  g_prng_state = state;
+  return (int)(state % (ulonglong)modulo);
+}
+
+/* void SimRandSeedFromFloat(float *out2, float scale)  // rcx=out, xmm1=scale @ 0xC2080 */
+{
+  /* mixes xmm1 into PRNG state @ 0x2F2700, writes 2 floats to rcx */
+  ...
+}
+
+/* settings.xml */
+/*   key "seed" @ 0x26254C */
+/*   SettingsLoader @ 0x71BCE: Settings_ApplyValue(0x25750) -> g_settings_seed @ 0x2F1587 */
+/* Static RIP read of g_settings_seed: not found — value may feed world-gen/save paths */
+/*   before SimRandSeed (e.g. world setup @ 0x3BBEB uses stack coords + 0xC2080). */

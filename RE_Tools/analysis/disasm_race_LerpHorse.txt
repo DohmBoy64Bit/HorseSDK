@@ -1,0 +1,292 @@
+; Horsey.exe+73254 LerpHorse (guess)
+; tag xref @ 7622A
+
+073254: mov      qword ptr [rsp + 0x38], rbx
+073259: shl      edx, cl
+07325B: add      r15d, 9
+07325F: or       edi, edx
+073261: cmp      r15d, 8
+073265: jl       0x140073461
+07326B: mov      ebp, r15d
+07326E: mov      r13d, 2
+073274: shr      rbp, 3
+073278: mov      eax, ebp
+07327A: neg      eax
+07327C: xor      r12d, r12d
+07327F: lea      r15d, [r15 + rax*8]
+073283: lea      rcx, [rbx - 8]
+073287: test     rbx, rbx
+07328A: je       0x1400732a0
+07328C: mov      eax, dword ptr [rbx - 4]
+07328F: mov      esi, dword ptr [rcx]
+073291: inc      eax
+073293: cmp      eax, esi
+073295: jl       0x1400732cb
+073297: lea      esi, [rsi*2 + 1]
+07329E: jmp      0x1400732a3
+0732A0: mov      esi, r13d
+0732A3: movsxd   rdx, esi
+0732A6: add      rdx, 8
+0732AA: test     rbx, rbx
+0732AD: cmove    rcx, r12
+0732B1: call     0x140225430
+0732B6: test     rax, rax
+0732B9: je       0x1400732cb
+0732BB: test     rbx, rbx
+0732BE: jne      0x1400732c4
+0732C0: mov      dword ptr [rax + 4], r12d
+0732C4: lea      rbx, [rax + 8]
+0732C8: mov      dword ptr [rbx - 8], esi
+0732CB: movsxd   rax, dword ptr [rbx - 4]
+0732CF: mov      byte ptr [rax + rbx], dil
+0732D3: inc      dword ptr [rbx - 4]
+0732D6: shr      edi, 8
+0732D9: sub      rbp, 1
+0732DD: jne      0x140073283
+0732DF: jmp      0x14007344f
+0732E4: cmp      eax, 0x117
+0732E9: jg       0x1400733a4
+0732EF: inc      ecx
+0732F1: mov      r8d, 7
+0732F7: nop      word ptr [rax + rax]
+073300: mov      eax, ecx
+073302: add      edx, edx
+073304: and      eax, 1
+073307: sar      ecx, 1
+073309: or       edx, eax
+07330B: sub      r8d, 1
+07330F: jne      0x140073300
+073311: mov      ecx, r15d
+073314: mov      qword ptr [rsp + 0x38], rbx
+073319: shl      edx, cl
+07331B: add      r15d, 7
+07331F: or       edi, edx
+073321: cmp      r15d, 8
+073325: jl       0x140073461
+07332B: mov      ebp, r15d
+07332E: mov      r13d, 2
+073334: shr      rbp, 3
+073338: mov      eax, ebp
+07333A: neg      eax
+07333C: xor      r12d, r12d
+07333F: lea      r15d, [r15 + rax*8]
+073343: lea      rcx, [rbx - 8]
+073347: test     rbx, rbx
+07334A: je       0x140073360
+07334C: mov      eax, dword ptr [rbx - 4]
+07334F: mov      esi, dword ptr [rcx]
+073351: inc      eax
+073353: cmp      eax, esi
+073355: jl       0x14007338b
+073357: lea      esi, [rsi*2 + 1]
+07335E: jmp      0x140073363
+073360: mov      esi, r13d
+073363: movsxd   rdx, esi
+073366: add      rdx, 8
+07336A: test     rbx, rbx
+07336D: cmove    rcx, r12
+073371: call     0x140225430
+073376: test     rax, rax
+073379: je       0x14007338b
+07337B: test     rbx, rbx
+07337E: jne      0x140073384
+073380: mov      dword ptr [rax + 4], r12d
+073384: lea      rbx, [rax + 8]
+073388: mov      dword ptr [rbx - 8], esi
+07338B: movsxd   rax, dword ptr [rbx - 4]
+07338F: mov      byte ptr [rax + rbx], dil
+073393: inc      dword ptr [rbx - 4]
+073396: shr      edi, 8
+073399: sub      rbp, 1
+07339D: jne      0x140073343
+07339F: jmp      0x14007344f
+0733A4: add      ecx, 0xa9
+0733AA: mov      r8d, 8
+0733B0: mov      eax, ecx
+0733B2: add      edx, edx
+0733B4: and      eax, 1
+0733B7: sar      ecx, 1
+0733B9: or       edx, eax
+0733BB: sub      r8d, 1
+0733BF: jne      0x1400733b0
+0733C1: mov      ecx, r15d
+0733C4: mov      qword ptr [rsp + 0x38], rbx
+0733C9: shl      edx, cl
+0733CB: add      r15d, 8
+0733CF: or       edi, edx
+0733D1: cmp      r15d, 8
+0733D5: jl       0x140073461
+0733DB: mov      ebp, r15d
+0733DE: mov      r13d, 2
+0733E4: shr      rbp, 3
+0733E8: mov      eax, ebp
+0733EA: neg      eax
+0733EC: xor      r12d, r12d
+0733EF: lea      r15d, [r15 + rax*8]
+0733F3: lea      rcx, [rbx - 8]
+0733F7: test     rbx, rbx
+0733FA: je       0x140073410
+0733FC: mov      eax, dword ptr [rbx - 4]
+0733FF: mov      esi, dword ptr [rcx]
+073401: inc      eax
+073403: cmp      eax, esi
+073405: jl       0x14007343b
+073407: lea      esi, [rsi*2 + 1]
+07340E: jmp      0x140073413
+073410: mov      esi, r13d
+073413: movsxd   rdx, esi
+073416: add      rdx, 8
+07341A: test     rbx, rbx
+07341D: cmove    rcx, r12
+073421: call     0x140225430
+073426: test     rax, rax
+073429: je       0x14007343b
+07342B: test     rbx, rbx
+07342E: jne      0x140073434
+073430: mov      dword ptr [rax + 4], r12d
+073434: lea      rbx, [rax + 8]
+073438: mov      dword ptr [rbx - 8], esi
+07343B: movsxd   rax, dword ptr [rbx - 4]
+07343F: mov      byte ptr [rax + rbx], dil
+073443: inc      dword ptr [rbx - 4]
+073446: shr      edi, 8
+073449: sub      rbp, 1
+07344D: jne      0x1400733f3
+07344F: mov      r12d, dword ptr [rsp + 0xb8]
+073457: mov      r13d, dword ptr [rsp + 0x28]
+07345C: mov      qword ptr [rsp + 0x38], rbx
+073461: lea      r9, [rip - 0x73468]
+073468: movzx    r8d, byte ptr [r14 + r9 + 0x2f15d8]
+073471: test     r8b, r8b
+073474: je       0x140073535
+07347A: movzx    eax, word ptr [r9 + r14*2 + 0x2f1598]
+073483: mov      ecx, r15d
+073486: mov      edx, r12d
+073489: mov      qword ptr [rsp + 0x38], rbx
+07348E: sub      edx, eax
+073490: add      r15d, r8d
+073493: shl      edx, cl
+073495: or       edi, edx
+073497: cmp      r15d, 8
+07349B: jl       0x140073535
+0734A1: mov      ebp, r15d
+0734A4: mov      r13d, 2
+0734AA: shr      rbp, 3
+0734AE: mov      eax, ebp
+0734B0: neg      eax
+0734B2: xor      r12d, r12d
+0734B5: lea      r15d, [r15 + rax*8]
+0734B9: nop      dword ptr [rax]
+0734C0: lea      rcx, [rbx - 8]
+0734C4: test     rbx, rbx
+0734C7: je       0x1400734dd
+0734C9: mov      eax, dword ptr [rbx - 4]
+0734CC: mov      esi, dword ptr [rcx]
+0734CE: inc      eax
+0734D0: cmp      eax, esi
+0734D2: jl       0x140073508
+0734D4: lea      esi, [rsi*2 + 1]
+0734DB: jmp      0x1400734e0
+0734DD: mov      esi, r13d
+0734E0: movsxd   rdx, esi
+0734E3: add      rdx, 8
+0734E7: test     rbx, rbx
+0734EA: cmove    rcx, r12
+0734EE: call     0x140225430
+0734F3: test     rax, rax
+0734F6: je       0x140073508
+0734F8: test     rbx, rbx
+0734FB: jne      0x140073501
+0734FD: mov      dword ptr [rax + 4], r12d
+073501: lea      rbx, [rax + 8]
+073505: mov      dword ptr [rbx - 8], esi
+073508: movsxd   rax, dword ptr [rbx - 4]
+07350C: mov      byte ptr [rax + rbx], dil
+073510: inc      dword ptr [rbx - 4]
+073513: shr      edi, 8
+073516: sub      rbp, 1
+07351A: jne      0x1400734c0
+07351C: mov      r13d, dword ptr [rsp + 0x28]
+073521: lea      r9, [rip - 0x73528]
+073528: mov      r12d, dword ptr [rsp + 0xb8]
+073530: mov      qword ptr [rsp + 0x38], rbx
+073535: movzx    eax, word ptr [rip + 0x27e0be]
+07353C: xor      edx, edx
+07353E: dec      eax
+073540: mov      ecx, edx
+073542: mov      r14d, edx
+073545: cmp      r13d, eax
+073548: jle      0x140073565
+07354A: nop      word ptr [rax + rax]
+073550: movzx    eax, word ptr [r9 + r14*2 + 0x2f15fc]
+073559: inc      r14
+07355C: dec      eax
+07355E: inc      ecx
+073560: cmp      r13d, eax
+073563: jg       0x140073550
+073565: mov      r8d, 5
+07356B: nop      dword ptr [rax + rax]
+073570: mov      eax, ecx
+073572: add      edx, edx
+073574: and      eax, 1
+073577: sar      ecx, 1
+073579: or       edx, eax
+07357B: sub      r8d, 1
+07357F: jne      0x140073570
+073581: mov      ecx, r15d
+073584: add      r15d, 5
+073588: shl      edx, cl
+07358A: or       edi, edx
+07358C: cmp      r15d, 8
+073590: jl       0x14007361e
+073596: mov      ebp, r15d
+073599: mov      r13d, 2
+07359F: shr      rbp, 3
+0735A3: mov      eax, ebp
+0735A5: neg      eax
+0735A7: xor      r12d, r12d
+0735AA: lea      r15d, [r15 + rax*8]
+0735AE: nop      
+0735B0: lea      rcx, [rbx - 8]
+0735B4: test     rbx, rbx
+0735B7: je       0x1400735cd
+0735B9: mov      eax, dword ptr [rbx - 4]
+0735BC: mov      esi, dword ptr [rcx]
+0735BE: inc      eax
+0735C0: cmp      eax, esi
+0735C2: jl       0x1400735f8
+0735C4: lea      esi, [rsi*2 + 1]
+0735CB: jmp      0x1400735d0
+0735CD: mov      esi, r13d
+0735D0: movsxd   rdx, esi
+0735D3: add      rdx, 8
+0735D7: test     rbx, rbx
+0735DA: cmove    rcx, r12
+0735DE: call     0x140225430
+0735E3: test     rax, rax
+0735E6: je       0x1400735f8
+0735E8: test     rbx, rbx
+0735EB: jne      0x1400735f1
+0735ED: mov      dword ptr [rax + 4], r12d
+0735F1: lea      rbx, [rax + 8]
+0735F5: mov      dword ptr [rbx - 8], esi
+0735F8: movsxd   rax, dword ptr [rbx - 4]
+0735FC: mov      byte ptr [rax + rbx], dil
+073600: inc      dword ptr [rbx - 4]
+073603: shr      edi, 8
+073606: sub      rbp, 1
+07360A: jne      0x1400735b0
+07360C: mov      r13d, dword ptr [rsp + 0x28]
+073611: mov      r12d, dword ptr [rsp + 0xb8]
+073619: mov      qword ptr [rsp + 0x38], rbx
+07361E: lea      rax, [rip - 0x73625]
+073625: movzx    edx, byte ptr [r14 + rax + 0x2f1638]
+07362E: test     dl, dl
+073630: je       0x14007387c
+073636: movzx    eax, word ptr [rax + r14*2 + 0x2f15f8]
+07363F: mov      ecx, r15d
+073642: sub      r13d, eax
+073645: mov      qword ptr [rsp + 0x38], rbx
+07364A: shl      r13d, cl
+07364D: add      r15d, edx
+073650: or       edi, r13d

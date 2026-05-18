@@ -60,6 +60,22 @@ public class ExportGameplayDecompile extends GhidraScript {
             "World spawn: alloc tag 'SimSpawnDisk', place via [rbx+0x148]"),
         new Target(0x78B00L, "BuyItem",
             "Shop buy dispatch; calls helper @ 0x21E450"),
+        new Target(0x8F2B0L, "RaceStateMachine",
+            "Race UI FSM (~12 KB); calls RaceAdvanceSim @ 0x8C9E0"),
+        new Target(0x8C9E0L, "RaceAdvanceSim",
+            "Per-frame race sim: 0x70-byte slots @ ctx+0x280"),
+        new Target(0x8CC10L, "RaceUpdateHorses",
+            "Race horse list update (paired with RaceAdvanceSim)"),
+        new Target(0xC1900L, "SimRandMod",
+            "PRNG: edx = state % ecx"),
+        new Target(0xE2B80L, "HorseRaceScore",
+            "void HorseRaceScore(ctx, idx): score -> [ctx+0x450]"),
+        new Target(0x5F020L, "RaceSimHandler",
+            "SimStartRace post @ 0x5F365 when [ctx+0xE0]==7"),
+        new Target(0x5F900L, "RaceSimObject_Init",
+            "Race sim object ctor"),
+        new Target(0xD6DF0L, "SimPostMessage",
+            "Sim tag strcmp + post"),
     };
 
     private static final long RACE_CLUSTER_START = 0x90E00L;

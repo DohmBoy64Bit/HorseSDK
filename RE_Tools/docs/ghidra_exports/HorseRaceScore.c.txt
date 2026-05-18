@@ -1,0 +1,70 @@
+# Ghidra export: HorseRaceScore
+# Function entry: 1400E2B80 (HorseRaceScore)
+# Image base: 0x140000000
+# Program: Horsey.exe
+# Capstone-confirmed entry @ 0xE2B80 (NOT 0xE2C00 — that is mid-body gate test)
+#
+# Signature (inferred):
+#   void HorseRaceScore(RaceContext *ctx /*rcx*/, int horse_index /*edx*/);
+#
+# Sim handler vtable @ 0x267368, slot 0 -> 0xE2B80
+#
+# Stores race power: [ctx+0x450] = (record+nice+rand)*years + deco (+5)
+# Capstone: mov rsi, rcx @ 0xE2BA4; lea r15,[rsi+0x450] @ 0xE2F9F; mov [r15],ecx @ 0xE2FBD
+# Debug printf format @ 0x2674E0 when log_races @ 0x3128E0
+
+/* --- decompiler-style summary from Capstone @ Game/Horsey.exe --- */
+
+void HorseRaceScore(longlong ctx, int horse_index)
+{
+  longlong horse;
+  int years, nice, record, rand_acc, deco, score;
+  float gdist;
+
+  horse = *(longlong *)(*(longlong *)(ctx + 0x130) + (longlong)horse_index * 8);
+  if (*(int *)(ctx + 0x258) == 0) return;
+  if (horse == *(longlong *)(ctx + 0x148)) return;
+  if (CanScoreHorse(horse) == 0) return;   /* call 0xD6DC0 @ 0xE2BFB */
+
+  /* years: ClampInt3(max_age - display_age, 0, 11) @ 0xC12D0 */
+  years = ClampInt3(
+      *(int *)(horse + 0x200) - adjusted_year(horse),
+      0, 0xb);
+
+  /* nice: (sum(gene_tables) % 11) + 5 @ 0xE2C73 */
+  nice = (int)((*(longlong *)(horse + 0x2a8) +
+                *(longlong *)(*(longlong *)(ctx + 0x148) + 0x2a8)) % 0xb) + 5;
+
+  gdist = GeneticsDistance(horse + 0x2b8, ctx + 0x25c);  /* 0x9DAD0 @ 0xE2CA8 */
+  record = 0;
+  rand_acc = 0;
+  if (gdist < threshold) {
+    record = (int)GeneticsRecordScore(gdist);           /* 0xC1500 @ 0xE2CE5 */
+  }
+
+  /* rand: loop gene slots @ horse+0xCC, stride 4, call 0x5E060 @ 0xE2D60 */
+  for (each gene_id in horse gene list) {
+    rand_acc += GeneRandComponent(gene_id);              /* adds to [rbp+0x67] */
+  }
+
+  /* score core @ 0xE2FAC–0xE2FBD */
+  score = (record + nice + rand_acc) * years;
+  score += deco;                                       /* [rbp+0x67] */
+  if (*(char *)(horse + 0x205) == 0) score += 5;
+  *(int *)(ctx + 0x450) = score;
+
+  score = max(score, RaceScoreFloor(2));               /* 0xC2200 @ 0xE2FD5 */
+
+  /* sumo branch: extra SimRandMod @ 0xE3068+ when [ctx+0x258]==4 */
+
+  if (log_races) {
+    printf(fmt_0x2674E0, name, rand_acc, nice, record, years, deco, gdist);
+  }
+  return;
+}
+
+/* Key RVAs */
+/* 0xE2B80  entry */
+/* 0xE2FAC  score = (record+nice+rand)*years+deco */
+/* 0xE2FBD  mov [ctx+0x450], score  (rsi = rcx) */
+/* 0xE3021  lea fmt; call LogPrintf 0xBEE80 */

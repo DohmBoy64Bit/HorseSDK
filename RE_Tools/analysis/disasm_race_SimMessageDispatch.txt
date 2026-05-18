@@ -1,0 +1,169 @@
+; Horsey.exe+5E0C2 SimMessageDispatch
+; capstone 640 bytes from entry
+
+05E0C2: sub      rsp, 0x20
+05E0C6: mov      rbx, rcx
+05E0C9: add      rcx, 0x28
+05E0CD: call     0x140027920
+05E0D2: lea      rcx, [rbx + 8]
+05E0D6: add      rsp, 0x20
+05E0DA: pop      rbx
+05E0DB: jmp      0x140027920
+05E0E0: mov      qword ptr [rsp + 8], rbx
+05E0E5: push     rdi
+05E0E6: sub      rsp, 0x20
+05E0EA: lea      rax, [rip + 0x2009af]
+05E0F1: mov      rbx, rcx
+05E0F4: mov      qword ptr [rcx], rax
+05E0F7: mov      edi, edx
+05E0F9: mov      rcx, qword ptr [rcx + 0x78]
+05E0FD: test     rcx, rcx
+05E100: je       0x14005e10c
+05E102: mov      edx, 0x1e0
+05E107: call     0x14021e450
+05E10C: mov      rcx, rbx
+05E10F: call     0x1400a3210
+05E114: test     dil, 1
+05E118: je       0x14005e127
+05E11A: mov      edx, 0x80
+05E11F: mov      rcx, rbx
+05E122: call     0x14021e450
+05E127: mov      rax, rbx
+05E12A: mov      rbx, qword ptr [rsp + 0x30]
+05E12F: add      rsp, 0x20
+05E133: pop      rdi
+05E134: ret      
+05E135: int3     
+05E136: int3     
+05E137: int3     
+05E138: int3     
+05E139: int3     
+05E13A: int3     
+05E13B: int3     
+05E13C: int3     
+05E13D: int3     
+05E13E: int3     
+05E13F: int3     
+05E140: mov      qword ptr [rsp + 8], rcx
+05E145: push     rbx
+05E146: sub      rsp, 0x40
+05E14A: mov      rbx, rcx
+05E14D: call     0x1400cf5c0
+05E152: nop      
+05E153: lea      rax, [rip + 0x2010ce]
+05E15A: mov      qword ptr [rbx], rax
+05E15D: lea      rcx, [rbx + 0x18]
+05E161: lea      rdx, [rip + 0x260c61]
+05E168: call     0x140027900
+05E16D: lea      rcx, [rbx + 0x38]
+05E171: lea      rdx, [rip + 0x201170]
+05E178: call     0x140027900
+05E17D: movss    xmm3, dword ptr [rip + 0x1fd1d3]
+05E185: movss    dword ptr [rsp + 0x28], xmm3
+05E18B: movss    dword ptr [rsp + 0x20], xmm3
+05E191: xorps    xmm2, xmm2
+05E194: mov      edx, 1
+05E199: mov      rcx, rbx
+05E19C: call     0x1400d56b0
+05E1A1: mov      rcx, rbx
+05E1A4: call     0x1400d00b0
+05E1A9: mov      dword ptr [rsp + 0x30], 1
+05E1B1: mov      dword ptr [rsp + 0x28], 0x13
+05E1B9: mov      dword ptr [rsp + 0x20], 0x18
+05E1C1: mov      edx, 7
+05E1C6: mov      r9d, 0x30
+05E1CC: mov      r8d, 0x37
+05E1D2: mov      rcx, rbx
+05E1D5: call     0x1400cfdd0
+05E1DA: nop      
+05E1DB: mov      rax, rbx
+05E1DE: add      rsp, 0x40
+05E1E2: pop      rbx
+05E1E3: ret      
+05E1E4: int3     
+05E1E5: int3     
+05E1E6: int3     
+05E1E7: int3     
+05E1E8: int3     
+05E1E9: int3     
+05E1EA: int3     
+05E1EB: int3     
+05E1EC: int3     
+05E1ED: int3     
+05E1EE: int3     
+05E1EF: int3     
+05E1F0: mov      qword ptr [rsp + 0x18], rbx
+05E1F5: push     rbp
+05E1F6: push     rsi
+05E1F7: push     rdi
+05E1F8: push     r12
+05E1FA: push     r13
+05E1FC: push     r14
+05E1FE: push     r15
+05E200: lea      rbp, [rsp - 0x150]
+05E208: sub      rsp, 0x250
+05E20F: mov      r13, rcx
+05E212: xor      r14d, r14d
+05E215: mov      r9d, dword ptr [rip + 0x28ff34]
+05E21C: xor      r8d, r8d
+05E21F: lea      rdx, [rip + 0x2010c2]
+05E226: call     0x1400d6340
+05E22B: mov      rcx, qword ptr [r13 + 0x148]
+05E232: mov      edx, 7
+05E237: mov      ecx, dword ptr [rcx + 0x1f8]
+05E23D: call     0x1400c2fe0
+05E242: mov      rax, qword ptr [r13 + 0x148]
+05E249: mov      dword ptr [rax + 0x284], 0xd
+05E253: mov      ecx, 0x1f
+05E258: call     0x14005e080
+05E25D: movsxd   rcx, eax
+05E260: mov      rax, qword ptr [r13 + 0x148]
+05E267: mov      dword ptr [rax + rcx*4 + 0xcc], 0x1f
+05E272: mov      rcx, qword ptr [r13 + 0x148]
+05E279: call     0x1400adb30
+05E27E: xorps    xmm0, xmm0
+05E281: movups   xmmword ptr [rsp + 0x30], xmm0
+05E286: xorps    xmm1, xmm1
+05E289: movdqu   xmmword ptr [rsp + 0x40], xmm1
+05E28F: mov      rcx, qword ptr [rip + 0x28fe8a]
+05E296: call     0x140251ce0
+05E29B: mov      r8, rax
+05E29E: mov      rdx, qword ptr [rip + 0x28fe7b]
+05E2A5: lea      rcx, [rsp + 0x30]
+05E2AA: call     0x140027e50
+05E2AF: nop      
+05E2B0: lea      rdx, [rsp + 0x70]
+05E2B5: lea      rcx, [rsp + 0x30]
+05E2BA: call     0x1400a0220
+05E2BF: nop      
+05E2C0: mov      rdx, qword ptr [rsp + 0x48]
+05E2C5: cmp      rdx, 0xf
+05E2C9: jbe      0x14005e2fd
+05E2CB: inc      rdx
+05E2CE: mov      rcx, qword ptr [rsp + 0x30]
+05E2D3: mov      rax, rcx
+05E2D6: cmp      rdx, 0x1000
+05E2DD: jb       0x14005e2f8
+05E2DF: add      rdx, 0x27
+05E2E3: mov      rcx, qword ptr [rcx - 8]
+05E2E7: sub      rax, rcx
+05E2EA: sub      rax, 8
+05E2EE: cmp      rax, 0x1f
+05E2F2: ja       0x14005e61a
+05E2F8: call     0x14021e450
+05E2FD: mov      ecx, 0x498
+05E302: call     0x14021e414
+05E307: mov      qword ptr [rbp + 0x190], rax
+05E30E: test     rax, rax
+05E311: je       0x14005e320
+05E313: mov      rcx, rax
+05E316: call     0x1400a5740
+05E31B: mov      rdi, rax
+05E31E: jmp      0x14005e323
+05E320: mov      rdi, r14
+05E323: mov      qword ptr [rbp + 0x198], rdi
+05E32A: lea      rdx, [rsp + 0x70]
+05E32F: mov      rcx, rdi
+05E332: call     0x1400ae0b0
+05E337: mov      rcx, rdi
+05E33A: call     0x1400adb30

@@ -1,0 +1,163 @@
+; Horsey.exe+8C9E0 RaceAdvanceSim
+; capstone 640 bytes from entry
+
+08C9E0: push     rdi
+08C9E2: push     r15
+08C9E4: sub      rsp, 0x38
+08C9E8: xor      r15d, r15d
+08C9EB: mov      rdi, rcx
+08C9EE: cmp      dword ptr [rcx + 0x298], r15d
+08C9F5: jle      0x14008cc00
+08C9FB: mov      qword ptr [rsp + 0x50], rbx
+08CA00: mov      qword ptr [rsp + 0x58], rbp
+08CA05: mov      ebp, r15d
+08CA08: mov      qword ptr [rsp + 0x60], rsi
+08CA0D: mov      esi, r15d
+08CA10: mov      qword ptr [rsp + 0x30], r14
+08CA15: movaps   xmmword ptr [rsp + 0x20], xmm6
+08CA1A: movss    xmm6, dword ptr [rip + 0x1d7952]
+08CA22: nop      dword ptr [rax]
+08CA26: nop      word ptr [rax + rax]
+08CA30: mov      rax, qword ptr [rdi + 0x280]
+08CA37: cmp      dword ptr [rax + rbp + 0x14], 0x12c
+08CA3F: jle      0x14008ca52
+08CA41: mov      rax, qword ptr [rdi + 0x130]
+08CA48: mov      rcx, qword ptr [rsi + rax]
+08CA4C: inc      dword ptr [rcx + 0x21c]
+08CA52: mov      rcx, qword ptr [rdi + 0x280]
+08CA59: mov      rbx, qword ptr [rdi + 0x130]
+08CA60: mov      edx, dword ptr [rcx + rbp + 0x10]
+08CA64: movss    xmm1, dword ptr [rcx + rbp + 0x24]
+08CA6A: mov      r8, qword ptr [rsi + rbx]
+08CA6E: mov      eax, dword ptr [rcx + rbp + 0x14]
+08CA72: movd     xmm0, edx
+08CA76: mulss    xmm1, xmm6
+08CA7A: mov      r14d, dword ptr [r8 + 0x220]
+08CA81: cvtdq2ps xmm0, xmm0
+08CA84: divss    xmm1, xmm0
+08CA88: cvttss2si r9d, xmm1
+08CA8D: cmp      eax, 0x258
+08CA92: jle      0x14008caa8
+08CA94: mov      eax, r14d
+08CA97: cdq      
+08CA98: sub      eax, edx
+08CA9A: sar      eax, 1
+08CA9C: mov      dword ptr [r8 + 0x220], eax
+08CAA3: jmp      0x14008cb3f
+08CAA8: cmp      eax, 0x168
+08CAAD: jle      0x14008caca
+08CAAF: lea      ecx, [r14 + r14]
+08CAB3: mov      eax, 0x55555556
+08CAB8: imul     ecx
+08CABA: mov      eax, edx
+08CABC: shr      eax, 0x1f
+08CABF: add      edx, eax
+08CAC1: mov      dword ptr [r8 + 0x220], edx
+08CAC8: jmp      0x14008cb3f
+08CACA: cmp      edx, 0x168
+08CAD0: jle      0x14008cb3f
+08CAD2: cmp      eax, 0xb4
+08CAD7: jle      0x14008cafa
+08CAD9: lea      ecx, [r14*4]
+08CAE1: mov      eax, 0x66666667
+08CAE6: imul     ecx
+08CAE8: sar      edx, 1
+08CAEA: mov      eax, edx
+08CAEC: shr      eax, 0x1f
+08CAEF: add      edx, eax
+08CAF1: mov      dword ptr [r8 + 0x220], edx
+08CAF8: jmp      0x14008cb3f
+08CAFA: cmp      dword ptr [rcx + rbp + 0xc], 0
+08CAFF: jne      0x14008cb11
+08CB01: lea      eax, [r9 + r9*4]
+08CB05: cdq      
+08CB06: and      edx, 3
+08CB09: lea      r9d, [rdx + rax]
+08CB0D: sar      r9d, 2
+08CB11: mov      eax, r14d
+08CB14: mov      r8d, 0x2710
+08CB1A: cdq      
+08CB1B: sub      eax, edx
+08CB1D: sar      eax, 1
+08CB1F: mov      ecx, eax
+08CB21: mov      eax, r9d
+08CB24: cdq      
+08CB25: sub      eax, edx
+08CB27: mov      edx, 0xa
+08CB2C: sar      eax, 1
+08CB2E: add      ecx, eax
+08CB30: call     0x1400c12d0
+08CB35: mov      rcx, qword ptr [rsi + rbx]
+08CB39: mov      dword ptr [rcx + 0x220], eax
+08CB3F: mov      rbx, qword ptr [rdi + 0x130]
+08CB46: mov      edx, 5
+08CB4B: mov      r8d, 0x3e8
+08CB51: mov      rcx, qword ptr [rsi + rbx]
+08CB55: mov      ecx, dword ptr [rcx + 0x220]
+08CB5B: call     0x1400c12d0
+08CB60: mov      rcx, qword ptr [rsi + rbx]
+08CB64: mov      dword ptr [rcx + 0x220], eax
+08CB6A: cmp      byte ptr [rip + 0x264977], 0
+08CB71: je       0x14008cba1
+08CB73: mov      rax, qword ptr [rdi + 0x130]
+08CB7A: mov      rcx, rdi
+08CB7D: mov      rdx, qword ptr [rsi + rax]
+08CB81: mov      ebx, dword ptr [rdx + 0x220]
+08CB87: call     0x1400d5ae0
+08CB8C: mov      rdx, rax
+08CB8F: lea      rcx, [rip + 0x1d71e2]
+08CB96: mov      r9d, ebx
+08CB99: mov      r8d, r14d
+08CB9C: call     0x1400bee80
+08CBA1: mov      rax, qword ptr [rdi + 0x130]
+08CBA8: mov      rcx, qword ptr [rsi + rax]
+08CBAC: cmp      dword ptr [rcx + 0x1f8], -1
+08CBB3: je       0x14008cbcf
+08CBB5: call     0x1400b3ce0
+08CBBA: mov      rax, qword ptr [rdi + 0x130]
+08CBC1: mov      rcx, qword ptr [rsi + rax]
+08CBC5: mov      dword ptr [rcx + 0x214], 2
+08CBCF: inc      r15d
+08CBD2: add      rbp, 0x70
+08CBD6: add      rsi, 8
+08CBDA: cmp      r15d, dword ptr [rdi + 0x298]
+08CBE1: jl       0x14008ca30
+08CBE7: movaps   xmm6, xmmword ptr [rsp + 0x20]
+08CBEC: mov      r14, qword ptr [rsp + 0x30]
+08CBF1: mov      rsi, qword ptr [rsp + 0x60]
+08CBF6: mov      rbp, qword ptr [rsp + 0x58]
+08CBFB: mov      rbx, qword ptr [rsp + 0x50]
+08CC00: add      rsp, 0x38
+08CC04: pop      r15
+08CC06: pop      rdi
+08CC07: ret      
+08CC08: int3     
+08CC09: int3     
+08CC0A: int3     
+08CC0B: int3     
+08CC0C: int3     
+08CC0D: int3     
+08CC0E: int3     
+08CC0F: int3     
+08CC10: push     rbx
+08CC12: push     rbp
+08CC13: push     r14
+08CC15: sub      rsp, 0x20
+08CC19: xor      ebp, ebp
+08CC1B: mov      qword ptr [rsp + 0x48], rdi
+08CC20: lea      r14, [rcx + 0x298]
+08CC27: mov      qword ptr [rsp + 0x50], r15
+08CC2C: mov      rbx, rcx
+08CC2F: mov      edi, ebp
+08CC31: cmp      dword ptr [r14], ebp
+08CC34: jle      0x14008ccab
+08CC36: mov      qword ptr [rsp + 0x40], rsi
+08CC3B: mov      esi, ebp
+08CC3D: nop      dword ptr [rax]
+08CC40: mov      rax, qword ptr [rbx + 0x130]
+08CC47: mov      rcx, qword ptr [rsi + rax]
+08CC4B: cmp      dword ptr [rcx + 0x218], 0x3e7
+08CC55: jne      0x14008cc68
+08CC57: test     rcx, rcx
+08CC5A: je       0x14008cc6e
+08CC5C: mov      rax, qword ptr [rcx]

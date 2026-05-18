@@ -1,15 +1,21 @@
 """
 Frida: gameplay hooks for SDK validation.
 
-  - GainMoney @ 0x10AB80 (shop purchase, race payout, …)
-  - SimSpawnDisk @ 0x33A20 (placing horses / world spawn FSM entry)
-  - RaceStateMachine @ 0x8F2B0 (race UI FSM)
-  - RaceGo dispatch site @ 0x91274 (mov [rip+disp] in race cluster — string phase)
+  - GainMoney @ 0x10AB80 (credits — race prize, etc.)
+  - SpendMoney @ 0x10AC60 (debits — shop purchases; BuyItem.c.txt calls this)
+  - SpawnEntity @ 0x30492 (calls SpawnPlace @ 0x32330 from 0x30B52)
+  - SpawnPlace @ 0x32330 (SimSpawnDisk spawn callee)
+  - GrabHorse @ 0xD6340 (GrabHorse string @ 0xD9158; not 0xD71DF)
+  - DropHorseFail @ 0xD3C50 (failed tile drop)
+  - BuyItem @ 0x787D0 (shop UI tick)
+  - RaceStateMachine @ 0x8F2B0 (optional, --no-race to skip menu noise)
+  - RaceAdvanceSim @ 0x8C9E0 (race sim tick — ctx race score @ +0x450 vs finish slots)
 
 Usage:
+  python RE_Tools/tools/scripts/frida_gameplay_hooks.py --attach
   python RE_Tools/tools/scripts/frida_gameplay_hooks.py --attach --seconds 120
 
-In-game: buy from shop, place a horse, start and run a race.
+Attach, play in-game, press Enter when done (or use --seconds for a timer).
 
 Output: RE_Tools/analysis/gameplay_frida.json
 """
@@ -18,6 +24,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -28,35 +35,48 @@ from paths import get_exe_path, get_game_dir  # noqa: E402
 
 OUT = ROOT / "RE_Tools" / "analysis" / "gameplay_frida.json"
 
-# Verified / Ghidra (GameFunctions.h)
+# Verified Ghidra + Capstone E8 scan (Horsey.exe)
 GAIN_MONEY = 0x10AB80
-SIM_SPAWN_DISK = 0x33A20
+SPEND_MONEY = 0x10AC60  # subtract [ctx+0x308]; BuyItem + race betting
+SPAWN_ENTITY = 0x30492  # mov rcx,rdi; call 0x32330 @ 0x30B52
+SPAWN_PLACE = 0x32330
+GRAB_HORSE = 0xD6340  # 12 E8 callers; GrabHorse tag @ 0xD9158 inside body
+DROP_HORSE_FAIL = 0xD3C50
 BUY_ITEM = 0x787D0
 RACE_FSM = 0x8F2B0
-RACE_GO_SITE = 0x91274
-SIM_DISPATCH_LO = 0x33000
-SIM_DISPATCH_HI = 0x35000
-SIM_MID_LO = 0x5F000
-SIM_MID_HI = 0x61000
+RACE_ADVANCE_SIM = 0x8C9E0
+G_SETTINGS_SEED = 0x2F1587
+G_PRNG_STATE = 0x2F2700
+# NEVER hook 0x91274 (mid-instruction) or 0xD71DF (wrong entry).
 
 AGENT = r"""
 'use strict';
 var GAIN = __GAIN__;
+var SPEND = __SPEND__;
+var SPAWN_ENT = __SPAWN_ENT__;
 var SPAWN = __SPAWN__;
+var GRAB = __GRAB__;
+var DROP_FAIL = __DROP_FAIL__;
 var BUY = __BUY__;
 var RACE = __RACE__;
-var RACE_GO = __RACE_GO__;
-var SIM_LO = __SIM_LO__;
-var SIM_HI = __SIM_HI__;
-var MID_LO = __MID_LO__;
-var MID_HI = __MID_HI__;
+var RACE_SIM = __RACE_SIM__;
+var HOOK_RACE = __HOOK_RACE__;
+var HOOK_RACE_SIM = __HOOK_RACE_SIM__;
+var G_SEED = __G_SEED__;
+var G_PRNG = __G_PRNG__;
 
 var gain = [];
+var spend = [];
+var spawnEnt = [];
 var spawn = [];
+var grab = [];
+var dropFail = [];
 var buy = [];
 var race = [];
-var racego = [];
-var simCalls = [];
+var raceSim = [];
+var buyThrottle = 0;
+var raceSimThrottle = 0;
+var raceSimTicks = 0;
 
 function modRva(a) {
   var m = Process.findModuleByAddress(a);
@@ -108,132 +128,207 @@ Interceptor.attach(base.add(GAIN), {
   }
 });
 
+Interceptor.attach(base.add(SPEND), {
+  onEnter: function (args) {
+    this.ctx = args[0];
+    this.cost = args[1].toInt32();
+    this.before = readMoney(this.ctx);
+    this.bt = Thread.backtrace(this.context, Backtracer.FUZZY).slice(0, 8).map(modRva);
+  },
+  onLeave: function () {
+    var row = {
+      type: 'spend_money',
+      cost: this.cost,
+      ctx: this.ctx.toString(),
+      before: this.before,
+      after: readMoney(this.ctx),
+      bt: this.bt,
+      from_buy: this.bt.some(function (x) {
+        var v = parseInt(x, 16);
+        return v >= BUY && v < BUY + 0x5000;
+      })
+    };
+    spend.push(row);
+    send({ type: 'spend_money', row: row });
+  }
+});
+
+Interceptor.attach(base.add(SPAWN_ENT), {
+  onEnter: function (args) {
+    var row = {
+      type: 'spawn_entity',
+      rcx: args[0].toString(),
+      bt: Thread.backtrace(this.context, Backtracer.FUZZY).slice(0, 8).map(modRva)
+    };
+    spawnEnt.push(row);
+    send({ type: 'spawn_entity', row: row });
+  }
+});
+
 Interceptor.attach(base.add(SPAWN), {
   onEnter: function (args) {
     var row = {
-      type: 'sim_spawn_disk',
+      type: 'spawn_place',
       rcx: args[0].toString(),
-      rdx: args[1] ? args[1].toString() : '',
-      bt: bt(this.context, 10)
+      bt: Thread.backtrace(this.context, Backtracer.FUZZY).slice(0, 8).map(modRva)
     };
     spawn.push(row);
-    send({ type: 'sim_spawn', row: row });
+    send({ type: 'spawn_place', row: row });
+  }
+});
+
+Interceptor.attach(base.add(GRAB), {
+  onEnter: function (args) {
+    var row = {
+      type: 'grab_horse',
+      rcx: args[0].toString(),
+      rdx: args[1] ? args[1].toInt32() : 0,
+      bt: Thread.backtrace(this.context, Backtracer.FUZZY).slice(0, 8).map(modRva)
+    };
+    grab.push(row);
+    send({ type: 'grab_horse', row: row });
+  }
+});
+
+Interceptor.attach(base.add(DROP_FAIL), {
+  onEnter: function (args) {
+    var row = {
+      type: 'drop_horse_fail',
+      rcx: args[0].toString(),
+      bt: Thread.backtrace(this.context, Backtracer.FUZZY).slice(0, 8).map(modRva)
+    };
+    dropFail.push(row);
+    send({ type: 'drop_horse_fail', row: row });
   }
 });
 
 Interceptor.attach(base.add(BUY), {
   onEnter: function () {
-    var row = { type: 'buy_item', bt: bt(this.context, 6) };
-    buy.push(row);
-    send({ type: 'buy_item', row: row });
-  }
-});
-
-var raceLast = 0;
-Interceptor.attach(base.add(RACE), {
-  onEnter: function (args) {
     var now = Date.now();
-    if (now - raceLast < 200) return;
-    raceLast = now;
-    var row = {
-      type: 'race_fsm',
-      param_1: args[0].toString(),
-      bt: bt(this.context, 6)
-    };
-    race.push(row);
-    if (race.length <= 80) send({ type: 'race_fsm', row: row });
+    if (now - buyThrottle < 250) return;
+    buyThrottle = now;
+    if (buy.length > 200) return;
+    var row = { type: 'buy_item', bt: Thread.backtrace(this.context, Backtracer.FUZZY).slice(0, 6).map(modRva) };
+    buy.push(row);
+    if (buy.length <= 30) send({ type: 'buy_item', row: row });
   }
 });
 
-Interceptor.attach(base.add(RACE_GO), {
-  onEnter: function () {
-    var row = {
-      type: 'racego_site',
-      bt: bt(this.context, 12)
-    };
-    racego.push(row);
-    send({ type: 'racego', row: row });
-  }
-});
-
-/* Log direct calls into sim dispatch regions (SimStartRace body hunt) */
-var hookSim = function (lo, hi, tag) {
-  var p = base.add(lo);
-  var end = base.add(hi);
-  while (p.compare(end) < 0) {
-    (function (addr, regionTag) {
-      try {
-        Interceptor.attach(addr, {
-          onEnter: function () {
-            if (simCalls.length > 200) return;
-            var row = {
-              type: 'sim_region',
-              region: regionTag,
-              target: modRva(addr),
-              bt: bt(this.context, 8)
-            };
-            simCalls.push(row);
-            send({ type: 'sim_region', row: row });
-          }
-        });
-      } catch (e) {}
-    })(p, tag);
-    p = p.add(1);
-  }
-};
-/* Too many 1-byte hooks — instead hook a few hot targets from static scan */
-rpc.exports.setSimTargets = function (addrs) {
-  addrs.forEach(function (rvaHex) {
-    var rva = parseInt(rvaHex, 16);
-    try {
-      Interceptor.attach(base.add(rva), {
-        onEnter: function () {
-          if (simCalls.length > 150) return;
-          var row = { type: 'sim_target', rva: modRva(this.context.pc), bt: bt(this.context, 8) };
-          simCalls.push(row);
-          send({ type: 'sim_target', row: row });
-        }
-      });
-    } catch (e) {}
+if (HOOK_RACE) {
+  var raceLast = 0;
+  Interceptor.attach(base.add(RACE), {
+    onEnter: function (args) {
+      var now = Date.now();
+      if (now - raceLast < 500) return;
+      raceLast = now;
+      var row = { type: 'race_fsm', param_1: args[0].toString() };
+      if (race.length < 30) {
+        row.bt = Thread.backtrace(this.context, Backtracer.FUZZY).slice(0, 6).map(modRva);
+      }
+      race.push(row);
+      if (race.length <= 60) send({ type: 'race_fsm', row: row });
+    }
   });
-};
+}
+
+function readRaceSnapshot(ctx) {
+  var out = { horses: [], n_horses: 0 };
+  try {
+    out.race_score_450 = ctx.add(0x450).readS32();
+    out.n_horses = ctx.add(0x298).readS32();
+    var slots = ctx.add(0x280).readPointer();
+    var list = ctx.add(0x130).readPointer();
+    if (slots.isNull() || list.isNull()) return out;
+    var n = out.n_horses;
+    if (n < 0) n = 0;
+    if (n > 16) n = 16;
+    for (var i = 0; i < n; i++) {
+      var slot = slots.add(i * 0x70);
+      var horsePtr = list.add(i * 8).readPointer();
+      var h = {
+        i: i,
+        finish_place: slot.add(0x0c).readS32(),
+        progress: slot.add(0x10).readS32(),
+        timer: slot.add(0x14).readS32(),
+        speed_f: slot.add(0x24).readFloat()
+      };
+      if (!horsePtr.isNull()) {
+        h.speed_220 = horsePtr.add(0x220).readS32();
+      }
+      out.horses.push(h);
+    }
+  } catch (e) {
+    out.error = e.toString();
+  }
+  return out;
+}
+
+if (HOOK_RACE_SIM) {
+  Interceptor.attach(base.add(RACE_SIM), {
+    onEnter: function (args) {
+      raceSimTicks++;
+      var now = Date.now();
+      if (now - raceSimThrottle < 250) return;
+      raceSimThrottle = now;
+      if (raceSim.length > 120) return;
+      var ctx = args[0];
+      var row = {
+        type: 'race_advance_sim',
+        tick: raceSimTicks,
+        ctx: ctx.toString(),
+        state_e0: ctx.add(0xe0).readS32(),
+        frame_254: ctx.add(0x254).readS32(),
+        race_flag_258: ctx.add(0x258).readU8(),
+        g_settings_seed: base.add(G_SEED).readU32(),
+        g_prng_state: base.add(G_PRNG).readU64().toString(),
+        snapshot: readRaceSnapshot(ctx)
+      };
+      raceSim.push(row);
+      if (raceSim.length <= 40) send({ type: 'race_advance_sim', row: row });
+    }
+  });
+}
 
 rpc.exports.summary = function () {
   return {
     gain_money: gain,
-    sim_spawn: spawn,
+    spend_money: spend,
+    spawn_place: spawn,
+    grab_horse: grab,
     buy_item: buy,
     race_fsm: race,
-    racego_hits: racego,
-    sim_calls: simCalls
+    race_advance_sim: raceSim,
+    race_advance_sim_ticks: raceSimTicks
   };
 };
 """
-
-
-def load_sim_targets() -> list[str]:
-    p = ROOT / "RE_Tools" / "analysis" / "sim_start_race_callees.json"
-    if not p.is_file():
-        return []
-    data = json.loads(p.read_text(encoding="utf-8"))
-    # top 8 targets by caller count
-    ranked = sorted(data.get("by_target", {}).items(), key=lambda kv: -len(kv[1]))
-    out: list[str] = []
-    for tgt, _ in ranked[:8]:
-        out.append(tgt.replace("0x", ""))
-    return out
 
 
 def main() -> int:
     import frida
 
     ap = argparse.ArgumentParser()
-    ap.add_argument("--seconds", type=float, default=120.0)
+    ap.add_argument(
+        "--seconds",
+        type=float,
+        default=None,
+        help="Auto-stop after N seconds (default: wait until you press Enter)",
+    )
     ap.add_argument("--attach", action="store_true", help="Attach to running Horsey.exe (required)")
     ap.add_argument(
         "--full-events",
         action="store_true",
         help="Include raw send() events in JSON (large file)",
+    )
+    ap.add_argument(
+        "--no-race",
+        action="store_true",
+        help="Skip RaceStateMachine hook (menu ticks constantly)",
+    )
+    ap.add_argument(
+        "--no-race-sim",
+        action="store_true",
+        help="Skip RaceAdvanceSim hook (verbose during active race)",
     )
     args = ap.parse_args()
     if not args.attach:
@@ -245,16 +340,22 @@ def main() -> int:
         if msg.get("type") == "send":
             events.append(msg["payload"])
 
+    hook_race = not args.no_race
+    hook_race_sim = not args.no_race_sim
     agent = (
         AGENT.replace("__GAIN__", str(GAIN_MONEY))
-        .replace("__SPAWN__", str(SIM_SPAWN_DISK))
+        .replace("__SPEND__", str(SPEND_MONEY))
+        .replace("__SPAWN_ENT__", str(SPAWN_ENTITY))
+        .replace("__SPAWN__", str(SPAWN_PLACE))
+        .replace("__GRAB__", str(GRAB_HORSE))
+        .replace("__DROP_FAIL__", str(DROP_HORSE_FAIL))
         .replace("__BUY__", str(BUY_ITEM))
         .replace("__RACE__", str(RACE_FSM))
-        .replace("__RACE_GO__", str(RACE_GO_SITE))
-        .replace("__SIM_LO__", str(SIM_DISPATCH_LO))
-        .replace("__SIM_HI__", str(SIM_DISPATCH_HI))
-        .replace("__MID_LO__", str(SIM_MID_LO))
-        .replace("__MID_HI__", str(SIM_MID_HI))
+        .replace("__RACE_SIM__", str(RACE_ADVANCE_SIM))
+        .replace("__HOOK_RACE__", "true" if hook_race else "false")
+        .replace("__HOOK_RACE_SIM__", "true" if hook_race_sim else "false")
+        .replace("__G_SEED__", str(G_SETTINGS_SEED))
+        .replace("__G_PRNG__", str(G_PRNG_STATE))
     )
 
     device = frida.get_local_device()
@@ -273,25 +374,42 @@ def main() -> int:
     script.on("message", on_msg)
     script.load()
 
-    targets = load_sim_targets()
-    if targets:
-        try:
-            script.exports_sync.set_sim_targets(targets)
-            print(f"Hooked {len(targets)} sim dispatch targets from sim_start_race_callees.json")
-        except Exception as e:
-            print(f"setSimTargets skipped: {e}")
+    hooked = ["GainMoney", "SpendMoney", "SpawnPlace", "GrabHorse", "BuyItem"]
+    if hook_race:
+        hooked.append("RaceStateMachine")
+    if hook_race_sim:
+        hooked.append("RaceAdvanceSim")
+    print("Hooks:", ", ".join(hooked))
+    print("Note: GrabHorse entry is 0xD6340 (not 0xD71DF). SimStartRace body is RaceSimHandler@0x5F020.")
 
     if not args.attach:
         device.resume(pid)
 
-    print(f"Attached pid={pid} for {args.seconds}s — trigger in-game now:")
+    print(f"Attached pid={pid} — trigger in-game now:")
     print("  shop buy  |  place horse  |  start/run race")
     print(f"  Output -> {OUT}")
-    t0 = time.time()
-    while time.time() - t0 < args.seconds:
-        time.sleep(5.0)
-        n = len([e for e in events if e.get("type")])
-        print(f"  … {int(time.time() - t0)}s  events={n}", flush=True)
+
+    stop_ticker = threading.Event()
+
+    def event_ticker() -> None:
+        t0 = time.time()
+        while not stop_ticker.wait(5.0):
+            n = len(events)
+            print(f"  … {int(time.time() - t0)}s  events={n}", flush=True)
+
+    ticker = threading.Thread(target=event_ticker, daemon=True)
+    ticker.start()
+
+    if args.seconds is not None:
+        print(f"  Auto-stop in {args.seconds}s (or Ctrl+C)")
+        time.sleep(args.seconds)
+    else:
+        print("  Press Enter when finished…")
+        try:
+            input()
+        except (EOFError, KeyboardInterrupt):
+            print()
+    stop_ticker.set()
     try:
         summary = script.exports_sync.summary()
     except Exception:
@@ -308,39 +426,59 @@ def main() -> int:
         return [e["row"] for e in events if e.get("type") == kind and e.get("row")]
 
     gain_rows = rows_of("gain_money")
-    spawn_rows = rows_of("sim_spawn")
+    spend_rows = rows_of("spend_money")
+    spawn_ent_rows = rows_of("spawn_entity")
+    spawn_rows = rows_of("spawn_place") or rows_of("sim_spawn")
+    grab_rows = rows_of("grab_horse")
+    drop_rows = rows_of("drop_horse_fail")
     buy_rows = rows_of("buy_item")
     race_rows = rows_of("race_fsm")
-    racego_rows = rows_of("racego")
-    sim_rows = summary.get("sim_calls", []) or [
-        e["row"] for e in events if e.get("type") in ("sim_region", "sim_target") and e.get("row")
-    ]
+    race_sim_rows = rows_of("race_advance_sim")
 
     report = {
         "hooks": {
             "GainMoney": hex(GAIN_MONEY),
-            "SimSpawnDisk": hex(SIM_SPAWN_DISK),
+            "SpendMoney": hex(SPEND_MONEY),
+            "SpawnEntity": hex(SPAWN_ENTITY),
+            "SpawnPlace": hex(SPAWN_PLACE),
+            "GrabHorse": hex(GRAB_HORSE),
+            "DropHorseFail": hex(DROP_HORSE_FAIL),
             "BuyItem": hex(BUY_ITEM),
-            "RaceStateMachine": hex(RACE_FSM),
-            "RaceGo_site": hex(RACE_GO_SITE),
+            "RaceStateMachine": hex(RACE_FSM) if hook_race else None,
+            "RaceAdvanceSim": hex(RACE_ADVANCE_SIM) if hook_race_sim else None,
+            "g_settings_seed": hex(G_SETTINGS_SEED),
+            "g_prng_state": hex(G_PRNG_STATE),
         },
-        "sim_targets_hooked": targets,
+        "why_old_log_missed": {
+            "sim_spawn_0": "0x33A20 has no E8 callers; use 0x32330 + GrabHorse@0xD71DF",
+            "gain_on_buy": "shops debit via SpendMoney@0x10AC60 not GainMoney",
+            "sim_dispatch_0": "SimStartRace is tag data, not SimMessageDispatch entry",
+            "buy_1475": "BuyItem ticks every frame while shop UI open",
+            "race_76": "RaceStateMachine did fire — race was captured",
+        },
         "summary_counts": {
             "gain_money": len(gain_rows),
-            "sim_spawn": len(spawn_rows),
+            "spend_money": len(spend_rows),
+            "spawn_entity": len(spawn_ent_rows),
+            "spawn_place": len(spawn_rows),
+            "grab_horse": len(grab_rows),
+            "drop_horse_fail": len(drop_rows),
             "buy_item": len(buy_rows),
             "race_fsm": len(race_rows),
-            "racego_hits": len(racego_rows),
-            "sim_calls": len(sim_rows),
+            "race_advance_sim": len(race_sim_rows),
         },
         "gain_money": gain_rows[:50],
-        "sim_spawn": spawn_rows[:50],
+        "spend_money": spend_rows[:50],
+        "spawn_entity": spawn_ent_rows[:50],
+        "spawn_place": spawn_rows[:50],
+        "grab_horse": grab_rows[:50],
+        "drop_horse_fail": drop_rows[:30],
         "buy_item": buy_rows[:50],
         "race_fsm": race_rows[:40],
         "race_fsm_bt_sample": race_rows[0].get("bt") if race_rows else None,
-        "racego_hits": racego_rows[:30],
-        "sim_calls": sim_rows[:60],
-        "note": "Attach with save loaded; perform shop buy, horse place, race start for hits.",
+        "race_advance_sim": race_sim_rows[:80],
+        "race_advance_sim_sample": race_sim_rows[-1] if race_sim_rows else None,
+        "note": "race_advance_sim: snapshot.race_score_450 = [race_ctx+0x450] (HorseRaceScore @ 0xE2FBD); finish_place @ slot+0x0C.",
     }
     if args.full_events:
         report["events"] = events

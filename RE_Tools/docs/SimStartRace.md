@@ -1,50 +1,76 @@
-# SimStartRace — caller scan
+# SimStartRace — handler, dispatch, and tags
 
-## Why string xrefs mislead
+**Source:** `Game/Horsey.exe` · Capstone on `Game/`
 
-`SimStartRace` @ `.rdata` `0x25BB70` is referenced by **movups** inside dispatch stubs
-(`0x32FA3`, `0x5F372`) — those sites copy the tag into a message object, they are **not**
-the function entry that starts a race. Ghidra `RaceCluster` export was empty for the same
-reason: **no function starts** in `0x90E00`–`0x92000`; race UI lives in `RaceStateMachine` @ `0x8F2B0`.
+---
 
-## E8 callers into dispatch regions
+## Summary
 
-| Region | RVA range | Role |
-|--------|-----------|------|
-| `sim_spawn_dispatch` | `0x33000`–`0x35000` | Spawn / early sim (incl. `SimSpawnDisk` @ `0x33A20`) |
-| `sim_mid_dispatch` | `0x5F000`–`0x61000` | Mid sim handlers |
+| Item | RVA | Role |
+|------|-----|------|
+| Tag string `SimStartRace` | `0x25BB70` | 16-byte sim message name |
+| **Handler** | **`0x5F020`** | **`RaceSimHandler`** — posts tag when `[race+0xE0]==7` @ **`0x5F365`** |
+| Race object ctor | `0x5F900` | `RaceSimObject_Init` — **not** the start-race handler |
+| `SimMessageDispatch` @ `0x5E0C2` | — | **Misleading** — small stub (string cleanup), not sim hub |
+| Tag loads only | `0x32FA3`, `0x5F372`, `0x3311D` | `movdqu` into message blobs |
 
-Total E8 hits (byte scan): **7**
+---
 
-### Top call targets
+## SimStartRace body (`RaceSimHandler` @ `0x5F020`)
 
-- **0x5f78e** — 1 caller(s)
-  - from `0x5f77a` (fn `0x5e0c2`)
-- **0x5f7f6** — 1 caller(s)
-  - from `0x5f7e2` (fn `0x5e0c2`)
-- **0x5f869** — 1 caller(s)
-  - from `0x5f855` (fn `0x5e0c2`)
-- **0x5f900** — 2 caller(s)
-  - from `0x103fc3` (fn `0x102dc2`)
-  - from `0x1050d5` (fn `0x103244`)
-- **0x60540** — 2 caller(s)
-  - from `0x5ff07` (fn `0x5e0c2`)
-  - from `0x6db6b` (fn `0x6c912`)
+When race UI state **`[ctx+0xE0] == 7`**:
 
-### Top caller functions (by E8 count)
+1. Zero stack message @ `rbp-0x40`
+2. **`movdqu` @ `0x5F36C`** — copies **SimStartRace** @ `0x25BB70`
+3. **`call 0x40CE0`** — `BuildSimMessageBlob` (duration `0x64`, z `-50`)
+4. **`[ctx+0x258] = 1`** — race-active flag
+5. Message posted via sim layer (`SimPostMessage` @ `0xD6DF0` on other paths)
 
-- `0x5e0c2` — 4 call(s) into regions
-- `0x6c912` — 1 call(s) into regions
-- `0x102dc2` — 1 call(s) into regions
-- `0x103244` — 1 call(s) into regions
+When **`[ctx+0x258] != 0`** first (lines `0x5F035`+): posts finish/cleanup tags then clears flag.
 
-## String xref sites (tag load only)
+**Ghidra export:** [ghidra_exports/RaceSimHandler.c.txt](ghidra_exports/RaceSimHandler.c.txt)
 
-- **SimStartRace** @ `0x32fa3` → entry guess `0x3166b`
-- **SimStartRace** @ `0x5f372` → entry guess `0x5e0c2`
-- **SimSpawnDisk** @ `0x342f0` → entry guess `0x32330`
+---
 
-## Frida
+## `RaceSimObject_Init` @ `0x5F900`
 
-See [Frida_Gameplay.md](Frida_Gameplay.md) — attach, then start a race yourself; check
-`racego_hits` and `sim_calls` in `RE_Tools/analysis/gameplay_frida.json`.
+Constructor for race sim object:
+
+- Initializes arrays @ `[obj+0x278]`, `[obj+0x280]`, horse count @ `[obj+0x298]`
+- Sets `[obj+0x250] = 0x9C4`
+- Copies short tag `"start"` @ `0x5F9D1` into child widget
+
+Called from save/type-1 paths (`0x103FC3`, `0x1050D5`) — **not** the in-race “go” message.
+
+---
+
+## E8 scan (spawn / mid sim regions)
+
+See [analysis/sim_start_race_callees.json](../analysis/sim_start_race_callees.json).
+
+`find_sim_start_race.py` lists E8 into `0x33000`–`0x35000` and `0x5F000`–`0x61000`; those are **internal** callees, not `SimStartRace` entry points.
+
+---
+
+## Horse score vtable (related)
+
+Sim handler function pointers @ **`0x267368`**:
+
+| Offset | RVA |
+|--------|-----|
+| +0 | `0xE2B80` `HorseRaceScore` |
+| +8 | `0xE3F10` |
+
+See [RaceMechanics.md](RaceMechanics.md).
+
+---
+
+## Analysis / Frida
+
+```bat
+python RE_Tools/tools/scripts/analyze_race_mechanics.py
+python RE_Tools/tools/scripts/frida_gameplay_hooks.py --attach
+```
+
+- `race_advance_sim` logs `[race_ctx+0x450]` (`race_score_450`) vs finish slots during races
+- Use `--no-race-sim` to reduce volume
