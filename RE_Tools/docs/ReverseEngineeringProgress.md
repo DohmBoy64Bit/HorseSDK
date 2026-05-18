@@ -136,6 +136,12 @@ See [DataFileFormats.md](DataFileFormats.md) and [analysis/data_inventory.json](
 - **Frida:** `RaceAdvanceSim` @ `0x8C9E0` logs `[race_ctx+0x450]` as `race_score_450` vs `finish_place` in `gameplay_frida.json`.
 - **Doc:** [RaceMechanics.md](RaceMechanics.md) · [SimStartRace.md](SimStartRace.md).
 
+## [KNOWLEDGE UPDATE] 2026-05-17 (race Frida correlation — pinned)
+
+- **Pinned closed:** `[race_ctx+0x450]` score, Frida capture, `analyze_race_correlation.py` → [RaceCorrelationReport.md](RaceCorrelationReport.md).
+- **Capture:** `run_frida_race_capture.py` (live `race_score_450=980`, 3× `RaceAdvanceSim` samples in `gameplay_frida.json`).
+- **See:** [RaceMechanics.md](RaceMechanics.md) § Pinned: race score + Frida correlation.
+
 ## [KNOWLEDGE UPDATE] 2026-05-17 (Phase 4 mod platform)
 
 - **MinHook** vendored @ `ThirdParty/minhook`; `horse_hook_install` uses MH_CreateHook.
