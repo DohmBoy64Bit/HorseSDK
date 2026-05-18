@@ -46,8 +46,12 @@ static LRESULT CALLBACK overlay_wndproc(HWND hwnd, UINT msg, WPARAM wp, LPARAM l
         HDC hdc = BeginPaint(hwnd, &ps);
         RECT rc;
         GetClientRect(hwnd, &rc);
-        FillRect(hdc, &rc, (HBRUSH)(COLOR_WINDOW + 1));
-        SetBkMode(hdc, TRANSPARENT);
+        HBRUSH bg = CreateSolidBrush(RGB(16, 16, 24));
+        FillRect(hdc, &rc, bg);
+        DeleteObject(bg);
+        SetBkMode(hdc, OPAQUE);
+        SetTextColor(hdc, RGB(220, 220, 230));
+        SetBkColor(hdc, RGB(16, 16, 24));
         int y = 4;
         EnterCriticalSection(&g_cs);
         for (int i = 0; i < OV_LINES; i++) {
@@ -77,7 +81,7 @@ static DWORD WINAPI overlay_thread(LPVOID unused)
     wc.lpfnWndProc = overlay_wndproc;
     wc.hInstance = GetModuleHandleA(NULL);
     wc.lpszClassName = "HorseModOverlay";
-    wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+    wc.hbrBackground = CreateSolidBrush(RGB(16, 16, 24));
     RegisterClassA(&wc);
 
     g_hwnd = CreateWindowExA(
@@ -94,7 +98,7 @@ static DWORD WINAPI overlay_thread(LPVOID unused)
         wc.hInstance,
         NULL);
     if (g_hwnd) {
-        SetLayeredWindowAttributes(g_hwnd, 0, 220, LWA_ALPHA);
+        SetLayeredWindowAttributes(g_hwnd, 0, 230, LWA_ALPHA);
     }
 
     overlay_push("Horsey mod overlay (fullscreen-friendly log)");

@@ -1,6 +1,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include "mod_loader.h"
 
+#include "async_log.h"
 #include "debug_console.h"
 #include "hook_manager.h"
 #include "loader_config.h"
@@ -28,6 +29,7 @@ static DWORD WINAPI loader_main_thread(LPVOID param)
     loader_config_load(ini, &g_cfg);
 
     horse_hook_system_init();
+    horse_async_log_start();
 
     if (g_cfg.console) {
         horse_debug_console_open("Horsey Mod Loader");

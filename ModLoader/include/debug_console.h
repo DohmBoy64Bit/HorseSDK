@@ -13,6 +13,9 @@ void horse_debug_console_close(void);
 /** Log to console (+ OutputDebugString). Thread-safe enough for mod load. */
 void horse_debug_log(const char *msg);
 
+/** Internal: flush one line from async log thread (printf + overlay). */
+void horse_debug_log_flush(const char *msg);
+
 void horse_debug_logf(const char *fmt, ...);
 
 /** Background thread: simple commands (help, mods, base). */

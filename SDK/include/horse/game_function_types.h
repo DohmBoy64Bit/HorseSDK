@@ -99,7 +99,7 @@ typedef void (*HORSE_FN_SpawnEntity)(void * ctx);
 typedef void (*HORSE_FN_SpawnPlace)(void * ctx);
 #define HORSE_PTR_SpawnPlace(base) ((HORSE_FN_SpawnPlace)horse_module_rva((base), HORSE_RVA_SpawnPlace))
 
-typedef void (*HORSE_FN_SpendMoney)(void * ctx, int cost);
+typedef void (*HORSE_FN_SpendMoney)(void * ctx, int cost, char show_ui, char str_variant);
 #define HORSE_PTR_SpendMoney(base) ((HORSE_FN_SpendMoney)horse_module_rva((base), HORSE_RVA_SpendMoney))
 
 typedef void (*HORSE_FN_StreamOpen)(void * stream);

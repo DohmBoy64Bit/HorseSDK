@@ -39,11 +39,12 @@ static void detour_gain(void *ctx, int amount, char show_ui)
     }
 }
 
-static void detour_spend(void *ctx, int cost)
+/* SpendMoney @ 0x10AC60: rcx, edx, r8b (show_ui), r9b (string variant) — see disasm 10AC94 */
+static void detour_spend(void *ctx, int cost, char show_ui, char str_variant)
 {
-    mod_logf("SpendMoney -%d (ctx=%p)", cost, ctx);
+    mod_logf("SpendMoney -%d (ctx=%p ui=%d var=%d)", cost, ctx, (int)show_ui, (int)str_variant);
     if (g_orig_spend) {
-        g_orig_spend(ctx, cost);
+        g_orig_spend(ctx, cost, show_ui, str_variant);
     }
 }
 

@@ -449,8 +449,10 @@ CURATED: list[dict] = [
         parameters=[
             {"reg": "rcx", "type": "void *", "name": "ctx"},
             {"reg": "edx", "type": "int", "name": "cost"},
+            {"reg": "r8", "type": "char", "name": "show_ui"},
+            {"reg": "r9", "type": "char", "name": "str_variant"},
         ],
-        hook={"safe_pre_call": True, "notes": "Shop/race betting debit"},
+        hook={"safe_pre_call": True, "notes": "Shop/race debit; 4-arg per disasm@10AC94"},
     ),
     fn(
         "buy_item",

@@ -1,6 +1,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include "debug_console.h"
 
+#include "async_log.h"
 #include "hook_manager.h"
 #include "overlay.h"
 
@@ -55,7 +56,7 @@ int horse_debug_console_open(const char *title)
     }
 
     printf("============================================================\n");
-    printf("  Horsey Mod Loader — debug console\n");
+    printf("  Horsey Mod Loader - debug console\n");
     printf("  This window is attached to Horsey.exe (not horse_inject.exe).\n");
     printf("  Type 'help' for commands. Close game to dismiss.\n");
     printf("============================================================\n\n");
@@ -73,7 +74,7 @@ void horse_debug_console_close(void)
     g_console_open = 0;
 }
 
-void horse_debug_log(const char *msg)
+void horse_debug_log_flush(const char *msg)
 {
     if (msg == NULL) {
         return;
@@ -85,15 +86,14 @@ void horse_debug_log(const char *msg)
         printf("%s\n", msg);
         fflush(stdout);
     }
-
-    char buf[512];
-    snprintf(buf, sizeof(buf), "[HorseModLoader] %s", msg);
-    OutputDebugStringA(buf);
-    OutputDebugStringA("\n");
-
     horse_overlay_log_line(msg);
 
     LeaveCriticalSection(&g_log_cs);
+}
+
+void horse_debug_log(const char *msg)
+{
+    horse_async_log_push(msg);
 }
 
 void horse_debug_logf(const char *fmt, ...)

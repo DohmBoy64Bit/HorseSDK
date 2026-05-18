@@ -94,11 +94,21 @@
           "reg": "edx",
           "type": "int",
           "name": "cost"
+        },
+        {
+          "reg": "r8",
+          "type": "char",
+          "name": "show_ui"
+        },
+        {
+          "reg": "r9",
+          "type": "char",
+          "name": "str_variant"
         }
       ],
       "hook": {
         "safe_pre_call": true,
-        "notes": "Shop/race betting debit"
+        "notes": "Shop/race debit; 4-arg per disasm@10AC94"
       }
     },
     {

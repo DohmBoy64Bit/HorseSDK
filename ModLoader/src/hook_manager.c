@@ -34,11 +34,11 @@ static void detour_gain(void *ctx, int amount, char show_ui)
     }
 }
 
-static void detour_spend(void *ctx, int cost)
+static void detour_spend(void *ctx, int cost, char show_ui, char str_variant)
 {
-    horse_debug_logf("[hook] SpendMoney ctx=%p cost=%d", ctx, cost);
+    horse_debug_logf("[hook] SpendMoney ctx=%p cost=%d ui=%d", ctx, cost, (int)show_ui);
     if (g_orig_spend) {
-        g_orig_spend(ctx, cost);
+        g_orig_spend(ctx, cost, show_ui, str_variant);
     }
 }
 

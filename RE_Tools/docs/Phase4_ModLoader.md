@@ -83,6 +83,7 @@ Copy from `ModLoader/HorseModLoader.ini.example` — `deploy_modloader.py` insta
 ## Hooks
 
 - **example_mod** installs `GainMoney` + `SpendMoney` on load (MinHook).
+- **SpendMoney** is **4 arguments** (`ctx`, `cost`, `show_ui`, `str_variant`) — disasm @ `0x10AC94`/`0x10ACAB`. A 2-arg detour will crash on shop buy.
 - Console: `hooks`, `hook on GainMoney`, `hook off GainMoney`, `resolve Save_Write`.
 
 ## Next
