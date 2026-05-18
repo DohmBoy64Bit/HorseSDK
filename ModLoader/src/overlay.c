@@ -33,6 +33,9 @@ static void overlay_push(const char *line)
 
 void horse_overlay_log_line(const char *line)
 {
+    if (!g_thread) {
+        return;
+    }
     overlay_push(line);
 }
 

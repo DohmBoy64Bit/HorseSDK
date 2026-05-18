@@ -74,7 +74,7 @@ Commands in the loader console: `help`, `mods`, `base`, `clear`.
 | Key | Default | Meaning |
 |-----|---------|---------|
 | `console` | 1 | AllocConsole on game process |
-| `overlay` | 1 | Topmost log window (fullscreen-friendly) |
+| `overlay` | 0 | Topmost log window (set 1 for fullscreen-friendly duplicate log) |
 | `load_example_mod` | 1 | Load `mods\example_mod.dll` |
 | `auto_hook_gain` | 0 | Loader hooks GainMoney (use if example_mod off) |
 

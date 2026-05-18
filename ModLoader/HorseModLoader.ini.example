@@ -1,7 +1,7 @@
 ; Copy to Game\HorseModLoader.ini (next to Horsey.exe)
 [loader]
 console=1
-overlay=1
+overlay=0
 ; Use loader hooks instead of example_mod hooks (set load_example_mod=0)
 auto_hook_gain=0
 load_example_mod=1

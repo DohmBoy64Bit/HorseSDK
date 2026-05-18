@@ -17,7 +17,7 @@ void loader_config_set_defaults(LoaderConfig *cfg)
         return;
     }
     cfg->console = 1;
-    cfg->overlay = 1;
+    cfg->overlay = 0;
     cfg->auto_hook_gain = 0; /* example_mod hooks by default; set 1 to use loader-only hooks */
     cfg->load_example_mod = 1;
 }

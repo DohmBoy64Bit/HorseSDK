@@ -136,11 +136,11 @@ static DWORD WINAPI console_input_thread(LPVOID unused)
             continue;
         }
         if (_stricmp(line, "help") == 0 || _stricmp(line, "?") == 0) {
-            horse_debug_log("help       — this list");
-            horse_debug_log("hooks      — list hook catalog");
-            horse_debug_log("hook on X  — e.g. hook on GainMoney");
-            horse_debug_log("hook off X — disable hook");
-            horse_debug_log("resolve X  — address of catalog function");
+            horse_debug_log("help       - this list");
+            horse_debug_log("hooks      - list hook catalog");
+            horse_debug_log("hook on X  - e.g. hook on GainMoney");
+            horse_debug_log("hook off X - disable hook");
+            horse_debug_log("resolve X  - address of catalog function");
             horse_debug_log("mods / base / clear");
         } else if (_stricmp(line, "hooks") == 0) {
             horse_hook_manager_list();
