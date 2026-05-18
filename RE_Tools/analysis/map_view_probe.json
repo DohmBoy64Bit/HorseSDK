@@ -1,0 +1,553 @@
+{
+  "g_save_context_rva": "0x31a660",
+  "offsets": {
+    "horse_obj": "0x300",
+    "horse_view": "0x28",
+    "camera_x": "0x394",
+    "camera_y": "0x398"
+  },
+  "sample_count": 112,
+  "samples": [
+    {
+      "t": 1779122833087,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122833487,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122833887,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122834287,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122834688,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122835088,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122835488,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122835888,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122836288,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122836689,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122837089,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122837489,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122837889,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122838289,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122838689,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122839089,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122839490,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122839890,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122840290,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122840690,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122841090,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122841490,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122841891,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122842291,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122842691,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122843091,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122843491,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122843892,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122844292,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122844692,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122845093,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122845493,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122845893,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122846293,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122846694,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122847094,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122847494,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122847895,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122848295,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122848695,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122849095,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122849495,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122849895,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122850295,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122850696,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122851096,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122851496,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122851897,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122852297,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122852697,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122853097,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122853497,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122853897,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122854298,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122854698,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122855098,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122855498,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122855898,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122856298,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    },
+    {
+      "t": 1779122856699,
+      "ctx": "0x26e4f331e30",
+      "cam394": 18,
+      "cam398": 24,
+      "horse_ptr": "0xc1900000c1900000",
+      "horse28_x": null,
+      "horse28_y": null
+    }
+  ],
+  "note": "Prefer horse_obj+0x28 when it changes with pan; ctx+0x394 is footer camera."
+}

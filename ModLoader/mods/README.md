@@ -10,15 +10,30 @@ Each mod must export:
 
 See `example_mod/` and `SDK/include/horse/mod_api.h`.
 
-Build example:
+## Shipped mods
+
+| DLL | Purpose | Doc |
+|-----|---------|-----|
+| `example_mod.dll` | GainMoney / SpendMoney hooks, logging | [ModLoaderSmokeTest.md](../../RE_Tools/docs/ModLoaderSmokeTest.md) |
+| `minimap_mod.dll` | Atlas map from `data/horsey.tmx`, **M** or console **`map`** | [MinimapMod.md](../../RE_Tools/docs/MinimapMod.md) |
+
+Enable in `HorseModLoader.ini`:
+
+```ini
+mods_order=example_mod.dll,minimap_mod.dll
+```
+
+## Build
 
 ```bat
+cmake -S ModLoader -B build/modloader -DCMAKE_BUILD_TYPE=Release
 cmake --build build/modloader --config Release
-copy build\modloader\mods\Release\example_mod.dll build\modloader\Release\mods\
+python RE_Tools\tools\scripts\deploy_modloader.py
 ```
 
-Inject (start game first, then alt-tab to **Horsey Mod Loader** console on the game):
+## Inject
 
-```bat
-build\modloader\Release\horse_inject.exe
-```
+1. Start `Game\Horsey.exe` (windowed).
+2. Run `Game\horse_inject.exe`.
+3. Alt-tab to **Horsey Mod Loader** console.
+4. For map: focus game farm view, press **M**, or type **`map`** in the loader console.

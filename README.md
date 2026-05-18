@@ -67,6 +67,8 @@ Start here:
 - [`RE_Tools/docs/ReverseEngineeringProgress.md`](RE_Tools/docs/ReverseEngineeringProgress.md) — living RE log (RVAs, checklist)
 - [`RE_Tools/docs/GameFunctionCatalog.md`](RE_Tools/docs/GameFunctionCatalog.md) — Phase 2 exe function catalog (RVAs, hooks, SDK)
 - [`RE_Tools/docs/ModCapabilities.md`](RE_Tools/docs/ModCapabilities.md) — what mods the SDK can build today
+- [`RE_Tools/docs/MinimapMod.md`](RE_Tools/docs/MinimapMod.md) — atlas map window (`minimap_mod` v0.2.1)
+- [`RE_Tools/docs/MapViewPosition.md`](RE_Tools/docs/MapViewPosition.md) — `g_save_context` + live view XY RE
 - [`RE_Tools/docs/ModLoaderSmokeTest.md`](RE_Tools/docs/ModLoaderSmokeTest.md) — mod loader validation checklist
 - [`RE_Tools/docs/SaveSemanticsCoverage.md`](RE_Tools/docs/SaveSemanticsCoverage.md) — save v12 section status (9/9 on-disk sections mapped)
 - [`RE_Tools/docs/SOURCES.md`](RE_Tools/docs/SOURCES.md) — verification policy (exe + dump over repomix)
@@ -150,7 +152,7 @@ Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game rout
 - [x] Top-level **`SDK/`** — `horse_sdk` + `horse_save` + `horse_data` + generated headers
 - [x] `game_function_types.h`, `game_function_hooks.h` from catalog
 - [x] `sdk_ci.py` (+ `phase1_ci.py --skip-sdk` to opt out)
-- [x] bmfont / atlas in `horse_data` (genes + TMX + bmfont + TextureAtlas XML)
+- [x] bmfont / atlas / TMX / PNG in `horse_data`; **`horse_map_*`** in `horse_sdk` (`HORSE_SDK_BUILD_DATA=ON`)
 
 ### Phase 4 — mod loader
 
@@ -160,7 +162,7 @@ Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game rout
 - [x] Debug console + topmost log overlay + `HorseModLoader.ini`
 - [x] MinHook backend (`ThirdParty/minhook`)
 - [x] `example_mod` hooks `GainMoney` / `SpendMoney`; console `hook on` / `resolve`
-- [x] **`minimap_mod`** — M toggles map from `data/horsey.tmx` ([MinimapMod.md](RE_Tools/docs/MinimapMod.md))
+- [x] **`minimap_mod` v0.2.1** — atlas map from `horsey.tmx`, zoom/pan, **M** / console **`map`** ([MinimapMod.md](RE_Tools/docs/MinimapMod.md)); map API in **`horse_sdk`** ([MapViewPosition.md](RE_Tools/docs/MapViewPosition.md))
 - [ ] ImGui overlay ([ImGuiOverlay.md](RE_Tools/docs/ImGuiOverlay.md) + `setup_imgui.ps1`; hook @ `Game_PostSwapHook`)
 - [x] In-game GDI log overlay (`overlay=2` in INI)
 - [x] INI `mods_order` / `mod_*` enable + `auto_hooks` for catalog detours
@@ -170,8 +172,9 @@ Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game rout
 
 - [x] **Save editor skeleton** — `save_editor.py` (`info`, `backup`, `roundtrip`)
 - [x] **Save editor CLI** — `save_editor.py` (`info`, `list-slots`, `backup`, `roundtrip`, `interactive`)
+- [x] **Map viewer (in-game)** — `minimap_mod` static TMX atlas + SDK `horse_map_*` (not save-grid editor)
 - [ ] **Save editor GUI** — full UI over SDK + `horse_save`
-- [ ] **Map editor** — TMX / tile GID tooling from `horsey.tmx` RE
+- [ ] **Map editor** — edit save grid / place objects on top of TMX tooling
 - [ ] **Horse editor** — genetics UI once `0xAE470` / phenotype rules are understood
 
 ### Phase 6 — scripting (future)

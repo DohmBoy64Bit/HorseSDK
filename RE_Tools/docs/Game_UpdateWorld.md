@@ -101,6 +101,10 @@ light_tail:
 
 ---
 
+## Mod hook (`minimap_mod`)
+
+`minimap_mod` detours this entry to refresh the map player dot (every 4th call while the map window is visible). Dot position from SDK `horse_map_read_view` — [MapViewPosition.md](MapViewPosition.md).
+
 ## Still open
 
 - [ ] Confirm meaning of **`RCX`** (year vs frame) — watch in x64dbg @ `0x87510` with `rcx` logged

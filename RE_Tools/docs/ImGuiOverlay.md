@@ -20,4 +20,5 @@ ImGui draws in `Game_PostSwapHook` before returning to the game loop — same fr
 ## Related
 
 - [Phase4_ModLoader.md](Phase4_ModLoader.md)
+- [MinimapMod.md](MinimapMod.md) — today’s map is a **separate Win32 window** (`minimap_mod`), not an ImGui overlay
 - Catalog: `Game_PostSwapHook` in `game_function_catalog.json`

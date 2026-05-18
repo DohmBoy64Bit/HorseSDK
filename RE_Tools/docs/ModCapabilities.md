@@ -24,7 +24,7 @@ Each mod exports `HorseMod_GetInfo`, `HorseMod_Init`, `HorseMod_Shutdown`. The h
 ### Proven today
 
 - `example_mod` logs and forwards **GainMoney** (3-arg) and **SpendMoney** (4-arg: `ctx`, `cost`, `show_ui`, `str_variant`).
-- **`minimap_mod`** — **M** toggles map from `data/horsey.tmx`; dot @ save `ctx+0x39C` ([MinimapMod.md](MinimapMod.md)).
+- **`minimap_mod` v0.2.1** — **M** / console **`map`**; static atlas from `horsey.tmx` + terrain/locs PNGs; zoom/pan; SDK `horse_map_*` for view/dot ([MinimapMod.md](MinimapMod.md)).
 - Wrong detour arity **crashes** (shop buy) — see disasm @ `0x10AC94` / `0x10ACAB`, catalog `SpendMoney` parameters.
 
 ### Realistic in-game mod types now
@@ -44,12 +44,12 @@ Each mod exports `HorseMod_GetInfo`, `HorseMod_Init`, `HorseMod_Shutdown`. The h
 
 | Gap | Why |
 |-----|-----|
-| In-game UI (menus, HUD) | No ImGui/SDL overlay integration |
+| Full in-game UI (menus, HUD) | No ImGui/SDL overlay; **`minimap_mod`** is a separate Win32 map window only |
 | Asset packs | No renderer / asset injection |
 | Script mods (Lua) | Phase 6 — not started |
 | Reliable race rigging | Sim documented; PRNG/seed path still open ([RaceMechanics.md](RaceMechanics.md)) |
 | Live genetics editor | Runtime `GeneticsApply` @ `0xAE470` — [SaveFutureWork.md](SaveFutureWork.md) |
-| Map editing in-game | TMX parser is offline only |
+| Full map editor in-game | Use SDK `horse_map_load_tmx` + your own UI; `minimap_mod` is reference |
 | C# / BepInEx | C DLL + manual inject only |
 | Exe updates | RVAs break when `Horsey.exe` changes |
 
@@ -61,6 +61,7 @@ Each mod exports `HorseMod_GetInfo`, `HorseMod_Init`, `HorseMod_Shutdown`. The h
 |------|-----|-----|
 | **Save editor / trainer** | `horse_save_*` in `RE_Tools/src/horse_save/include/horse_save.h` | v12 read/write: grid, inventory gene packs (`0xF0`), footer |
 | **Data inspectors** | `horse_data_*` — genes.dat, horsey.tmx, bmfont, atlas | Build external editors; does not patch running game |
+| **Map / world (SDK)** | `horse_map_*` in `horse/horse_map.h` (linked via `horse_sdk` + `horse_data`) | TMX load, `g_save_context`, world→tile, best-effort view XY — [MapViewPosition.md](MapViewPosition.md) |
 
 **CLI:** `horse_save_cli`, `horse_data_cli`, `save_editor.py` (`info`, `backup`, `roundtrip`).
 
@@ -71,6 +72,7 @@ Each mod exports `HorseMod_GetInfo`, `HorseMod_Init`, `HorseMod_Shutdown`. The h
 | Script | Role |
 |--------|------|
 | `frida_gameplay_hooks.py` | Attach; log shop/race/spawn while you play |
+| `frida_map_view_probe.py` | Sample `g_save_context` view candidates while panning — [MapViewPosition.md](MapViewPosition.md) |
 | `verify_modloader_static.py` | Static checks (e.g. SpendMoney 4-arg prologue) without running game |
 | `build_game_function_catalog.py` | Regenerate `HORSE_RVA_*` / typedefs |
 
@@ -80,12 +82,13 @@ Each mod exports `HorseMod_GetInfo`, `HorseMod_Init`, `HorseMod_Shutdown`. The h
 
 | Ready now | Not ready without more RE |
 |-----------|---------------------------|
-| C DLL hooks (economy, save hooks, logging) | Content mods, in-game UI, scripting |
+| C DLL hooks (economy, save hooks, logging) | Content mods, ImGui HUD, scripting |
 | External save + data file tools | Easy race/horse cheats |
+| Static world map viewer (`minimap_mod`, **M** / `map`) | Save-grid overlay, live pan dot |
 | Frida + catalog for dev tracing | Version-agnostic mods |
 
-**Best player-facing mods today:** economy hooks + save file editing.  
-**Best dev mods today:** trace hooks + console `resolve` / `hook on`.
+**Best player-facing mods today:** economy hooks + save file editing + static atlas map.  
+**Best dev mods today:** trace hooks + console `resolve` / `hook on` / `map`.
 
 ---
 

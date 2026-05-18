@@ -1,22 +1,37 @@
 # Minimap mod
 
-**Mod:** `mods/minimap_mod.dll`  
-**SDK:** [`horse_map.h`](../../SDK/include/horse/horse_map.h)  
-**Map file:** `Game/data/horsey.tmx` (400×225, not in save blob — [SaveLoadPath.md](SaveLoadPath.md))
+**Status:** 2026-05-17 · **Mod version:** 0.2.1 · **Game:** `Horsey.exe`
+
+| Artifact | Role |
+|----------|------|
+| **`mods/minimap_mod.dll`** | Hooks + Win32 map window (UI only) |
+| **`libhorse_sdk`** | [`horse_map_*`](../../SDK/include/horse/horse_map.h) — TMX, save ctx, view XY |
+| **`horse_data`** | TMX parse, PNG atlases (`png_rgba`), texture XML |
+| **Map data** | `Game/data/horsey.tmx` (400×225 static layout — [SaveLoadPath.md](SaveLoadPath.md)) |
+
+## What this is (and is not)
+
+| Shows | Does not show |
+|-------|----------------|
+| Full **static** world from `horsey.tmx` + `terrain.png` / `locs.png` | Your **save** farm layout (fences, crops, placed objects) |
+| Bird's-eye of the whole island | The same cropped view as in-game play |
+| Atlas-colored tiles (real sprites per GID) | `treasuremap.png` menu art (different asset) |
+
+Use **wheel zoom + drag pan** to inspect an area at closer scale.
 
 ## Usage
 
-1. Deploy with `deploy_modloader.py` (copies `minimap_mod.dll`).
-2. In `HorseModLoader.ini`:
+1. Deploy: `python RE_Tools/tools/scripts/deploy_modloader.py`
+2. `HorseModLoader.ini`:
 
 ```ini
 mods_order=example_mod.dll,minimap_mod.dll
 ```
 
-3. Inject → in-game press **M** to toggle map window. **Esc** closes.
-4. If **M** does nothing, type **`map`** in the mod-loader debug console.
+3. Start game → `horse_inject.exe` → press **M** (farm view focused, not the loader console).
+4. Fallback: type **`map`** in the **Horsey Mod Loader** console.
 
-### Map window controls (v0.2.1)
+### Map window controls
 
 | Input | Action |
 |-------|--------|
@@ -24,50 +39,64 @@ mods_order=example_mod.dll,minimap_mod.dll
 | **+** / **-** | Zoom at center |
 | **Left-drag** | Pan |
 | **Arrow keys** | Pan |
-| **R** | Reset zoom (fit whole map) |
+| **R** | Fit whole map |
 | **Esc** | Close window |
+
+## Architecture
+
+```
+minimap_mod.dll
+  minimap_mod.c     Game_DispatchSdlEvent (M), Game_UpdateWorld (dot refresh), Save_Write (ctx cache)
+  map_window.c      Win32 thread, GDI paint, zoom/pan viewport
+  map_atlas.c       GID → terrain/locs sprite blit
+  map_raster.c      TMX layer → BGRA bitmap
+  horse_sdk         horse_map_load_tmx, horse_map_read_view, horse_map_world_to_tile, …
+  horse_data        horse_data_tmx_load_file, horse_data_png_load_rgba, horse_data_atlas_load_file
+```
+
+**Source files:** `ModLoader/mods/minimap_mod/`
 
 ## How it works
 
 | Piece | Source |
 |-------|--------|
 | **M key** | Hook `Game_DispatchSdlEvent` @ `0xC0430` ([Game_DispatchSdlEvent.md](Game_DispatchSdlEvent.md)) |
-| **Map image** | `horsey.tmx` + `terrain.xml`/`terrain.png` + `locs.xml`/`locs.png` ([`DataFileFormats.md`](DataFileFormats.md)) |
-| **Player dot** | Live: `g_save_context` @ **`0x31A660`** → `[ctx+0x300]+0x28` or `ctx+0x394` — [MapViewPosition.md](MapViewPosition.md) |
+| **Map image** | `horsey.tmx` tile GIDs → `terrain.xml`/`terrain.png`, `locs.xml`/`locs.png` ([DataFileFormats.md](DataFileFormats.md), `map_tile_gids.py`) |
+| **Player dot** | SDK `horse_map_read_view()` — [MapViewPosition.md](MapViewPosition.md) |
 | **Draw** | Topmost Win32 window + GDI `StretchDIBits` |
-
-## Atlas rendering (v0.2.0)
-
-GID → sprite via Tiled `firstgid` + atlas XML order (same as `map_tile_gids.py`):
-
-- `terrain.tsx` (firstgid **1**) → `terrain.xml` + `terrain.png`
-- `locs.tsx` (firstgid **97**) → `locs.xml` + `locs.png`
-
-Loader: `horse_data_png_load_rgba` (stb_image) in `horse_data`.
 
 ## Player position
 
-See **[MapViewPosition.md](MapViewPosition.md)** for pinned RVAs and offsets.
+See **[MapViewPosition.md](MapViewPosition.md)** (pinned RE; live pan XY still open).
 
-**RE tool:** `python RE_Tools/tools/scripts/frida_map_view_probe.py --attach --seconds 60`
+```bat
+python RE_Tools\tools\scripts\frida_map_view_probe.py --attach --seconds 45
+```
 
-## Current look (v0.2.0, May 2026)
+## Building another map mod
 
-Atlas path is live: `terrain.png` + `locs.png` blitted per GID (`map_atlas.c`). You should see:
+Link `horse_sdk` (requires `HORSE_SDK_BUILD_DATA=ON` for `horse_map`). Example:
 
-- Yellow **Plain** / **CactusLand** terrain, green **GrassLand** patches, blue **Water** / **Pond**
-- Brown/pink **Road** / fence lines on the west side
-- Cream **locs** blocks (stable, shops) and the pink-bordered central plot from `horsey.tmx`
-- Dark dotted **void** outside the island (unpainted raster / low GID background)
-- Top-left **Loc** sprite icon; red **player dot** when `horse_map_read_view` finds valid coords
+```c
+#include <horse/sdk.h>
 
-If the map still looks like solid hash colors, check `Game\data\terrain.png` and `locs.png` exist after deploy.
+HorseMapView v;
+if (horse_map_read_view(host->game_base, NULL, &v)) { /* dot at v.world_x/y */ }
+```
 
-**Live dot:** blocked on RE — see [MapViewPosition.md](MapViewPosition.md) (Frida probe pinned).
+Reference UI stays in `minimap_mod`; copy `map_atlas` / `map_raster` patterns if you need a custom window.
 
 ## Roadmap
 
-- [ ] **Live player dot** — find per-frame XY (Frida scan; `+0x394` static in probe)
-- [ ] Corner minimap (`overlay=2` or child HUD)
-- [x] Pin `g_save_context` @ `0x31A660` (global; pan offset TBD)
-- [x] Tile colors from texture atlas
+- [ ] **Live player dot** — per-frame XY (Frida scan; `+0x394` static in probe)
+- [ ] Save grid overlay on static TMX
+- [ ] Corner HUD (`overlay=2` or ImGui — [ImGuiOverlay.md](ImGuiOverlay.md))
+- [x] `horse_map` in **libhorse_sdk**
+- [x] Atlas tiles (not GID hash colors)
+- [x] Zoom / pan / fit (`R`)
+- [x] `g_save_context` @ `0x31A660` (global; view offsets TBD)
+
+## Related
+
+- [ModCapabilities.md](ModCapabilities.md) · [ModLoaderSmokeTest.md](ModLoaderSmokeTest.md)
+- [Phase4_ModLoader.md](Phase4_ModLoader.md) · [SDK/README.md](../../SDK/README.md)

@@ -1,6 +1,8 @@
 /**
- * Map helpers (minimap mod / Phase 5).
- * TMX from horse_data; live view position from g_save_context + save ctx offsets.
+ * Map helpers (HorseSDK / Phase 5).
+ * Implemented in libhorse_sdk when CMake HORSE_SDK_BUILD_DATA=ON.
+ * TMX via horse_data; live view from g_save_context + save ctx offsets.
+ * See RE_Tools/docs/MapViewPosition.md.
  */
 #ifndef HORSE_MAP_H
 #define HORSE_MAP_H

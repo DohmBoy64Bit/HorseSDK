@@ -17,5 +17,6 @@
 
 #include "horse_save.h"
 #include "horse_data.h"
+#include "horse/horse_map.h"
 
 #endif /* HORSE_SDK_H */

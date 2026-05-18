@@ -134,6 +134,10 @@ Keyboard bitmap bases (indexed by scancode/keysym): `0x312830`, `0x312930`, `0x3
 
 `g_sdl_quit@0x318A50` does **not** copy to `0x2F14EB`. Instead `GameMain` @ **`0xBEA58`** tests `0x318A50` and **`jnz 0xBED0C`** (shutdown + `Save_Write@0xBED11`). See [GameMain_InitAndLoop.md](GameMain_InitAndLoop.md).
 
+## Mod hook (`minimap_mod`)
+
+`minimap_mod` detours this function for **SDL_KEYDOWN** (`type == 0x300`): scancode @ `ev+0x10`, sym @ `ev+0x14` — **M** toggles the map window. See [MinimapMod.md](MinimapMod.md).
+
 ## Still open
 - [ ] Rename `FUN_140027f70`, `FUN_1400c3a70` in Ghidra if not done
 - [ ] Confirm `0x200` branch: Ghidra types as APP_TERMINATING but code uses **display** sub-events `0x0C`/`0x0D`/`0x05`/`0x04`

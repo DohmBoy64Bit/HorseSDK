@@ -43,7 +43,7 @@ Each function object:
 | `calling_convention` | yes | `microsoft_x64` (default) |
 | `parameters` | no | `[{ "reg": "rcx", "type": "void*", "name": "ctx" }]` |
 | `returns` | no | `{ "reg": "rax", "type": "int" }` |
-| `globals` | no | `[{ "rva": "0x313720", "name": "g_game_state" }]` |
+| `globals` | no | `[{ "rva": "0x313720", "name": "g_game_state" }, { "rva": "0x31A660", "name": "g_save_context" }]` — see [g_game_state.md](g_game_state.md), [MapViewPosition.md](MapViewPosition.md) |
 | `struct_offsets` | no | `{ "ctx+0x298": "SaveRow13 field A" }` — only when evidenced |
 | `callers` | no | List of RVAs |
 | `callees` | no | List of RVAs |

@@ -1,9 +1,12 @@
 # Minimap player / camera position
 
-**Game:** `Horsey.exe` · **Mod:** `minimap_mod` v0.2.0+  
-**Status:** `g_save_context` **confirmed** · live pan offset **open** (see Frida below)
+**Game:** `Horsey.exe`  
+**API:** [`horse/horse_map.h`](../../SDK/include/horse/horse_map.h) — implemented in **`SDK/src/horse_map.c`** (`libhorse_sdk`, `HORSE_SDK_BUILD_DATA=ON`)  
+**Consumer:** `minimap_mod` v0.2.1+ (hooks + window only)
 
-> **Pinned for later:** finish live dot RE before changing `horse_map_read_view` offsets again.
+**Status:** `g_save_context` **confirmed** · live pan offset **open** (Frida pinned below)
+
+> **Pinned for later:** finish live dot RE before changing `horse_map_read_view` offsets.
 
 ## Active save context global
 
@@ -11,69 +14,65 @@
 |-----|------|----------|
 | **`0x31A660`** | `g_save_context` | `mov [rip+0x216aed], rax` @ **`0x103B6C`** before `Save_Load` (`rcx=rbx` save ctx, alloc `0x268` @ `0x103B51`) |
 
-Read each frame:
-
 ```c
-void *ctx = *(void **)((uint8_t *)horse_module_base(0) + 0x31A660);
+void *ctx = horse_map_get_save_context(horse_module_base(0));
+/* or */
+void *ctx = *(void **)((uint8_t *)horse_module_base(0) + HORSE_RVA_g_save_context);
 ```
 
-Catalog: `HORSE_RVA_g_save_context` in [`game_functions.h`](../../SDK/include/horse/game_functions.h).
+Catalog: `HORSE_RVA_g_save_context` in [`game_functions.h`](../../SDK/include/horse/game_functions.h) · umbrella [`sdk.h`](../../SDK/include/horse/sdk.h).
 
-**Note:** Same symbol is used as the footer nested object in `Save_Write` @ `0x6E103`; at runtime the qword holds the **heap save context** allocated in the load UI path above.
+**Note:** Ghidra also labels `DAT_14031a660` for footer nested I/O in `Save_Write` @ `0x6E103`; on the load UI path above the qword holds the **heap save context** pointer.
 
 ## Position fields (on save context)
 
 | Offset | Role | Evidence |
 |--------|------|----------|
-| **`+0x300`** | Pointer to active horse / world object (static RE) | [`SaveGhidraCrossref.md`](SaveGhidraCrossref.md) — **Frida: not a valid ptr in farm** (see below) |
-| **`+0x28`** (on `+0x300` object) | View XY copy target on **load** | `mov [rcx+0x28], eax` @ **`0x6EA90`** — unreadable when `+0x300` bad |
-| **`+0x394` / `+0x398`** | Footer camera floats (load path) | `movss [rsi+0x394]` @ **`0x6EA57`** — **Frida: static (18, 24) while panning** |
+| **`+0x300`** | Pointer to active horse / world object | [`SaveGhidraCrossref.md`](SaveGhidraCrossref.md) — **Frida: invalid ptr in farm** (see below) |
+| **`+0x28`** (on `+0x300` object) | View XY (load copy target) | `mov [rcx+0x28], eax` @ **`0x6EA90`** |
+| **`+0x394` / `+0x398`** | Footer camera floats | `movss [rsi+0x394]` @ **`0x6EA57`** — **Frida: static (18, 24) while panning** |
 
-**Not used for dot:** `+0x39C` is a serialized blob field (`WriteString` / vec2 trace ambiguity) — do not read as live XY.
+**Not used for dot:** `+0x39C` — save serialize field (`WriteString` @ `0x6DD61` / ambiguous trace); **not** live world XY.
 
-## Mod implementation
+## SDK API (`horse_map_read_view`)
 
-[`horse_map_read_view`](../../SDK/include/horse/horse_map.h):
+Priority order in `SDK/src/horse_map.c`:
 
-1. `g_save_context` from `game_base + 0x31A660`
-2. `[ctx+0x300]+0x28` if valid floats
-3. Else `ctx+0x394` / `+0x398`
+1. `save_ctx_hint`, else `*(base + 0x31A660)`
+2. `[ctx+0x300]+0x28` if pointer and floats valid → `HorseMapView.source = 1`
+3. Else `ctx+0x394` / `+0x398` → `source = 2`
 
-**Hooks:**
+Returns `0` if no valid coords. Use `horse_map_world_to_tile()` with a loaded `HorseDataTmxMap` for tile indices.
 
-- `Game_UpdateWorld` @ `0x87510` — refresh dot while map visible (every 4th tick)
-- `Save_Write` @ `0x6DAB0` — cache `rcx` as fallback hint
+## minimap_mod hooks
 
-## Verify in-game
+| Hook | Role |
+|------|------|
+| `Game_UpdateWorld` @ `0x87510` | Refresh dot every 4th tick while map visible |
+| `Save_Write` @ `0x6DAB0` | Cache `rcx` as `save_ctx_hint` |
+
+## Verify (Frida)
 
 ```bat
 python RE_Tools\tools\scripts\frida_map_view_probe.py --attach --seconds 45
 ```
 
-Pan the farm; inspect `RE_Tools/analysis/map_view_probe.json`.
+Pan/drag the **farm** for the full window; inspect [`map_view_probe.json`](../analysis/map_view_probe.json).
 
-### Frida probe result (pinned — farm view, 45 s)
-
-**Artifact:** [`map_view_probe.json`](../analysis/map_view_probe.json) · script: `frida_map_view_probe.py`
+### Pinned probe result (farm, 45 s, May 2026)
 
 | Sample | Result |
 |--------|--------|
-| `ctx` @ `0x31A660` | Stable heap ptr (e.g. `0x26e4f331e30`) — **OK** |
-| `cam394` / `cam398` | **(18, 24)** all 112 samples — **does not track pan** |
-| `[ctx+0x300]` | `0xc1900000c1900000` — **invalid**; `horse28_x/y` null |
+| `ctx` @ `0x31A660` | Stable heap ptr — **OK** |
+| `cam394` / `cam398` | **(18, 24)** all samples — **no pan tracking** |
+| `[ctx+0x300]` | Garbage qword — `horse28_x/y` null |
 
-**Conclusion:** Current mod dot uses best-effort `+0x394` or broken `+0x300` path — expect **fixed or missing dot** until RE finds moving floats.
-
-**Next (later):**
-
-1. Re-run probe while **dragging map the whole 45 s**.
-2. Frida scan `ctx+0x0..0x500` for `float` pairs that change with pan.
-3. Correlate with `Game_UpdateWorld` table writes @ `0x312830` ([`Game_UpdateWorld.md`](Game_UpdateWorld.md)).
+**Next (later):** re-probe while moving; scan `ctx+0x0..0x500` for moving floats; tie to `Game_UpdateWorld` tables @ `0x312830` ([Game_UpdateWorld.md](Game_UpdateWorld.md)).
 
 ## World → tile
 
 TMX **400×225**, tiles **32×32** px ([`DataFileFormats.md`](DataFileFormats.md)):
 
-`tile_x = world_x / 32`, `tile_y = world_y / 32`
+`tile_x = (int)(world_x / 32)`, `tile_y = (int)(world_y / 32)`
 
-Footer sample camera `(4240, 4016)` → tile ~(132, 125) on `horsey.tmx`.
+Footer sample camera `(4240, 4016)` → ~(132, 125) tiles.

@@ -90,6 +90,8 @@ Regenerate: `python RE_Tools/tools/scripts/inventory_data.py`
 gid=9, tileset=terrain.tsx, local_id=8, sprite=Stump, count=60950
 ```
 
+**Mod / SDK consumer:** `minimap_mod` + `horse_map_load_tmx` render this **static** layout (not per-save farm state). See [MinimapMod.md](MinimapMod.md). Live view XY: [MapViewPosition.md](MapViewPosition.md).
+
 **Note:** `terrain.tsx` / `locs.tsx` are referenced in TMX but **not present** under `Game/` in this workspace (string search in `Horsey.exe` also negative). Atlases are loaded from `terrain.xml` / `locs.xml` directly.
 
 ---

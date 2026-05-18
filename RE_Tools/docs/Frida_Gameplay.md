@@ -48,8 +48,17 @@ Each sampled tick (250 ms throttle) includes:
 
 Enable `log_races` in `settings.xml` to also hit the score formula `printf` @ `0xE3021` in-game.
 
+## Map view probe (save context / camera)
+
+```bat
+python RE_Tools\tools\scripts\frida_map_view_probe.py --attach --seconds 45
+```
+
+Pan the **farm** while attached → `RE_Tools/analysis/map_view_probe.json`. See [MapViewPosition.md](MapViewPosition.md).
+
 ## Related
 
 - [RaceMechanics.md](RaceMechanics.md) — score formula, sim vs betting
 - [GameplayFunctions.md](GameplayFunctions.md) — why race strings ≠ function entries
 - [SimStartRace.md](SimStartRace.md) — E8 caller scan for sim dispatch
+- [MinimapMod.md](MinimapMod.md) — in-game map mod using these RVAs

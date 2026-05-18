@@ -38,3 +38,11 @@
 - `0x10e218`
 - `0x1107b1`
 - `0x111939`
+
+## Related globals
+
+| RVA | Name | Doc |
+|-----|------|-----|
+| `0x31A660` | `g_save_context` | Active save heap pointer — [MapViewPosition.md](MapViewPosition.md) |
+
+Not the same object as `g_game_state` (`0x313720`).

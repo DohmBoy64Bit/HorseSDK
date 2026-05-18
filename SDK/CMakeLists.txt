@@ -25,6 +25,9 @@ if(WIN32 AND HORSE_USE_MINHOOK)
         "${CMAKE_BINARY_DIR}/minhook"
     )
 endif()
+if(HORSE_SDK_BUILD_DATA)
+    list(APPEND HORSE_SDK_SOURCES src/horse_map.c)
+endif()
 
 add_library(horse_sdk STATIC ${HORSE_SDK_SOURCES})
 

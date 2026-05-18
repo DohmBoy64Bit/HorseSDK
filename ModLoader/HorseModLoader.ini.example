@@ -10,5 +10,6 @@ auto_hooks=
 auto_hook_gain=0
 ; Explicit load order (optional). If set, only these DLLs are loaded, in order.
 mods_order=example_mod.dll,minimap_mod.dll
+; Loader console: map  (toggle minimap when minimap_mod.dll is loaded)
 ; Per-mod enable (stem without .dll): mod_example_mod=0 disables example_mod
 ; mod_other_mod=1

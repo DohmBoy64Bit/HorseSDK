@@ -110,11 +110,12 @@ Per-item body still uses **`ReadNestedItem` / `WriteNestedItem`** (`0x6EF80` / `
 | `+0x2cc` | 13× row pairs (8 B on disk) |
 | `+0x31c` | 6× slot structs (12 B on disk) |
 | `+0x308` | active horse name as **u32 fourcc** (`"Dale"` = `0x656C6144`) |
-| `+0x300` | pointer to current horse / player object |
+| `+0x300` | pointer to current horse / player object — minimap probe: often **invalid** in farm; see [MapViewPosition.md](MapViewPosition.md) |
 | `+0x25c` | save **mode / slot index** (`-1` full, `0xD` partial, `0x1C` special) |
 | `+0x420` / `+0x428` | (u32,u32) pair vector |
 | `+0x438` | pointer table — **0x180** bytes stepped in inventory loop (48 pointers) |
-| `+0x394` / `+0x398` | floats — camera/world bounds after load |
+| `+0x394` / `+0x398` | footer camera floats — **static in Frida** while panning; not live view XY ([MapViewPosition.md](MapViewPosition.md)) |
+| `+0x39C` | serialized blob (`WriteString`) — **not** live minimap position |
 
 ## Nested world object
 

@@ -49,3 +49,19 @@ python RE_Tools\tools\parsers\crf_font.py
 | `crf_font.py` | `*.crf` compiled fonts |
 | `sound.py` | `sound.xml` |
 | `bmfont_txt.py` | `bubbletime.txt`, `classified.txt`, `picory.txt`, `softsquare.txt` |
+
+## C library (`RE_Tools/src/horse_data/`)
+
+| Module | Files |
+|--------|--------|
+| `tmx_map` | `horsey.tmx` — used by `horse_map_load_tmx` / `minimap_mod` |
+| `texture_atlas` | `terrain.xml`, `locs.xml` + PNG paths |
+| `png_rgba` | `terrain.png`, `locs.png` via `ThirdParty/stb` — [MinimapMod.md](../MinimapMod.md) |
+
+Header: `horse_data/png_rgba.h` (include directly or via parsers in mods).
+
+## Map RE artifact
+
+| File | Script |
+|------|--------|
+| `analysis/map_view_probe.json` | `frida_map_view_probe.py` — [MapViewPosition.md](../MapViewPosition.md) |

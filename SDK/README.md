@@ -6,9 +6,11 @@ C11 library for Horsey modding: **verified RVAs** (Phase 2 catalog), **save-file
 
 ```bat
 python RE_Tools\tools\scripts\build_game_function_catalog.py
-cmake -S SDK -B build/sdk -DCMAKE_BUILD_TYPE=Release
+cmake -S SDK -B build/sdk -DCMAKE_BUILD_TYPE=Release -DHORSE_SDK_BUILD_DATA=ON
 cmake --build build/sdk --config Release
 ```
+
+`horse_map.c` is compiled into `horse_sdk` only when **`HORSE_SDK_BUILD_DATA=ON`** (default ON).
 
 Artifacts:
 
@@ -50,9 +52,30 @@ if (horse_hook_install(&slot) == HORSE_HOOK_OK) {
 | `horse/game_function_hooks.h` | `g_horse_hook_catalog[]` for mod loader |
 | `horse/mod_api.h` | Mod DLL exports (Phase 4) |
 | `horse_save.h` | Save format API |
-| `horse_data.h` | `genes.dat` + `horsey.tmx` parsers |
+| `horse_data.h` | Umbrella: genes, TMX, bmfont, texture atlas |
+| `horse_data/png_rgba.h` | PNG → RGBA (atlas sprites; stb in `ThirdParty/stb`) |
+| `horse/horse_map.h` | `g_save_context`, TMX load, world→tile, view XY (`horse_map.c` + `horse_data`) |
 
 **Do not** hardcode RVAs in mods — regenerate the catalog and rebuild.
+
+### Map helpers (`horse_map`)
+
+```c
+#include <horse/sdk.h>
+
+void *ctx = horse_map_get_save_context(host->game_base);
+HorseMapView v;
+if (horse_map_read_view(host->game_base, ctx, &v)) {
+    int tx, ty;
+    HorseDataTmxMap map;
+    if (horse_map_load_tmx("...\\data\\horsey.tmx", &map) == HORSE_DATA_OK) {
+        horse_map_world_to_tile(&map, v.world_x, v.world_y, &tx, &ty);
+        horse_data_tmx_free(&map);
+    }
+}
+```
+
+Offsets and probe notes: [MapViewPosition.md](../RE_Tools/docs/MapViewPosition.md). Reference UI: `minimap_mod`.
 
 ## Docs
 
