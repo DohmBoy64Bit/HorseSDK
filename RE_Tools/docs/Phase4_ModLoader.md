@@ -74,7 +74,7 @@ Commands in the loader console: `help`, `mods`, `base`, `clear`.
 | Key | Default | Meaning |
 |-----|---------|---------|
 | `console` | 1 | AllocConsole on game process |
-| `overlay` | 0 | Topmost log window (set 1 for fullscreen-friendly duplicate log) |
+| `overlay` | 0 | `0`=off, `1`=topmost popup, `2`=in-game child of Horsey window |
 | `load_example_mod` | 1 | Load `mods\example_mod.dll` |
 | `auto_hook_gain` | 0 | Legacy: enables GainMoney+SpendMoney loader hooks |
 | `auto_hooks` | (empty) | Comma list, e.g. `Save_Write,Save_Load` |
@@ -91,9 +91,10 @@ Copy from `ModLoader/HorseModLoader.ini.example` — `deploy_modloader.py` insta
 
 ## Next
 
-- [ ] ImGui in-game overlay
+- [ ] ImGui in-game overlay — hook site documented @ `Game_PostSwapHook`; use `setup_imgui.ps1` ([ImGuiOverlay.md](ImGuiOverlay.md))
+- [x] In-game GDI log overlay (`overlay=2`)
 - [x] Mod load order / per-mod enable in INI (`mods_order`, `mod_<stem>`)
-- [x] Built-in log detours for full `g_horse_hook_catalog` (money, save, race sim, clamp)
-- [ ] BuyItem / Game_UpdateWorld detours (catalog only; too noisy for defaults)
+- [x] Built-in log detours for full `g_horse_hook_catalog` (throttled where noisy)
+- [x] BuyItem / Game_UpdateWorld loader detours (throttled; `hook on BuyItem`)
 
 See [ModCapabilities.md](ModCapabilities.md) · [ModLoaderSmokeTest.md](ModLoaderSmokeTest.md).

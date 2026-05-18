@@ -26,6 +26,7 @@ static inline void *horse_rva(const void *module_base, uint32_t rva) {
 #define HORSE_RVA_ClampInt3                        0x000C12D0u
 #define HORSE_RVA_GameMain_InitAndLoop             0x000BE0F0u
 #define HORSE_RVA_Game_DispatchSdlEvent            0x000C0430u
+#define HORSE_RVA_Game_PostSwapHook                0x000BFFA0u
 
 /* --- economy --- */
 #define HORSE_RVA_GainMoney                        0x0010AB80u

@@ -9,12 +9,76 @@
 #define OV_COLS 96
 
 static HWND g_hwnd;
+static HWND g_game_hwnd;
 static HANDLE g_thread;
 static volatile int g_run;
+static int g_overlay_mode;
 static char g_lines[OV_LINES][OV_COLS];
 static int g_line_next;
 static CRITICAL_SECTION g_cs;
 static int g_cs_ok;
+
+static BOOL CALLBACK find_game_window(HWND hwnd, LPARAM lp)
+{
+    DWORD pid = 0;
+    GetWindowThreadProcessId(hwnd, &pid);
+    if (pid != GetCurrentProcessId()) {
+        return TRUE;
+    }
+    if (!IsWindowVisible(hwnd)) {
+        return TRUE;
+    }
+    char title[256];
+    if (GetWindowTextA(hwnd, title, sizeof(title)) <= 0) {
+        return TRUE;
+    }
+    /* SDL window usually has a non-empty title once game is up */
+    HWND *out = (HWND *)lp;
+    if (*out == NULL) {
+        *out = hwnd;
+    }
+  /* Prefer larger client area (main game window vs tiny helper) */
+    RECT rc;
+    GetClientRect(hwnd, &rc);
+    RECT best;
+    GetClientRect(*out, &best);
+    if ((rc.right - rc.left) * (rc.bottom - rc.top) >
+        (best.right - best.left) * (best.bottom - best.top)) {
+        *out = hwnd;
+    }
+    return TRUE;
+}
+
+static HWND locate_game_hwnd(void)
+{
+    HWND best = NULL;
+    EnumWindows(find_game_window, (LPARAM)&best);
+    return best;
+}
+
+static void position_in_game_overlay(void)
+{
+    if (!g_hwnd || !g_game_hwnd) {
+        return;
+    }
+    RECT cr;
+    if (!GetClientRect(g_game_hwnd, &cr)) {
+        return;
+    }
+    POINT pt = {0, 0};
+    ClientToScreen(g_game_hwnd, &pt);
+    int w = cr.right - cr.left;
+    int h = cr.bottom - cr.top;
+    if (w < 320) {
+        w = 320;
+    }
+    if (h < 200) {
+        h = 200;
+    }
+    int ow = w > 640 ? 640 : w;
+    int oh = h > 280 ? 280 : h;
+    SetWindowPos(g_hwnd, HWND_TOP, pt.x + 8, pt.y + 8, ow, oh, SWP_NOACTIVATE | SWP_SHOWWINDOW);
+}
 
 static void overlay_push(const char *line)
 {
@@ -41,8 +105,6 @@ void horse_overlay_log_line(const char *line)
 
 static LRESULT CALLBACK overlay_wndproc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 {
-    (void)wp;
-  (void)lp;
     switch (msg) {
     case WM_PAINT: {
         PAINTSTRUCT ps;
@@ -87,15 +149,20 @@ static DWORD WINAPI overlay_thread(LPVOID unused)
     wc.hbrBackground = CreateSolidBrush(RGB(16, 16, 24));
     RegisterClassA(&wc);
 
+    DWORD ex_style = WS_EX_LAYERED | WS_EX_TOOLWINDOW;
+    if (g_overlay_mode != 2) {
+        ex_style |= WS_EX_TOPMOST;
+    }
+
     g_hwnd = CreateWindowExA(
-        WS_EX_TOPMOST | WS_EX_LAYERED | WS_EX_TOOLWINDOW,
+        ex_style,
         "HorseModOverlay",
-        "Horsey Mod Overlay",
+        "Horsey Mod Log",
         WS_POPUP | WS_VISIBLE,
         16,
         16,
         640,
-        360,
+        280,
         NULL,
         NULL,
         wc.hInstance,
@@ -104,25 +171,51 @@ static DWORD WINAPI overlay_thread(LPVOID unused)
         SetLayeredWindowAttributes(g_hwnd, 0, 230, LWA_ALPHA);
     }
 
-    overlay_push("Horsey mod overlay (fullscreen-friendly log)");
+    if (g_overlay_mode == 2) {
+        g_game_hwnd = locate_game_hwnd();
+        if (g_game_hwnd) {
+            SetParent(g_hwnd, g_game_hwnd);
+            position_in_game_overlay();
+            overlay_push("In-game mod log (child of Horsey window)");
+        } else {
+            overlay_push("In-game overlay: game HWND not found; using top-left");
+        }
+    } else {
+        overlay_push("Horsey mod overlay (topmost log)");
+    }
 
     MSG msg;
-    while (g_run && GetMessageA(&msg, NULL, 0, 0)) {
-        TranslateMessage(&msg);
-        DispatchMessageA(&msg);
+    while (g_run) {
+        if (g_overlay_mode == 2 && g_game_hwnd) {
+            position_in_game_overlay();
+        }
+        while (PeekMessageA(&msg, NULL, 0, 0, PM_REMOVE)) {
+            if (msg.message == WM_QUIT) {
+                g_run = 0;
+                break;
+            }
+            TranslateMessage(&msg);
+            DispatchMessageA(&msg);
+        }
+        Sleep(200);
     }
     if (g_hwnd) {
         DestroyWindow(g_hwnd);
         g_hwnd = NULL;
     }
+    g_game_hwnd = NULL;
     return 0;
 }
 
-int horse_overlay_start(void)
+int horse_overlay_start_mode(int mode)
 {
     if (g_thread) {
         return 1;
     }
+    if (mode <= 0) {
+        return 0;
+    }
+    g_overlay_mode = mode;
     if (!g_cs_ok) {
         InitializeCriticalSection(&g_cs);
         g_cs_ok = 1;
@@ -132,6 +225,11 @@ int horse_overlay_start(void)
     g_run = 1;
     g_thread = CreateThread(NULL, 0, overlay_thread, NULL, 0, NULL);
     return g_thread != NULL;
+}
+
+int horse_overlay_start(void)
+{
+    return horse_overlay_start_mode(1);
 }
 
 void horse_overlay_stop(void)

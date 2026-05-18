@@ -254,6 +254,7 @@ function readRaceSnapshot(ctx) {
       };
       if (!horsePtr.isNull()) {
         h.speed_220 = horsePtr.add(0x220).readS32();
+        /* Do NOT read horsePtr+0x450 — race power is [race_ctx+0x450] only (0xE2FBD). */
       }
       out.horses.push(h);
     }

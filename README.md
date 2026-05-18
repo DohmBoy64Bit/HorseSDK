@@ -160,14 +160,16 @@ Disassemble, decompile (Ghidra paste), and register **every Horsey.exe game rout
 - [x] Debug console + topmost log overlay + `HorseModLoader.ini`
 - [x] MinHook backend (`ThirdParty/minhook`)
 - [x] `example_mod` hooks `GainMoney` / `SpendMoney`; console `hook on` / `resolve`
-- [ ] In-game ImGui overlay (fullscreen)
+- [ ] ImGui overlay ([ImGuiOverlay.md](RE_Tools/docs/ImGuiOverlay.md) + `setup_imgui.ps1`; hook @ `Game_PostSwapHook`)
+- [x] In-game GDI log overlay (`overlay=2` in INI)
 - [x] INI `mods_order` / `mod_*` enable + `auto_hooks` for catalog detours
 - [x] Built-in detours: Save_Write, Save_Load (+ money); smoke doc [ModLoaderSmokeTest.md](RE_Tools/docs/ModLoaderSmokeTest.md)
 
 ### Phase 5 — editors (planned)
 
 - [x] **Save editor skeleton** — `save_editor.py` (`info`, `backup`, `roundtrip`)
-- [ ] **Save editor** — full UI over SDK + `horse_save`
+- [x] **Save editor CLI** — `save_editor.py` (`info`, `list-slots`, `backup`, `roundtrip`, `interactive`)
+- [ ] **Save editor GUI** — full UI over SDK + `horse_save`
 - [ ] **Map editor** — TMX / tile GID tooling from `horsey.tmx` RE
 - [ ] **Horse editor** — genetics UI once `0xAE470` / phenotype rules are understood
 

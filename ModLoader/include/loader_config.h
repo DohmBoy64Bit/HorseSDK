@@ -16,7 +16,7 @@ typedef struct LoaderModFlag {
 
 typedef struct LoaderConfig {
     int console;          /* 1 = AllocConsole */
-    int overlay;          /* 1 = topmost log overlay */
+    int overlay;          /* 0=off, 1=topmost popup, 2=in-game (child of game window) */
     int auto_hook_gain;   /* 1 = loader hooks GainMoney+SpendMoney on load (legacy) */
     int load_example_mod; /* 1 = allow example_mod.dll (if not mod_example_mod=0) */
     int mod_order_count;

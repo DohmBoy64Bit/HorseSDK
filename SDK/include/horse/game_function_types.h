@@ -30,6 +30,9 @@ typedef void (*HORSE_FN_Game_BootstrapWorld)(void * ctx);
 typedef void (*HORSE_FN_Game_DispatchSdlEvent)(void * ctx, void * sdl_event);
 #define HORSE_PTR_Game_DispatchSdlEvent(base) ((HORSE_FN_Game_DispatchSdlEvent)horse_module_rva((base), HORSE_RVA_Game_DispatchSdlEvent))
 
+typedef void (*HORSE_FN_Game_PostSwapHook)(void * ctx);
+#define HORSE_PTR_Game_PostSwapHook(base) ((HORSE_FN_Game_PostSwapHook)horse_module_rva((base), HORSE_RVA_Game_PostSwapHook))
+
 typedef void (*HORSE_FN_Game_UpdateWorld)(int frame_counter);
 #define HORSE_PTR_Game_UpdateWorld(base) ((HORSE_FN_Game_UpdateWorld)horse_module_rva((base), HORSE_RVA_Game_UpdateWorld))
 

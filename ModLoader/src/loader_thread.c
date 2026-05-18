@@ -34,8 +34,10 @@ static DWORD WINAPI loader_main_thread(LPVOID param)
     if (g_cfg.console) {
         horse_debug_console_open("Horsey Mod Loader");
     }
-    if (g_cfg.overlay) {
-        horse_overlay_start();
+    if (g_cfg.overlay == 2) {
+        horse_overlay_start_mode(2);
+    } else if (g_cfg.overlay == 1) {
+        horse_overlay_start_mode(1);
     }
 
     horse_mod_loader_init(self, &g_cfg);

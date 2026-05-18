@@ -3,8 +3,8 @@
   "exe": "Game/Horsey.exe",
   "schema_doc": "RE_Tools/docs/GameFunctionCatalog.md",
   "summary": {
-    "total": 65,
-    "verified_count": 45,
+    "total": 66,
+    "verified_count": 46,
     "partial_count": 20,
     "stub_count": 0,
     "by_category": {
@@ -13,7 +13,7 @@
       "genetics": 2,
       "horse": 2,
       "io": 17,
-      "loop": 3,
+      "loop": 4,
       "nested": 6,
       "other": 1,
       "race": 11,
@@ -669,6 +669,31 @@
         "0x21ee0d"
       ],
       "disasm": "RE_Tools/analysis/disasm_GameMain_InitAndLoop.txt"
+    },
+    {
+      "id": "game_post_swap_hook",
+      "name": "Game_PostSwapHook",
+      "rva": "0xbffa0",
+      "va": "0x1400bffa0",
+      "category": "loop",
+      "status": "verified",
+      "summary": "After SDL_GL_SwapWindow @ GameMain 0xBEB00; ImGui hook site",
+      "calling_convention": "microsoft_x64",
+      "verification": [
+        "capstone"
+      ],
+      "doc": "RE_Tools/docs/GameLoop.md",
+      "parameters": [
+        {
+          "reg": "rcx",
+          "type": "void *",
+          "name": "ctx"
+        }
+      ],
+      "hook": {
+        "safe_pre_call": false,
+        "notes": "Render hook site; ImGui overlay future"
+      }
     },
     {
       "id": "game_dispatch_sdl_event",
@@ -1383,7 +1408,7 @@
       ],
       "hook": {
         "safe_pre_call": false,
-        "notes": "Shop UI tick; fires often while shop open"
+        "notes": "Shop UI; loader detour throttled 500ms"
       }
     },
     {
@@ -1496,7 +1521,7 @@
       ],
       "hook": {
         "safe_pre_call": false,
-        "notes": "Every frame; no built-in detour (too noisy)"
+        "notes": "Per-frame; loader detour throttled 2s"
       },
       "disasm": "RE_Tools/analysis/disasm_Game_UpdateWorld.txt"
     },

@@ -1,6 +1,7 @@
 ; Copy to Game\HorseModLoader.ini (next to Horsey.exe)
 [loader]
 console=1
+; 0=off 1=topmost popup 2=in-game child window (follows Horsey.exe)
 overlay=0
 load_example_mod=1
 ; Loader-owned hooks (comma-separated catalog names). example_mod hooks money by default.

@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Phase 5 save editor skeleton (offline — no game injection).
+HorseSDK save editor (offline).
 
-  python RE_Tools/tools/scripts/save_editor.py info Game/save/save1.dat
-  python RE_Tools/tools/scripts/save_editor.py backup Game/save/save1.dat
-  python RE_Tools/tools/scripts/save_editor.py roundtrip Game/save/save1.dat
+  python RE_Tools/tools/scripts/save_editor.py info <save.dat>
+  python RE_Tools/tools/scripts/save_editor.py backup <save.dat>
+  python RE_Tools/tools/scripts/save_editor.py roundtrip <save.dat>
+  python RE_Tools/tools/scripts/save_editor.py list-slots <save.dat>
+  python RE_Tools/tools/scripts/save_editor.py interactive <save.dat>
 
-Uses save_file_codec (same layout as Save_Write @ 0x6DAB0).
+Uses save_file_codec (Save_Write @ 0x6DAB0 layout).
 """
 from __future__ import annotations
 
@@ -36,6 +38,21 @@ def cmd_info(path: Path) -> int:
     return 0
 
 
+def cmd_list_slots(path: Path) -> int:
+    data = path.read_bytes()
+    p = parse_save_bytes(data, path=str(path))
+    print(f"inventory ({len(p.inventory)} slots):")
+    for i, slot in enumerate(p.inventory[:20]):
+        name = getattr(slot, "name", None) or (slot.get("name") if isinstance(slot, dict) else "?")
+        off = getattr(slot, "file_offset", None) or (
+            slot.get("file_offset") if isinstance(slot, dict) else 0
+        )
+        print(f"  [{i:3d}] off={off} name={name!r}")
+    if len(p.inventory) > 20:
+        print(f"  ... {len(p.inventory) - 20} more (use horse_save_cli for gene decode)")
+    return 0
+
+
 def cmd_backup(path: Path) -> int:
     if not path.is_file():
         print(f"not found: {path}", file=sys.stderr)
@@ -62,17 +79,53 @@ def cmd_roundtrip(path: Path) -> int:
     return 0
 
 
+def cmd_interactive(path: Path) -> int:
+    print(f"Save editor — {path}")
+    print("Commands: info | list-slots | backup | roundtrip | quit")
+    while True:
+        try:
+            line = input("save> ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            break
+        if not line:
+            continue
+        if line in ("q", "quit", "exit"):
+            break
+        if line == "info":
+            cmd_info(path)
+        elif line == "list-slots":
+            cmd_list_slots(path)
+        elif line == "backup":
+            cmd_backup(path)
+        elif line == "roundtrip":
+            cmd_roundtrip(path)
+        else:
+            print("Unknown. Try: info | list-slots | backup | roundtrip | quit")
+    return 0
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description="HorseSDK save editor (offline skeleton)")
-    ap.add_argument("command", choices=["info", "backup", "roundtrip"])
+    ap = argparse.ArgumentParser(description="HorseSDK save editor (offline)")
+    ap.add_argument(
+        "command",
+        choices=["info", "backup", "roundtrip", "list-slots", "interactive"],
+    )
     ap.add_argument("save_path", type=Path)
     args = ap.parse_args()
 
-    if args.command == "info":
-        return cmd_info(args.save_path)
-    if args.command == "backup":
-        return cmd_backup(args.save_path)
-    return cmd_roundtrip(args.save_path)
+    if not args.save_path.is_file() and args.command != "info":
+        print(f"not found: {args.save_path}", file=sys.stderr)
+        return 1
+
+    cmds = {
+        "info": cmd_info,
+        "backup": cmd_backup,
+        "roundtrip": cmd_roundtrip,
+        "list-slots": cmd_list_slots,
+        "interactive": cmd_interactive,
+    }
+    return cmds[args.command](args.save_path)
 
 
 if __name__ == "__main__":

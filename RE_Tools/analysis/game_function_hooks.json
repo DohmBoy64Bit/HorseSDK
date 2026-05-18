@@ -35,14 +35,14 @@
       "name": "BuyItem",
       "rva": "0x787d0",
       "safe_pre_call": false,
-      "notes": "Shop UI tick; fires often while shop open"
+      "notes": "Shop UI; loader detour throttled 500ms"
     },
     {
       "id": "game_update_world",
       "name": "Game_UpdateWorld",
       "rva": "0x87510",
       "safe_pre_call": false,
-      "notes": "Every frame; no built-in detour (too noisy)"
+      "notes": "Per-frame; loader detour throttled 2s"
     },
     {
       "id": "race_advance_sim",
@@ -50,6 +50,13 @@
       "rva": "0x8c9e0",
       "safe_pre_call": true,
       "notes": "Hot path; throttle logging"
+    },
+    {
+      "id": "game_post_swap_hook",
+      "name": "Game_PostSwapHook",
+      "rva": "0xbffa0",
+      "safe_pre_call": false,
+      "notes": "Render hook site; ImGui overlay future"
     },
     {
       "id": "clamp_int3",

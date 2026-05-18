@@ -99,6 +99,12 @@ def main() -> int:
             ),
         )
     )
+    steps.append(
+        (
+            "race_correlation_report",
+            run([sys.executable, str(SCRIPTS / "analyze_race_correlation.py")]),
+        )
+    )
 
     if not args.skip_data_smoke:
         cli = SDK_BUILD / "horse_data" / "Release" / "horse_data_cli.exe"

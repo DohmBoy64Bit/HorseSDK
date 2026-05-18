@@ -29,6 +29,12 @@ static HORSE_FN_Save_Write g_orig_save_write;
 static HORSE_FN_Save_Load g_orig_save_load;
 static HORSE_FN_RaceAdvanceSim g_orig_race_sim;
 static HORSE_FN_ClampInt3 g_orig_clamp;
+static HORSE_FN_BuyItem g_orig_buy;
+static HORSE_FN_Game_UpdateWorld g_orig_update_world;
+
+static DWORD g_last_buy_ms;
+static DWORD g_last_update_ms;
+static DWORD g_last_race_ms;
 
 static void detour_gain(void *ctx, int amount, char show_ui)
 {
@@ -63,11 +69,43 @@ static void detour_save_load(void *ctx)
     }
 }
 
+static int throttle_ms(DWORD *last, DWORD interval)
+{
+    DWORD now = GetTickCount();
+    if (now - *last < interval) {
+        return 0;
+    }
+    *last = now;
+    return 1;
+}
+
 static void detour_race_sim(void *race_ctx)
 {
-    horse_debug_logf("[hook] RaceAdvanceSim ctx=%p", race_ctx);
+    if (throttle_ms(&g_last_race_ms, 500)) {
+        horse_debug_logf("[hook] RaceAdvanceSim ctx=%p", race_ctx);
+    }
     if (g_orig_race_sim) {
         g_orig_race_sim(race_ctx);
+    }
+}
+
+static void detour_buy(void *shop_ctx)
+{
+    if (throttle_ms(&g_last_buy_ms, 500)) {
+        horse_debug_logf("[hook] BuyItem ctx=%p", shop_ctx);
+    }
+    if (g_orig_buy) {
+        g_orig_buy(shop_ctx);
+    }
+}
+
+static void detour_update_world(int frame_counter)
+{
+    if (throttle_ms(&g_last_update_ms, 2000)) {
+        horse_debug_logf("[hook] Game_UpdateWorld frame=%d", frame_counter);
+    }
+    if (g_orig_update_world) {
+        g_orig_update_world(frame_counter);
     }
 }
 
@@ -136,6 +174,10 @@ static void clear_orig_for(const char *name)
         g_orig_race_sim = NULL;
     } else if (_stricmp(name, "ClampInt3") == 0) {
         g_orig_clamp = NULL;
+    } else if (_stricmp(name, "BuyItem") == 0) {
+        g_orig_buy = NULL;
+    } else if (_stricmp(name, "Game_UpdateWorld") == 0) {
+        g_orig_update_world = NULL;
     }
 }
 
@@ -153,6 +195,10 @@ static void set_orig_for(const char *name, void *tramp)
         g_orig_race_sim = (HORSE_FN_RaceAdvanceSim)tramp;
     } else if (_stricmp(name, "ClampInt3") == 0) {
         g_orig_clamp = (HORSE_FN_ClampInt3)tramp;
+    } else if (_stricmp(name, "BuyItem") == 0) {
+        g_orig_buy = (HORSE_FN_BuyItem)tramp;
+    } else if (_stricmp(name, "Game_UpdateWorld") == 0) {
+        g_orig_update_world = (HORSE_FN_Game_UpdateWorld)tramp;
     }
 }
 
@@ -175,6 +221,12 @@ static void *detour_for(const HorseHookCatalogEntry *e)
     }
     if (_stricmp(e->name, "ClampInt3") == 0) {
         return (void *)detour_clamp;
+    }
+    if (_stricmp(e->name, "BuyItem") == 0) {
+        return (void *)detour_buy;
+    }
+    if (_stricmp(e->name, "Game_UpdateWorld") == 0) {
+        return (void *)detour_update_world;
     }
     return NULL;
 }
@@ -199,6 +251,8 @@ void horse_hook_manager_shutdown(void)
     g_orig_save_load = NULL;
     g_orig_race_sim = NULL;
     g_orig_clamp = NULL;
+    g_orig_buy = NULL;
+    g_orig_update_world = NULL;
     horse_hook_system_shutdown();
 }
 

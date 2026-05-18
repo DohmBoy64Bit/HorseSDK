@@ -254,4 +254,5 @@ Use `--no-race-sim` to skip if too verbose; `--no-race` to skip FSM only.
 - [ ] Map vtable index → tag name for all slots @ `0x267368`
 - [x] Frida: read `[race_ctx+0x450]` as `race_score_450` (not `[horse+0x450]` — that offset is fill/garbage on horse objects)
 - [x] Run Frida race capture — `frida_gameplay_hooks.py` logs `race_score_450` vs `finish_place` (`gameplay_frida.json`)
-- [ ] Automate correlation report (`python RE_Tools/tools/scripts/analyze_gameplay_frida.py`)
+- [x] Correlation report — `analyze_race_correlation.py` → [RaceCorrelationReport.md](RaceCorrelationReport.md)
+- [ ] Re-capture with fresh Frida after script fix (`run_frida_race_capture.py`) for `snapshot.race_score_450`
