@@ -2,6 +2,8 @@
 
 Replacement `steam_api64.dll` for **Horsey Game** so the executable runs without the Steam client. Intended for local modding / SDK development when you own the game.
 
+**Maintainer / AI walkthrough:** [HOW_WE_BUILT_THIS.md](HOW_WE_BUILT_THIS.md) — phased RE → stub → build → verify (Horsey-specific).
+
 ## Quick start
 
 ```bat

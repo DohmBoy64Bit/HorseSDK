@@ -8,7 +8,7 @@ Reverse-engineering toolkit and early native libraries for **Horsey** (Windows x
 |------|---------|
 | [`RE_Tools/`](RE_Tools/) | Phase 1 RE: scripts, generated `analysis/`, and [`docs/`](RE_Tools/docs/) |
 | [`RE_Tools/src/horse_save/`](RE_Tools/src/horse_save/) | C library + CLI for save format **v12** (read path) |
-| [`steam_bypass/`](steam_bypass/) | Minimal `steam_api64.dll` stub for local offline runs |
+| [`steam_bypass/`](steam_bypass/) | Minimal `steam_api64.dll` stub for local offline runs ([how we built it](steam_bypass/HOW_WE_BUILT_THIS.md)) |
 | [`SystemPrompt.md`](SystemPrompt.md) | Project phases, evidence rules, and agent workflow |
 | `repomix-output-*.xml` | Merged reference dump — **not** ground truth; see [`RE_Tools/docs/SOURCES.md`](RE_Tools/docs/SOURCES.md) |
 
